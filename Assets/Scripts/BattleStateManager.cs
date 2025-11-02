@@ -2,24 +2,38 @@ using UnityEngine;
 
 public class BattleStateManager : MonoBehaviour
 {
-    public GameObject battleUI; 
-    public bool isBattleActive = false; // Tracks whether the battle state is active
+    [Header("Battle UI References")]
+    public GameObject battleUI;
+    public bool isBattleActive = false;
+
     void Start()
     {
-        // Ensure the BattleUI starts off
-        battleUI.SetActive(false);
+        if (battleUI != null)
+            battleUI.SetActive(false);
     }
-    void Update()
-    {
-        // Check for battle state activation (for testing purposes, press 'B' to toggle)
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            ToggleBattleState();
-        }
-    }
+
+    // Toggle manually from other scripts when battle begins
     public void ToggleBattleState()
     {
-        isBattleActive = !isBattleActive; // Toggle the battle state
-        battleUI.SetActive(isBattleActive); // Show or hide the BattleUI based on the state
+        isBattleActive = !isBattleActive;
+
+        if (battleUI != null)
+            battleUI.SetActive(isBattleActive);
+    }
+
+    // Explicitly start battle
+    public void StartBattle()
+    {
+        isBattleActive = true;
+        if (battleUI != null)
+            battleUI.SetActive(true);
+    }
+
+    // Explicitly end battle
+    public void EndBattle()
+    {
+        isBattleActive = false;
+        if (battleUI != null)
+            battleUI.SetActive(false);
     }
 }

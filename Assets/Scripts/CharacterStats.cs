@@ -1,0 +1,345 @@
+using UnityEngine;
+using System;
+
+public enum Race
+{
+    Human,
+    Elf,
+    Dwarf,
+    Hellspawn,
+    DragonHybrid
+}
+
+public enum CharacterClass
+{
+    Fighter,
+    Barbarian,
+    Wizard,
+    Cleric,
+    Ranger,
+    Rogue
+}
+
+public enum Background
+{
+    Acolyte,
+    Charlatan,
+    Criminal,
+    Entertainer,
+    FolkHero,
+    GuildArtisan,
+    Noble,
+    Outlander,
+    Sage,
+    Soldier,
+    Urchin
+}
+
+public enum Alignment
+{
+    LawfulGood,
+    NeutralGood,
+    ChaoticGood,
+    LawfulNeutral,
+    TrueNeutral,
+    ChaoticNeutral,
+    LawfulEvil,
+    NeutralEvil,
+    ChaoticEvil
+}
+
+public class CharacterStats : MonoBehaviour
+{
+    [Header("Basic Info")]
+    public string characterName = "Player";
+    public Race race = Race.Human;
+    public CharacterClass characterClass = CharacterClass.Fighter;
+    public Background background = Background.FolkHero;
+    public Alignment alignment = Alignment.TrueNeutral;
+
+    [Header("Portrait")]
+    public Sprite characterPortrait;
+
+    [Header("Progression")]
+    public int level = 1;
+    public int currentEXP = 0;
+    public int expToNextLevel = 1000;
+
+    [Header("Primary Attributes (Editable)")]
+    public int strength = 10;
+    public int dexterity = 10;
+    public int constitution = 10;
+    public int intelligence = 10;
+    public int wisdom = 10;
+    public int charisma = 10;
+
+    [Header("Modifiers (auto)")]
+    [SerializeField] private int strMod;
+    [SerializeField] private int dexMod;
+    [SerializeField] private int conMod;
+    [SerializeField] private int intMod;
+    [SerializeField] private int wisMod;
+    [SerializeField] private int chaMod;
+
+    [Header("Combat Stats (auto)")]
+    public int maxHealth;
+    public int currentHealth;
+    public int armorClass;
+    public int initiative;
+
+    [Header("Skills (auto, flat numbers)")]
+    public int athletics;
+    public int acrobatics;
+    public int sleightOfHand;
+    public int stealth;
+    public int arcana;
+    public int history;
+    public int investigation;
+    public int nature;
+    public int religion;
+    public int animalHandling;
+    public int insight;
+    public int medicine;
+    public int perception;
+    public int survival;
+    public int deception;
+    public int intimidation;
+    public int performance;
+    public int persuasion;
+
+    public event Action OnHealthChanged; //Called when health changes
+
+    void Start()
+    {
+        CalculateAllStats();
+        OnHealthChanged?.Invoke();
+    }
+
+    public void CalculateAllStats()
+    {
+        CalculateModifiers();
+        ApplyRaceBonuses();
+        ApplyClassBonuses();
+        CalculateDerivedStats();
+        CalculateSkills();
+    }
+
+    void CalculateModifiers()
+    {
+        strMod = Mathf.FloorToInt((strength - 10) / 2f);
+        dexMod = Mathf.FloorToInt((dexterity - 10) / 2f);
+        conMod = Mathf.FloorToInt((constitution - 10) / 2f);
+        intMod = Mathf.FloorToInt((intelligence - 10) / 2f);
+        wisMod = Mathf.FloorToInt((wisdom - 10) / 2f);
+        chaMod = Mathf.FloorToInt((charisma - 10) / 2f);
+    }
+
+    void ApplyRaceBonuses()
+    {
+        switch (race)
+        {
+            case Race.Human:
+                strength += 1; dexterity += 1; constitution += 1;
+                intelligence += 1; wisdom += 1; charisma += 1;
+                break;
+            case Race.Elf:
+                dexterity += 2; perception += 1;
+                break;
+            case Race.Dwarf:
+                constitution += 2; wisdom += 1;
+                break;
+            case Race.Hellspawn:
+                charisma += 2; intelligence += 1;
+                break;
+            case Race.DragonHybrid:
+                strength += 2; charisma += 1;
+                break;
+        }
+    }
+
+    void ApplyClassBonuses()
+    {
+        switch (characterClass)
+        {
+            case CharacterClass.Rogue:
+                sleightOfHand += 1;
+                stealth += 1;
+                break;
+            case CharacterClass.Ranger:
+                survival += 1;
+                perception += 1;
+                break;
+            case CharacterClass.Fighter:
+                athletics += 1;
+                intimidation += 1;
+                break;
+            case CharacterClass.Barbarian:
+                athletics += 1;
+                survival += 1;
+                break;
+            case CharacterClass.Wizard:
+                arcana += 1;
+                history += 1;
+                break;
+            case CharacterClass.Cleric:
+                insight += 1;
+                religion += 1;
+                break;
+        }
+    }
+
+    void CalculateDerivedStats()
+    {
+        // Determine class-based HP growth
+        int baseHP = 0;
+        int hpPerLevel = 0;
+
+        switch (characterClass)
+        {
+            case CharacterClass.Barbarian:
+                baseHP = 12; hpPerLevel = 7; break;
+            case CharacterClass.Fighter:
+            case CharacterClass.Ranger:
+                baseHP = 10; hpPerLevel = 6; break;
+            case CharacterClass.Cleric:
+            case CharacterClass.Rogue:
+                baseHP = 8; hpPerLevel = 5; break;
+            case CharacterClass.Wizard:
+                baseHP = 6; hpPerLevel = 4; break;
+            default:
+                baseHP = 8; hpPerLevel = 5; break;
+        }
+
+        // Starting HP + HP per level scaling
+        maxHealth = baseHP + conMod;
+        if (level > 1)
+            maxHealth += (level - 1) * (hpPerLevel + conMod);
+
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (currentHealth == 0) currentHealth = maxHealth;
+
+        // Initiative & Armor Class
+        initiative = dexMod;
+        armorClass = characterClass == CharacterClass.Barbarian
+            ? 10 + dexMod + conMod
+            : 10 + dexMod;
+
+        // EXP Scaling
+        expToNextLevel = level * 1000;
+    }
+
+    void CalculateSkills()
+    {
+        // Strength
+        athletics = 10 + strMod;
+        // Dexterity
+        acrobatics = 10 + dexMod;
+        sleightOfHand = 10 + dexMod;
+        stealth = 10 + dexMod;
+        // Intelligence
+        arcana = 10 + intMod;
+        history = 10 + intMod;
+        investigation = 10 + intMod;
+        nature = 10 + intMod;
+        religion = 10 + intMod;
+        // Wisdom
+        animalHandling = 10 + wisMod;
+        insight = 10 + wisMod;
+        medicine = 10 + wisMod;
+        perception = 10 + wisMod;
+        survival = 10 + wisMod;
+        // Charisma
+        deception = 10 + chaMod;
+        intimidation = 10 + chaMod;
+        performance = 10 + chaMod;
+        persuasion = 10 + chaMod;
+    }
+
+    // --- Leveling System ---
+    public void GainEXP(int amount)
+    {
+        currentEXP += amount;
+        if (currentEXP >= expToNextLevel)
+            LevelUp();
+    }
+
+    void LevelUp()
+    {
+        level++;
+        currentEXP -= expToNextLevel;
+        expToNextLevel = level * 1000;
+
+        // Recalculate HP per BG3 rules
+        int hpPerLevel = 0;
+        switch (characterClass)
+        {
+            case CharacterClass.Barbarian: hpPerLevel = 7; break;
+            case CharacterClass.Fighter:
+            case CharacterClass.Ranger: hpPerLevel = 6; break;
+            case CharacterClass.Cleric:
+            case CharacterClass.Rogue: hpPerLevel = 5; break;
+            case CharacterClass.Wizard: hpPerLevel = 4; break;
+        }
+
+        int hpGain = hpPerLevel + conMod;
+        maxHealth += hpGain;
+        currentHealth = maxHealth;
+
+        Debug.Log($"{characterName} leveled up to {level}! HP increased by {hpGain}.");
+        CalculateAllStats();
+    }
+
+    // --- Utility Functions for UI / External Scripts ---
+    public void AddAttributePoint(string attributeName)
+    {
+        attributeName = attributeName.ToLower();
+        switch (attributeName)
+        {
+            case "strength": strength++; break;
+            case "dexterity": dexterity++; break;
+            case "constitution": constitution++; break;
+            case "intelligence": intelligence++; break;
+            case "wisdom": wisdom++; break;
+            case "charisma": charisma++; break;
+            default: Debug.LogWarning("Invalid attribute name."); return;
+        }
+
+        CalculateAllStats();
+    }
+
+    public void AddSkillPoint(string skillName)
+    {
+        skillName = skillName.ToLower();
+        switch (skillName)
+        {
+            case "athletics": athletics++; break;
+            case "acrobatics": acrobatics++; break;
+            case "sleightofhand": sleightOfHand++; break;
+            case "stealth": stealth++; break;
+            case "arcana": arcana++; break;
+            case "history": history++; break;
+            case "investigation": investigation++; break;
+            case "nature": nature++; break;
+            case "religion": religion++; break;
+            case "animalhandling": animalHandling++; break;
+            case "insight": insight++; break;
+            case "medicine": medicine++; break;
+            case "perception": perception++; break;
+            case "survival": survival++; break;
+            case "deception": deception++; break;
+            case "intimidation": intimidation++; break;
+            case "performance": performance++; break;
+            case "persuasion": persuasion++; break;
+            default: Debug.LogWarning("Invalid skill name."); return;
+        }
+
+        Debug.Log($"Increased {skillName} by 1 point.");
+    }
+
+    public void SetCurrentHealth(int newHealth)
+    {
+        currentHealth = Mathf.Clamp(newHealth, 0, maxHealth);
+        OnHealthChanged?.Invoke();
+    }
+
+}
