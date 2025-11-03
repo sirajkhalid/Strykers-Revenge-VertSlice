@@ -107,12 +107,24 @@ public class CharacterStats : MonoBehaviour
     public int performance;
     public int persuasion;
 
+    [Header("Movement")]
+    public float maxMovement = 12f;    // Default out-of-combat movement
+    public float currentMovement;      // Used during battle
+
     public event Action OnHealthChanged; //Called when health changes
+    public event Action OnStatsInitialized;
+    public event Action OnMovementChanged;
 
     void Start()
     {
         CalculateAllStats();
+
+        currentHealth = maxHealth;
+        currentMovement = maxMovement;
+
+        OnStatsInitialized?.Invoke();
         OnHealthChanged?.Invoke();
+        OnMovementChanged?.Invoke();
     }
 
     public void CalculateAllStats()
@@ -340,6 +352,18 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(newHealth, 0, maxHealth);
         OnHealthChanged?.Invoke();
+    }
+
+    public void SetCurrentMovement(float newValue)
+    {
+        currentMovement = Mathf.Clamp(newValue, 0, maxMovement);
+        OnMovementChanged?.Invoke();
+    }
+
+    public void ResetMovement()
+    {
+        currentMovement = maxMovement;
+        OnMovementChanged?.Invoke();
     }
 
 }

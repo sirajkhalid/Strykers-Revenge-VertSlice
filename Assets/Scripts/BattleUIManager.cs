@@ -4,7 +4,7 @@ using TMPro;
 
 public class BattleUIManager : MonoBehaviour
 {
-    [Header("References")]
+    /**[Header("References")]
     public CharacterStats playerStats;
     public Image playerPortrait;
     public Image healthFill;
@@ -52,5 +52,5 @@ public class BattleUIManager : MonoBehaviour
     {
         if (playerStats == null) return;
         playerStats.SetCurrentHealth(playerStats.currentHealth - amount);
-    }
+    }**/
 }
