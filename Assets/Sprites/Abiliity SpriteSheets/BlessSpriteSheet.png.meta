@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: b7e5ec07d83b0ae45ae6c7c552f08163
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1517837976103579725
+    second: BlessSpriteSheet_0
+  - first:
+      213: 903202625354218890
+    second: BlessSpriteSheet_1
+  - first:
+      213: -2689187091646932288
+    second: BlessSpriteSheet_2
+  - first:
+      213: -1180246374676921157
+    second: BlessSpriteSheet_3
+  - first:
+      213: 2339388048010946077
+    second: BlessSpriteSheet_4
+  - first:
+      213: -5233307137681927146
+    second: BlessSpriteSheet_5
+  - first:
+      213: -3912286261748287954
+    second: BlessSpriteSheet_6
+  - first:
+      213: 8783059508288801570
+    second: BlessSpriteSheet_7
+  - first:
+      213: -2426911558728424080
+    second: BlessSpriteSheet_8
+  - first:
+      213: -8802548483994719413
+    second: BlessSpriteSheet_9
+  - first:
+      213: 8816433314714990843
+    second: BlessSpriteSheet_10
+  - first:
+      213: -7667331858543071748
+    second: BlessSpriteSheet_11
+  - first:
+      213: 2389728695309750073
+    second: BlessSpriteSheet_12
+  - first:
+      213: 4994936748974837500
+    second: BlessSpriteSheet_13
+  - first:
+      213: -4691890020874461992
+    second: BlessSpriteSheet_14
+  - first:
+      213: 8688969746835317817
+    second: BlessSpriteSheet_15
+  - first:
+      213: -3726067948519576908
+    second: BlessSpriteSheet_16
+  - first:
+      213: 5406960198039496438
+    second: BlessSpriteSheet_17
+  - first:
+      213: -673124684866249724
+    second: BlessSpriteSheet_18
+  - first:
+      213: 7675631767698479364
+    second: BlessSpriteSheet_19
+  - first:
+      213: -8098510418962390840
+    second: BlessSpriteSheet_20
+  - first:
+      213: -3215761205625921157
+    second: BlessSpriteSheet_21
+  - first:
+      213: 5941462078604407627
+    second: BlessSpriteSheet_22
+  - first:
+      213: 8613104003012291324
+    second: BlessSpriteSheet_23
+  - first:
+      213: -8439991521623514402
+    second: BlessSpriteSheet_24
+  - first:
+      213: -6239932186835360796
+    second: BlessSpriteSheet_25
+  - first:
+      213: 7370949759543045434
+    second: BlessSpriteSheet_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlessSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 131
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf8fbf076e8feae0800000000000000
+      internalID: -1517837976103579725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 131
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8d307c9002d88c00800000000000000
+      internalID: 903202625354218890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 131
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca91db86961eaad0800000000000000
+      internalID: -2689187091646932288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 131
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb480f9ec2cee9fe0800000000000000
+      internalID: -1180246374676921157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 131
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16ac79f80d277020800000000000000
+      internalID: 2339388048010946077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 131
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614d3f1b2ee8f57b0800000000000000
+      internalID: -5233307137681927146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 131
+        width: 60
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e263ad48f54c4b9c0800000000000000
+      internalID: -3912286261748287954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 133
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bcba09612b3e970800000000000000
+      internalID: 8783059508288801570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 133
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 075e3b0bbc0e15ed0800000000000000
+      internalID: -2426911558728424080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 69
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b675daac017d580800000000000000
+      internalID: -8802548483994719413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8b18563634a5a70800000000000000
+      internalID: 8816433314714990843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfd21844c4a289590800000000000000
+      internalID: -7667331858543071748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93fce7946950a2120800000000000000
+      internalID: 2389728695309750073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfe80364284915540800000000000000
+      internalID: 4994936748974837500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dcd39c72ee03eeb0800000000000000
+      internalID: -4691890020874461992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9342c38d2fb659870800000000000000
+      internalID: 8688969746835317817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4baa58f31f85a4cc0800000000000000
+      internalID: -3726067948519576908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 67
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6e1de17a1690b40800000000000000
+      internalID: 5406960198039496438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c100d5aa498a6f0800000000000000
+      internalID: -673124684866249724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4091f5cec62558a60800000000000000
+      internalID: 7675631767698479364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c062f38eaf4c9f80800000000000000
+      internalID: -8098510418962390840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b716f28a8325f53d0800000000000000
+      internalID: -3215761205625921157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b437ba10840547250800000000000000
+      internalID: 5941462078604407627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfaea01e474e78770800000000000000
+      internalID: 8613104003012291324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed262569d602fda80800000000000000
+      internalID: -8439991521623514402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3e6259cbe4769a0800000000000000
+      internalID: -6239932186835360796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlessSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 3
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d60dad0cfda4660800000000000000
+      internalID: 7370949759543045434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BlessSpriteSheet_0: -1517837976103579725
+      BlessSpriteSheet_1: 903202625354218890
+      BlessSpriteSheet_10: 8816433314714990843
+      BlessSpriteSheet_11: -7667331858543071748
+      BlessSpriteSheet_12: 2389728695309750073
+      BlessSpriteSheet_13: 4994936748974837500
+      BlessSpriteSheet_14: -4691890020874461992
+      BlessSpriteSheet_15: 8688969746835317817
+      BlessSpriteSheet_16: -3726067948519576908
+      BlessSpriteSheet_17: 5406960198039496438
+      BlessSpriteSheet_18: -673124684866249724
+      BlessSpriteSheet_19: 7675631767698479364
+      BlessSpriteSheet_2: -2689187091646932288
+      BlessSpriteSheet_20: -8098510418962390840
+      BlessSpriteSheet_21: -3215761205625921157
+      BlessSpriteSheet_22: 5941462078604407627
+      BlessSpriteSheet_23: 8613104003012291324
+      BlessSpriteSheet_24: -8439991521623514402
+      BlessSpriteSheet_25: -6239932186835360796
+      BlessSpriteSheet_26: 7370949759543045434
+      BlessSpriteSheet_3: -1180246374676921157
+      BlessSpriteSheet_4: 2339388048010946077
+      BlessSpriteSheet_5: -5233307137681927146
+      BlessSpriteSheet_6: -3912286261748287954
+      BlessSpriteSheet_7: 8783059508288801570
+      BlessSpriteSheet_8: -2426911558728424080
+      BlessSpriteSheet_9: -8802548483994719413
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

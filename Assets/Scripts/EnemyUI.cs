@@ -119,7 +119,7 @@ public class EnemyUI : MonoBehaviour
 
         if (enemyHealthFill != null)
             enemyHealthFill.rectTransform.sizeDelta =
-                new Vector2(541 * ratio, enemyHealthFill.rectTransform.sizeDelta.y);
+                new Vector2(250 * ratio, enemyHealthFill.rectTransform.sizeDelta.y);
 
         if (enemyTypeText != null)
             enemyTypeText.text = enemyStats.creatureType.ToString();

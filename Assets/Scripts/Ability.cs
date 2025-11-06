@@ -9,11 +9,11 @@ public class Ability : ScriptableObject
     public Sprite abilityIcon;
     public bool isUnlocked = true;
 
-    [Header("Damage & Scaling")]
+    [Header("Damage & Type")]
     public AbilityCategory category = AbilityCategory.Melee;
     public int baseDamage = 0;
     public float damageScaling = 1.0f;
-    public ScalingAttribute scalingAttribute = ScalingAttribute.Strength;
+    public string scalingAttribute = "Strength";
 
     [Header("Resource & Cooldown")]
     public float resourceCost = 0f;
@@ -21,46 +21,31 @@ public class Ability : ScriptableObject
 
     [Header("Targeting")]
     public TargetType targetType = TargetType.Enemy;
-    public float range = 1f;            // how far the ability can reach
-    public float areaRadius = 0f;       // for AoE abilities
+    public float range = 1f;
+    public float areaRadius = 0f;
     public bool requiresLineOfSight = true;
 
     [Header("Visuals & Feedback")]
     public GameObject visualEffectPrefab;
     public AudioClip abilitySound;
 
-    [Header("Status & Effects")]
-    [Tooltip("Does this ability apply any special effect like burn, poison, etc.?")]
+    [Header("Special Effects")]
+    [Tooltip("Abilities that cause burn, freeze, etc.")]
     public bool appliesStatusEffect = false;
-    public SpecialEffect specialEffect = SpecialEffect.None;
+    public string statusEffectName;
     public float statusDuration = 0f;
 
     [Header("Animation")]
-    [Tooltip("Animation clip played when this ability is used.")]
+    [Tooltip("The animation clip to play when this ability is used.")]
     public AnimationClip abilityAnimation;
 
     [Header("Combat Details")]
-    public DamageType damageType = DamageType.Physical;
+    public DamageType damageType;
+    public SpecialEffect specialEffect;
 
-    // ─────────────────────────────────────────────
-    // ENUMS
-    // ─────────────────────────────────────────────
-    public enum AbilityCategory
-    {
-        Melee,
-        Ranged,
-        Magic,
-        Support,
-        Passive
-    }
 
-    public enum TargetType
-    {
-        Self,
-        Enemy,
-        Ally,
-        Area
-    }
+    public enum AbilityCategory { Melee, Ranged, Magic, Support, Passive }
+    public enum TargetType { Self, Enemy, Ally, Area }
 
     public enum DamageType
     {
@@ -94,4 +79,6 @@ public class Ability : ScriptableObject
         Charisma,
         None
     }
+
+
 }

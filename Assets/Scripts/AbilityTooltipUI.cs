@@ -32,7 +32,7 @@ public class AbilityTooltipUI : MonoBehaviour
 
     void Start()
     {
-        // Hide tooltip safely on first frame even if it's active in editor
+        // Hide tooltip safely
         StartCoroutine(HideNextFrame());
     }
 
