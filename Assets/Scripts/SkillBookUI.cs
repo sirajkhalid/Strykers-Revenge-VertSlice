@@ -82,7 +82,7 @@ public class SkillBookUI : MonoBehaviour
         {
             GameObject entry = Instantiate(abilityEntryPrefab, abilityEntryParent);
 
-            // --- Assign visuals ---
+            // Assign visuals
             Image icon = entry.transform.Find("AbilityIcon")?.GetComponent<Image>();
             TMP_Text nameText = entry.transform.Find("RightSidePanel/AbilityNameText")?.GetComponent<TMP_Text>();
             TMP_Text costText = entry.transform.Find("RightSidePanel/AbilityCostText")?.GetComponent<TMP_Text>();
@@ -93,7 +93,7 @@ public class SkillBookUI : MonoBehaviour
             if (costText != null) costText.text = $"Cost: {ability.resourceCost}";
             if (descText != null) descText.text = ability.abilityDescription;
 
-            // --- Tooltip hover logic ---
+            // Tooltip hover logic
             EventTrigger trigger = entry.AddComponent<EventTrigger>();
 
             EventTrigger.Entry enterEvent = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
@@ -111,7 +111,7 @@ public class SkillBookUI : MonoBehaviour
             });
             trigger.triggers.Add(exitEvent);
 
-            // --- Drag & Drop Pro integration ---
+            // Drag & Drop Pro integration
             ObjectSettings settings = entry.GetComponent<ObjectSettings>();
             if (settings != null)
             {

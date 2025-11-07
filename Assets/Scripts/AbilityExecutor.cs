@@ -5,85 +5,145 @@ public class AbilityExecutor : MonoBehaviour
 {
     public CharacterStats playerStats;
     public Animator playerAnimator;
+    public Camera mainCamera;
 
     public void ExecuteAbility(Ability ability, Transform target = null)
     {
-        if (ability == null)
-        {
-            Debug.LogWarning("Tried to execute a null ability!");
-            return;
-        }
+        if (ability == null) return;
 
-        Debug.Log($"Executing {ability.abilityName}");
-
-        // Spawn the ability visual prefab if it exists
-        if (ability.visualEffectPrefab != null)
-            StartCoroutine(PlayAbilityVFX(ability, target));
-
-        // Handle by type
         switch (ability.targetType)
         {
             case Ability.TargetType.Self:
-                ApplySelfAbility(ability);
+                StartCoroutine(ExecuteSelfAbility(ability));
                 break;
+
             case Ability.TargetType.Enemy:
-                Debug.Log("TODO: Implement targeting enemy later");
-                break;
-            default:
-                Debug.Log($"Unhandled ability target type: {ability.targetType}");
+                // For now, fire toward mouse position instead of enemy
+                StartCoroutine(FireTowardEnemyOnly(ability));
                 break;
         }
     }
 
-    private IEnumerator PlayAbilityVFX(Ability ability, Transform target)
+    IEnumerator ExecuteSelfAbility(Ability ability)
     {
-        // Use the player's world position instead of this object's
-        Transform playerTransform = playerStats?.transform ?? transform;
-        Vector3 spawnPos = playerTransform.position;
-        spawnPos.z = -0.5f; // keep it visible in front of the player
+        if (ability == null || playerStats == null)
+            yield break;
 
-        GameObject vfx = Instantiate(ability.visualEffectPrefab, spawnPos, Quaternion.identity);
-        Debug.Log($"[VFX] Spawned {vfx.name} at {spawnPos}");
+        // spawn vfx
+        if (ability.visualEffectPrefab)
+        {
+            GameObject vfx = Instantiate(
+                ability.visualEffectPrefab,
+                playerStats.transform.position,
+                Quaternion.identity
+            );
 
-        // (same renderer and animator setup as before)
-        SpriteRenderer sr = vfx.GetComponent<SpriteRenderer>();
+            vfx.transform.localScale = Vector3.one * 3f;
+            Destroy(vfx, 1.5f);
+        }
+
+        // D20 roll
+        int d20Roll = Random.Range(1, 21); // 1–20 inclusive
+        bool isCrit = d20Roll == 20;
+        bool isFail = d20Roll == 1;
+
+        // Determine which stat to use for scaling
+        float scalingValue = 0f;
+        string attr = ability.scalingAttribute.ToLower();
+        if (attr == "strength") scalingValue = playerStats.strength;
+        else if (attr == "dexterity") scalingValue = playerStats.dexterity;
+        else if (attr == "constitution") scalingValue = playerStats.constitution;
+        else if (attr == "intelligence") scalingValue = playerStats.intelligence;
+        else if (attr == "wisdom") scalingValue = playerStats.wisdom;
+        else if (attr == "charisma") scalingValue = playerStats.charisma;
+
+        // Calculate heal amount
+        float healRaw = Mathf.Abs(ability.baseDamage) + (d20Roll + scalingValue) * ability.damageScaling;
+        if (isCrit) healRaw *= 2f; // double on crit
+        if (isFail) healRaw *= 0.5f; // halve on natural 1
+
+        int healAmount = Mathf.RoundToInt(healRaw);
+        playerStats.currentHealth = Mathf.Min(playerStats.currentHealth + healAmount, playerStats.maxHealth);
+
+        
+        if (playerStats.floatingDamagePrefab != null)
+        {
+            Color color = isCrit ? Color.yellow : Color.green;
+            string text = isFail ? $"Missed Heal" : $"+{healAmount}";
+            playerStats.ShowFloatingText(text, color);
+        }
+
+        yield return null;
+    }
+
+    IEnumerator FireTowardEnemyOnly(Ability ability)
+    {
+        if (ability.visualEffectPrefab == null || mainCamera == null)
+            yield break;
+        
+        // Check if the player is hovering over an enemy
+        Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = 0;
+
+        RaycastHit2D hit = Physics2D.Raycast(mouseWorld, Vector2.zero);
+        if (hit.collider == null) yield break;
+
+        EnemyStats enemyStats = hit.collider.GetComponent<EnemyStats>();
+        if (enemyStats == null) yield break;
+
+        Transform enemy = hit.collider.transform;
+
+        // Spawn projectile at player position
+        Vector3 spawnPos = playerStats.transform.position;
+        Vector3 targetPos = enemy.position;
+        GameObject projectile = Instantiate(ability.visualEffectPrefab, spawnPos, Quaternion.identity);
+
+        projectile.transform.localScale = Vector3.one * 3f;
+
+        // Set proper render layer
+        SpriteRenderer sr = projectile.GetComponent<SpriteRenderer>();
         if (sr != null)
         {
             sr.sortingLayerName = "VFX";
-            sr.sortingOrder = 10;
-            sr.enabled = true;
+            sr.sortingOrder = 5;
         }
 
-        vfx.transform.localScale = Vector3.one;
-        vfx.SetActive(true);
+        // Move projectile until it hits enemy
+        float speed = 10f;
+        Vector3 dir = (targetPos - spawnPos).normalized;
 
-        Animator fxAnimator = vfx.GetComponent<Animator>();
-        if (fxAnimator && fxAnimator.runtimeAnimatorController)
+        while (projectile && Vector3.Distance(projectile.transform.position, targetPos) > 0.1f)
         {
-            fxAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-            AnimationClip[] clips = fxAnimator.runtimeAnimatorController.animationClips;
-            float clipLength = clips.Length > 0 ? clips[0].length : 1f;
-            yield return new WaitForSeconds(clipLength);
+            projectile.transform.position += dir * speed * Time.deltaTime;
+
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            yield return null;
         }
 
-        Destroy(vfx);
+        // When it reaches the enemy, apply damage & destroy projectile
+        if (enemyStats != null)
+        {
+            int damage = Mathf.RoundToInt(ability.baseDamage + playerStats.intelligence * ability.damageScaling);
+            enemyStats.TakeDamage(damage);
+        }
+
+        if (projectile != null)
+            Destroy(projectile);
     }
 
-
-    private void ApplySelfAbility(Ability ability)
+    private int GetModifierForScaling(CharacterStats stats, string scaling)
     {
-        float amount = 0f;
-
-        if (ability.damageType == Ability.DamageType.Holy)
+        switch (scaling.ToLower())
         {
-            amount = Mathf.Abs(ability.baseDamage) + playerStats.intelligence * ability.damageScaling;
-            int healAmount = Mathf.RoundToInt(amount);
-            playerStats.currentHealth = Mathf.Min(playerStats.currentHealth + healAmount, playerStats.maxHealth);
-            Debug.Log($"Healed self for {healAmount} HP!");
-        }
-        else
-        {
-            Debug.Log($"{ability.abilityName} used on self (non-heal).");
+            case "strength": return stats.strength;
+            case "dexterity": return stats.dexterity;
+            case "intelligence": return stats.intelligence;
+            case "wisdom": return stats.wisdom;
+            case "charisma": return stats.charisma;
+            case "constitution": return stats.constitution;
+            default: return 0;
         }
     }
 }

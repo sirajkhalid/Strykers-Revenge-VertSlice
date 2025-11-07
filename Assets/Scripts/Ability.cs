@@ -25,6 +25,10 @@ public class Ability : ScriptableObject
     public float areaRadius = 0f;
     public bool requiresLineOfSight = true;
 
+    [Header("Delivery Type")]
+    [Tooltip("How this ability travels or is applied.")]
+    public DeliveryType deliveryType = DeliveryType.Instant;
+
     [Header("Visuals & Feedback")]
     public GameObject visualEffectPrefab;
     public AudioClip abilitySound;
@@ -43,6 +47,9 @@ public class Ability : ScriptableObject
     public DamageType damageType;
     public SpecialEffect specialEffect;
 
+    [Header("Damage Dice")]
+    public int numberOfDice = 1;   // e.g. 2
+    public int diceSides = 6;      // e.g. d6
 
     public enum AbilityCategory { Melee, Ranged, Magic, Support, Passive }
     public enum TargetType { Self, Enemy, Ally, Area }
@@ -80,5 +87,12 @@ public class Ability : ScriptableObject
         None
     }
 
-
+    public enum DeliveryType
+    {
+        Instant,      // Happens immediately (e.g. Heal Self, Holy Light)
+        Projectile,   // Moves from caster toward target (e.g. Fireball)
+        Ray,          // Instant raycast or line-based (e.g. Laser, Lightning)
+        Area,         // Spawns an area effect prefab (e.g. Meteor Strike)
+        Chain         // Bounces between multiple targets (e.g. Chain Lightning)
+    }
 }

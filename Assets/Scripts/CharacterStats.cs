@@ -111,6 +111,9 @@ public class CharacterStats : MonoBehaviour
     public float maxMovement = 12f;    // Default out-of-combat movement
     public float currentMovement;      // Used during battle
 
+    [Header("UI Feedback")]
+    public GameObject floatingDamagePrefab;
+
     public event Action OnHealthChanged; //Called when health changes
     public event Action OnStatsInitialized;
     public event Action OnMovementChanged;
@@ -365,5 +368,15 @@ public class CharacterStats : MonoBehaviour
         currentMovement = maxMovement;
         OnMovementChanged?.Invoke();
     }
+
+    public void ShowFloatingText(string text, Color color)
+    {
+        if (floatingDamagePrefab == null) return;
+        Vector3 spawnPos = transform.position + new Vector3(0, 1.5f, 0);
+        GameObject popup = Instantiate(floatingDamagePrefab, spawnPos, Quaternion.identity);
+        popup.GetComponent<FloatingDamage>().SetText(text, color);
+    }
+
+
 
 }

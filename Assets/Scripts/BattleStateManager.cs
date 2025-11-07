@@ -21,7 +21,7 @@ public class BattleStateManager : MonoBehaviour
             battleUI.SetActive(isBattleActive);
     }
 
-    // start battle
+    // Start battle
     public void StartBattle()
     {
         isBattleActive = true;
@@ -29,7 +29,7 @@ public class BattleStateManager : MonoBehaviour
             battleUI.SetActive(true);
     }
 
-    // end battle
+    // End battle
     public void EndBattle()
     {
         isBattleActive = false;

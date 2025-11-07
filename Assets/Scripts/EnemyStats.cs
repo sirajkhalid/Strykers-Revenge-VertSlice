@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using System.Collections;
+
 
 public enum CreatureType
 {
@@ -101,11 +103,74 @@ public class EnemyStats : MonoBehaviour
     }
 #endif
 
-    public void TakeDamage(int amount)
+    [Header("Damage Popup")]
+    public GameObject floatingDamagePrefab;
+
+    public void TakeDamage(int amount, bool isCrit = false, bool isMiss = false)
     {
-        currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
+        if (isMiss)
+        {
+            ShowFloatingText("Miss!", Color.white);
+            return;
+        }
+
+        currentHealth -= amount;
+        currentHealth = Mathf.Max(0, currentHealth);
         OnHealthChanged?.Invoke();
+
+        // Color feedback
+        Color textColor = isCrit ? Color.yellow : Color.red;
+        ShowFloatingText("-" + amount.ToString(), textColor);
+
+        if (currentHealth <= 0)
+            Die();
     }
+
+    private void ShowFloatingText(string text, Color color)
+    {
+        if (floatingDamagePrefab == null) return;
+        Vector3 spawnPos = transform.position + new Vector3(0, 1.5f, 0);
+        GameObject popup = Instantiate(floatingDamagePrefab, spawnPos, Quaternion.identity);
+        popup.GetComponent<FloatingDamage>().SetText(text, color);
+    }
+
+    private void Die()
+    {
+        Debug.Log($"{enemyName} has been defeated!");
+
+        // Disable collider immediately
+        Collider2D col = GetComponent<Collider2D>();
+        if (col) col.enabled = false;
+
+        // Try to fade out if possible
+        StartCoroutine(FadeAndDestroy());
+    }
+
+    private IEnumerator FadeAndDestroy()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+        {
+            // No sprite? Just destroy quickly
+            Destroy(gameObject, 0.5f);
+            yield break;
+        }
+
+        float fadeDuration = 1.2f;
+        float elapsed = 0f;
+        Color originalColor = sr.color;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
+            sr.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+
+        Destroy(gameObject);
+    }
+
 
     public void Heal(int amount)
     {
