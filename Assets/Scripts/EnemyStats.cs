@@ -58,7 +58,8 @@ public class EnemyStats : MonoBehaviour
     [Header("Combat Stats")]
     public int baseHealth = 10;
     public int maxHealth;
-    [HideInInspector] public int currentHealth;
+    [HideInInspector] 
+    public int currentHealth;
     public int armorClass = 10;
     public int initiative = 0;
     public int xpReward = 50;
@@ -75,6 +76,7 @@ public class EnemyStats : MonoBehaviour
     {
         CalculateModifiers();
         CalculateHealth();
+        CalculateInitiative();
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke();
     }
@@ -93,6 +95,11 @@ public class EnemyStats : MonoBehaviour
     {
         int baseHP = baseHealth + (conMod * 2);
         maxHealth = Mathf.Max(baseHP + (level * 2), 1);
+    }
+    public void CalculateInitiative()
+    {
+        int dexMod = Mathf.FloorToInt((dexterity - 10) / 2f);
+        initiative = dexMod;
     }
 
 #if UNITY_EDITOR

@@ -51,7 +51,7 @@ public class EnemyGroupPatrol : MonoBehaviour
             }
 
             // Trigger battle state
-            battleStateManager.ToggleBattleState();
+            battleStateManager.StartBattle();
         }
     }
 }

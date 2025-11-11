@@ -23,10 +23,10 @@ MonoBehaviour:
   resourceCost: 1
   cooldownTime: 0
   targetType: 1
-  range: 6
+  range: 10
   areaRadius: 0
   requiresLineOfSight: 1
-  deliveryType: 1
+  deliveryType: 2
   visualEffectPrefab: {fileID: 3461944888256380358, guid: b8fc62abe92482a408bec1074ab4807e,
     type: 3}
   abilitySound: {fileID: 0}
@@ -36,3 +36,5 @@ MonoBehaviour:
   abilityAnimation: {fileID: 7400000, guid: a1749dd4dc9528a41ae03420c629a038, type: 2}
   damageType: 1
   specialEffect: 1
+  numberOfDice: 1
+  diceSides: 6

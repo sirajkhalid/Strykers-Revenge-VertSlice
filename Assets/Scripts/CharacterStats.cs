@@ -113,6 +113,7 @@ public class CharacterStats : MonoBehaviour
 
     [Header("UI Feedback")]
     public GameObject floatingDamagePrefab;
+    public GameObject outOfRangePrefab;
 
     public event Action OnHealthChanged; //Called when health changes
     public event Action OnStatsInitialized;

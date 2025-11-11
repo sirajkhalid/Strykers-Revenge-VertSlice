@@ -90,6 +90,7 @@ public class Ability : ScriptableObject
     public enum DeliveryType
     {
         Instant,      // Happens immediately (e.g. Heal Self, Holy Light)
+        Melee,        // Close-range attack (e.g. Sword Slash)
         Projectile,   // Moves from caster toward target (e.g. Fireball)
         Ray,          // Instant raycast or line-based (e.g. Laser, Lightning)
         Area,         // Spawns an area effect prefab (e.g. Meteor Strike)

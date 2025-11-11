@@ -18,11 +18,25 @@ public class AbilityExecutor : MonoBehaviour
                 break;
 
             case Ability.TargetType.Enemy:
-                // For now, fire toward mouse position instead of enemy
-                StartCoroutine(FireTowardEnemyOnly(ability));
+                switch (ability.deliveryType)
+                {
+                    case Ability.DeliveryType.Melee:
+                        StartCoroutine(ExecuteMeleeAbility(ability));
+                        break;
+
+                    case Ability.DeliveryType.Projectile:
+                        StartCoroutine(FireTowardEnemyOnly(ability));
+                        break;
+
+                    // Add others here later (Ray, Area, Chain)
+                    default:
+                        StartCoroutine(FireTowardEnemyOnly(ability));
+                        break;
+                }
                 break;
         }
     }
+
 
     IEnumerator ExecuteSelfAbility(Ability ability)
     {
@@ -131,6 +145,74 @@ public class AbilityExecutor : MonoBehaviour
 
         if (projectile != null)
             Destroy(projectile);
+    }
+
+    IEnumerator ExecuteMeleeAbility(Ability ability)
+    {
+        if (ability == null || playerStats == null)
+            yield break;
+
+        // Play melee animation
+        if (playerAnimator && ability.abilityAnimation)
+            playerAnimator.Play(ability.abilityAnimation.name);
+
+        yield return new WaitForSeconds(0.25f); // small swing delay
+
+        // Find enemies within range
+        Collider2D[] hits = Physics2D.OverlapCircleAll(playerStats.transform.position, ability.range);
+        EnemyStats closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyStats enemy = hit.GetComponent<EnemyStats>();
+            if (enemy != null)
+            {
+                float dist = Vector2.Distance(playerStats.transform.position, enemy.transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                    closestEnemy = enemy;
+                }
+            }
+        }
+
+        // No enemy found in range
+        if (closestEnemy == null)
+        {
+            if (playerStats.outOfRangePrefab != null)
+            {
+                GameObject msg = Instantiate(playerStats.outOfRangePrefab, playerStats.transform.position + Vector3.up * 2f, Quaternion.identity);
+                Destroy(msg, 1f);
+            }
+            yield break;
+        }
+
+        // Spawn visual effect prefab
+        if (ability.visualEffectPrefab)
+        {
+            GameObject vfx = Instantiate(ability.visualEffectPrefab, closestEnemy.transform.position, Quaternion.identity);
+            Destroy(vfx, 1.0f);
+        }
+
+        // d20 damage roll
+        int d20Roll = Random.Range(1, 21);
+        bool isCrit = d20Roll == 20;
+        bool isMiss = d20Roll == 1;
+
+        int damage = Mathf.RoundToInt(ability.baseDamage + playerStats.strength * ability.damageScaling);
+        if (isCrit) damage = Mathf.RoundToInt(damage * 1.5f);
+        if (isMiss) damage = 0;
+
+        closestEnemy.TakeDamage(damage);
+
+        // Floating number feedback
+        if (playerStats.floatingDamagePrefab != null)
+        {
+            Color color = isCrit ? Color.yellow : Color.red;
+            string text = isMiss ? "MISS" : $"-{damage}";
+            playerStats.ShowFloatingText(text, color);
+        }
     }
 
     private int GetModifierForScaling(CharacterStats stats, string scaling)

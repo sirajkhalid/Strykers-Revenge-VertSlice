@@ -1,56 +1,58 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
 public class BattleUIManager : MonoBehaviour
 {
-    /**[Header("References")]
-    public CharacterStats playerStats;
-    public Image playerPortrait;
-    public Image healthFill;
-    public TMP_Text healthNumText;
+    public TextMeshProUGUI turnBannerText;
+    public Button endTurnButton;
 
-    private float maxBarWidth = 541f;
+    private Coroutine bannerRoutine;
+    private bool firstBannerShown = false;
+    private TurnManager turnManager;
 
     void Start()
     {
-        if (playerStats != null)
+        turnManager = FindFirstObjectByType<TurnManager>();
+        if (endTurnButton != null)
+            endTurnButton.onClick.AddListener(OnEndTurnPressed);
+    }
+
+    public void ShowTurnBanner(string characterName)
+    {
+        if (turnBannerText == null) return;
+
+        if (bannerRoutine != null)
+            StopCoroutine(bannerRoutine);
+
+        bannerRoutine = StartCoroutine(ShowBannerCoroutine(characterName));
+    }
+
+    private IEnumerator ShowBannerCoroutine(string name)
+    {
+        if (!firstBannerShown)
         {
-            playerStats.OnHealthChanged += UpdateHealthBar;
-            UpdateBattleUI();
+            yield return new WaitForSeconds(3f);
+            firstBannerShown = true;
         }
+
+        turnBannerText.text = $"{name}'s Turn";
+        turnBannerText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        turnBannerText.gameObject.SetActive(false);
+        bannerRoutine = null;
     }
 
-    void OnDestroy()
+    private void OnEndTurnPressed()
     {
-        if (playerStats != null)
-            playerStats.OnHealthChanged -= UpdateHealthBar;
+        if (turnManager != null)
+            turnManager.EndTurn();
     }
 
-    void UpdateBattleUI()
+    public void ResetBannerDelay()
     {
-        if (playerStats == null) return;
-
-        if (playerPortrait != null && playerStats.characterPortrait != null)
-            playerPortrait.sprite = playerStats.characterPortrait;
-
-        UpdateHealthBar();
+        firstBannerShown = false;
     }
-
-    void UpdateHealthBar()
-    {
-        if (playerStats == null || healthFill == null || healthNumText == null) return;
-
-        float healthPercent = Mathf.Clamp01((float)playerStats.currentHealth / playerStats.maxHealth);
-        RectTransform rt = healthFill.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(maxBarWidth * healthPercent, rt.sizeDelta.y);
-
-        healthNumText.text = $"{playerStats.currentHealth} / {playerStats.maxHealth}";
-    }
-
-    public void TakeDamage(int amount)
-    {
-        if (playerStats == null) return;
-        playerStats.SetCurrentHealth(playerStats.currentHealth - amount);
-    }**/
 }

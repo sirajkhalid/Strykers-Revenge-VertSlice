@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3968197236777214605}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,6 +261,10 @@ MonoBehaviour:
   intimidation: 0
   performance: 0
   persuasion: 0
+  maxMovement: 12
+  currentMovement: 0
+  floatingDamagePrefab: {fileID: 0}
+  outOfRangePrefab: {fileID: 0}
 --- !u!114 &3968197236777214605
 MonoBehaviour:
   m_ObjectHideFlags: 0
