@@ -12,6 +12,8 @@ public class BattleUIManager : MonoBehaviour
     private bool firstBannerShown = false;
     private TurnManager turnManager;
 
+
+
     void Start()
     {
         turnManager = FindFirstObjectByType<TurnManager>();

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5648930091950226366}
   - component: {fileID: -600588334513296953}
   - component: {fileID: 3968197236777214605}
+  - component: {fileID: -4433796842676876510}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -285,3 +286,17 @@ MonoBehaviour:
   dexMultiplier: 0.5
   currentMovement: 0
   maxMovement: 0
+--- !u!114 &-4433796842676876510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085118638413065071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77572ce8e11cb8b46aee7da68167ac7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
+    type: 3}

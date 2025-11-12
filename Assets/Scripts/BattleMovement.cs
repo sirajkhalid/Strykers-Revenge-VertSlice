@@ -7,16 +7,19 @@ public class BattleMovement : MonoBehaviour
     public CharacterStats characterStats;
     public PlayerMovement playerMovement;
     public BattleStateManager battleManager;
-    public TMP_Text movementText;           // TMP in BattleUI -> MovementPanel
+    public TMP_Text movementText; // TMP in BattleUI -> MovementPanel
 
     [Header("Movement Settings")]
-    public float baseRange = 6f;            // base meters everyone can move
-    public float dexMultiplier = 0.5f;      // each Dex adds 0.5m
+    public float baseRange = 6f;
+    public float dexMultiplier = 0.5f;
     public float currentMovement;
     public float maxMovement;
 
     private Vector3 lastPosition;
     private bool wasBattleActive;
+    private bool wasPlayerTurn;
+  
+    private TurnManager turnManager;
 
     void Start()
     {
@@ -29,12 +32,13 @@ public class BattleMovement : MonoBehaviour
         if (battleManager == null)
             battleManager = FindFirstObjectByType<BattleStateManager>();
 
+        turnManager = FindFirstObjectByType<TurnManager>();
+
         lastPosition = transform.position;
     }
 
     void Update()
     {
-        // Detect battle start / end automatically
         if (battleManager != null)
         {
             if (battleManager.isBattleActive && !wasBattleActive)
@@ -48,13 +52,32 @@ public class BattleMovement : MonoBehaviour
         if (!battleManager || !battleManager.isBattleActive)
             return;
 
+        // Wait for TurnManager
+        if (turnManager == null)
+            return;
+
+        // Detect turn changes
+        if (turnManager.isPlayerTurn && !wasPlayerTurn)
+        {
+            // Player's turn just started
+            ResetMovementForNewTurn();
+        }
+
+        wasPlayerTurn = turnManager.isPlayerTurn;
+
+        // Disable player movement if it's not their turn
+        if (!turnManager.isPlayerTurn)
+        {
+            playerMovement.canMove = false;
+            return;
+        }
+
         TrackMovement();
         UpdateUI();
     }
 
     void BeginBattleMovement()
     {
-        // calculate range from Dexterity
         maxMovement = baseRange + (characterStats.dexterity * dexMultiplier);
         currentMovement = maxMovement;
         lastPosition = transform.position;
@@ -66,6 +89,14 @@ public class BattleMovement : MonoBehaviour
         playerMovement.canMove = true;
         if (movementText != null)
             movementText.text = "";
+    }
+
+    void ResetMovementForNewTurn()
+    {
+        currentMovement = maxMovement;
+        playerMovement.canMove = true;
+        lastPosition = transform.position;
+        UpdateUI();
     }
 
     void TrackMovement()

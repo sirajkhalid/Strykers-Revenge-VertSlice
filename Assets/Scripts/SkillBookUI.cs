@@ -90,7 +90,7 @@ public class SkillBookUI : MonoBehaviour
 
             if (icon != null) icon.sprite = ability.abilityIcon;
             if (nameText != null) nameText.text = ability.abilityName;
-            if (costText != null) costText.text = $"Cost: {ability.resourceCost}";
+            if (costText != null) costText.text = $"Cost: {ability.slotCost}";
             if (descText != null) descText.text = ability.abilityDescription;
 
             // Tooltip hover logic

@@ -19,13 +19,19 @@ MonoBehaviour:
   category: 2
   baseDamage: 12
   damageScaling: 1.2
-  scalingAttribute: Intelligence
-  resourceCost: 5
-  cooldownTime: 1.5
+  scalingAttribute: 3
+  usesSpellSlot: 1
+  spellLevel: 1
+  slotCost: 1
+  actionType: 0
+  consumesAction: 1
+  consumesBonusAction: 0
+  consumesFreeAction: 0
   targetType: 1
-  range: 6
+  range: 10
   areaRadius: 0
   requiresLineOfSight: 1
+  deliveryType: 0
   visualEffectPrefab: {fileID: 0}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
@@ -34,3 +40,5 @@ MonoBehaviour:
   abilityAnimation: {fileID: 0}
   damageType: 4
   specialEffect: 0
+  numberOfDice: 1
+  diceSides: 6

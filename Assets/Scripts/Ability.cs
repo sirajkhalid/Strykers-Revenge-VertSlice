@@ -13,11 +13,20 @@ public class Ability : ScriptableObject
     public AbilityCategory category = AbilityCategory.Melee;
     public int baseDamage = 0;
     public float damageScaling = 1.0f;
-    public string scalingAttribute = "Strength";
+    public ScalingAttribute scalingAttribute = ScalingAttribute.Strength;
 
-    [Header("Resource & Cooldown")]
-    public float resourceCost = 0f;
-    public float cooldownTime = 0f;
+    [Header("Spell & Resource Settings")]
+    [Tooltip("If true, this ability consumes spell slots when used.")]
+    public bool usesSpellSlot = true;
+    [Range(0, 9)] public int spellLevel = 1;        // 0 = Cantrip
+    [Tooltip("Number of spell slots consumed when used.")]
+    public int slotCost = 1;
+
+    [Header("Action Economy")]
+    public ActionType actionType = ActionType.Action;
+    public bool consumesAction = true;
+    public bool consumesBonusAction = false;
+    public bool consumesFreeAction = false;
 
     [Header("Targeting")]
     public TargetType targetType = TargetType.Enemy;
@@ -26,7 +35,6 @@ public class Ability : ScriptableObject
     public bool requiresLineOfSight = true;
 
     [Header("Delivery Type")]
-    [Tooltip("How this ability travels or is applied.")]
     public DeliveryType deliveryType = DeliveryType.Instant;
 
     [Header("Visuals & Feedback")]
@@ -34,13 +42,11 @@ public class Ability : ScriptableObject
     public AudioClip abilitySound;
 
     [Header("Special Effects")]
-    [Tooltip("Abilities that cause burn, freeze, etc.")]
     public bool appliesStatusEffect = false;
     public string statusEffectName;
     public float statusDuration = 0f;
 
     [Header("Animation")]
-    [Tooltip("The animation clip to play when this ability is used.")]
     public AnimationClip abilityAnimation;
 
     [Header("Combat Details")]
@@ -48,52 +54,16 @@ public class Ability : ScriptableObject
     public SpecialEffect specialEffect;
 
     [Header("Damage Dice")]
-    public int numberOfDice = 1;   // e.g. 2
-    public int diceSides = 6;      // e.g. d6
+    public int numberOfDice = 1;
+    public int diceSides = 6;
 
-    public enum AbilityCategory { Melee, Ranged, Magic, Support, Passive }
+    public enum AbilityCategory { Melee, Ranged, Magic, Support, Utility, Passive }
     public enum TargetType { Self, Enemy, Ally, Area }
+    public enum DamageType { Physical, Fire, Cold, Lightning, Poison, Holy, Shadow }
+    public enum SpecialEffect { None, Burn, Freeze, Stun, Poisoned, Knockback, HealOverTime }
+    public enum ScalingAttribute { Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, None }
+    public enum DeliveryType { Instant, Melee, Projectile, Ray, Area, Chain }
+    public enum ActionType { Action, BonusAction, FreeAction }
 
-    public enum DamageType
-    {
-        Physical,
-        Fire,
-        Cold,
-        Lightning,
-        Poison,
-        Holy,
-        Shadow
-    }
-
-    public enum SpecialEffect
-    {
-        None,
-        Burn,
-        Freeze,
-        Stun,
-        Poisoned,
-        Knockback,
-        HealOverTime
-    }
-
-    public enum ScalingAttribute
-    {
-        Strength,
-        Dexterity,
-        Constitution,
-        Intelligence,
-        Wisdom,
-        Charisma,
-        None
-    }
-
-    public enum DeliveryType
-    {
-        Instant,      // Happens immediately (e.g. Heal Self, Holy Light)
-        Melee,        // Close-range attack (e.g. Sword Slash)
-        Projectile,   // Moves from caster toward target (e.g. Fireball)
-        Ray,          // Instant raycast or line-based (e.g. Laser, Lightning)
-        Area,         // Spawns an area effect prefab (e.g. Meteor Strike)
-        Chain         // Bounces between multiple targets (e.g. Chain Lightning)
-    }
+    public bool IsCantrip => !usesSpellSlot && spellLevel == 0;
 }

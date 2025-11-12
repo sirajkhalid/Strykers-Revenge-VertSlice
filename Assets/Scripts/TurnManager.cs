@@ -9,12 +9,17 @@ public class TurnManager : MonoBehaviour
     public List<GameObject> combatants = new List<GameObject>();
     public int currentTurnIndex = 0;
 
+    [HideInInspector] public GameObject currentTurnObject;
+    [HideInInspector] public bool isPlayerTurn = false;
+
     private BattleUIManager battleUIManager;
+    private BattleStateManager battleStateManager;
     private bool isProcessingTurn = false;
 
     void Start()
     {
         battleUIManager = FindAnyObjectByType<BattleUIManager>(FindObjectsInactive.Include);
+        battleStateManager = FindAnyObjectByType<BattleStateManager>(FindObjectsInactive.Include);
     }
 
     public void InitializeTurnOrder(List<GameObject> players, List<GameObject> enemies)
@@ -45,38 +50,40 @@ public class TurnManager : MonoBehaviour
         if (combatants.Count == 0) return;
         if (isProcessingTurn) return;
 
-        // Remove null or destroyed entries
         combatants = combatants.Where(c => c != null).ToList();
+        if (combatants.Count == 0) return;
 
-        // If list is empty after cleanup, battle is over
-        if (combatants.Count == 0)
-            return;
-
-        // Clamp current index
         currentTurnIndex = Mathf.Clamp(currentTurnIndex, 0, combatants.Count - 1);
 
-        var current = combatants[currentTurnIndex];
+        if (AllEnemiesDefeated())
+        {
+            EndBattle();
+            return;
+        }
 
-        // Skip null or dead units
-        if (current == null || !IsAlive(current))
+        currentTurnObject = combatants[currentTurnIndex];
+        if (currentTurnObject == null || !IsAlive(currentTurnObject))
         {
             EndTurn();
             return;
         }
 
-        string name = current.GetComponent<CharacterStats>() ? current.GetComponent<CharacterStats>().characterName :
-                       current.GetComponent<EnemyStats>() ? current.GetComponent<EnemyStats>().enemyName : "Unknown";
+        string name = currentTurnObject.GetComponent<CharacterStats>() ? currentTurnObject.GetComponent<CharacterStats>().characterName :
+                       currentTurnObject.GetComponent<EnemyStats>() ? currentTurnObject.GetComponent<EnemyStats>().enemyName : "Unknown";
 
         battleUIManager?.ShowTurnBanner(name);
 
-        if (current.GetComponent<CharacterStats>())
+        // Determine whose turn it is
+        if (currentTurnObject.GetComponent<CharacterStats>())
         {
+            isPlayerTurn = true;
             EnableEndTurnButton(true);
         }
-        else if (current.GetComponent<EnemyStats>())
+        else
         {
+            isPlayerTurn = false;
             EnableEndTurnButton(false);
-            StartCoroutine(EnemyTurn(current));
+            StartCoroutine(EnemyTurn(currentTurnObject));
         }
     }
 
@@ -87,7 +94,6 @@ public class TurnManager : MonoBehaviour
 
         if (enemy != null && IsAlive(enemy))
         {
-            // Placeholder for AI
             Debug.Log($"{enemy.name} attacks!");
         }
 
@@ -99,19 +105,22 @@ public class TurnManager : MonoBehaviour
     public void EndTurn()
     {
         EnableEndTurnButton(false);
+        isPlayerTurn = false;
 
-        // Clean list again to remove destroyed objects
         combatants = combatants.Where(c => c != null).ToList();
-
-        // End battle if all combatants are gone
         if (combatants.Count == 0)
             return;
+
+        if (AllEnemiesDefeated())
+        {
+            EndBattle();
+            return;
+        }
 
         currentTurnIndex++;
         if (currentTurnIndex >= combatants.Count)
             currentTurnIndex = 0;
 
-        // Skip null or dead
         int safety = 0;
         while ((combatants[currentTurnIndex] == null || !IsAlive(combatants[currentTurnIndex])) && safety < 50)
         {
@@ -132,6 +141,19 @@ public class TurnManager : MonoBehaviour
         if (obj.TryGetComponent<EnemyStats>(out var e))
             return e.currentHealth > 0;
         return false;
+    }
+
+    private bool AllEnemiesDefeated()
+    {
+        return !combatants.Any(c => c != null && c.GetComponent<EnemyStats>() && IsAlive(c));
+    }
+
+    private void EndBattle()
+    {
+        EnableEndTurnButton(false);
+        battleStateManager?.EndBattle();
+        isPlayerTurn = false;
+        currentTurnObject = null;
     }
 
     private void EnableEndTurnButton(bool value)

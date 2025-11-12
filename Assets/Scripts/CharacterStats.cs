@@ -119,16 +119,30 @@ public class CharacterStats : MonoBehaviour
     public event Action OnStatsInitialized;
     public event Action OnMovementChanged;
 
+    [Header("Spell Slots")]
+    public int maxLevel1Slots;
+    public int currentLevel1Slots;
+
+    public int maxLevel2Slots;
+    public int currentLevel2Slots;
+
+    [Header("Action Economy")]
+    public bool hasAction = true;
+    public bool hasBonusAction = true;
+
+
     void Start()
     {
         CalculateAllStats();
-
+        CalculateSpellSlots();
+        
         currentHealth = maxHealth;
         currentMovement = maxMovement;
 
         OnStatsInitialized?.Invoke();
         OnHealthChanged?.Invoke();
         OnMovementChanged?.Invoke();
+
     }
 
     public void CalculateAllStats()
@@ -244,6 +258,79 @@ public class CharacterStats : MonoBehaviour
         expToNextLevel = level * 1000;
     }
 
+    void CalculateSpellSlots()
+    {
+        // Default: no spell slots
+        maxLevel1Slots = 0;
+        maxLevel2Slots = 0;
+
+        switch (characterClass)
+        {
+            case CharacterClass.Wizard:
+            case CharacterClass.Cleric:
+                if (level <= 1)
+                {
+                    maxLevel1Slots = 2;
+                }
+                else if (level <= 3)
+                {
+                    maxLevel1Slots = 3;
+                }
+                else if (level <= 5)
+                {
+                    maxLevel1Slots = 4;
+                    maxLevel2Slots = 2;
+                }
+                else
+                {
+                    maxLevel1Slots = 4;
+                    maxLevel2Slots = 3;
+                }
+                break;
+
+            case CharacterClass.Ranger:
+                if (level <= 1)
+                {
+                    maxLevel1Slots = 1;
+                }
+                else if (level <= 3)
+                {
+                    maxLevel1Slots = 2;
+                }
+                else if (level <= 5)
+                {
+                    maxLevel1Slots = 2;
+                    maxLevel2Slots = 1;
+                }
+                else
+                {
+                    maxLevel1Slots = 3;
+                    maxLevel2Slots = 1;
+                }
+                break;
+
+            // Fighter, Barbarian, Rogue – no spell slots
+            case CharacterClass.Fighter:
+            case CharacterClass.Barbarian:
+            case CharacterClass.Rogue:
+            default:
+                maxLevel1Slots = 0;
+                maxLevel2Slots = 0;
+                break;
+        }
+
+        // If current slots exceed max (testing purposes)
+        currentLevel1Slots = Mathf.Clamp(currentLevel1Slots, 0, maxLevel1Slots);
+        currentLevel2Slots = Mathf.Clamp(currentLevel2Slots, 0, maxLevel2Slots);
+
+        // If initializing (first time), ensure full recharge
+        if (currentLevel1Slots == 0 && level == 1)
+            currentLevel1Slots = maxLevel1Slots;
+        if (currentLevel2Slots == 0 && level == 1)
+            currentLevel2Slots = maxLevel2Slots;
+    }
+
+
     void CalculateSkills()
     {
         // Strength
@@ -285,7 +372,7 @@ public class CharacterStats : MonoBehaviour
         currentEXP -= expToNextLevel;
         expToNextLevel = level * 1000;
 
-        // Recalculate HP per BG3 rules
+        // Recalculate HP 
         int hpPerLevel = 0;
         switch (characterClass)
         {
@@ -301,8 +388,11 @@ public class CharacterStats : MonoBehaviour
         maxHealth += hpGain;
         currentHealth = maxHealth;
 
-        Debug.Log($"{characterName} leveled up to {level}! HP increased by {hpGain}.");
         CalculateAllStats();
+        CalculateSpellSlots();
+
+        Debug.Log($"{characterName} leveled up to {level}! HP increased by {hpGain}.");
+        
     }
 
     // --- Utility Functions for UI / External Scripts ---

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class PlayerHUDManager : MonoBehaviour
 {
@@ -13,8 +14,28 @@ public class PlayerHUDManager : MonoBehaviour
 
     [Header("Settings")]
     public float maxBarWidth = 541f;
-
     private bool isInCombat = false;
+
+    [Header("Action Economy UI")]
+    public Image actionIcon;
+    public Sprite actionAvailableSprite;
+    public Sprite actionUsedSprite;
+
+    public Image bonusActionIcon;
+    public Sprite bonusAvailableSprite;
+    public Sprite bonusUsedSprite;
+
+    [Header("Spell Slot UI")]
+    public Transform level1SlotPanel;
+    public Transform level2SlotPanel;
+    public GameObject spellSlotPrefab;
+    public Sprite slotAvailableSprite;
+    public Sprite slotUsedSprite;
+    private List<Image> level1Slots = new List<Image>();
+    private List<Image> level2Slots = new List<Image>();
+
+    [Header("Resting")]
+    public Button shortRestButton;
 
     void Awake()
     {
@@ -24,7 +45,6 @@ public class PlayerHUDManager : MonoBehaviour
 
     void Start()
     {
-        // Subscribe to stat changes
         if (playerStats != null)
         {
             playerStats.OnHealthChanged += UpdateHealthBar;
@@ -33,6 +53,9 @@ public class PlayerHUDManager : MonoBehaviour
         }
 
         InitializeHUD();
+
+        if (shortRestButton != null)
+            shortRestButton.onClick.AddListener(OnShortRestPressed);
     }
 
     void OnDestroy()
@@ -43,9 +66,11 @@ public class PlayerHUDManager : MonoBehaviour
             playerStats.OnStatsInitialized -= InitializeHUD;
             playerStats.OnMovementChanged -= UpdateMovementText;
         }
+
+        if (shortRestButton != null)
+            shortRestButton.onClick.RemoveListener(OnShortRestPressed);
     }
 
-    // Called when player stats initialize
     void InitializeHUD()
     {
         if (playerStats == null) return;
@@ -55,6 +80,10 @@ public class PlayerHUDManager : MonoBehaviour
 
         UpdateHealthBar();
         UpdateMovementText();
+
+        GenerateSpellSlots();
+        UpdateActionUI();
+        UpdateSpellSlotUI();
     }
 
     void UpdateHealthBar()
@@ -73,19 +102,91 @@ public class PlayerHUDManager : MonoBehaviour
         if (movementText == null || playerStats == null) return;
 
         if (isInCombat)
-        {
             movementText.text = $"{playerStats.currentMovement:0.00}m / {playerStats.maxMovement:0.00}m";
-        }
         else
-        {
             movementText.text = $"{playerStats.maxMovement:0.0}m";
-        }
     }
 
-    // This will be called by BattleStateManager when combat starts/ends
     public void SetCombatState(bool inCombat)
     {
         isInCombat = inCombat;
         UpdateMovementText();
+
+        if (shortRestButton != null)
+            shortRestButton.interactable = !inCombat;
+    }
+
+    // Action UI
+    public void UpdateActionUI()
+    {
+        if (playerStats == null) return;
+
+        if (actionIcon != null)
+            actionIcon.sprite = playerStats.hasAction ? actionAvailableSprite : actionUsedSprite;
+
+        if (bonusActionIcon != null)
+            bonusActionIcon.sprite = playerStats.hasBonusAction ? bonusAvailableSprite : bonusUsedSprite;
+    }
+
+    // Spell Slots
+    void GenerateSpellSlots()
+    {
+        // Clear existing slots
+        foreach (Transform child in level1SlotPanel)
+            Destroy(child.gameObject);
+        foreach (Transform child in level2SlotPanel)
+            Destroy(child.gameObject);
+
+        level1Slots.Clear();
+        level2Slots.Clear();
+
+        // Generate Level 1 slots
+        for (int i = 0; i < playerStats.maxLevel1Slots; i++)
+        {
+            GameObject slot = Instantiate(spellSlotPrefab, level1SlotPanel);
+            Image img = slot.GetComponent<Image>();
+            img.sprite = slotAvailableSprite;
+            level1Slots.Add(img);
+        }
+
+        // Generate Level 2 slots
+        for (int i = 0; i < playerStats.maxLevel2Slots; i++)
+        {
+            GameObject slot = Instantiate(spellSlotPrefab, level2SlotPanel);
+            Image img = slot.GetComponent<Image>();
+            img.sprite = slotAvailableSprite;
+            level2Slots.Add(img);
+        }
+    }
+
+    public void UpdateSpellSlotUI()
+    {
+        for (int i = 0; i < level1Slots.Count; i++)
+        {
+            if (i < playerStats.currentLevel1Slots)
+                level1Slots[i].sprite = slotAvailableSprite;
+            else
+                level1Slots[i].sprite = slotUsedSprite;
+        }
+
+        for (int i = 0; i < level2Slots.Count; i++)
+        {
+            if (i < playerStats.currentLevel2Slots)
+                level2Slots[i].sprite = slotAvailableSprite;
+            else
+                level2Slots[i].sprite = slotUsedSprite;
+        }
+    }
+
+    // Short Rest
+    public void OnShortRestPressed()
+    {
+        if (playerStats == null) return;
+
+        playerStats.currentLevel1Slots = playerStats.maxLevel1Slots;
+        playerStats.currentLevel2Slots = playerStats.maxLevel2Slots;
+
+        UpdateSpellSlotUI();
+        Debug.Log("Short Rest: Spell slots restored.");
     }
 }

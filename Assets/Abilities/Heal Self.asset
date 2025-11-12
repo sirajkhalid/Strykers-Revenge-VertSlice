@@ -13,19 +13,25 @@ MonoBehaviour:
   m_Name: Heal Self
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Heal Self
-  abilityDescription: Heal the caster for a specific amount.
+  abilityDescription: Restore a small amount of health to yourself.
   abilityIcon: {fileID: 21300000, guid: 2e350bcef09f70943ba03de78d8c063a, type: 3}
   isUnlocked: 1
   category: 2
   baseDamage: 0
   damageScaling: 1
-  scalingAttribute: Intelligence
-  resourceCost: 0
-  cooldownTime: 0
+  scalingAttribute: 4
+  usesSpellSlot: 0
+  spellLevel: 0
+  slotCost: 0
+  actionType: 0
+  consumesAction: 1
+  consumesBonusAction: 0
+  consumesFreeAction: 0
   targetType: 0
   range: 0
   areaRadius: 0
   requiresLineOfSight: 1
+  deliveryType: 0
   visualEffectPrefab: {fileID: 4695810734618788913, guid: 3c6c1c0318c7d86478487204d713a6f8,
     type: 3}
   abilitySound: {fileID: 0}
@@ -35,3 +41,5 @@ MonoBehaviour:
   abilityAnimation: {fileID: 7400000, guid: eae6c46cad7bafb4b8ea2c9b8df7c0cf, type: 2}
   damageType: 5
   specialEffect: 0
+  numberOfDice: 1
+  diceSides: 4

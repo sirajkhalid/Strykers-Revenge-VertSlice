@@ -19,9 +19,14 @@ MonoBehaviour:
   category: 2
   baseDamage: 3
   damageScaling: 1
-  scalingAttribute: Intelligence
-  resourceCost: 1
-  cooldownTime: 0
+  scalingAttribute: 0
+  usesSpellSlot: 1
+  spellLevel: 1
+  slotCost: 1
+  actionType: 0
+  consumesAction: 1
+  consumesBonusAction: 0
+  consumesFreeAction: 0
   targetType: 1
   range: 10
   areaRadius: 0
