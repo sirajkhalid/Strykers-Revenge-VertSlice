@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: Infestation
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Infestation
-  abilityDescription: Unleashes a swarm of insects that bit and distract the enemy.
+  abilityDescription: You cause a cloud of mites, fleas, and other parasites to assault
+    one creature you can see within range. The target takes minor poison damage and
+    is momentarily distracted.
   abilityIcon: {fileID: 21300000, guid: 1d6d7bf04d2101c4ea04650b6d6b911b, type: 3}
   isUnlocked: 1
   category: 2
-  baseDamage: 12
-  damageScaling: 1.2
+  baseDamage: 4
+  damageScaling: 0.7
   scalingAttribute: 3
-  usesSpellSlot: 1
-  spellLevel: 1
-  slotCost: 1
+  usesSpellSlot: 0
+  spellLevel: 0
+  slotCost: 0
   actionType: 0
   consumesAction: 1
   consumesBonusAction: 0
@@ -32,13 +34,14 @@ MonoBehaviour:
   areaRadius: 0
   requiresLineOfSight: 1
   deliveryType: 0
-  visualEffectPrefab: {fileID: 0}
+  visualEffectPrefab: {fileID: 2175064379355132939, guid: bbf732f08ba247c429262d14789cedd6,
+    type: 3}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
-  statusEffectName: 
-  statusDuration: 0
-  abilityAnimation: {fileID: 0}
+  statusEffectName: Poisoned
+  statusDuration: 1
+  abilityAnimation: {fileID: 7400000, guid: e73dc5c1019d8044f8c531837fcee590, type: 2}
   damageType: 4
-  specialEffect: 0
+  specialEffect: 4
   numberOfDice: 1
   diceSides: 6

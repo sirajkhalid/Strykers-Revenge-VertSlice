@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
-  m_Name: Slash
+  m_Name: Pierce
   m_EditorClassIdentifier: Assembly-CSharp::Ability
-  abilityName: Slash
-  abilityDescription: 'Slash at a nearby enemy with your weapon. '
-  abilityIcon: {fileID: 21300000, guid: 3a88d46ed00b9214a8cc55ba6e67ab09, type: 3}
+  abilityName: Pierce
+  abilityDescription: Drive your weapon into a foe, dealing focused piercing damage
+    with a chance to hit more accurately.
+  abilityIcon: {fileID: 21300000, guid: d91ce643b75a45f47baee6493da5d705, type: 3}
   isUnlocked: 1
   category: 0
-  baseDamage: 5
+  baseDamage: 6
   damageScaling: 1
   scalingAttribute: 0
   usesSpellSlot: 0
@@ -28,17 +29,17 @@ MonoBehaviour:
   consumesBonusAction: 0
   consumesFreeAction: 0
   targetType: 1
-  range: 1.5
+  range: 2
   areaRadius: 0
   requiresLineOfSight: 1
   deliveryType: 1
-  visualEffectPrefab: {fileID: 4446910482871754052, guid: 51474a029092df7438c8602f19810bd6,
+  visualEffectPrefab: {fileID: 5167692380456066381, guid: 4c0c22ed9db58ca4ea1cc9362c8e71cc,
     type: 3}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
   statusEffectName: 
   statusDuration: 0
-  abilityAnimation: {fileID: 7400000, guid: 5af0b4a3d3a93c147b0d5b517880cdd2, type: 2}
+  abilityAnimation: {fileID: 7400000, guid: 28b73aa1d0d9bad4e8298f19ca9c5b9b, type: 2}
   damageType: 0
   specialEffect: 0
   numberOfDice: 1

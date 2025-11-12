@@ -152,6 +152,7 @@ public class CharacterStats : MonoBehaviour
         ApplyClassBonuses();
         CalculateDerivedStats();
         CalculateSkills();
+        CalculateSpellSlots();
     }
 
     void CalculateModifiers()
@@ -358,7 +359,7 @@ public class CharacterStats : MonoBehaviour
         persuasion = 10 + chaMod;
     }
 
-    // --- Leveling System ---
+    //  Leveling System 
     public void GainEXP(int amount)
     {
         currentEXP += amount;
@@ -395,7 +396,7 @@ public class CharacterStats : MonoBehaviour
         
     }
 
-    // --- Utility Functions for UI / External Scripts ---
+    // Utility Functions for UI / External Scripts
     public void AddAttributePoint(string attributeName)
     {
         attributeName = attributeName.ToLower();
@@ -468,6 +469,38 @@ public class CharacterStats : MonoBehaviour
         popup.GetComponent<FloatingDamage>().SetText(text, color);
     }
 
+    public bool CanUseActionType(Ability.ActionType type)
+    {
+        if (type == Ability.ActionType.Action) return hasAction;
+        if (type == Ability.ActionType.BonusAction) return hasBonusAction;
+        return true; // FreeAction
+    }
 
+    public void ConsumeActionType(Ability.ActionType type)
+    {
+        if (type == Ability.ActionType.Action) hasAction = false;
+        else if (type == Ability.ActionType.BonusAction) hasBonusAction = false;
+    }
+    public bool HasSpellSlots(int spellLevel, int cost)
+    {
+        if (cost <= 0 || spellLevel <= 0) return true; // cantrips or free
+        if (spellLevel == 1) return currentLevel1Slots >= cost;
+        if (spellLevel == 2) return currentLevel2Slots >= cost;
+        return false;
+    }
+
+    public void SpendSpellSlots(int spellLevel, int cost)
+    {
+        if (cost <= 0 || spellLevel <= 0) return;
+        if (spellLevel == 1) currentLevel1Slots = Mathf.Max(0, currentLevel1Slots - cost);
+        else if (spellLevel == 2) currentLevel2Slots = Mathf.Max(0, currentLevel2Slots - cost);
+    }
+
+    // Reset each time this character’s turn starts
+    public void ResetTurnActions()
+    {
+        hasAction = true;
+        hasBonusAction = true;
+    }
 
 }

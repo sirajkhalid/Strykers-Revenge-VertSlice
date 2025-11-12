@@ -78,6 +78,17 @@ public class TurnManager : MonoBehaviour
         {
             isPlayerTurn = true;
             EnableEndTurnButton(true);
+
+            // Reset player actions & refresh HUD
+            var cs = currentTurnObject.GetComponent<CharacterStats>();
+            if (cs != null)
+            {
+                cs.ResetTurnActions();
+
+                var hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
+                if (hud != null)
+                    hud.UpdateActionUI();
+            }
         }
         else
         {

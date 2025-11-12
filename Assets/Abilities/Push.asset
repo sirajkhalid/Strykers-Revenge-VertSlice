@@ -10,36 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
-  m_Name: Slash
+  m_Name: Push
   m_EditorClassIdentifier: Assembly-CSharp::Ability
-  abilityName: Slash
-  abilityDescription: 'Slash at a nearby enemy with your weapon. '
-  abilityIcon: {fileID: 21300000, guid: 3a88d46ed00b9214a8cc55ba6e67ab09, type: 3}
+  abilityName: Push
+  abilityDescription: Use your strength to shove an enemy back, pushing them several
+    meters away and potentially breaking their formation.
+  abilityIcon: {fileID: 21300000, guid: e32aad571b880e549a22b1cc2f2f84a2, type: 3}
   isUnlocked: 1
   category: 0
-  baseDamage: 5
-  damageScaling: 1
+  baseDamage: 0
+  damageScaling: 0
   scalingAttribute: 0
   usesSpellSlot: 0
   spellLevel: 0
   slotCost: 0
-  actionType: 0
-  consumesAction: 1
-  consumesBonusAction: 0
+  actionType: 1
+  consumesAction: 0
+  consumesBonusAction: 1
   consumesFreeAction: 0
   targetType: 1
   range: 1.5
   areaRadius: 0
   requiresLineOfSight: 1
   deliveryType: 1
-  visualEffectPrefab: {fileID: 4446910482871754052, guid: 51474a029092df7438c8602f19810bd6,
+  visualEffectPrefab: {fileID: 2562511408521748866, guid: 41974e8b5ffef974b9a1f9dcbee727c9,
     type: 3}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
   statusEffectName: 
   statusDuration: 0
-  abilityAnimation: {fileID: 7400000, guid: 5af0b4a3d3a93c147b0d5b517880cdd2, type: 2}
+  abilityAnimation: {fileID: 7400000, guid: d223f96f9ff399c4cb1cc73eb012ecca, type: 2}
   damageType: 0
-  specialEffect: 0
-  numberOfDice: 1
-  diceSides: 8
+  specialEffect: 5
+  numberOfDice: 0
+  diceSides: 0

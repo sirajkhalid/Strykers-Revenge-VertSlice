@@ -8,56 +8,57 @@ public class AbilityExecutor : MonoBehaviour
     public Camera mainCamera;
 
     private TurnManager turnManager;
+    private PlayerHUDManager hud;
 
     void Start()
     {
         turnManager = FindFirstObjectByType<TurnManager>();
+        hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
+        if (playerStats == null) playerStats = FindFirstObjectByType<CharacterStats>();
     }
 
     public void ExecuteAbility(Ability ability, Transform target = null)
     {
-        // Prevent casting during enemy turns
-        if (turnManager != null && !turnManager.isPlayerTurn)
-            return;
-
         if (ability == null) return;
+        if (turnManager != null && !turnManager.isPlayerTurn) return;
+        if (!playerStats.CanUseActionType(ability.actionType)) return;
 
-        // Play caster animation if available
-        if (playerAnimator && ability.abilityAnimation)
-            playerAnimator.Play(ability.abilityAnimation.name);
+        int slotCost = ability.usesSpellSlot ? Mathf.Max(ability.slotCost, 0) : 0;
+        int level = ability.spellLevel; // 0 = cantrip
+        if (!playerStats.HasSpellSlots(level, slotCost)) return;
+
+        playerStats.ConsumeActionType(ability.actionType);
+        playerStats.SpendSpellSlots(level, slotCost);
+        if (hud != null)
+        {
+            hud.UpdateActionUI();
+            hud.UpdateSpellSlotUI();
+        }
 
         switch (ability.targetType)
         {
             case Ability.TargetType.Self:
                 StartCoroutine(ExecuteSelfAbility(ability));
                 break;
-
             case Ability.TargetType.Enemy:
                 switch (ability.deliveryType)
                 {
                     case Ability.DeliveryType.Melee:
                         StartCoroutine(ExecuteMeleeAbility(ability));
                         break;
-
                     case Ability.DeliveryType.Projectile:
                         StartCoroutine(FireTowardEnemyOnly(ability));
                         break;
-
                     default:
                         StartCoroutine(FireTowardEnemyOnly(ability));
                         break;
                 }
                 break;
-
             case Ability.TargetType.Ally:
-                // Support/utility spells like Bless (area)
                 if (ability.deliveryType == Ability.DeliveryType.Area)
-                {
                     StartCoroutine(ExecuteAreaAbility(ability));
-                }
                 else
                 {
-                    // Single-target ally ability (if added later)
                     var allies = FindObjectsByType<CharacterStats>(FindObjectsSortMode.None);
                     foreach (var ally in allies)
                     {
@@ -70,27 +71,19 @@ public class AbilityExecutor : MonoBehaviour
                     }
                 }
                 break;
-
             case Ability.TargetType.Area:
                 StartCoroutine(ExecuteAreaAbility(ability));
                 break;
         }
     }
 
-
-
     IEnumerator ExecuteSelfAbility(Ability ability)
     {
-        if (ability == null || playerStats == null)
-            yield break;
+        if (ability == null || playerStats == null) yield break;
 
         if (ability.visualEffectPrefab)
         {
-            GameObject vfx = Instantiate(
-                ability.visualEffectPrefab,
-                playerStats.transform.position,
-                Quaternion.identity
-            );
+            GameObject vfx = Instantiate(ability.visualEffectPrefab, playerStats.transform.position, Quaternion.identity);
             vfx.transform.localScale = Vector3.one * 3f;
             Destroy(vfx, 1.5f);
         }
@@ -99,9 +92,8 @@ public class AbilityExecutor : MonoBehaviour
         bool isCrit = d20Roll == 20;
         bool isFail = d20Roll == 1;
 
-        float scalingValue = GetModifierForScaling(playerStats, ability.scalingAttribute);
-
-        float healRaw = Mathf.Abs(ability.baseDamage) + (d20Roll + scalingValue) * ability.damageScaling;
+        int scaling = GetModifierForScaling(playerStats, ability.scalingAttribute);
+        float healRaw = Mathf.Abs(ability.baseDamage) + (d20Roll + scaling) * ability.damageScaling;
         if (isCrit) healRaw *= 2f;
         if (isFail) healRaw *= 0.5f;
 
@@ -114,14 +106,11 @@ public class AbilityExecutor : MonoBehaviour
             string text = isFail ? "Missed Heal" : $"+{healAmount}";
             playerStats.ShowFloatingText(text, color);
         }
-
-        yield return null;
     }
 
     IEnumerator FireTowardEnemyOnly(Ability ability)
     {
-        if (ability.visualEffectPrefab == null || mainCamera == null)
-            yield break;
+        if (ability.visualEffectPrefab == null || mainCamera == null) yield break;
 
         Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0;
@@ -133,9 +122,9 @@ public class AbilityExecutor : MonoBehaviour
         if (enemyStats == null) yield break;
 
         Transform enemy = hit.collider.transform;
-
         Vector3 spawnPos = playerStats.transform.position;
         Vector3 targetPos = enemy.position;
+
         GameObject projectile = Instantiate(ability.visualEffectPrefab, spawnPos, Quaternion.identity);
         projectile.transform.localScale = Vector3.one * 3f;
 
@@ -159,33 +148,16 @@ public class AbilityExecutor : MonoBehaviour
 
         if (enemyStats != null)
         {
-            int modifier = GetModifierForScaling(playerStats, ability.scalingAttribute);
-            int damage = Mathf.RoundToInt(ability.baseDamage + modifier * ability.damageScaling);
-
-            int d20Roll = Random.Range(1, 21);
-            bool isCrit = d20Roll == 20;
-            bool isMiss = d20Roll == 1;
-            if (isCrit) damage = Mathf.RoundToInt(damage * 1.5f);
-            if (isMiss) damage = 0;
-
+            int damage = Mathf.RoundToInt(ability.baseDamage + playerStats.intelligence * ability.damageScaling);
             enemyStats.TakeDamage(damage);
-
-            if (playerStats.floatingDamagePrefab != null)
-            {
-                Color color = isCrit ? Color.yellow : Color.red;
-                string text = isMiss ? "MISS" : $"-{damage}";
-                playerStats.ShowFloatingText(text, color);
-            }
         }
 
-        if (projectile != null)
-            Destroy(projectile);
+        if (projectile != null) Destroy(projectile);
     }
 
     IEnumerator ExecuteMeleeAbility(Ability ability)
     {
-        if (ability == null || playerStats == null)
-            yield break;
+        if (ability == null || playerStats == null) yield break;
 
         if (playerAnimator && ability.abilityAnimation)
             playerAnimator.Play(ability.abilityAnimation.name);
@@ -230,12 +202,20 @@ public class AbilityExecutor : MonoBehaviour
         bool isCrit = d20Roll == 20;
         bool isMiss = d20Roll == 1;
 
-        int modifier = GetModifierForScaling(playerStats, ability.scalingAttribute);
-        int damage = Mathf.RoundToInt(ability.baseDamage + modifier * ability.damageScaling);
+        int damage = Mathf.RoundToInt(ability.baseDamage + playerStats.strength * ability.damageScaling);
         if (isCrit) damage = Mathf.RoundToInt(damage * 1.5f);
         if (isMiss) damage = 0;
 
         closestEnemy.TakeDamage(damage);
+
+        // Handle knockback via special effect
+        if (ability.specialEffect == Ability.SpecialEffect.Knockback && closestEnemy != null)
+        {
+            Vector3 pushDir = (closestEnemy.transform.position - playerStats.transform.position).normalized;
+            float pushDistance = 3f;
+            Vector3 targetPos = closestEnemy.transform.position + pushDir * pushDistance;
+            StartCoroutine(SmoothKnockback(closestEnemy.transform, targetPos, 0.25f));
+        }
 
         if (playerStats.floatingDamagePrefab != null)
         {
@@ -247,50 +227,57 @@ public class AbilityExecutor : MonoBehaviour
 
     IEnumerator ExecuteAreaAbility(Ability ability)
     {
-        if (ability == null || mainCamera == null)
-            yield break;
+        if (mainCamera == null) yield break;
 
-        // Get mouse world position
         Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorld.z = 0;
+        mouseWorld.z = 0f;
 
-        // Spawn the visual effect prefab at the clicked location
         if (ability.visualEffectPrefab)
         {
             GameObject vfx = Instantiate(ability.visualEffectPrefab, mouseWorld, Quaternion.identity);
-            vfx.transform.localScale = Vector3.one * 3f;
-            Destroy(vfx, 2f);
+            Destroy(vfx, 1.5f);
         }
 
-        // Apply effects to all allies within range
         var allies = FindObjectsByType<CharacterStats>(FindObjectsSortMode.None);
         foreach (var ally in allies)
         {
-            float dist = Vector3.Distance(mouseWorld, ally.transform.position);
-            if (dist <= ability.areaRadius)
+            if (Vector3.Distance(mouseWorld, ally.transform.position) <= ability.areaRadius)
             {
                 var effect = ally.GetComponent<StatusEffectManager>();
                 if (effect != null && ability.statusEffectName == "Blessed")
-                {
                     effect.ApplyBless(ability.statusDuration);
-                }
             }
         }
-
-        yield return null;
     }
 
-
-    private int GetModifierForScaling(CharacterStats stats, Ability.ScalingAttribute attr)
+    private IEnumerator SmoothKnockback(Transform target, Vector3 destination, float duration)
     {
-        switch (attr)
+        float elapsed = 0f;
+        Vector3 start = target.position;
+
+        while (elapsed < duration)
+        {
+            if (target == null) yield break;
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            target.position = Vector3.Lerp(start, destination, t);
+            yield return null;
+        }
+
+        if (target != null)
+            target.position = destination;
+    }
+
+    private int GetModifierForScaling(CharacterStats stats, Ability.ScalingAttribute scaling)
+    {
+        switch (scaling)
         {
             case Ability.ScalingAttribute.Strength: return stats.strength;
             case Ability.ScalingAttribute.Dexterity: return stats.dexterity;
-            case Ability.ScalingAttribute.Constitution: return stats.constitution;
             case Ability.ScalingAttribute.Intelligence: return stats.intelligence;
             case Ability.ScalingAttribute.Wisdom: return stats.wisdom;
             case Ability.ScalingAttribute.Charisma: return stats.charisma;
+            case Ability.ScalingAttribute.Constitution: return stats.constitution;
             default: return 0;
         }
     }

@@ -31,8 +31,14 @@ public class PlayerHUDManager : MonoBehaviour
     public GameObject spellSlotPrefab;
     public Sprite slotAvailableSprite;
     public Sprite slotUsedSprite;
+    public Sprite slotAvailableSpriteII;
+    public Sprite slotUsedSpriteII;
     private List<Image> level1Slots = new List<Image>();
     private List<Image> level2Slots = new List<Image>();
+
+    [Header("Spell Slot Panels")]
+    [SerializeField] private GameObject spellSlot1Container;
+    [SerializeField] private GameObject spellSlot2Container;
 
     [Header("Resting")]
     public Button shortRestButton;
@@ -49,6 +55,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             playerStats.OnHealthChanged += UpdateHealthBar;
             playerStats.OnStatsInitialized += InitializeHUD;
+            playerStats.OnStatsInitialized += UpdateSpellSlotPanels;
             playerStats.OnMovementChanged += UpdateMovementText;
         }
 
@@ -65,6 +72,8 @@ public class PlayerHUDManager : MonoBehaviour
             playerStats.OnHealthChanged -= UpdateHealthBar;
             playerStats.OnStatsInitialized -= InitializeHUD;
             playerStats.OnMovementChanged -= UpdateMovementText;
+            playerStats.OnStatsInitialized -= UpdateSpellSlotPanels;
+
         }
 
         if (shortRestButton != null)
@@ -84,6 +93,7 @@ public class PlayerHUDManager : MonoBehaviour
         GenerateSpellSlots();
         UpdateActionUI();
         UpdateSpellSlotUI();
+        UpdateSpellSlotPanels();
     }
 
     void UpdateHealthBar()
@@ -154,7 +164,13 @@ public class PlayerHUDManager : MonoBehaviour
         {
             GameObject slot = Instantiate(spellSlotPrefab, level2SlotPanel);
             Image img = slot.GetComponent<Image>();
-            img.sprite = slotAvailableSprite;
+
+            // Use the darker Level II spell slot sprite if assigned, otherwise fall back to normal
+            if (slotAvailableSpriteII != null)
+                img.sprite = slotAvailableSpriteII;
+            else
+                img.sprite = slotAvailableSprite;
+
             level2Slots.Add(img);
         }
     }
@@ -188,5 +204,19 @@ public class PlayerHUDManager : MonoBehaviour
 
         UpdateSpellSlotUI();
         Debug.Log("Short Rest: Spell slots restored.");
+    }
+
+    void UpdateSpellSlotPanels()
+    {
+        if (playerStats == null) return;
+
+        bool hasLevel1Slots = playerStats.maxLevel1Slots > 0;
+        bool hasLevel2Slots = playerStats.maxLevel2Slots > 0;
+
+        if (spellSlot1Container != null)
+            spellSlot1Container.SetActive(hasLevel1Slots);
+
+        if (spellSlot2Container != null)
+            spellSlot2Container.SetActive(hasLevel2Slots);
     }
 }
