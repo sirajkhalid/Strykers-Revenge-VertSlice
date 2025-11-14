@@ -151,6 +151,11 @@ public class EnemyStats : MonoBehaviour
 
         // Try to fade out if possible
         StartCoroutine(FadeAndDestroy());
+
+        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        if (selector != null)
+            selector.ClearSelection();
+
     }
 
     private IEnumerator FadeAndDestroy()
