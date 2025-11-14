@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -33,6 +33,7 @@ public class EnemyUI : MonoBehaviour
     private Camera cam;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
+
 
     void Awake()
     {
@@ -77,35 +78,52 @@ public class EnemyUI : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (Time.timeScale == 0f) return; // game paused; ignore hover
+        if (Time.timeScale == 0f) return;
 
-        if (enemyInfoBox != null)
-            enemyInfoBox.SetActive(true);
+        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        if (selector == null) return;
 
-        if (enemyPortraitBox != null)
-            enemyPortraitBox.SetActive(true);
-
+        // If this enemy is selected, selection UI takes priority,
+        // but still show hover UI on mouse enter.
+        ShowInfoUI();
         UpdateTopBar();
 
+        // Highlight ONLY if not the selected enemy
         if (spriteRenderer != null)
-            spriteRenderer.color = highlightColor;
+        {
+            if (selector.lockedTarget == transform)
+                spriteRenderer.color = selector.selectedColor;
+            else
+                spriteRenderer.color = highlightColor;
+        }
     }
 
     void OnMouseExit()
     {
-        if (Time.timeScale == 0f) return; // game paused; ignore hover exit too
+        if (Time.timeScale == 0f) return;
 
-        if (enemyInfoBox != null)
-            enemyInfoBox.SetActive(false);
+        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        if (selector == null) return;
 
-        if (enemyPortraitBox != null)
-            enemyPortraitBox.SetActive(false);
+        // If this is the selected enemy → keep UI visible & use selected highlight.
+        if (selector.lockedTarget == transform)
+        {
+            ShowInfoUI();
+            UpdateTopBar();
 
-        if (spriteRenderer != null)
-            spriteRenderer.color = originalColor;
+            if (spriteRenderer != null)
+                spriteRenderer.color = selector.selectedColor;
+
+            return;
+        }
+
+        // Otherwise hide hover UI and revert color
+        HideInfoUI();
+        ResetColor();
     }
 
-    void UpdateTopBar()
+
+    public void UpdateTopBar()
     {
         if (enemyStats == null) return;
 
@@ -128,6 +146,27 @@ public class EnemyUI : MonoBehaviour
             enemyPortrait.sprite = enemyStats.enemyPortrait;
     }
 
+    // Called by TargetSelector to set hover highlight
+    public void SetTemporaryHighlight(Color color)
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = color;
+    }
+
+    // Called by TargetSelector to set a locked (selected) highlight
+    public void SetPermanentHighlight(Color color)
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = color;
+    }
+
+    // Called to reset color to default
+    public void ResetColor()
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor;
+    }
+
     void OnGUI()
     {
         if (battleManager == null || enemyStats == null)
@@ -146,4 +185,23 @@ public class EnemyUI : MonoBehaviour
         GUI.DrawTexture(new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width, height), blackTex);
         GUI.DrawTexture(new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width * healthPercent, height), redTex);
     }
+
+    public void ShowInfoUI()
+    {
+        if (enemyInfoBox != null)
+            enemyInfoBox.SetActive(true);
+
+        if (enemyPortraitBox != null)
+            enemyPortraitBox.SetActive(true);
+    }
+
+    public void HideInfoUI()
+    {
+        if (enemyInfoBox != null)
+            enemyInfoBox.SetActive(false);
+
+        if (enemyPortraitBox != null)
+            enemyPortraitBox.SetActive(false);
+    }
+
 }

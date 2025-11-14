@@ -110,21 +110,25 @@ public class AbilityExecutor : MonoBehaviour
 
     IEnumerator FireTowardEnemyOnly(Ability ability)
     {
-        if (ability.visualEffectPrefab == null || mainCamera == null) yield break;
+        if (ability.visualEffectPrefab == null || mainCamera == null)
+            yield break;
 
-        Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorld.z = 0;
+        // Get selected target
+        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        Transform lockedTarget = selector != null ? selector.GetCurrentTarget() : null;
 
-        RaycastHit2D hit = Physics2D.Raycast(mouseWorld, Vector2.zero);
-        if (hit.collider == null) yield break;
+        if (lockedTarget == null)
+            yield break;
 
-        EnemyStats enemyStats = hit.collider.GetComponent<EnemyStats>();
-        if (enemyStats == null) yield break;
+        EnemyStats enemyStats = lockedTarget.GetComponent<EnemyStats>();
+        if (enemyStats == null)
+            yield break;
 
-        Transform enemy = hit.collider.transform;
+        Transform enemy = lockedTarget;
         Vector3 spawnPos = playerStats.transform.position;
         Vector3 targetPos = enemy.position;
 
+        // Create projectile
         GameObject projectile = Instantiate(ability.visualEffectPrefab, spawnPos, Quaternion.identity);
         projectile.transform.localScale = Vector3.one * 3f;
 
@@ -146,38 +150,52 @@ public class AbilityExecutor : MonoBehaviour
             yield return null;
         }
 
-        if (enemyStats != null)
-        {
-            int damage = Mathf.RoundToInt(ability.baseDamage + playerStats.intelligence * ability.damageScaling);
-            enemyStats.TakeDamage(damage);
-        }
+        // Apply damage
+        int damage = Mathf.RoundToInt(ability.baseDamage + playerStats.intelligence * ability.damageScaling);
+        enemyStats.TakeDamage(damage);
 
-        if (projectile != null) Destroy(projectile);
+        if (projectile != null)
+            Destroy(projectile);
     }
+
 
     IEnumerator ExecuteMeleeAbility(Ability ability)
     {
-        if (ability == null || playerStats == null) yield break;
+        if (ability == null || playerStats == null)
+            yield break;
 
         if (playerAnimator && ability.abilityAnimation)
             playerAnimator.Play(ability.abilityAnimation.name);
 
         yield return new WaitForSeconds(0.25f);
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(playerStats.transform.position, ability.range);
-        EnemyStats closestEnemy = null;
-        float closestDistance = Mathf.Infinity;
+        // Check if a target is selected
+        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        Transform lockedTarget = selector != null ? selector.GetCurrentTarget() : null;
 
-        foreach (Collider2D hit in hits)
+        EnemyStats closestEnemy = null;
+
+        if (lockedTarget != null)
         {
-            EnemyStats enemy = hit.GetComponent<EnemyStats>();
-            if (enemy != null)
+            closestEnemy = lockedTarget.GetComponent<EnemyStats>();
+        }
+        else
+        {
+            // Fallback: find closest enemy inside melee range
+            Collider2D[] hits = Physics2D.OverlapCircleAll(playerStats.transform.position, ability.range);
+            float closestDistance = Mathf.Infinity;
+
+            foreach (Collider2D hit in hits)
             {
-                float dist = Vector2.Distance(playerStats.transform.position, enemy.transform.position);
-                if (dist < closestDistance)
+                EnemyStats enemy = hit.GetComponent<EnemyStats>();
+                if (enemy != null)
                 {
-                    closestDistance = dist;
-                    closestEnemy = enemy;
+                    float dist = Vector2.Distance(playerStats.transform.position, enemy.transform.position);
+                    if (dist < closestDistance)
+                    {
+                        closestDistance = dist;
+                        closestEnemy = enemy;
+                    }
                 }
             }
         }
@@ -192,12 +210,14 @@ public class AbilityExecutor : MonoBehaviour
             yield break;
         }
 
+        // VFX
         if (ability.visualEffectPrefab)
         {
             GameObject vfx = Instantiate(ability.visualEffectPrefab, closestEnemy.transform.position, Quaternion.identity);
             Destroy(vfx, 1.0f);
         }
 
+        // Attack roll
         int d20Roll = Random.Range(1, 21);
         bool isCrit = d20Roll == 20;
         bool isMiss = d20Roll == 1;
@@ -208,8 +228,8 @@ public class AbilityExecutor : MonoBehaviour
 
         closestEnemy.TakeDamage(damage);
 
-        // Handle knockback via special effect
-        if (ability.specialEffect == Ability.SpecialEffect.Knockback && closestEnemy != null)
+        // Knockback effect
+        if (ability.specialEffect == Ability.SpecialEffect.Knockback)
         {
             Vector3 pushDir = (closestEnemy.transform.position - playerStats.transform.position).normalized;
             float pushDistance = 3f;
@@ -217,6 +237,7 @@ public class AbilityExecutor : MonoBehaviour
             StartCoroutine(SmoothKnockback(closestEnemy.transform, targetPos, 0.25f));
         }
 
+        // Popup text
         if (playerStats.floatingDamagePrefab != null)
         {
             Color color = isCrit ? Color.yellow : Color.red;
@@ -224,6 +245,7 @@ public class AbilityExecutor : MonoBehaviour
             playerStats.ShowFloatingText(text, color);
         }
     }
+
 
     IEnumerator ExecuteAreaAbility(Ability ability)
     {
