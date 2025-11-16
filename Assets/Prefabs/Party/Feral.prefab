@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3968197236777214605}
   - component: {fileID: -4433796842676876510}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Feral
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,10 +83,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1869315837
-  m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7384290322352760091, guid: b83d43aa1a882694b815633476e92434,
+  m_SortingLayerID: -1868916615
+  m_SortingLayer: 3
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7257567913506708742, guid: deb8001ae88f63749b9b0efc4b7ef56a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.81, y: 0.91}
+    oldSize: {x: 0.72, y: 0.9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -195,7 +195,7 @@ Animator:
   m_GameObject: {fileID: 1085118638413065071}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 67b88186929d70c4a96ed1236bf0d6a8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 48d39db7acf0e1d40a36ecb29edf820b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -219,21 +219,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bbb8980a162d34f8f1245d27ea872c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
-  characterName: Player
-  race: 0
+  characterName: Feral
+  race: 4
   characterClass: 0
-  background: 4
+  background: 1
   alignment: 4
-  characterPortrait: {fileID: 0}
+  characterPortrait: {fileID: -4954281350118843405, guid: eba4fa784adb0014fab31c9ee4668a24,
+    type: 3}
   level: 1
   currentEXP: 0
   expToNextLevel: 1000
-  strength: 10
-  dexterity: 10
-  constitution: 10
-  intelligence: 10
+  strength: 15
+  dexterity: 14
+  constitution: 13
+  intelligence: 8
   wisdom: 10
-  charisma: 10
+  charisma: 12
   strMod: 0
   dexMod: 0
   conMod: 0
@@ -264,8 +265,16 @@ MonoBehaviour:
   persuasion: 0
   maxMovement: 12
   currentMovement: 0
-  floatingDamagePrefab: {fileID: 0}
-  outOfRangePrefab: {fileID: 0}
+  floatingDamagePrefab: {fileID: 3301753505469938636, guid: 871d92440ead06f409228cb39b15bef7,
+    type: 3}
+  outOfRangePrefab: {fileID: 3301753505469938636, guid: d33cbc57824aa1849a149bdb4e07ee77,
+    type: 3}
+  maxLevel1Slots: 0
+  currentLevel1Slots: 0
+  maxLevel2Slots: 0
+  currentLevel2Slots: 0
+  hasAction: 1
+  hasBonusAction: 1
 --- !u!114 &3968197236777214605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,8 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a52d4afeb90ed41a311e736781c060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleMovement
-  characterStats: {fileID: 0}
-  playerMovement: {fileID: 0}
+  characterStats: {fileID: -600588334513296953}
+  playerMovement: {fileID: 5849754685806107408}
   battleManager: {fileID: 0}
   movementText: {fileID: 0}
   baseRange: 6

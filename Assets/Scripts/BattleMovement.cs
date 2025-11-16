@@ -32,10 +32,24 @@ public class BattleMovement : MonoBehaviour
         if (battleManager == null)
             battleManager = FindFirstObjectByType<BattleStateManager>();
 
+        if (movementText == null)
+        {
+            // Try by object name
+            var found = GameObject.Find("MovementNum");
+            if (found != null)
+                movementText = found.GetComponent<TMP_Text>();
+
+            // Fallback
+            if (movementText == null)
+                movementText = FindFirstObjectByType<TMP_Text>();
+        }
+
         turnManager = FindFirstObjectByType<TurnManager>();
 
         lastPosition = transform.position;
     }
+
+
 
     void Update()
     {
