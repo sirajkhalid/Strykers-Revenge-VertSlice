@@ -43,6 +43,9 @@ public class PlayerHUDManager : MonoBehaviour
     [Header("Resting")]
     public Button shortRestButton;
 
+    [Header("Skill Bar")]
+    public Transform skillBarParent;
+
     void Awake()
     {
         if (playerStats == null)
@@ -64,6 +67,31 @@ public class PlayerHUDManager : MonoBehaviour
         if (shortRestButton != null)
             shortRestButton.onClick.AddListener(OnShortRestPressed);
     }
+
+    public void SetTarget(CharacterStats newStats)
+    {
+        if (playerStats != null)
+        {
+            // Unhook old events
+            playerStats.OnHealthChanged -= UpdateHealthBar;
+            playerStats.OnStatsInitialized -= InitializeHUD;
+            playerStats.OnMovementChanged -= UpdateMovementText;
+        }
+
+        playerStats = newStats;
+
+        if (playerStats != null)
+        {
+            // Hook events
+            playerStats.OnHealthChanged += UpdateHealthBar;
+            playerStats.OnStatsInitialized += InitializeHUD;
+            playerStats.OnMovementChanged += UpdateMovementText;
+        }
+
+        // Force refresh
+        InitializeHUD();
+    }
+
 
     void OnDestroy()
     {
@@ -112,9 +140,15 @@ public class PlayerHUDManager : MonoBehaviour
         if (movementText == null || playerStats == null) return;
 
         if (isInCombat)
+        {
             movementText.text = $"{playerStats.currentMovement:0.00}m / {playerStats.maxMovement:0.00}m";
+        }
         else
+        {
+            // always show max movement when not in combat
             movementText.text = $"{playerStats.maxMovement:0.0}m";
+        }
+
     }
 
     public void SetCombatState(bool inCombat)
@@ -219,4 +253,59 @@ public class PlayerHUDManager : MonoBehaviour
         if (spellSlot2Container != null)
             spellSlot2Container.SetActive(hasLevel2Slots);
     }
+
+    public void RefreshSkillBar(CharacterStats stats)
+    {
+        if (skillBarParent == null || stats == null) return;
+
+        AbilityLoadout loadout = stats.GetComponent<AbilityLoadout>();
+        var slots = skillBarParent.GetComponentsInChildren<SkillSlot>(true);
+
+        if (loadout == null)
+        {
+            // Clear all slots if no loadout
+            foreach (var slot in slots)
+            {
+                slot.assignedAbility = null;
+                if (slot.iconImage == null)
+                    slot.iconImage = slot.GetComponent<Image>();
+
+                if (slot.iconImage != null)
+                {
+                    slot.iconImage.sprite = null;
+                    slot.iconImage.color = new Color(1f, 1f, 1f, 0f);
+                }
+            }
+            return;
+        }
+
+        Ability[] abilities = loadout.abilities;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            SkillSlot uiSlot = slots[i];
+
+            if (uiSlot.iconImage == null)
+                uiSlot.iconImage = uiSlot.GetComponent<Image>();
+
+            Ability ability = (abilities != null && i < abilities.Length) ? abilities[i] : null;
+
+            uiSlot.assignedAbility = ability;
+
+            if (ability != null && ability.abilityIcon != null && uiSlot.iconImage != null)
+            {
+                uiSlot.iconImage.sprite = ability.abilityIcon;
+                uiSlot.iconImage.color = Color.white;
+            }
+            else if (uiSlot.iconImage != null)
+            {
+                uiSlot.iconImage.sprite = null;
+                uiSlot.iconImage.color = new Color(1f, 1f, 1f, 0f); // transparent icon
+            }
+        }
+    }
+
+
+
+
 }

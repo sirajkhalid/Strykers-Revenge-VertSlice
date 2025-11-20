@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -600588334513296953}
   - component: {fileID: 3968197236777214605}
   - component: {fileID: -4433796842676876510}
+  - component: {fileID: -6381758806445957918}
   m_Layer: 0
   m_Name: Callus
   m_TagString: Player
@@ -226,11 +227,13 @@ MonoBehaviour:
   alignment: 3
   characterPortrait: {fileID: 4132029369919642824, guid: 8a70c99f507934e47b8477f3ead48506,
     type: 3}
+  characterSquarePortrait: {fileID: 4722828835409856844, guid: e0ba9f7860b01f248ad6dd83e796df68,
+    type: 3}
   level: 1
   currentEXP: 0
   expToNextLevel: 1000
   strength: 8
-  dexterity: 12
+  dexterity: 6
   constitution: 13
   intelligence: 15
   wisdom: 14
@@ -263,6 +266,7 @@ MonoBehaviour:
   intimidation: 0
   performance: 0
   persuasion: 0
+  baseMovement: 12
   maxMovement: 12
   currentMovement: 0
   floatingDamagePrefab: {fileID: 3301753505469938636, guid: 871d92440ead06f409228cb39b15bef7,
@@ -275,6 +279,9 @@ MonoBehaviour:
   currentLevel2Slots: 0
   hasAction: 1
   hasBonusAction: 1
+  swapInVFX: {fileID: 0}
+  swapOutVFX: {fileID: 0}
+  vfxLifetime: 1
 --- !u!114 &3968197236777214605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +316,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
     type: 3}
+--- !u!114 &-6381758806445957918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085118638413065071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678cdcbb59d4bde459eac3c0ddfc4917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
+  abilities:
+  - {fileID: 11400000, guid: b752d3d49ccb42346ac866c5d22c382e, type: 2}
+  - {fileID: 11400000, guid: e7a2fe8a4959acc40842013fb3dd6914, type: 2}
+  - {fileID: 11400000, guid: b8698ab02adbffa4aa76bafb3605e71c, type: 2}
+  - {fileID: 11400000, guid: fa023a8326e9ad54f92f6b19ca23af36, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

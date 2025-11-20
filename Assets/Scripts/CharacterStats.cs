@@ -1,5 +1,7 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum Race
 {
@@ -59,6 +61,7 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Portrait")]
     public Sprite characterPortrait;
+    public Sprite characterSquarePortrait;
 
     [Header("Progression")]
     public int level = 1;
@@ -108,7 +111,8 @@ public class CharacterStats : MonoBehaviour
     public int persuasion;
 
     [Header("Movement")]
-    public float maxMovement = 12f;    // Default out-of-combat movement
+    public float baseMovement = 12f;   // Base movement before modifiers
+    public float maxMovement;          // Calculated total
     public float currentMovement;      // Used during battle
 
     [Header("UI Feedback")]
@@ -118,6 +122,7 @@ public class CharacterStats : MonoBehaviour
     public event Action OnHealthChanged; //Called when health changes
     public event Action OnStatsInitialized;
     public event Action OnMovementChanged;
+    public event Action OnDeath;
 
     [Header("Spell Slots")]
     public int maxLevel1Slots;
@@ -129,6 +134,17 @@ public class CharacterStats : MonoBehaviour
     [Header("Action Economy")]
     public bool hasAction = true;
     public bool hasBonusAction = true;
+
+    [Header("Swap VFX")]
+    public GameObject swapInVFX;
+    public GameObject swapOutVFX;
+    public float vfxLifetime = 1.0f;
+
+    [Header("Switching")]
+    public bool hasSwitchedThisRound = false;
+    public bool midSwapEnteredTurn = false;
+
+
 
 
     void Start()
@@ -257,6 +273,11 @@ public class CharacterStats : MonoBehaviour
 
         // EXP Scaling
         expToNextLevel = level * 1000;
+
+        // Movement
+        maxMovement = baseMovement + dexMod;
+        maxMovement = Mathf.Max(1f, maxMovement);
+        currentMovement = maxMovement;
     }
 
     void CalculateSpellSlots()
@@ -447,6 +468,20 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(newHealth, 0, maxHealth);
         OnHealthChanged?.Invoke();
+
+        if (currentHealth <= 0)
+        {
+            HandleDeath();
+        }
+    }
+
+    private void HandleDeath()
+    {
+        // Prevent calls if already dead
+        if (currentHealth > 0) return;
+
+        OnDeath?.Invoke();
+        StartCoroutine(FadeOutAndDestroy());
     }
 
     public void SetCurrentMovement(float newValue)
@@ -501,6 +536,41 @@ public class CharacterStats : MonoBehaviour
     {
         hasAction = true;
         hasBonusAction = true;
+        hasSwitchedThisRound = false;
+    }
+
+    private IEnumerator FadeOutAndDestroy()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        float duration = 1.5f;
+        float elapsed = 0f;
+        Color startColor = sr.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            sr.color = Color.Lerp(startColor, endColor, elapsed / duration);
+            yield return null;
+        }
+
+        // Remove or deactivate the character
+        sr.color = endColor;
+        gameObject.SetActive(false);
+
+        // Signal party controller
+        var party = FindFirstObjectByType<PlayerPartyController>();
+        if (party != null)
+        {
+            if (party.HasAliveBackup())
+            {
+                party.SwitchToNextAlive();
+            }
+            else
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+        }
     }
 
 }

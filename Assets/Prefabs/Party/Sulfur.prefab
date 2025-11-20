@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -600588334513296953}
   - component: {fileID: 3968197236777214605}
   - component: {fileID: -4433796842676876510}
+  - component: {fileID: 2674539544089438551}
   m_Layer: 0
   m_Name: Sulfur
   m_TagString: Player
@@ -226,6 +227,8 @@ MonoBehaviour:
   alignment: 1
   characterPortrait: {fileID: 1828737029785011499, guid: e13e69964f3c7c542b97526741c2e8c9,
     type: 3}
+  characterSquarePortrait: {fileID: -6894578866100436022, guid: 10acf96cdd05acb43a889f46a1845614,
+    type: 3}
   level: 1
   currentEXP: 0
   expToNextLevel: 1000
@@ -309,3 +312,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
     type: 3}
+--- !u!114 &2674539544089438551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085118638413065071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678cdcbb59d4bde459eac3c0ddfc4917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
+  abilities:
+  - {fileID: 11400000, guid: b752d3d49ccb42346ac866c5d22c382e, type: 2}
+  - {fileID: 11400000, guid: b8698ab02adbffa4aa76bafb3605e71c, type: 2}
+  - {fileID: 11400000, guid: 48898c58aea7764408f440bba6ef2040, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

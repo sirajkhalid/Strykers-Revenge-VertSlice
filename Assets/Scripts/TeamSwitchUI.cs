@@ -64,7 +64,7 @@ public class TeamSwitchUI : MonoBehaviour
         CharacterStats stats = obj.GetComponent<CharacterStats>();
 
         portrait.enabled = true;
-        portrait.sprite = stats.characterPortrait;
+        portrait.sprite = stats.characterSquarePortrait;
 
         bool isDead = stats.currentHealth <= 0;
         bool isSelected = party.activeIndex == index;

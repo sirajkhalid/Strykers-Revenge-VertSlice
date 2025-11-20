@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -600588334513296953}
   - component: {fileID: 3968197236777214605}
   - component: {fileID: -4433796842676876510}
+  - component: {fileID: 8540340804623000089}
   m_Layer: 0
   m_Name: Feral
   m_TagString: Player
@@ -226,11 +227,13 @@ MonoBehaviour:
   alignment: 4
   characterPortrait: {fileID: -4954281350118843405, guid: eba4fa784adb0014fab31c9ee4668a24,
     type: 3}
+  characterSquarePortrait: {fileID: 3591796612882734798, guid: 708f7ec031ce6c745963bba6e589dd6d,
+    type: 3}
   level: 1
   currentEXP: 0
   expToNextLevel: 1000
   strength: 15
-  dexterity: 14
+  dexterity: 15
   constitution: 13
   intelligence: 8
   wisdom: 10
@@ -263,6 +266,7 @@ MonoBehaviour:
   intimidation: 0
   performance: 0
   persuasion: 0
+  baseMovement: 12
   maxMovement: 12
   currentMovement: 0
   floatingDamagePrefab: {fileID: 3301753505469938636, guid: 871d92440ead06f409228cb39b15bef7,
@@ -275,6 +279,9 @@ MonoBehaviour:
   currentLevel2Slots: 0
   hasAction: 1
   hasBonusAction: 1
+  swapInVFX: {fileID: 0}
+  swapOutVFX: {fileID: 0}
+  vfxLifetime: 1
 --- !u!114 &3968197236777214605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +316,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
     type: 3}
+--- !u!114 &8540340804623000089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085118638413065071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678cdcbb59d4bde459eac3c0ddfc4917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
+  abilities:
+  - {fileID: 11400000, guid: 48898c58aea7764408f440bba6ef2040, type: 2}
+  - {fileID: 11400000, guid: 933472d345d117348b0175713dc143c5, type: 2}
+  - {fileID: 11400000, guid: 524795d1fcb376a46a83b866162a4b5b, type: 2}
+  - {fileID: 11400000, guid: b8698ab02adbffa4aa76bafb3605e71c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

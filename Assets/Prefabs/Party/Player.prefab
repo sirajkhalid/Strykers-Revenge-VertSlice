@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: -600588334513296953}
   - component: {fileID: 3968197236777214605}
   - component: {fileID: -4433796842676876510}
+  - component: {fileID: 3194323988442220174}
   m_Layer: 0
-  m_Name: Kontas
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.95, y: -10.03, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -86,8 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7384290322352760091, guid: b83d43aa1a882694b815633476e92434,
-    type: 3}
+  m_Sprite: {fileID: 43432494280949020, guid: 1424b5d6b6a14d748b2ccdf5711be516, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.81, y: 0.91}
+    oldSize: {x: 0.26, y: 0.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -226,11 +226,13 @@ MonoBehaviour:
   alignment: 4
   characterPortrait: {fileID: -1038705139875465512, guid: 1925be3d25441f943a3aec818c5994f9,
     type: 3}
+  characterSquarePortrait: {fileID: -2666963863285671113, guid: afb81e48257d6694c836d53618b55038,
+    type: 3}
   level: 1
   currentEXP: 0
   expToNextLevel: 1000
   strength: 10
-  dexterity: 13
+  dexterity: 9
   constitution: 14
   intelligence: 17
   wisdom: 13
@@ -263,6 +265,7 @@ MonoBehaviour:
   intimidation: 0
   performance: 0
   persuasion: 0
+  baseMovement: 12
   maxMovement: 12
   currentMovement: 0
   floatingDamagePrefab: {fileID: 3301753505469938636, guid: 871d92440ead06f409228cb39b15bef7,
@@ -275,6 +278,11 @@ MonoBehaviour:
   currentLevel2Slots: 0
   hasAction: 1
   hasBonusAction: 1
+  swapInVFX: {fileID: 6986378234205395361, guid: f0c2f491b80c814429dba440b7bdae72,
+    type: 3}
+  swapOutVFX: {fileID: 0}
+  vfxLifetime: 0.9
+  hasSwitchedThisRound: 0
 --- !u!114 &3968197236777214605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +317,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
     type: 3}
+--- !u!114 &3194323988442220174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085118638413065071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678cdcbb59d4bde459eac3c0ddfc4917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
+  abilities:
+  - {fileID: 11400000, guid: e7a2fe8a4959acc40842013fb3dd6914, type: 2}
+  - {fileID: 11400000, guid: fa023a8326e9ad54f92f6b19ca23af36, type: 2}
+  - {fileID: 11400000, guid: b8698ab02adbffa4aa76bafb3605e71c, type: 2}
+  - {fileID: 11400000, guid: b752d3d49ccb42346ac866c5d22c382e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
