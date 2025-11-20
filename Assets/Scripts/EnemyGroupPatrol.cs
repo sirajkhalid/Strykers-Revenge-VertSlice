@@ -2,56 +2,74 @@ using UnityEngine;
 
 public class EnemyGroupPatrol : MonoBehaviour
 {
-    public Transform[] waypoints; // Array of waypoints for the patrol path
-    public float speed = 2f; // Speed of the enemies
-    public float waypointThreshold = 0.1f; // Distance to consider a waypoint reached
-    public float detectionRange = 3f; // Distance at which the player is detected
-    public Transform player; // Reference to the player character
-    public BattleStateManager battleStateManager; // Reference to the BattleStateManager
+    [Header("Patrol")]
+    public Transform[] waypoints;          // Patrol path
+    public float speed = 2f;
+    public float waypointThreshold = 0.1f;
+
+    [Header("Detection")]
+    public float detectionRange = 3f;      // How close the active hero needs to be
+
+    [Header("Battle")]
+    public BattleStateManager battleStateManager; // Hook in inspector or auto-find
 
     private int currentWaypointIndex = 0;
     private bool isPatrolling = true;
 
+    private PlayerPartyController partyController;
+
+    void Start()
+    {
+        // Get references at runtime
+        partyController = FindFirstObjectByType<PlayerPartyController>();
+        if (battleStateManager == null)
+            battleStateManager = FindFirstObjectByType<BattleStateManager>();
+    }
+
     void Update()
     {
-        if (isPatrolling)
-        {
-            Patrol();
-            DetectPlayer();
-        }
+        if (!isPatrolling)
+            return;
+
+        Patrol();
+        DetectPlayer();
     }
 
     void Patrol()
     {
-        // Get the current waypoint position
+        if (waypoints == null || waypoints.Length == 0)
+            return;
+
         Transform targetWaypoint = waypoints[currentWaypointIndex];
 
-        // Move towards the current waypoint
         Vector3 direction = (targetWaypoint.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
 
-        // Check if the group has reached the current waypoint
         if (Vector3.Distance(transform.position, targetWaypoint.position) < waypointThreshold)
         {
-            // Move to the next waypoint
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 
     void DetectPlayer()
     {
-        // Check if the player is within detection range
-        if (Vector3.Distance(transform.position, player.position) <= detectionRange)
-        {
-            isPatrolling = false; // Stop patrolling
-            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-            if (playerMovement != null)
-            {
-                playerMovement.canMove = false; // Stop player movement
-            }
+        if (partyController == null || partyController.activeMember == null)
+            return;
 
-            // Trigger battle state
-            battleStateManager.StartBattle();
+        Transform activePlayer = partyController.activeMember.transform;
+
+        if (Vector3.Distance(transform.position, activePlayer.position) <= detectionRange)
+        {
+            isPatrolling = false;
+
+            // Stop the active hero’s overworld movement
+            PlayerMovement playerMovement = activePlayer.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+                playerMovement.canMove = false;
+
+            // Start the battle
+            if (battleStateManager != null)
+                battleStateManager.StartBattle();
         }
     }
 }

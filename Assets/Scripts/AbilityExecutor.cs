@@ -3,23 +3,48 @@ using System.Collections;
 
 public class AbilityExecutor : MonoBehaviour
 {
-    public CharacterStats playerStats;
-    public Animator playerAnimator;
+    public CharacterStats playerStats;   // set from active party member
+    public Animator playerAnimator;      // Also from active member
     public Camera mainCamera;
 
     private TurnManager turnManager;
     private PlayerHUDManager hud;
+    private PlayerPartyController party;
 
     void Start()
     {
         turnManager = FindFirstObjectByType<TurnManager>();
         hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
-        if (playerStats == null) playerStats = FindFirstObjectByType<CharacterStats>();
+        party = FindFirstObjectByType<PlayerPartyController>();
+
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+    }
+
+
+    // Make sure to always use the *current* active party member.
+
+    private void RefreshActiveCharacter()
+    {
+        if (party == null)
+            party = FindFirstObjectByType<PlayerPartyController>();
+
+        if (party != null)
+        {
+            playerStats = party.GetActiveStats();
+            if (party.activeMember != null)
+                playerAnimator = party.activeMember.GetComponent<Animator>();
+        }
     }
 
     public void ExecuteAbility(Ability ability, Transform target = null)
     {
         if (ability == null) return;
+
+        // Always sync to the currently active party member
+        RefreshActiveCharacter();
+        if (playerStats == null) return;
+
         if (turnManager != null && !turnManager.isPlayerTurn) return;
         if (!playerStats.CanUseActionType(ability.actionType)) return;
 
@@ -27,8 +52,10 @@ public class AbilityExecutor : MonoBehaviour
         int level = ability.spellLevel; // 0 = cantrip
         if (!playerStats.HasSpellSlots(level, slotCost)) return;
 
+        // Spend resources on the *correct* character
         playerStats.ConsumeActionType(ability.actionType);
         playerStats.SpendSpellSlots(level, slotCost);
+
         if (hud != null)
         {
             hud.UpdateActionUI();
@@ -40,20 +67,24 @@ public class AbilityExecutor : MonoBehaviour
             case Ability.TargetType.Self:
                 StartCoroutine(ExecuteSelfAbility(ability));
                 break;
+
             case Ability.TargetType.Enemy:
                 switch (ability.deliveryType)
                 {
                     case Ability.DeliveryType.Melee:
                         StartCoroutine(ExecuteMeleeAbility(ability));
                         break;
+
                     case Ability.DeliveryType.Projectile:
                         StartCoroutine(FireTowardEnemyOnly(ability));
                         break;
-                    default:
-                        StartCoroutine(FireTowardEnemyOnly(ability));
+
+                    case Ability.DeliveryType.Instant:
+                        StartCoroutine(ExecuteInstantMagic(ability));
                         break;
                 }
                 break;
+
             case Ability.TargetType.Ally:
                 if (ability.deliveryType == Ability.DeliveryType.Area)
                     StartCoroutine(ExecuteAreaAbility(ability));
@@ -71,6 +102,7 @@ public class AbilityExecutor : MonoBehaviour
                     }
                 }
                 break;
+
             case Ability.TargetType.Area:
                 StartCoroutine(ExecuteAreaAbility(ability));
                 break;
@@ -98,7 +130,9 @@ public class AbilityExecutor : MonoBehaviour
         if (isFail) healRaw *= 0.5f;
 
         int healAmount = Mathf.RoundToInt(healRaw);
-        playerStats.currentHealth = Mathf.Min(playerStats.currentHealth + healAmount, playerStats.maxHealth);
+
+        // Use SetCurrentHealth so HUD updates correctly
+        playerStats.SetCurrentHealth(playerStats.currentHealth + healAmount);
 
         if (playerStats.floatingDamagePrefab != null)
         {
@@ -110,10 +144,9 @@ public class AbilityExecutor : MonoBehaviour
 
     IEnumerator FireTowardEnemyOnly(Ability ability)
     {
-        if (ability.visualEffectPrefab == null || mainCamera == null)
+        if (ability.visualEffectPrefab == null || mainCamera == null || playerStats == null)
             yield break;
 
-        // Get selected target
         TargetSelector selector = FindFirstObjectByType<TargetSelector>();
         Transform lockedTarget = selector != null ? selector.GetCurrentTarget() : null;
 
@@ -128,7 +161,6 @@ public class AbilityExecutor : MonoBehaviour
         Vector3 spawnPos = playerStats.transform.position;
         Vector3 targetPos = enemy.position;
 
-        // Create projectile
         GameObject projectile = Instantiate(ability.visualEffectPrefab, spawnPos, Quaternion.identity);
         projectile.transform.localScale = Vector3.one * 3f;
 
@@ -150,14 +182,12 @@ public class AbilityExecutor : MonoBehaviour
             yield return null;
         }
 
-        // Apply damage
         int damage = Mathf.RoundToInt(ability.baseDamage + playerStats.intelligence * ability.damageScaling);
         enemyStats.TakeDamage(damage);
 
         if (projectile != null)
             Destroy(projectile);
     }
-
 
     IEnumerator ExecuteMeleeAbility(Ability ability)
     {
@@ -169,7 +199,6 @@ public class AbilityExecutor : MonoBehaviour
 
         yield return new WaitForSeconds(0.25f);
 
-        // Check if a target is selected
         TargetSelector selector = FindFirstObjectByType<TargetSelector>();
         Transform lockedTarget = selector != null ? selector.GetCurrentTarget() : null;
 
@@ -181,7 +210,6 @@ public class AbilityExecutor : MonoBehaviour
         }
         else
         {
-            // Fallback: find closest enemy inside melee range
             Collider2D[] hits = Physics2D.OverlapCircleAll(playerStats.transform.position, ability.range);
             float closestDistance = Mathf.Infinity;
 
@@ -210,14 +238,12 @@ public class AbilityExecutor : MonoBehaviour
             yield break;
         }
 
-        // VFX
         if (ability.visualEffectPrefab)
         {
             GameObject vfx = Instantiate(ability.visualEffectPrefab, closestEnemy.transform.position, Quaternion.identity);
             Destroy(vfx, 1.0f);
         }
 
-        // Attack roll
         int d20Roll = Random.Range(1, 21);
         bool isCrit = d20Roll == 20;
         bool isMiss = d20Roll == 1;
@@ -228,7 +254,6 @@ public class AbilityExecutor : MonoBehaviour
 
         closestEnemy.TakeDamage(damage);
 
-        // Knockback effect
         if (ability.specialEffect == Ability.SpecialEffect.Knockback)
         {
             Vector3 pushDir = (closestEnemy.transform.position - playerStats.transform.position).normalized;
@@ -237,7 +262,6 @@ public class AbilityExecutor : MonoBehaviour
             StartCoroutine(SmoothKnockback(closestEnemy.transform, targetPos, 0.25f));
         }
 
-        // Popup text
         if (playerStats.floatingDamagePrefab != null)
         {
             Color color = isCrit ? Color.yellow : Color.red;
@@ -245,7 +269,6 @@ public class AbilityExecutor : MonoBehaviour
             playerStats.ShowFloatingText(text, color);
         }
     }
-
 
     IEnumerator ExecuteAreaAbility(Ability ability)
     {
@@ -289,6 +312,38 @@ public class AbilityExecutor : MonoBehaviour
         if (target != null)
             target.position = destination;
     }
+
+    IEnumerator ExecuteInstantMagic(Ability ability)
+    {
+        if (ability == null || playerStats == null) yield break;
+
+        // Get locked target
+        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        Transform lockedTarget = selector != null ? selector.GetCurrentTarget() : null;
+        if (lockedTarget == null) yield break;
+
+        EnemyStats enemyStats = lockedTarget.GetComponent<EnemyStats>();
+        if (enemyStats == null) yield break;
+
+        Vector3 pos = lockedTarget.position;
+
+        // Spawn the effect directly on the enemy
+        if (ability.visualEffectPrefab)
+        {
+            GameObject vfx = Instantiate(ability.visualEffectPrefab, pos, Quaternion.identity);
+            vfx.transform.localScale = Vector3.one * 3f;
+            Destroy(vfx, 1.5f);
+        }
+
+        // Calculate damage
+        int dmg = Mathf.RoundToInt(ability.baseDamage + playerStats.intelligence * ability.damageScaling);
+        enemyStats.TakeDamage(dmg);
+
+        // Floating damage text
+        if (playerStats.floatingDamagePrefab != null)
+            playerStats.ShowFloatingText($"-{dmg}", Color.red);
+    }
+
 
     private int GetModifierForScaling(CharacterStats stats, Ability.ScalingAttribute scaling)
     {
