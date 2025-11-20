@@ -133,7 +133,7 @@ public class EnemyStats : MonoBehaviour
             Die();
     }
 
-    private void ShowFloatingText(string text, Color color)
+    public void ShowFloatingText(string text, Color color)
     {
         if (floatingDamagePrefab == null) return;
         Vector3 spawnPos = transform.position + new Vector3(0, 1.5f, 0);
