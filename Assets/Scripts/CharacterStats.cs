@@ -144,6 +144,10 @@ public class CharacterStats : MonoBehaviour
     public bool hasSwitchedThisRound = false;
     public bool midSwapEnteredTurn = false;
 
+    [Header("Ability Animation")]
+    public AnimationClip castAnimation;
+
+
 
 
 
