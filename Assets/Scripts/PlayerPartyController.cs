@@ -95,9 +95,6 @@ public class PlayerPartyController : MonoBehaviour
         CharacterStats oldStats = oldChar.GetComponent<CharacterStats>();
         if (!oldStats) return;
 
-        if (oldStats.currentHealth <= 0)
-            return;
-
         GameObject newChar = partyMembers[newIndex];
         if (!newChar) return;
 
@@ -111,24 +108,6 @@ public class PlayerPartyController : MonoBehaviour
         var turnManager = FindFirstObjectByType<TurnManager>();
         bool inBattle = battle && battle.isBattleActive;
 
-        // BATTLE SWITCH CHECKS
-        if (inBattle)
-        {
-            if (!turnManager) return;
-
-            if (!turnManager.isPlayerTurn)
-                return;
-
-            if (turnManager.currentTurnObject != oldChar)
-                return;
-
-            if (oldStats.hasSwitchedThisRound)
-                return;
-
-            if (!oldStats.hasBonusAction)
-                return;
-        }
-
         // POSITION + VFX
         Transform anchor = oldChar.transform.childCount > 0
             ? oldChar.transform.GetChild(0)
@@ -139,10 +118,11 @@ public class PlayerPartyController : MonoBehaviour
 
         if (oldStats.swapOutVFX)
         {
-            GameObject vfx = GameObject.Instantiate(oldStats.swapOutVFX, anchor.position, Quaternion.identity);
+            GameObject vfx = Instantiate(oldStats.swapOutVFX, anchor.position, Quaternion.identity);
             Destroy(vfx, oldStats.vfxLifetime);
         }
 
+        // NO DISABLING until after switch is fully done
         oldChar.SetActive(false);
 
         newChar.transform.position = pos;
@@ -159,7 +139,7 @@ public class PlayerPartyController : MonoBehaviour
 
         if (newStats.swapInVFX)
         {
-            GameObject vfx = GameObject.Instantiate(newStats.swapInVFX, pos, Quaternion.identity);
+            GameObject vfx = Instantiate(newStats.swapInVFX, pos, Quaternion.identity);
             Destroy(vfx, newStats.vfxLifetime);
         }
 
@@ -177,7 +157,11 @@ public class PlayerPartyController : MonoBehaviour
 
         var teamUI = FindFirstObjectByType<TeamSwitchUI>();
         if (teamUI)
+        {
             teamUI.RefreshDisplay();
+            teamUI.PlayPortraitSelectFX(newIndex); 
+        }
+
 
         // MID-BATTLE SWITCH LOGIC
         if (inBattle)
@@ -202,7 +186,7 @@ public class PlayerPartyController : MonoBehaviour
         }
     }
 
-    // NEXT ALIVE (DEATH SWITCHING)
+    // Next alive (switch on death)
     public bool HasAliveBackup()
     {
         foreach (var member in partyMembers)
@@ -246,4 +230,44 @@ public class PlayerPartyController : MonoBehaviour
         }
     }
 
+    public void NotifyMemberDied(CharacterStats deadStats)
+    {
+        GameObject deadGO = deadStats.gameObject;
+
+        // Disable sprite (not entire object)
+        SpriteRenderer sr = deadGO.GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.enabled = false;
+
+        // Retarget all enemies
+        foreach (var ai in FindObjectsByType<EnemyAIController>(
+                     FindObjectsInactive.Include,
+                     FindObjectsSortMode.None))
+        {
+            if (activeMember != null)
+                ai.ForceRetarget(activeMember.transform);
+        }
+
+        // If the dead one wasn't the active member, nothing else to switch
+        if (deadGO != activeMember)
+            return;
+
+        // If there is another alive party member, switch
+        if (HasAliveBackup())
+        {
+            SwitchToNextAlive();
+
+            // After switching, retarget again
+            foreach (var ai in FindObjectsByType<EnemyAIController>(
+                         FindObjectsInactive.Include,
+                         FindObjectsSortMode.None))
+            {
+                ai.ForceRetarget(activeMember.transform);
+            }
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+        }
+    }
 }

@@ -1,7 +1,8 @@
+﻿using DG.Tweening;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Collections.Generic;
 
 public class PlayerHUDManager : MonoBehaviour
 {
@@ -45,6 +46,19 @@ public class PlayerHUDManager : MonoBehaviour
 
     [Header("Skill Bar")]
     public Transform skillBarParent;
+
+    [Header("Animated Health Bar")]
+    public Image chipHealthFill;     // Secondary bar that lags behind
+    public float chipDelay = 0.25f;  // Delay before chip bar starts shrinking
+    public float chipSpeed = 0.6f;   // How fast chip bar shrinks
+    public Color damageFlashColor = new Color(1f, 0.3f, 0.3f);
+    public float flashDuration = 0.15f;
+
+    private Tween chipTween;
+    private Tween flashTween;
+    private Tween lowHealthTween;
+
+
 
     void Awake()
     {
@@ -126,14 +140,88 @@ public class PlayerHUDManager : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        if (playerStats == null || healthFill == null || healthNumText == null) return;
+        if (playerStats == null || healthFill == null || healthNumText == null)
+            return;
 
         float healthPercent = Mathf.Clamp01((float)playerStats.currentHealth / playerStats.maxHealth);
-        RectTransform rt = healthFill.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(maxBarWidth * healthPercent, rt.sizeDelta.y);
 
+        // --- MAIN BAR INSTANT UPDATE ---
+        RectTransform mainRT = healthFill.GetComponent<RectTransform>();
+        float newWidth = maxBarWidth * healthPercent;
+
+        // Animate the main bar
+        mainRT.DOSizeDelta(
+            new Vector2(newWidth, mainRT.sizeDelta.y),
+            0.25f
+        ).SetEase(Ease.OutCubic);
+
+        // Update text
         healthNumText.text = $"{playerStats.currentHealth} / {playerStats.maxHealth}";
+
+        // --- DAMAGE FLASH (only if losing HP) ---
+        if (healthFill.fillAmount > healthPercent)
+        {
+            // Kill previous flash
+            flashTween?.Kill();
+
+            // Flash color and return to white
+            flashTween = healthFill.DOColor(damageFlashColor, flashDuration)
+                .SetLoops(2, LoopType.Yoyo)
+                .SetEase(Ease.OutQuad);
+        }
+
+        // --- CHIP DAMAGE BAR ---
+        if (chipHealthFill != null)
+        {
+            RectTransform chipRT = chipHealthFill.GetComponent<RectTransform>();
+            float chipWidth = chipRT.sizeDelta.x;
+
+            // If chip bar is ahead, animate it down to the new value
+            if (chipWidth > newWidth)
+            {
+                chipTween?.Kill();
+
+                chipTween = DOVirtual.DelayedCall(chipDelay, () =>
+                {
+                    chipRT.DOSizeDelta(
+                        new Vector2(newWidth, chipRT.sizeDelta.y),
+                        chipSpeed
+                    ).SetEase(Ease.OutCubic);
+
+                });
+            }
+            else
+            {
+                // If healing → snap chip bar up immediately
+                chipRT.sizeDelta = new Vector2(newWidth, chipRT.sizeDelta.y);
+            }
+        }
+
+        // --- LOW HEALTH PULSE (under 30%) ---
+        float lowPercent = playerStats.currentHealth / (float)playerStats.maxHealth;
+
+        if (lowPercent < 0.30f)
+        {
+            if (lowHealthTween == null)
+            {
+                lowHealthTween = healthFill.transform.DOScale(1.05f, 0.5f)
+                    .SetLoops(-1, LoopType.Yoyo)
+                    .SetEase(Ease.OutSine);
+            }
+        }
+        else
+        {
+            // Stop pulsing if HP recovered
+            lowHealthTween?.Kill();
+            lowHealthTween = null;
+            healthFill.transform.localScale = Vector3.one;
+        }
+
+        // Update the fillAmount AFTER animations for logic purposes
+        healthFill.fillAmount = healthPercent;
     }
+
+
 
     void UpdateMovementText()
     {

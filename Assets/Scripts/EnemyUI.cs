@@ -1,6 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using DG.Tweening;
+using System.Collections;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(EnemyStats))]
 public class EnemyUI : MonoBehaviour
@@ -15,17 +17,19 @@ public class EnemyUI : MonoBehaviour
     private Texture2D redTex;
     private Texture2D blackTex;
 
+    [Header("Mini Bar Animation")]
+    public float miniDisplayedHP = 1f; // smoothed health %
+
     [Header("Top Hover UI (Enemy Info)")]
-    public GameObject enemyInfoBox;        // EnemyInfoBox from BattleUI
-    public TMP_Text enemyNameText;         // EnemyNameText
-    public TMP_Text enemyHealthNum;        // EnemyHealthNum
-    public Image enemyHealthFill;          // EnemyHealthFill (bar fill)
-    public TMP_Text enemyTypeText;         // EnemyTypeText
-    public GameObject enemyStatusPanel;    // Optional - currently unused
+    public GameObject enemyInfoBox;
+    public TMP_Text enemyNameText;
+    public TMP_Text enemyHealthNum;
+    public Image enemyHealthFill;
+    public TMP_Text enemyTypeText;
 
     [Header("Portrait UI")]
-    public GameObject enemyPortraitBox;    // Separate portrait box object
-    public Image enemyPortrait;            // Image component inside it
+    public GameObject enemyPortraitBox;
+    public Image enemyPortrait;
 
     [Header("Highlight Settings")]
     public Color highlightColor = Color.yellow;
@@ -33,7 +37,6 @@ public class EnemyUI : MonoBehaviour
     private Camera cam;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-
 
     void Awake()
     {
@@ -46,7 +49,7 @@ public class EnemyUI : MonoBehaviour
             enemyStats = GetComponent<EnemyStats>();
 
         if (battleManager == null)
-            battleManager = Object.FindFirstObjectByType<BattleStateManager>();
+            battleManager = FindFirstObjectByType<BattleStateManager>();
 
         // Create textures for mini bar
         redTex = new Texture2D(1, 1);
@@ -57,8 +60,17 @@ public class EnemyUI : MonoBehaviour
         blackTex.SetPixel(0, 0, Color.black);
         blackTex.Apply();
 
-        if (enemyInfoBox != null)
-            enemyInfoBox.SetActive(false);
+    if (enemyInfoBox != null)
+            {
+                Image bg = enemyInfoBox.GetComponent<Image>();
+                if (bg != null)
+                {
+                    Color c = bg.color;
+                    c.a = 0f;
+                    bg.color = c;
+                }
+        }
+
 
         if (enemyPortraitBox != null)
             enemyPortraitBox.SetActive(false);
@@ -76,25 +88,23 @@ public class EnemyUI : MonoBehaviour
             enemyStats.OnHealthChanged -= UpdateTopBar;
     }
 
+    // -------------------------------
+    // HOVER UI
+    // -------------------------------
     void OnMouseEnter()
     {
         if (Time.timeScale == 0f) return;
 
-        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        var selector = FindFirstObjectByType<TargetSelector>();
         if (selector == null) return;
 
-        // If this enemy is selected, selection UI takes priority,
-        // but still show hover UI on mouse enter.
         ShowInfoUI();
         UpdateTopBar();
 
-        // Highlight ONLY if not the selected enemy
         if (spriteRenderer != null)
         {
-            if (selector.lockedTarget == transform)
-                spriteRenderer.color = selector.selectedColor;
-            else
-                spriteRenderer.color = highlightColor;
+            spriteRenderer.color =
+                (selector.lockedTarget == transform) ? selector.selectedColor : highlightColor;
         }
     }
 
@@ -102,70 +112,63 @@ public class EnemyUI : MonoBehaviour
     {
         if (Time.timeScale == 0f) return;
 
-        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
+        var selector = FindFirstObjectByType<TargetSelector>();
         if (selector == null) return;
 
-        // If this is the selected enemy → keep UI visible & use selected highlight.
         if (selector.lockedTarget == transform)
         {
             ShowInfoUI();
             UpdateTopBar();
-
             if (spriteRenderer != null)
                 spriteRenderer.color = selector.selectedColor;
 
             return;
         }
 
-        // Otherwise hide hover UI and revert color
         HideInfoUI();
         ResetColor();
     }
 
 
+    // TOP BAR UI
+
     public void UpdateTopBar()
     {
         if (enemyStats == null) return;
 
-        float ratio = (float)enemyStats.currentHealth / enemyStats.maxHealth;
+        float hpPercent = Mathf.Clamp01((float)enemyStats.currentHealth / enemyStats.maxHealth);
 
+        // Name
         if (enemyNameText != null)
             enemyNameText.text = enemyStats.enemyName;
 
+        // Health Text
         if (enemyHealthNum != null)
             enemyHealthNum.text = $"{enemyStats.currentHealth}/{enemyStats.maxHealth}";
 
+        // Smooth fill animation
         if (enemyHealthFill != null)
-            enemyHealthFill.rectTransform.sizeDelta =
-                new Vector2(350 * ratio, enemyHealthFill.rectTransform.sizeDelta.y);
+        {
+            RectTransform rt = enemyHealthFill.rectTransform;
 
+            rt.DOKill();
+            rt.DOSizeDelta(
+                new Vector2(350f * hpPercent, rt.sizeDelta.y),
+                0.28f
+            ).SetEase(Ease.OutCubic);
+        }
+
+        // Creature Type
         if (enemyTypeText != null)
             enemyTypeText.text = enemyStats.creatureType.ToString();
 
+        // Portrait
         if (enemyPortrait != null && enemyStats.enemyPortrait != null)
             enemyPortrait.sprite = enemyStats.enemyPortrait;
     }
 
-    // Called by TargetSelector to set hover highlight
-    public void SetTemporaryHighlight(Color color)
-    {
-        if (spriteRenderer != null)
-            spriteRenderer.color = color;
-    }
 
-    // Called by TargetSelector to set a locked (selected) highlight
-    public void SetPermanentHighlight(Color color)
-    {
-        if (spriteRenderer != null)
-            spriteRenderer.color = color;
-    }
-
-    // Called to reset color to default
-    public void ResetColor()
-    {
-        if (spriteRenderer != null)
-            spriteRenderer.color = originalColor;
-    }
+    // MINI BAR (above their head)
 
     void OnGUI()
     {
@@ -178,30 +181,164 @@ public class EnemyUI : MonoBehaviour
         Vector3 screenPos = cam.WorldToScreenPoint(transform.position + healthBarOffset);
         screenPos.y = Screen.height - screenPos.y;
 
-        float healthPercent = (float)enemyStats.currentHealth / enemyStats.maxHealth;
+        float realHP = Mathf.Clamp01((float)enemyStats.currentHealth / enemyStats.maxHealth);
+
+        // Smooth animation for overhead bar
+        miniDisplayedHP = Mathf.Lerp(miniDisplayedHP, realHP, Time.deltaTime * 10f);
+
         float width = barSize.x * 100;
         float height = barSize.y * 100;
 
-        GUI.DrawTexture(new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width, height), blackTex);
-        GUI.DrawTexture(new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width * healthPercent, height), redTex);
+        // Draw background
+        GUI.DrawTexture(
+            new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width, height),
+            blackTex
+        );
+
+        // Draw smooth red bar
+        GUI.DrawTexture(
+            new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width * miniDisplayedHP, height),
+            redTex
+        );
     }
+
+
+    // UI Helpers
 
     public void ShowInfoUI()
     {
         if (enemyInfoBox != null)
             enemyInfoBox.SetActive(true);
-
         if (enemyPortraitBox != null)
             enemyPortraitBox.SetActive(true);
+
+        FadeInfoUI(true);   // FADE IN
+        UpdateTopBar();
     }
 
     public void HideInfoUI()
     {
+        FadeInfoUI(false);  // FADE OUT
+
+        // turn off objects after fade completes
+        StartCoroutine(DisableAfterFade());
+    }
+
+    private IEnumerator DisableAfterFade()
+    {
+        yield return new WaitForSeconds(0.25f);
+
         if (enemyInfoBox != null)
             enemyInfoBox.SetActive(false);
 
         if (enemyPortraitBox != null)
             enemyPortraitBox.SetActive(false);
     }
+
+    public void ResetColor()
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor;
+    }
+
+
+    // HIGHLIGHT METHODS
+
+    public void SetTemporaryHighlight(Color color)
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = color;
+    }
+
+    public void SetPermanentHighlight(Color color)
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.color = color;
+    }
+
+    // DOTWEEN UI FADE
+    public void FadeInfoUI(bool fadeIn)
+    {
+        float target = fadeIn ? 1f : 0f;
+        float duration = 0.25f;
+
+        // Ensure the UI is active before fading
+        if (fadeIn)
+        {
+            if (enemyInfoBox != null)
+                enemyInfoBox.SetActive(true);
+
+            if (enemyPortraitBox != null)
+                enemyPortraitBox.SetActive(true);
+        }
+
+        // Name
+        if (enemyNameText != null)
+            enemyNameText.DOFade(target, duration);
+
+        // HP Number
+        if (enemyHealthNum != null)
+            enemyHealthNum.DOFade(target, duration);
+
+        // Type Text
+        if (enemyTypeText != null)
+            enemyTypeText.DOFade(target, duration);
+
+        // Portrait
+        if (enemyPortrait != null)
+            enemyPortrait.DOFade(target, duration);
+
+        // Portrait BG
+        if (enemyPortraitBox != null)
+        {
+            Image bg = enemyPortraitBox.GetComponent<Image>();
+            if (bg != null)
+                bg.DOFade(target, duration);
+        }
+
+        // Health Fill bar
+        if (enemyHealthFill != null)
+        {
+            var img = enemyHealthFill.GetComponent<Image>();
+            if (img != null)
+                img.DOFade(target, duration);
+        }
+
+        // Whole info box BG
+        /**if (enemyInfoBox != null)
+        {
+            Image bg = enemyInfoBox.GetComponent<Image>();
+            if (bg != null)
+                bg.DOFade(target, duration);
+        }**/
+
+        // After fade OUT, fully disable the UI 
+        if (!fadeIn)
+        {
+            DOVirtual.DelayedCall(duration, () =>
+            {
+                if (enemyInfoBox != null)
+                    enemyInfoBox.SetActive(false);
+
+                if (enemyPortraitBox != null)
+                    enemyPortraitBox.SetActive(false);
+            });
+        }
+    }
+
+    public void PunchUI()
+    {
+        if (enemyInfoBox == null) return;
+
+        RectTransform rt = enemyInfoBox.GetComponent<RectTransform>();
+        if (rt == null) return;
+
+        rt.DOKill();
+        rt.localScale = Vector3.one;
+
+        rt.DOPunchScale(new Vector3(0.12f, 0.12f, 0f), 0.25f, 10, 1);
+    }
+
+
 
 }

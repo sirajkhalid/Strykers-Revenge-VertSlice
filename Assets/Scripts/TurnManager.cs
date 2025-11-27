@@ -16,14 +16,18 @@ public class TurnManager : MonoBehaviour
     private BattleStateManager battleStateManager;
     private bool isProcessingTurn = false;
 
+    private TurnOrderUI turnOrderUI;
+
     void Start()
     {
         battleUIManager = FindAnyObjectByType<BattleUIManager>(FindObjectsInactive.Include);
         battleStateManager = FindAnyObjectByType<BattleStateManager>(FindObjectsInactive.Include);
+        turnOrderUI = FindAnyObjectByType<TurnOrderUI>(FindObjectsInactive.Include);
     }
 
-
+    // --------------------------------------------------------------------
     // INITIALIZE TURN ORDER
+    // --------------------------------------------------------------------
     public void InitializeTurnOrder(List<GameObject> players, List<GameObject> enemies)
     {
         combatants.Clear();
@@ -33,7 +37,37 @@ public class TurnManager : MonoBehaviour
         if (combatants.Count == 0)
             return;
 
-        combatants = combatants.OrderByDescending(GetInitiative).ToList();
+        // Roll initiative
+        foreach (var c in combatants)
+        {
+            if (c == null) continue;
+
+            if (c.TryGetComponent<CharacterStats>(out var cs))
+            {
+                int roll = Random.Range(1, 21);
+                cs.rolledInitiative = cs.initiative + roll;
+            }
+            else if (c.TryGetComponent<EnemyStats>(out var es))
+            {
+                int roll = Random.Range(1, 21);
+                es.rolledInitiative = es.initiative + roll;
+            }
+        }
+
+        // Sort DESC
+        combatants = combatants
+            .OrderByDescending(obj =>
+            {
+                if (obj.TryGetComponent<CharacterStats>(out var pc))
+                    return pc.rolledInitiative;
+                if (obj.TryGetComponent<EnemyStats>(out var ec))
+                    return ec.rolledInitiative;
+                return 0;
+            })
+            .ToList();
+
+        // Build turn order UI
+        turnOrderUI?.BuildTurnOrder(combatants);
 
         currentTurnIndex = 0;
         StartTurn();
@@ -47,7 +81,9 @@ public class TurnManager : MonoBehaviour
         return 0;
     }
 
+    // --------------------------------------------------------------------
     // START TURN
+    // --------------------------------------------------------------------
     private void StartTurn()
     {
         if (combatants.Count == 0) return;
@@ -65,21 +101,29 @@ public class TurnManager : MonoBehaviour
         }
 
         currentTurnObject = combatants[currentTurnIndex];
+
+        // 🔥 Update UI highlight
+        turnOrderUI?.UpdateTurnHighlight(currentTurnObject);
+
+        // Skip dead
         if (currentTurnObject == null || !IsAlive(currentTurnObject))
         {
             EndTurn();
             return;
         }
 
-        // UI Banner
-        string name =
-            currentTurnObject.TryGetComponent<CharacterStats>(out var pc) ? pc.characterName :
-            currentTurnObject.TryGetComponent<EnemyStats>(out var ec) ? ec.enemyName :
-            "Unknown";
+        // Turn Banner
+        if (battleUIManager != null)
+        {
+            string name =
+                currentTurnObject.TryGetComponent<CharacterStats>(out var pc) ? pc.characterName :
+                currentTurnObject.TryGetComponent<EnemyStats>(out var ec) ? ec.enemyName :
+                "Unknown";
 
-        battleUIManager?.ShowTurnBanner(name);
+            battleUIManager.ShowTurnBanner(name);
+        }
 
-        // If PLAYER turn
+        // PLAYER TURN
         if (currentTurnObject.GetComponent<CharacterStats>())
         {
             isPlayerTurn = true;
@@ -88,14 +132,12 @@ public class TurnManager : MonoBehaviour
             var cs = currentTurnObject.GetComponent<CharacterStats>();
             if (cs != null)
             {
-                // Always reset actions at the start of ANY new turn
                 cs.ResetTurnActions();
                 cs.hasSwitchedThisRound = false;
-                cs.midSwapEnteredTurn = false; // clear any leftover flag
+                cs.midSwapEnteredTurn = false;
 
                 var hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
-                if (hud != null)
-                    hud.UpdateActionUI();
+                hud?.UpdateActionUI();
             }
         }
         else
@@ -107,23 +149,35 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    // --------------------------------------------------------------------
     // ENEMY TURN
+    // --------------------------------------------------------------------
     private IEnumerator EnemyTurn(GameObject enemy)
     {
         isProcessingTurn = true;
-        yield return new WaitForSeconds(1f);
 
-        if (enemy && IsAlive(enemy))
+        EnemyAIController ai = enemy.GetComponent<EnemyAIController>();
+
+        if (ai != null && IsAlive(enemy))
         {
-            Debug.Log($"{enemy.name} attacks!");
+            yield return ai.TakeTurn();
+        }
+        else
+        {
+            Debug.LogWarning($"{enemy.name} has no AIController!");
+            yield return new WaitForSeconds(0.8f);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
+
         isProcessingTurn = false;
+
         EndTurn();
     }
 
+    // --------------------------------------------------------------------
     // END TURN
+    // --------------------------------------------------------------------
     public void EndTurn()
     {
         EnableEndTurnButton(false);
@@ -139,12 +193,10 @@ public class TurnManager : MonoBehaviour
             return;
         }
 
-        // Increment turn index
         currentTurnIndex++;
         if (currentTurnIndex >= combatants.Count)
             currentTurnIndex = 0;
 
-        // NEW ROUND → RESORT INITIATIVE
         if (currentTurnIndex == 0)
         {
             combatants = combatants
@@ -153,21 +205,21 @@ public class TurnManager : MonoBehaviour
                 .ToList();
         }
 
-        // Skip dead/null
         int safety = 0;
         while ((combatants[currentTurnIndex] == null || !IsAlive(combatants[currentTurnIndex])) && safety < 50)
         {
             currentTurnIndex++;
             if (currentTurnIndex >= combatants.Count)
                 currentTurnIndex = 0;
-
             safety++;
         }
 
         StartTurn();
     }
 
-    // HELPER FUNCTIONS
+    // --------------------------------------------------------------------
+    // HELPERS
+    // --------------------------------------------------------------------
     private bool IsAlive(GameObject obj)
     {
         if (!obj) return false;
@@ -199,7 +251,7 @@ public class TurnManager : MonoBehaviour
             battleUIManager.endTurnButton.interactable = value;
     }
 
-    // REPLACE COMBATANT (USED FOR SWITCHING)
+    // REPLACE (SWAP CHARACTERS)
     public void ReplaceCombatant(GameObject oldObj, GameObject newObj)
     {
         int index = combatants.IndexOf(oldObj);
@@ -208,5 +260,32 @@ public class TurnManager : MonoBehaviour
 
         if (currentTurnObject == oldObj)
             currentTurnObject = newObj;
+
+        // Uupdate turn order UI
+        var stats = newObj.GetComponent<CharacterStats>();
+        if (stats != null && stats.characterSquarePortrait != null)
+        {
+            turnOrderUI?.UpdatePortraitSprite(newObj, stats.characterSquarePortrait);
+        }
+    }
+
+    // REMOVE COMBATANT (death)
+    public void RemoveCombatant(GameObject obj)
+    {
+        if (obj == null) return;
+
+        bool wasCurrent = (currentTurnObject == obj);
+
+        combatants.Remove(obj);
+        turnOrderUI?.RemovePortrait(obj);
+
+        if (combatants.Count == 0)
+            return;
+
+        if (currentTurnIndex >= combatants.Count)
+            currentTurnIndex = 0;
+
+        if (wasCurrent)
+            StartTurn();
     }
 }

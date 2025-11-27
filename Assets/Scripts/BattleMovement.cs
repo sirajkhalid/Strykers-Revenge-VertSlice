@@ -7,18 +7,11 @@ public class BattleMovement : MonoBehaviour
     public CharacterStats characterStats;
     public PlayerMovement playerMovement;
     public BattleStateManager battleManager;
-    public TMP_Text movementText; // TMP in BattleUI -> MovementPanel
-
-    [Header("Movement Settings")]
-    public float baseRange = 6f;
-    public float dexMultiplier = 0.5f;
-    public float currentMovement;
-    public float maxMovement;
+    public TMP_Text movementText;
 
     private Vector3 lastPosition;
     private bool wasBattleActive;
     private bool wasPlayerTurn;
-  
     private TurnManager turnManager;
 
     void Start()
@@ -34,22 +27,14 @@ public class BattleMovement : MonoBehaviour
 
         if (movementText == null)
         {
-            // Try by object name
             var found = GameObject.Find("MovementNum");
             if (found != null)
                 movementText = found.GetComponent<TMP_Text>();
-
-            // Fallback
-            if (movementText == null)
-                movementText = FindFirstObjectByType<TMP_Text>();
         }
 
         turnManager = FindFirstObjectByType<TurnManager>();
-
         lastPosition = transform.position;
     }
-
-
 
     void Update()
     {
@@ -66,20 +51,16 @@ public class BattleMovement : MonoBehaviour
         if (!battleManager || !battleManager.isBattleActive)
             return;
 
-        // Wait for TurnManager
         if (turnManager == null)
             return;
 
-        // Detect turn changes
+        // Detect start of player turn
         if (turnManager.isPlayerTurn && !wasPlayerTurn)
-        {
-            // Player's turn just started
             ResetMovementForNewTurn();
-        }
 
         wasPlayerTurn = turnManager.isPlayerTurn;
 
-        // Disable player movement if it's not their turn
+        // Disable movement if not player turn
         if (!turnManager.isPlayerTurn)
         {
             playerMovement.canMove = false;
@@ -92,39 +73,43 @@ public class BattleMovement : MonoBehaviour
 
     void BeginBattleMovement()
     {
-        maxMovement = baseRange + (characterStats.dexterity * dexMultiplier);
-        currentMovement = maxMovement;
+        // Use CharacterStats-calculated movement
+        characterStats.ResetMovement();
         lastPosition = transform.position;
+
         playerMovement.canMove = true;
     }
 
     void EndBattleMovement()
     {
         playerMovement.canMove = true;
+
         if (movementText != null)
             movementText.text = "";
     }
 
     void ResetMovementForNewTurn()
     {
-        currentMovement = maxMovement;
-        playerMovement.canMove = true;
+        characterStats.ResetMovement();
         lastPosition = transform.position;
+        playerMovement.canMove = true;
         UpdateUI();
     }
 
     void TrackMovement()
     {
-        float distanceThisFrame = Vector3.Distance(transform.position, lastPosition);
+        float moved = Vector3.Distance(transform.position, lastPosition);
 
-        if (distanceThisFrame > 0f)
+        if (moved > 0f)
         {
-            currentMovement -= distanceThisFrame;
-            if (currentMovement <= 0f)
+            characterStats.currentMovement -= moved;
+
+            if (characterStats.currentMovement <= 0f)
             {
-                currentMovement = 0f;
+                characterStats.currentMovement = 0f;
                 playerMovement.canMove = false;
             }
+
             lastPosition = transform.position;
         }
     }
@@ -132,6 +117,7 @@ public class BattleMovement : MonoBehaviour
     void UpdateUI()
     {
         if (movementText == null) return;
-        movementText.text = $"{currentMovement:F2}m / {maxMovement:F2}m";
+        movementText.text =
+            $"{characterStats.currentMovement:F2}m / {characterStats.maxMovement:F2}m";
     }
 }

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -88,7 +88,11 @@ public class CharacterStats : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public int armorClass;
-    public int initiative;
+
+    [Header("Combat Stats")]
+    public int initiative;          // base initiative (DEX + skills)
+    public int rolledInitiative;    // final initiative after D20
+
 
     [Header("Skills (auto, flat numbers)")]
     public int athletics;
@@ -114,6 +118,8 @@ public class CharacterStats : MonoBehaviour
     public float baseMovement = 12f;   // Base movement before modifiers
     public float maxMovement;          // Calculated total
     public float currentMovement;      // Used during battle
+
+
 
     [Header("UI Feedback")]
     public GameObject floatingDamagePrefab;
@@ -145,9 +151,7 @@ public class CharacterStats : MonoBehaviour
     public bool midSwapEnteredTurn = false;
 
     [Header("Ability Animation")]
-    public AnimationClip castAnimation;
-
-
+    public string castAnimationTrigger = "CastTrigger";
 
 
 
@@ -239,50 +243,148 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    private int GetRaceBaseSpeed()
+    {
+        return race switch
+        {
+            Race.Human => 30,
+            Race.Elf => 30,
+            Race.Hellspawn => 30,
+            Race.DragonHybrid => 30,
+            Race.Dwarf => 25,
+            _ => 30
+        };
+    }
+
     void CalculateDerivedStats()
     {
-        // Determine class-based HP growth
-        int baseHP = 0;
-        int hpPerLevel = 0;
+        // HP Calculation
+        int baseHP = 40;   // default
+        int hpPerLevel = 8;
 
         switch (characterClass)
         {
-            case CharacterClass.Barbarian:
-                baseHP = 12; hpPerLevel = 7; break;
-            case CharacterClass.Fighter:
-            case CharacterClass.Ranger:
-                baseHP = 10; hpPerLevel = 6; break;
-            case CharacterClass.Cleric:
-            case CharacterClass.Rogue:
-                baseHP = 8; hpPerLevel = 5; break;
-            case CharacterClass.Wizard:
-                baseHP = 6; hpPerLevel = 4; break;
-            default:
-                baseHP = 8; hpPerLevel = 5; break;
+            case CharacterClass.Barbarian: baseHP = 60; hpPerLevel = 12; break;
+            case CharacterClass.Fighter: baseHP = 50; hpPerLevel = 10; break;
+            case CharacterClass.Ranger: baseHP = 45; hpPerLevel = 9; break;
+            case CharacterClass.Cleric: baseHP = 40; hpPerLevel = 8; break;
+            case CharacterClass.Rogue: baseHP = 40; hpPerLevel = 8; break;
+            case CharacterClass.Wizard: baseHP = 30; hpPerLevel = 6; break;
         }
 
-        // Starting HP + HP per level scaling
-        maxHealth = baseHP + conMod;
+        // Race HP bonus
+        int raceHP = race switch
+        {
+            Race.Human => 5,
+            Race.Elf => 0,
+            Race.Dwarf => 10,
+            Race.Hellspawn => 3,
+            Race.DragonHybrid => 8,
+            _ => 0
+        };
+
+        // Background HP bonus
+        int backgroundHP = background switch
+        {
+            Background.Soldier => 8,
+            Background.Outlander => 6,
+            Background.FolkHero => 4,
+            Background.Criminal => 2,
+            Background.Urchin => 2,
+            Background.Charlatan => 2,
+            Background.Acolyte => 2,
+            Background.Noble => 3,
+            Background.Entertainer => 0,
+            Background.Sage => 0,
+            _ => 0
+        };
+
+        // HP Calculation
+        maxHealth = baseHP + raceHP + backgroundHP + (conMod * 3);
+
         if (level > 1)
-            maxHealth += (level - 1) * (hpPerLevel + conMod);
+            maxHealth += (level - 1) * (hpPerLevel + (conMod * 2));
 
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         if (currentHealth == 0) currentHealth = maxHealth;
 
-        // Initiative & Armor Class
-        initiative = dexMod;
-        armorClass = characterClass == CharacterClass.Barbarian
-            ? 10 + dexMod + conMod
-            : 10 + dexMod;
 
-        // EXP Scaling
-        expToNextLevel = level * 1000;
+        // Initiative 
+        int dexBonus = dexMod;
+        int proficiency = 2 + Mathf.FloorToInt((level - 1) / 4);
+        int awareness = Mathf.FloorToInt((perception / 5f) + (insight / 10f));
+        initiative = dexBonus + proficiency + awareness;
 
-        // Movement
-        maxMovement = baseMovement + dexMod;
-        maxMovement = Mathf.Max(1f, maxMovement);
+        // Armor Class
+        int baseAC = characterClass switch
+        {
+            CharacterClass.Barbarian => 12,
+            CharacterClass.Fighter => 13,
+            CharacterClass.Ranger => 12,
+            CharacterClass.Cleric => 11,
+            CharacterClass.Rogue => 12,
+            CharacterClass.Wizard => 10,
+            _ => 10
+        };
+
+        int ac = baseAC;
+
+        // Always add DexMod
+        ac += dexMod;
+
+        // Constitution scaling for tanky classes
+        if (characterClass == CharacterClass.Barbarian)
+            ac += conMod;
+
+        if (characterClass == CharacterClass.Fighter)
+            ac += Mathf.FloorToInt(conMod * 0.5f);
+
+        // Skill-based bonuses
+        ac += Mathf.FloorToInt(acrobatics / 6f);  
+        ac += Mathf.FloorToInt(athletics / 10f);  
+
+        armorClass = Mathf.Max(ac, 10);
+
+
+        // MOVEMENT Calculation
+
+        float raceBase = race switch
+        {
+            Race.Dwarf => 25f,
+            _ => 30f
+        };
+
+        float backgroundMove = background switch
+        {
+            Background.Outlander => 2f,
+            Background.Soldier => 1.5f,
+            Background.FolkHero => 1f,
+            Background.Criminal => 0.5f,
+            Background.Urchin => 0.5f,
+            Background.Charlatan => 0.5f,
+            Background.Acolyte => 0.5f,
+            Background.Noble => 0.5f,
+            Background.Entertainer => 0.5f,
+            Background.Sage => 0f,
+            _ => 0f
+        };
+
+        float movement =
+            (raceBase / 5f) +
+            (dexMod * 1.0f) +
+            (acrobatics / 10f) +
+            (athletics / 20f) +
+            3f +
+            backgroundMove;
+
+        maxMovement = Mathf.Max(1f, Mathf.RoundToInt(movement));
         currentMovement = maxMovement;
+
+        // EXP Calculation
+        expToNextLevel = level * 1000;
     }
+
+
 
     void CalculateSpellSlots()
     {
@@ -335,7 +437,7 @@ public class CharacterStats : MonoBehaviour
                 }
                 break;
 
-            // Fighter, Barbarian, Rogue – no spell slots
+            // Fighter, Barbarian, Rogue â€“ no spell slots
             case CharacterClass.Fighter:
             case CharacterClass.Barbarian:
             case CharacterClass.Rogue:
@@ -481,12 +583,17 @@ public class CharacterStats : MonoBehaviour
 
     private void HandleDeath()
     {
-        // Prevent calls if already dead
         if (currentHealth > 0) return;
-
         OnDeath?.Invoke();
-        StartCoroutine(FadeOutAndDestroy());
+        
+        var party = FindFirstObjectByType<PlayerPartyController>();
+        if (party != null)
+            party.NotifyMemberDied(this);
+
+        // Start fade
+        StartCoroutine(FadeOut());
     }
+
 
     public void SetCurrentMovement(float newValue)
     {
@@ -535,7 +642,7 @@ public class CharacterStats : MonoBehaviour
         else if (spellLevel == 2) currentLevel2Slots = Mathf.Max(0, currentLevel2Slots - cost);
     }
 
-    // Reset each time this character’s turn starts
+    // Reset each time this characterâ€™s turn starts
     public void ResetTurnActions()
     {
         hasAction = true;
@@ -543,11 +650,15 @@ public class CharacterStats : MonoBehaviour
         hasSwitchedThisRound = false;
     }
 
-    private IEnumerator FadeOutAndDestroy()
+    private IEnumerator FadeOut()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+            yield break;
+
         float duration = 1.5f;
         float elapsed = 0f;
+
         Color startColor = sr.color;
         Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
 
@@ -558,23 +669,115 @@ public class CharacterStats : MonoBehaviour
             yield return null;
         }
 
-        // Remove or deactivate the character
         sr.color = endColor;
-        gameObject.SetActive(false);
 
-        // Signal party controller
-        var party = FindFirstObjectByType<PlayerPartyController>();
-        if (party != null)
+        // NOW safe to deactivate
+        gameObject.SetActive(false);
+    }
+
+
+
+    public void TakeDamage(int amount, bool isCrit = false, bool isMiss = false)
+    {
+        // Prevent hits on dead/inactive character
+        if (!this.gameObject.activeInHierarchy)
+            return;
+
+        if (isMiss)
         {
-            if (party.HasAliveBackup())
-            {
-                party.SwitchToNextAlive();
-            }
-            else
-            {
-                SceneManager.LoadScene("GameOver");
-            }
+            ShowFloatingText("MISS", Color.white);
+            return;
+        }
+
+        currentHealth -= amount;
+        currentHealth = Mathf.Max(0, currentHealth);
+
+        Color floatColor = isCrit ? Color.yellow : Color.red;
+        ShowFloatingText("-" + amount, floatColor);
+
+        OnHealthChanged?.Invoke();
+
+        if (currentHealth <= 0)
+        {
+            // Notify party
+            var party = FindFirstObjectByType<PlayerPartyController>();
+            if (party != null)
+                party.NotifyMemberDied(this);
+
+            // Remove from turn manager
+            var tm = FindFirstObjectByType<TurnManager>();
+            if (tm != null)
+                tm.RemoveCombatant(this.gameObject);
+
+            // Start fade ONLY if object is still active
+            if (this.gameObject.activeInHierarchy)
+                StartCoroutine(FadeOut());
         }
     }
+
+    private IEnumerator DelayedFadeOut()
+    {
+        
+        yield return new WaitForSeconds(0.35f);
+        StartCoroutine(FadeOutSafe());
+    }
+
+    private IEnumerator FadeOutSafe()
+    {
+        
+        GameObject holder = new GameObject("FadeHolder");
+        holder.transform.position = transform.position;
+
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+        {
+            Destroy(holder);
+            yield break;
+        }
+
+        SpriteRenderer temp = holder.AddComponent<SpriteRenderer>();
+        temp.sprite = sr.sprite;
+        temp.sortingOrder = sr.sortingOrder;
+
+        // Copy tint
+        temp.color = sr.color;
+
+        // Fade over time
+        float duration = 1.5f;
+        float elapsed = 0f;
+
+        Color startColor = temp.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            temp.color = Color.Lerp(startColor, endColor, elapsed / duration);
+            yield return null;
+        }
+
+        Destroy(holder);
+    }
+
+    public void CalculateInitiative()
+    {
+        // DEX mod still factors in
+        int dexBonus = dexMod;
+
+        // Proficiency scaling (BG3-style)
+        int proficiency = 2 + Mathf.FloorToInt((level - 1) / 4);
+
+        // Awareness based on skills
+        int awareness = Mathf.FloorToInt((perception / 5f) + (insight / 10f));
+
+        // Final static initiative score for ordering BEFORE roll
+        int baseInitiative = dexBonus + proficiency + awareness;
+
+        // The roll (done each battle)
+        int roll = UnityEngine.Random.Range(1, 21);
+
+        initiative = roll + baseInitiative;
+    }
+
 
 }

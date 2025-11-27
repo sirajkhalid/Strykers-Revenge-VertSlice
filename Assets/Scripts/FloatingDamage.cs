@@ -1,35 +1,104 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class FloatingDamage : MonoBehaviour
 {
-    public float floatSpeed = 2f;
-    public float fadeDuration = 1f;
+    [Header("General Settings")]
+    public bool useWorldScale = true;     // <-- DAMAGE uses this. OUT OF RANGE sets this OFF.
+    public float worldScale = 0.02f;
+
+    [Header("Motion")]
+    public float floatDistance = 1.5f;
+    public float duration = 0.9f;
+    public float horizontalJitter = 0.25f;
+
+    [Header("FX")]
+    public bool punchOnSpawn = true;
+
     private TMP_Text damageText;
-    private Color originalColor;
-    private float elapsed = 0f;
+    private Vector3 startPos;
 
     void Awake()
     {
         damageText = GetComponentInChildren<TMP_Text>();
-        originalColor = damageText.color;
+        if (damageText == null)
+        {
+            Debug.LogWarning("FloatingDamage: No TMP_Text found on prefab.");
+            return;
+        }
+
+        // Only apply tiny scale for floating DAMAGE numbers
+        if (useWorldScale)
+            transform.localScale = Vector3.one * worldScale;
+
+        startPos = transform.position;
     }
 
     public void SetText(string text, Color color)
     {
+        if (damageText == null) return;
+
         damageText.text = text;
         damageText.color = color;
-        transform.localScale = Vector3.one * 0.02f; // Adjust for world space
+
+        startPos = transform.position;
+
+        // Mesh Renderer sorting (for world space canvas)
+        var mr = GetComponentInChildren<MeshRenderer>();
+        if (mr != null)
+        {
+            mr.sortingLayerName = "UI";
+            mr.sortingOrder = 999;
+        }
+
+        PlayTween();
     }
 
-    void Update()
+    private void PlayTween()
     {
-        transform.position += Vector3.up * floatSpeed * Time.deltaTime;
-        elapsed += Time.deltaTime;
-        float alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
-        damageText.color = new Color(damageText.color.r, damageText.color.g, damageText.color.b, alpha);
+        DOTween.Kill(transform);
+        DOTween.Kill(damageText);
 
-        if (elapsed >= fadeDuration)
-            Destroy(gameObject);
+        Vector3 targetPos =
+            startPos +
+            Vector3.up * floatDistance +
+            Vector3.right * Random.Range(-horizontalJitter, horizontalJitter);
+
+        Sequence seq = DOTween.Sequence();
+
+        // Smooth upward movement
+        seq.Join(
+            transform.DOMove(targetPos, duration)
+                     .SetEase(Ease.OutCubic)
+        );
+
+        // Fade nicely
+        seq.Join(
+            damageText.DOFade(0f, duration)
+                      .SetEase(Ease.InOutQuad)
+        );
+
+        // Punch effect for visibility (optional)
+        if (punchOnSpawn)
+        {
+            seq.Join(
+                transform.DOPunchScale(
+                    new Vector3(0.1f, 0.1f, 0f),
+                    0.35f,   // duration
+                    8,       // vibrato
+                    0.7f     // elasticity
+                )
+            );
+        }
+
+        seq.OnComplete(() => Destroy(gameObject));
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(transform);
+        if (damageText != null)
+            DOTween.Kill(damageText);
     }
 }

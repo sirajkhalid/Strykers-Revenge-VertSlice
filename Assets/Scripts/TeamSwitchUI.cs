@@ -27,6 +27,8 @@ public class TeamSwitchUI : MonoBehaviour
     public Color deadColor = new Color(0.3f, 0.3f, 0.3f);
 
     private PlayerPartyController party;
+    public Transform PortraitContainer;
+
 
     IEnumerator Start()
     {
@@ -73,18 +75,26 @@ public class TeamSwitchUI : MonoBehaviour
         if (isDead)
         {
             portrait.color = deadColor;
-            healthText.text = "Knocked Out";
+            healthText.text = "Dead";
             healthText.gameObject.SetActive(true);
+
+            var fx = portrait.GetComponent<PartyPortraitFX>();
+            if (fx != null)
+                fx.PlayDeadEffect();
+
             return;
+        }
+        else
+        {
+            var fx = portrait.GetComponent<PartyPortraitFX>();
+            if (fx != null)
+                fx.ResetToNormal();
         }
 
         portrait.color = isSelected ? activeColor : inactiveColor;
 
-        bool showHP = isSelected || isHovered || !showHealthOnHover;
-
-        healthText.gameObject.SetActive(showHP);
-        if (showHP)
-            healthText.text = $"{stats.currentHealth}/{stats.maxHealth}";
+        healthText.gameObject.SetActive(true);
+        healthText.text = $"{stats.currentHealth}/{stats.maxHealth}";
     }
 
     public void OnPortraitHover(int index)
@@ -105,13 +115,33 @@ public class TeamSwitchUI : MonoBehaviour
     {
         var battle = FindFirstObjectByType<BattleStateManager>();
         if (battle != null && battle.isBattleActive)
-            return; // no switching in battle
+            return;
 
         if (party == null)
             party = FindFirstObjectByType<PlayerPartyController>();
 
         if (party != null)
+        {
             party.SwitchTo(index);
 
+            // Play select animation
+            var fx = party.partyMembers[index].GetComponentInChildren<PartyPortraitFX>();
+            if (fx != null)
+                fx.PlaySelectEffect();
+        }
     }
+
+    public void PlayPortraitSelectFX(int index)
+    {
+        Transform portrait = PortraitContainer.GetChild(index);
+
+        if (portrait != null)
+        {
+            var fx = portrait.GetComponent<PartyPortraitFX>();
+            if (fx != null)
+                fx.PlaySelectEffect();
+        }
+    }
+
+
 }

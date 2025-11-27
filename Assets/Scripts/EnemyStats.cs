@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections;
 
@@ -62,23 +62,45 @@ public class EnemyStats : MonoBehaviour
     public int currentHealth;
     public int armorClass = 10;
     public int initiative = 0;
+    public int rolledInitiative = 0;
     public int xpReward = 50;
 
-    [Header("Abilities")]
-    [SerializeReference]
-    public BaseEnemyAbilities creatureAbilities;
+    [Header("Movement")]
+    public float maxMovement = 5f;
+    [HideInInspector] public float currentMovement;
+
+    [Header("Animation")]
+    public Animator enemyAnimator;
+    public string castAnimationTrigger = "CastTrigger";
+
+    [Header("Spell Slots")]
+    public int spellSlotsLevel1 = 0;
+    public int spellSlotsLevel2 = 0;
+
+    public int maxSpellSlotsLevel1 = 0;
+    public int maxSpellSlotsLevel2 = 0;
 
 
     // event for health changes
     public event Action OnHealthChanged;
+
+
 
     void Awake()
     {
         CalculateModifiers();
         CalculateHealth();
         CalculateInitiative();
+        CalculateArmorClass();  
+        CalculateMovement();
+
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke();
+
+        if (enemyAnimator == null)
+            enemyAnimator = GetComponent<Animator>();
+        
+        ResetSpellSlots();
     }
 
     void CalculateModifiers()
@@ -93,14 +115,77 @@ public class EnemyStats : MonoBehaviour
 
     void CalculateHealth()
     {
-        int baseHP = baseHealth + (conMod * 2);
-        maxHealth = Mathf.Max(baseHP + (level * 2), 1);
+
+        // Use Constitution and level to make enemies tankier at higher levels.
+
+        int raceHP = creatureType switch
+        {
+            CreatureType.Undead => 10,
+            CreatureType.Beast => 5,
+            CreatureType.Demon => 12,
+            CreatureType.Devil => 12,
+            CreatureType.Dragon => 20,
+            CreatureType.Giant => 18,
+            CreatureType.Monstrosity => 12,
+            CreatureType.Humanoid => 6,
+            _ => 5
+        };
+
+        int baseHP = baseHealth + raceHP + (conMod * 3);
+
+        // Scaling per level
+        maxHealth = baseHP + (level * (4 + conMod));
+
+        maxHealth = Mathf.Max(1, maxHealth);
     }
     public void CalculateInitiative()
     {
         int dexMod = Mathf.FloorToInt((dexterity - 10) / 2f);
         initiative = dexMod;
     }
+
+    void CalculateArmorClass()
+    {
+        // Enemy AC depends on type + dexterity
+        int typeBase = creatureType switch
+        {
+            CreatureType.Undead => 12,
+            CreatureType.Beast => 11,
+            CreatureType.Humanoid => 10,
+            CreatureType.Monstrosity => 13,
+            CreatureType.Demon => 14,
+            CreatureType.Devil => 15,
+            CreatureType.Dragon => 16,
+            CreatureType.Giant => 12,
+            _ => 10
+        };
+
+        armorClass = typeBase + Mathf.FloorToInt(dexMod * 0.5f);  // weaker dex scaling than players
+    }
+
+    void CalculateMovement()
+    {
+        // Race-based monster speeds (D&D inspired)
+        float raceSpeed = creatureType switch
+        {
+            CreatureType.Giant => 35f,
+            CreatureType.Beast => 40f,
+            CreatureType.Dragon => 40f,
+            CreatureType.Monstrosity => 35f,
+            CreatureType.Undead => 25f,
+            CreatureType.Humanoid => 30f,
+            _ => 30f
+        };
+
+        float movement =
+            (raceSpeed / 5f) +      // converts 30ft → 6 movement
+            (dexMod * 0.2f) +       // weaker dex influence for monsters
+            (strength / 20f);       // big monsters get slightly more
+
+        maxMovement = Mathf.Max(1f, Mathf.RoundToInt(movement));
+        currentMovement = maxMovement;
+    }
+
 
 #if UNITY_EDITOR
     void OnValidate()
@@ -195,4 +280,41 @@ public class EnemyStats : MonoBehaviour
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke();
     }
+
+    public void ResetTurn()
+    {
+        currentMovement = maxMovement;
+    }
+
+    public bool HasSpellSlots(int level, int cost)
+    {
+        switch (level)
+        {
+            case 1: return spellSlotsLevel1 >= cost;
+            case 2: return spellSlotsLevel2 >= cost;
+            default: return true; // level 0 = cantrip, always allowed
+        }
+    }
+
+    public void SpendSpellSlots(int level, int cost)
+    {
+        switch (level)
+        {
+            case 1:
+                spellSlotsLevel1 = Mathf.Max(0, spellSlotsLevel1 - cost);
+                break;
+            case 2:
+                spellSlotsLevel2 = Mathf.Max(0, spellSlotsLevel2 - cost);
+                break;
+        }
+    }
+
+    public void ResetSpellSlots()
+    {
+        spellSlotsLevel1 = maxSpellSlotsLevel1;
+        spellSlotsLevel2 = maxSpellSlotsLevel2;
+    }
+
+
+
 }

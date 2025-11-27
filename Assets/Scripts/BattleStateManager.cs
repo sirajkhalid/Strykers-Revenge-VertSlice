@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -24,6 +23,7 @@ public class BattleStateManager : MonoBehaviour
     public void ToggleBattleState()
     {
         isBattleActive = !isBattleActive;
+
         if (battleUI != null)
             battleUI.SetActive(isBattleActive);
 
@@ -40,15 +40,13 @@ public class BattleStateManager : MonoBehaviour
 
         TriggerBattleIntro();
 
-        // Only the active party member gets included in the turn manager
         var partyController = FindFirstObjectByType<PlayerPartyController>();
         GameObject activePlayer = partyController != null ? partyController.activeMember : null;
 
-        List<GameObject> players = new List<GameObject>();
+        List<GameObject> players = new();
         if (activePlayer != null)
             players.Add(activePlayer);
 
-        // Collect only active enemies
         List<GameObject> enemies = Resources.FindObjectsOfTypeAll<GameObject>()
             .Where(obj => obj.CompareTag("Enemy") && obj.scene.IsValid() && obj.activeInHierarchy)
             .ToList();
@@ -56,7 +54,6 @@ public class BattleStateManager : MonoBehaviour
         if (turnManager != null)
             turnManager.InitializeTurnOrder(players, enemies);
     }
-
 
     private void TriggerBattleIntro()
     {
@@ -67,12 +64,8 @@ public class BattleStateManager : MonoBehaviour
     public void EndBattle()
     {
         isBattleActive = false;
+
         if (battleUI != null)
             battleUI.SetActive(false);
-
-        var ui = FindFirstObjectByType<BattleUIManager>();
-        if (ui != null)
-            ui.ResetBannerDelay();
     }
-
 }

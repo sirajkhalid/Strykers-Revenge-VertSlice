@@ -5,9 +5,11 @@ using UnityEngine.UI;
 public class PlayerInfoMenu : MonoBehaviour
 {
     [Header("References")]
-    public GameObject playerMenuPanel; // PlayerInfoPanel
-    public CharacterStats playerStats; // Player GameObject
+    public GameObject playerMenuPanel;
     public Image portraitImage;
+
+    private PlayerPartyController party;
+    private bool isMenuOpen = false;
 
     [Header("Left Side")]
     public TMP_Text nameText;
@@ -50,12 +52,23 @@ public class PlayerInfoMenu : MonoBehaviour
     public TMP_Text performanceText;
     public TMP_Text persuasionText;
 
-    private bool isMenuOpen = false;
-
     void Start()
     {
+        party = FindFirstObjectByType<PlayerPartyController>();
+
         if (playerMenuPanel != null)
             playerMenuPanel.SetActive(false);
+    }
+
+    private CharacterStats GetActiveStats()
+    {
+        if (party == null)
+            party = FindFirstObjectByType<PlayerPartyController>();
+
+        if (party == null || party.activeMember == null)
+            return null;
+
+        return party.activeMember.GetComponent<CharacterStats>();
     }
 
     void Update()
@@ -68,24 +81,12 @@ public class PlayerInfoMenu : MonoBehaviour
                 OpenMenu();
         }
     }
-    void Awake()
-    {
-        if (!Application.isPlaying)
-        {
-            if (playerMenuPanel != null)
-                playerMenuPanel.SetActive(false);
-        }
-        else
-        {
-            if (playerMenuPanel != null)
-                playerMenuPanel.SetActive(true);
-        }
-    }
 
     void OpenMenu()
     {
-        if (playerMenuPanel == null || playerStats == null) return;
+        if (playerMenuPanel == null) return;
 
+        // Allow menu to open even if stats are temporarily null
         playerMenuPanel.SetActive(true);
         Time.timeScale = 0f;
         isMenuOpen = true;
@@ -104,48 +105,52 @@ public class PlayerInfoMenu : MonoBehaviour
 
     void UpdatePlayerInfo()
     {
-        if (portraitImage != null && playerStats != null && playerStats.characterPortrait != null)
-            portraitImage.sprite = playerStats.characterPortrait;
+        CharacterStats stats = GetActiveStats();
+        if (stats == null) return; // safely ignore instead of breaking the menu
+
+        // Portrait
+        if (portraitImage != null && stats.characterPortrait != null)
+            portraitImage.sprite = stats.characterPortrait;
 
         // Left side
-        nameText.text = $"NAME: {playerStats.characterName}";
-        classText.text = $"CLASS: {playerStats.characterClass}";
-        healthText.text = $"HP: {playerStats.currentHealth}/{playerStats.maxHealth}";
-        initiativeText.text = $"INITIATIVE: {playerStats.initiative}";
-        armorClassText.text = $"AC: {playerStats.armorClass}";
+        nameText.text = $"NAME: {stats.characterName}";
+        classText.text = $"CLASS: {stats.characterClass}";
+        healthText.text = $"HP: {stats.currentHealth}/{stats.maxHealth}";
+        initiativeText.text = $"INITIATIVE: {stats.initiative}";
+        armorClassText.text = $"AC: {stats.armorClass}";
 
-        // Right side - Basic info
-        raceText.text = $"RACE: {playerStats.race}";
-        backgroundText.text = $"BACKGROUND: {playerStats.background}";
-        alignmentText.text = $"ALIGNMENT: {playerStats.alignment}";
-        expText.text = $"EXP: {playerStats.currentEXP}/{playerStats.expToNextLevel}";
+        // Basic info
+        raceText.text = $"RACE: {stats.race}";
+        backgroundText.text = $"BACKGROUND: {stats.background}";
+        alignmentText.text = $"ALIGNMENT: {stats.alignment}";
+        expText.text = $"EXP: {stats.currentEXP}/{stats.expToNextLevel}";
 
-        // Right side - Attributes
-        STRText.text = $"STRENGTH: {playerStats.strength}";
-        DEXText.text = $"DEXTERITY: {playerStats.dexterity}";
-        CONText.text = $"CONSTITUTION: {playerStats.constitution}";
-        INTText.text = $"INTELLIGENCE: {playerStats.intelligence}";
-        WISText.text = $"WISDOM: {playerStats.wisdom}";
-        CHAText.text = $"CHARISMA: {playerStats.charisma}";
+        // Attributes
+        STRText.text = $"STRENGTH: {stats.strength}";
+        DEXText.text = $"DEXTERITY: {stats.dexterity}";
+        CONText.text = $"CONSTITUTION: {stats.constitution}";
+        INTText.text = $"INTELLIGENCE: {stats.intelligence}";
+        WISText.text = $"WISDOM: {stats.wisdom}";
+        CHAText.text = $"CHARISMA: {stats.charisma}";
 
-        // Right side - Skills
-        athleticsText.text = $"ATHLETICS: {playerStats.athletics}";
-        acrobaticsText.text = $"ACROBATICS: {playerStats.acrobatics}";
-        soHText.text = $"SLEIGHT OF HAND: {playerStats.sleightOfHand}";
-        stealthText.text = $"STEALTH: {playerStats.stealth}";
-        arcanaText.text = $"ARCANA: {playerStats.arcana}";
-        historyText.text = $"HISTORY: {playerStats.history}";
-        investigationText.text = $"INVESTIGATION: {playerStats.investigation}";
-        natureText.text = $"NATURE: {playerStats.nature}";
-        religionText.text = $"RELIGION: {playerStats.religion}";
-        animalHandlingText.text = $"ANIMAL HANDLING: {playerStats.animalHandling}";
-        insightText.text = $"INSIGHT: {playerStats.insight}";
-        medicineText.text = $"MEDICINE: {playerStats.medicine}";
-        perceptionText.text = $"PERCEPTION: {playerStats.perception}";
-        survivalText.text = $"SURVIVAL: {playerStats.survival}";
-        deceptionText.text = $"DECEPTION: {playerStats.deception}";
-        intimidationText.text = $"INTIMIDATION: {playerStats.intimidation}";
-        performanceText.text = $"PERFORMANCE: {playerStats.performance}";
-        persuasionText.text = $"PERSUASION: {playerStats.persuasion}";
+        // Skills
+        athleticsText.text = $"ATHLETICS: {stats.athletics}";
+        acrobaticsText.text = $"ACROBATICS: {stats.acrobatics}";
+        soHText.text = $"SLEIGHT OF HAND: {stats.sleightOfHand}";
+        stealthText.text = $"STEALTH: {stats.stealth}";
+        arcanaText.text = $"ARCANA: {stats.arcana}";
+        historyText.text = $"HISTORY: {stats.history}";
+        investigationText.text = $"INVESTIGATION: {stats.investigation}";
+        natureText.text = $"NATURE: {stats.nature}";
+        religionText.text = $"RELIGION: {stats.religion}";
+        animalHandlingText.text = $"ANIMAL HANDLING: {stats.animalHandling}";
+        insightText.text = $"INSIGHT: {stats.insight}";
+        medicineText.text = $"MEDICINE: {stats.medicine}";
+        perceptionText.text = $"PERCEPTION: {stats.perception}";
+        survivalText.text = $"SURVIVAL: {stats.survival}";
+        deceptionText.text = $"DECEPTION: {stats.deception}";
+        intimidationText.text = $"INTIMIDATION: {stats.intimidation}";
+        performanceText.text = $"PERFORMANCE: {stats.performance}";
+        persuasionText.text = $"PERSUASION: {stats.persuasion}";
     }
 }

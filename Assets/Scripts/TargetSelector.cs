@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class TargetSelector : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class TargetSelector : MonoBehaviour
     private EnemyUI hoveredEnemyUI;
     private EnemyUI selectedEnemyUI;
     private Camera mainCam;
-
 
     public Transform hoverTarget;
     public Transform lockedTarget;
@@ -38,7 +38,10 @@ public class TargetSelector : MonoBehaviour
         {
             // Remove hover highlight from previous hovered enemy (if not selected)
             if (hoveredEnemyUI != null && hoveredEnemyUI != selectedEnemyUI)
+            {
                 hoveredEnemyUI.ResetColor();
+                hoveredEnemyUI.FadeInfoUI(false);
+            }
 
             hoveredEnemyUI = enemyUI;
 
@@ -48,18 +51,19 @@ public class TargetSelector : MonoBehaviour
                 hoveredEnemyUI.SetTemporaryHighlight(hoverColor);
                 hoverTarget = hoveredEnemyUI.transform;
 
-                // Hover UI has highest priority
                 hoveredEnemyUI.ShowInfoUI();
+                hoveredEnemyUI.FadeInfoUI(true);
                 hoveredEnemyUI.UpdateTopBar();
             }
             else
             {
                 hoverTarget = null;
 
-                // If nothing hovered → show locked target UI (if exists)
+                // If nothing hovered → keep selected UI visible
                 if (selectedEnemyUI != null)
                 {
                     selectedEnemyUI.ShowInfoUI();
+                    selectedEnemyUI.FadeInfoUI(true);
                     selectedEnemyUI.UpdateTopBar();
                 }
             }
@@ -76,19 +80,24 @@ public class TargetSelector : MonoBehaviour
             // Clicked on an enemy
             if (hoveredEnemyUI != null)
             {
-                // Remove highlight from old selected
+                // Remove highlight & fade from old selected
                 if (selectedEnemyUI != null && selectedEnemyUI != hoveredEnemyUI)
+                {
                     selectedEnemyUI.ResetColor();
+                    selectedEnemyUI.FadeInfoUI(false);
+                }
 
                 // Set new selected enemy
                 selectedEnemyUI = hoveredEnemyUI;
                 selectedEnemyUI.SetPermanentHighlight(selectedColor);
-
                 lockedTarget = selectedEnemyUI.transform;
 
-                // Display its UI
                 selectedEnemyUI.ShowInfoUI();
+                selectedEnemyUI.FadeInfoUI(true);
                 selectedEnemyUI.UpdateTopBar();
+
+                // 🔥 PUNCH ANIMATION (scale bump)
+                selectedEnemyUI.PunchUI();
             }
             else
             {
@@ -106,17 +115,16 @@ public class TargetSelector : MonoBehaviour
             : null;
     }
 
-
     public void ClearSelection()
     {
         lockedTarget = null;
         hoverTarget = null;
 
-        // Clear highlights
         EnemyUI[] all = FindObjectsByType<EnemyUI>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         foreach (var ui in all)
         {
             ui.ResetColor();
+            ui.FadeInfoUI(false);
             ui.HideInfoUI();
         }
 
@@ -133,8 +141,10 @@ public class TargetSelector : MonoBehaviour
         if (ui != null)
         {
             ui.ShowInfoUI();
+            ui.FadeInfoUI(true);
             ui.UpdateTopBar();
             ui.SetPermanentHighlight(selectedColor);
+            ui.PunchUI();
         }
     }
 }
