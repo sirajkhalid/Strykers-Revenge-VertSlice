@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class BattleStateManager : MonoBehaviour
@@ -11,6 +10,17 @@ public class BattleStateManager : MonoBehaviour
     private BattleIntroManager introManager;
     private TurnManager turnManager;
 
+    [Header("Post-Battle Grace Period")]
+    public float postBattleGraceTime = 2f;
+    private float graceTimer = 0f;
+
+    // Tracks overworld enemies that participated in THIS battle.
+    private List<GameObject> currentBattleEnemies = new List<GameObject>();
+
+    // Tracks ONLY enemies that actually died during battle.
+    private HashSet<GameObject> killedEnemies = new HashSet<GameObject>();
+
+
     void Start()
     {
         if (battleUI != null)
@@ -20,19 +30,32 @@ public class BattleStateManager : MonoBehaviour
         turnManager = GetComponent<TurnManager>();
     }
 
-    public void ToggleBattleState()
+
+    void Update()
     {
-        isBattleActive = !isBattleActive;
-
-        if (battleUI != null)
-            battleUI.SetActive(isBattleActive);
-
-        if (isBattleActive)
-            TriggerBattleIntro();
+        if (!isBattleActive && graceTimer > 0f)
+            graceTimer -= Time.deltaTime;
     }
 
-    public void StartBattle()
+
+    // -----------------------------------------------------------------
+    // MARK ENEMY AS KILLED
+    // -----------------------------------------------------------------
+    public void MarkEnemyKilled(GameObject enemy)
     {
+        if (enemy != null)
+            killedEnemies.Add(enemy);
+    }
+
+
+    // -----------------------------------------------------------------
+    // START BATTLE
+    // -----------------------------------------------------------------
+    public void StartBattle(List<GameObject> enemyGroup)
+    {
+        currentBattleEnemies = enemyGroup;
+        killedEnemies.Clear();
+
         isBattleActive = true;
 
         if (battleUI != null)
@@ -40,32 +63,91 @@ public class BattleStateManager : MonoBehaviour
 
         TriggerBattleIntro();
 
+        // Find active player
         var partyController = FindFirstObjectByType<PlayerPartyController>();
-        GameObject activePlayer = partyController != null ? partyController.activeMember : null;
+        GameObject activePlayer = partyController != null ?
+                                  partyController.activeMember : null;
 
         List<GameObject> players = new();
         if (activePlayer != null)
             players.Add(activePlayer);
 
-        List<GameObject> enemies = Resources.FindObjectsOfTypeAll<GameObject>()
-            .Where(obj => obj.CompareTag("Enemy") && obj.scene.IsValid() && obj.activeInHierarchy)
-            .ToList();
-
         if (turnManager != null)
-            turnManager.InitializeTurnOrder(players, enemies);
+            turnManager.InitializeTurnOrder(players, enemyGroup);
     }
 
+
+    public void StartBattleForGroup(List<GameObject> enemyGroup)
+    {
+        StartBattle(enemyGroup);
+    }
+
+
+    // -----------------------------------------------------------------
+    // BATTLE INTRO 
+    // -----------------------------------------------------------------
     private void TriggerBattleIntro()
     {
         if (introManager != null)
             introManager.PlayBattleIntro();
     }
 
+
+    // -----------------------------------------------------------------
+    // END BATTLE
+    // -----------------------------------------------------------------
     public void EndBattle()
     {
         isBattleActive = false;
+        graceTimer = postBattleGraceTime;
 
         if (battleUI != null)
             battleUI.SetActive(false);
+
+        // Hide the Turn Order UI
+        var turnUI = FindFirstObjectByType<TurnOrderUI>(FindObjectsInactive.Include);
+        turnUI?.ClearUI();
+        ResetAbilityBattleUses();
+
+        CleanupDefeatedEnemies();
     }
+
+
+
+    public bool IsInGracePeriod()
+    {
+        return graceTimer > 0f;
+    }
+
+
+    // -----------------------------------------------------------------
+    // CLEAN ONLY THE ENEMIES THAT ACTUALLY DIED
+    // -----------------------------------------------------------------
+    private void CleanupDefeatedEnemies()
+    {
+        foreach (var enemy in currentBattleEnemies)
+        {
+            if (enemy == null) continue;
+
+            if (killedEnemies.Contains(enemy))
+            {
+                // Detach children so they don’t disappear 
+                foreach (Transform child in enemy.transform)
+                    child.SetParent(null);
+
+                Destroy(enemy.gameObject);
+            }
+        }
+
+        currentBattleEnemies.Clear();
+        killedEnemies.Clear();
+    }
+    private void ResetAbilityBattleUses()
+    {
+        Ability[] allAbilities = Resources.FindObjectsOfTypeAll<Ability>();
+
+        foreach (var ability in allAbilities)
+            ability.usesThisBattle = 0;
+    }
+
 }

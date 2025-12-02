@@ -57,6 +57,14 @@ public class Ability : ScriptableObject
     public int numberOfDice = 1;
     public int diceSides = 6;
 
+    [Header("Per-Battle Usage")]
+    [Tooltip("How many times this ability can be used each battle. 0 = unlimited.")]
+    public int maxUsesPerBattle = 0;
+
+    [System.NonSerialized]
+    public int usesThisBattle = 0;
+
+
     public enum AbilityCategory { Melee, Ranged, Magic, Support, Utility, Passive }
     public enum TargetType { Self, Enemy, Ally, Area }
     public enum DamageType { Physical, Fire, Cold, Lightning, Poison, Holy, Shadow }

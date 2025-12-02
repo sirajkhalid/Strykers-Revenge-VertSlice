@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: Assembly-CSharp::Ability
+  abilityName: Fireball
+  abilityDescription: Hurl an explosive ball of flame that detonates upon impact,
+    dealing minor fire damage.
+  abilityIcon: {fileID: 21300000, guid: 9f69b220176e6964fbd87f5f158d45e3, type: 3}
+  isUnlocked: 1
+  category: 2
+  baseDamage: 10
+  damageScaling: 1
+  scalingAttribute: 3
+  usesSpellSlot: 0
+  spellLevel: 0
+  slotCost: 0
+  actionType: 0
+  consumesAction: 1
+  consumesBonusAction: 0
+  consumesFreeAction: 0
+  targetType: 1
+  range: 8
+  areaRadius: 4
+  requiresLineOfSight: 1
+  deliveryType: 2
+  visualEffectPrefab: {fileID: 6880138820844841831, guid: b840de7f18eecce428134ad269205bef,
+    type: 3}
+  abilitySound: {fileID: 0}
+  appliesStatusEffect: 0
+  statusEffectName: 
+  statusDuration: 0
+  abilityAnimation: {fileID: 0}
+  damageType: 1
+  specialEffect: 1
+  numberOfDice: 2
+  diceSides: 6

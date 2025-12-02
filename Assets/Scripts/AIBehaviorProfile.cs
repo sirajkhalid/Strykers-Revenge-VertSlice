@@ -11,7 +11,8 @@ public class AIBehaviorProfile : ScriptableObject
     public bool prefersRanged = false;
     public bool prefersUtilityWhenLowHP = true;
 
-    [Range(0f, 1f)] public float utilityHPThreshold = 0.4f;
+    [Range(0f, 1f)]
+    public float utilityHPThreshold = 0.4f;
 
     [Header("Shadow Step Logic")]
     public bool useShadowStepWhenStuck = true;

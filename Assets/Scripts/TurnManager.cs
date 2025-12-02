@@ -183,6 +183,9 @@ public class TurnManager : MonoBehaviour
         EnableEndTurnButton(false);
         isPlayerTurn = false;
 
+        // 🔥 This is the ONE correct place to call it.
+        turnOrderUI?.AdvanceTurn(currentTurnObject);
+
         combatants = combatants.Where(c => c != null).ToList();
         if (combatants.Count == 0)
             return;
@@ -193,10 +196,12 @@ public class TurnManager : MonoBehaviour
             return;
         }
 
+        // Advance the index AFTER the portrait is animated
         currentTurnIndex++;
         if (currentTurnIndex >= combatants.Count)
             currentTurnIndex = 0;
 
+        // Start of new round → resort
         if (currentTurnIndex == 0)
         {
             combatants = combatants
@@ -205,17 +210,22 @@ public class TurnManager : MonoBehaviour
                 .ToList();
         }
 
+        // Skip dead
         int safety = 0;
         while ((combatants[currentTurnIndex] == null || !IsAlive(combatants[currentTurnIndex])) && safety < 50)
         {
             currentTurnIndex++;
             if (currentTurnIndex >= combatants.Count)
                 currentTurnIndex = 0;
+
             safety++;
         }
 
+        // ❌ DO NOT put AdvanceTurn() here again
+
         StartTurn();
     }
+
 
     // --------------------------------------------------------------------
     // HELPERS
@@ -261,13 +271,14 @@ public class TurnManager : MonoBehaviour
         if (currentTurnObject == oldObj)
             currentTurnObject = newObj;
 
-        // Uupdate turn order UI
+        // Update TURN ORDER UI
         var stats = newObj.GetComponent<CharacterStats>();
         if (stats != null && stats.characterSquarePortrait != null)
         {
-            turnOrderUI?.UpdatePortraitSprite(newObj, stats.characterSquarePortrait);
+            turnOrderUI?.ReplacePortraitKey(oldObj, newObj, stats.characterSquarePortrait);
         }
     }
+
 
     // REMOVE COMBATANT (death)
     public void RemoveCombatant(GameObject obj)
@@ -277,7 +288,13 @@ public class TurnManager : MonoBehaviour
         bool wasCurrent = (currentTurnObject == obj);
 
         combatants.Remove(obj);
+
+        // REMOVE FROM TURN ORDER UI
         turnOrderUI?.RemovePortrait(obj);
+
+        // TELL battleStateManager this enemy died
+        if (obj.GetComponent<EnemyStats>())
+            battleStateManager?.MarkEnemyKilled(obj);
 
         if (combatants.Count == 0)
             return;
@@ -288,4 +305,7 @@ public class TurnManager : MonoBehaviour
         if (wasCurrent)
             StartTurn();
     }
+
+
+
 }

@@ -11,14 +11,11 @@ public class EnemyUI : MonoBehaviour
     public EnemyStats enemyStats;
     public BattleStateManager battleManager;
 
-    [Header("Mini Bar Settings (above enemy)")]
-    public Vector3 healthBarOffset = new Vector3(0, 1.5f, 0);
-    public Vector2 barSize = new Vector2(1.5f, 0.2f);
     private Texture2D redTex;
     private Texture2D blackTex;
 
     [Header("Mini Bar Animation")]
-    public float miniDisplayedHP = 1f; // smoothed health %
+    private float miniDisplayedHP = 1f; // smoothed health %
 
     [Header("Top Hover UI (Enemy Info)")]
     public GameObject enemyInfoBox;
@@ -169,7 +166,6 @@ public class EnemyUI : MonoBehaviour
 
 
     // MINI BAR (above their head)
-
     void OnGUI()
     {
         if (battleManager == null || enemyStats == null)
@@ -178,29 +174,48 @@ public class EnemyUI : MonoBehaviour
         if (!battleManager.isBattleActive)
             return;
 
-        Vector3 screenPos = cam.WorldToScreenPoint(transform.position + healthBarOffset);
+        if (enemyStats.currentHealth <= 0)
+            return;
+
+        if (spriteRenderer == null)
+            return;
+
+        // Auto-get sprite bounds
+        Bounds b = spriteRenderer.bounds;
+
+        // Auto position bar slightly above sprite
+        Vector3 worldPos = new Vector3(
+            b.center.x,
+            b.max.y + 0.30f,        // 0.15 world units above head
+            b.center.z
+        );
+
+        Vector3 screenPos = cam.WorldToScreenPoint(worldPos);
         screenPos.y = Screen.height - screenPos.y;
+
+        // Auto-size bar based on sprite width
+        float width = b.size.x * 60f;   // Looks good at any size
+        float height = b.size.y * 5f;   // Thin, clean bar
 
         float realHP = Mathf.Clamp01((float)enemyStats.currentHealth / enemyStats.maxHealth);
 
-        // Smooth animation for overhead bar
+        // Smooth animation (always on)
         miniDisplayedHP = Mathf.Lerp(miniDisplayedHP, realHP, Time.deltaTime * 10f);
 
-        float width = barSize.x * 100;
-        float height = barSize.y * 100;
-
-        // Draw background
+        // Background
         GUI.DrawTexture(
             new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width, height),
             blackTex
         );
 
-        // Draw smooth red bar
+        // Foreground HP bar
         GUI.DrawTexture(
             new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width * miniDisplayedHP, height),
             redTex
         );
     }
+
+
 
 
     // UI Helpers

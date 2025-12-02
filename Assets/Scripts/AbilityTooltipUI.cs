@@ -14,6 +14,8 @@ public class AbilityTooltipUI : MonoBehaviour
     public TMP_Text damageText;            // "Damage: 5 – 11"
     public TMP_Text targetRangeText;       // "Enemy • Range 6m • Radius 3m"
     public TMP_Text scalingAndEffectText;  // "STR • Burn"
+    public TMP_Text usesPerBattleText;
+
 
     [Header("Icons")]
     public Image categoryIcon;             // Melee / Ranged / Magic / etc
@@ -133,6 +135,7 @@ public class AbilityTooltipUI : MonoBehaviour
         SetupTargetRangeLine(ability);
         SetupScalingAndEffectLine(ability);
         SetupActionIcons(ability);
+        SetupUsesPerBattle(ability);
 
         tooltipRect.localScale = Vector3.one * 0.8f;
         canvasGroup.alpha = 0f;
@@ -454,4 +457,22 @@ public class AbilityTooltipUI : MonoBehaviour
             default: return "";
         }
     }
+    private void SetupUsesPerBattle(Ability ability)
+    {
+        if (usesPerBattleText == null)
+            return;
+
+        // If this ability has no per-battle limit → hide the UI element
+        if (ability.maxUsesPerBattle <= 0)
+        {
+            usesPerBattleText.gameObject.SetActive(false);
+            return;
+        }
+
+        // Ability HAS a per-battle limit → show the UI
+        int left = Mathf.Max(0, ability.maxUsesPerBattle - ability.usesThisBattle);
+        usesPerBattleText.text = $"Uses Left: {left}/{ability.maxUsesPerBattle}";
+        usesPerBattleText.gameObject.SetActive(true);
+    }
+
 }

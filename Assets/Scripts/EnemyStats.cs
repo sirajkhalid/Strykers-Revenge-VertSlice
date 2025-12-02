@@ -230,17 +230,65 @@ public class EnemyStats : MonoBehaviour
     {
         Debug.Log($"{enemyName} has been defeated!");
 
-        // Disable collider immediately
+        // Mark HP as 0
+        currentHealth = 0;
+
+        // Disable AI if present
+        var ai = GetComponent<EnemyAIController>();
+        if (ai != null)
+            ai.enabled = false;
+
+        // Stop movement cleanly
+        var mover = GetComponent<EnemyMovementController>();
+        if (mover != null)
+        {
+            mover.OnBattleStarted();  // stops immediately
+            mover.canMove = false;
+        }
+
+        // Disable collider
         Collider2D col = GetComponent<Collider2D>();
-        if (col) col.enabled = false;
+        if (col != null)
+            col.enabled = false;
 
-        // Try to fade out if possible
-        StartCoroutine(FadeAndDestroy());
 
-        TargetSelector selector = FindFirstObjectByType<TargetSelector>();
-        if (selector != null)
-            selector.ClearSelection();
+        // Notify TurnManager the enemy died
+        TurnManager turn = FindFirstObjectByType<TurnManager>();
+        if (turn != null)
+            turn.RemoveCombatant(gameObject);
 
+        // Notify BattleStateManager
+        BattleStateManager bsm = FindFirstObjectByType<BattleStateManager>();
+        if (bsm != null)
+            bsm.MarkEnemyKilled(gameObject);
+
+        // Play fade-out
+        StartCoroutine(FadeOut());
+
+        // DO NOT destroy. Cleanup happens after battle.
+    }
+
+
+
+    private IEnumerator FadeOut()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr == null) yield break;
+
+        float fadeDuration = 1.2f;
+        float elapsed = 0f;
+        Color originalColor = sr.color;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
+            sr.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+
+        // hide, but don't destroy
+        sr.enabled = false;
     }
 
     private IEnumerator FadeAndDestroy()
@@ -265,7 +313,6 @@ public class EnemyStats : MonoBehaviour
             yield return null;
         }
 
-        Destroy(gameObject);
     }
 
 

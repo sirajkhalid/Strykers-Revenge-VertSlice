@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: 1497034400118839153}
   - component: {fileID: -1602314608913290954}
   - component: {fileID: 5181030918936642381}
+  - component: {fileID: 8983463322286771940}
+  - component: {fileID: 5431015048163812394}
+  - component: {fileID: -8907701141783262192}
   m_Layer: 0
   m_Name: Bloated Corpse
   m_TagString: Enemy
@@ -83,7 +86,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1868916615
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 9026757932403066129, guid: 9ecd892a86f99fb49a2188fcae2f55b3,
     type: 3}
@@ -181,12 +184,12 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   healthBarOffset: {x: 0, y: 1, z: 0}
   barSize: {x: 0.35, y: 0.05}
+  miniDisplayedHP: 1
   enemyInfoBox: {fileID: 0}
   enemyNameText: {fileID: 0}
   enemyHealthNum: {fileID: 0}
   enemyHealthFill: {fileID: 0}
   enemyTypeText: {fileID: 0}
-  enemyStatusPanel: {fileID: 0}
   enemyPortraitBox: {fileID: 0}
   enemyPortrait: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -264,3 +267,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAIController
   behavior: {fileID: 11400000, guid: 820e23a52dd394941a3cc680c170f2e5, type: 2}
+--- !u!114 &8983463322286771940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324183076802201904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331cfafdbb94a6c49bb2558290789598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovementController
+  movementType: 0
+  moveSpeed: 2
+  patrolDistance: 3
+  patrolDirection: {x: 1, y: 0}
+  wanderRadius: 4
+  wanderPauseTime: 0.5
+  circleRadius: 2
+  circleAngularSpeed: 90
+  circleRandomizeDirection: 1
+  chaseSpeedMultiplier: 1.5
+  isFollower: 0
+  canMove: 1
+  externalControl: 0
+  isInBattle: 0
+--- !u!114 &5431015048163812394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324183076802201904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775baf9a7d4a92e45811cfa4ea197ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyGroupController
+  leader: {fileID: 0}
+  followers: []
+  baseRadius: 1.5
+  jitterAmount: 0.3
+  jitterSpeed: 1.5
+  autoFindFollowers: 1
+--- !u!114 &-8907701141783262192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324183076802201904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ba564dc5bad984daabdc4ff0122385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDetection
+  detectionType: 0
+  radiusRange: 5
+  coneHalfAngle: 45
+  coneDistance: 6
+  battleTriggerRange: 2

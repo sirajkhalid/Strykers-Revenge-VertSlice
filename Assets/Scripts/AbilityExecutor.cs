@@ -54,6 +54,15 @@ public class AbilityExecutor : MonoBehaviour
         // Must have action/bonus action available
         if (!playerStats.CanUseActionType(ability.actionType)) yield break;
 
+        // --- PER-BATTLE USAGE LIMIT CHECK ---
+        if (ability.maxUsesPerBattle > 0)
+        {
+            if (ability.usesThisBattle >= ability.maxUsesPerBattle)
+            {
+                ShowOutOfRangeMessage(); // or a proper "No More Uses" popup
+                yield break;
+            }
+        }
         // --- STEP 1: CHECK RANGE BEFORE ANY COST IS CONSUMED ---
         if (ability.targetType == Ability.TargetType.Enemy)
         {
@@ -132,6 +141,8 @@ public class AbilityExecutor : MonoBehaviour
                 StartCoroutine(ExecuteAreaAbility(ability));
                 break;
         }
+
+        ability.usesThisBattle++;
     }
 
 
@@ -258,7 +269,16 @@ public class AbilityExecutor : MonoBehaviour
 
     IEnumerator ExecuteMeleeAbility(Ability ability)
     {
-        if (ability == null || playerStats == null) yield break;
+        if (ability == null || playerStats == null)
+            yield break;
+
+        // Handle per-battle usage
+        if (ability.maxUsesPerBattle > 0 &&
+            ability.usesThisBattle >= ability.maxUsesPerBattle)
+        {
+            ShowOutOfRangeMessage();  // Replace later with proper "No more uses" popup
+            yield break;
+        }
 
         // Play animation
         if (playerAnimator && ability.abilityAnimation)
@@ -266,13 +286,13 @@ public class AbilityExecutor : MonoBehaviour
 
         yield return new WaitForSeconds(0.25f);
 
-        // Find Target
+        // Find target
         TargetSelector selector = FindFirstObjectByType<TargetSelector>();
         Transform lockedTarget = selector?.GetCurrentTarget();
 
         EnemyStats closestEnemy = null;
 
-        // If locked target exists and is in range → use it
+        // Use locked target if in range
         if (lockedTarget != null)
         {
             float distToLocked = Vector2.Distance(playerStats.transform.position, lockedTarget.position);
@@ -280,7 +300,7 @@ public class AbilityExecutor : MonoBehaviour
                 closestEnemy = lockedTarget.GetComponent<EnemyStats>();
         }
 
-        // If no locked target OR locked target out of range → find closest enemy within circle
+        // Otherwise find closest enemy
         if (closestEnemy == null)
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(playerStats.transform.position, ability.range);
@@ -301,19 +321,13 @@ public class AbilityExecutor : MonoBehaviour
             }
         }
 
-        // if out of range
         if (!closestEnemy)
         {
             ShowOutOfRangeMessage();
             yield break;
         }
 
-        // Safety Check
-        float finalDist = Vector2.Distance(
-            playerStats.transform.position,
-            closestEnemy.transform.position
-        );
-
+        float finalDist = Vector2.Distance(playerStats.transform.position, closestEnemy.transform.position);
         if (finalDist > ability.range)
         {
             ShowOutOfRangeMessage();
@@ -331,43 +345,36 @@ public class AbilityExecutor : MonoBehaviour
             Destroy(vfx, 1f);
         }
 
-        // Damage Calculation
-        bool hit = AbilityExecutor.ResolveAttack(
-            ability.baseDamage,
-            ability.numberOfDice,
-            ability.diceSides,
-            ability.scalingAttribute,
-            playerStats,
-            closestEnemy.armorClass,
-            out int finalDamage,
-            out bool isCrit,
-            out bool isMiss
-        );
+        //-----------------------------------------
+        // TRIPLE-HIT LOGIC
+        //-----------------------------------------
+        int hitCount = ability.abilityName.Contains("Triple") ? 3 : 1;
 
-        // Utility abilities that deal no damage
-        if (ability.baseDamage == 0 && ability.numberOfDice == 0)
+        for (int i = 0; i < hitCount; i++)
         {
-            finalDamage = 0;
-            isCrit = false;
-            isMiss = false;
+            bool hit = AbilityExecutor.ResolveAttack(
+                ability.baseDamage,
+                ability.numberOfDice,
+                ability.diceSides,
+                ability.scalingAttribute,
+                playerStats,
+                closestEnemy.armorClass,
+                out int finalDamage,
+                out bool isCrit,
+                out bool isMiss
+            );
+
+            closestEnemy.TakeDamage(finalDamage, isCrit, isMiss);
+
+            // Optional: add a slight delay between each slash
+            if (hitCount > 1)
+                yield return new WaitForSeconds(0.1f);
         }
 
-        closestEnemy.TakeDamage(finalDamage, isCrit, isMiss);
-
-        if (!isMiss && ability.abilityName == "Push")
-        {
-            Vector3 dir = (closestEnemy.transform.position - playerStats.transform.position).normalized;
-            float pushDistance = 5.0f;
-
-            Vector3 startPos = closestEnemy.transform.position;
-            Vector3 targetPos = startPos + dir * pushDistance;
-
-            // DOTween smooth movement
-            closestEnemy.transform
-                .DOMove(targetPos, 0.35f)
-                .SetEase(Ease.OutQuad);
-        }
+        // Successfully used — increment battle counter
+        ability.usesThisBattle++;
     }
+
 
     // INSTANT MAGIC (Spawn on enemy)
     IEnumerator ExecuteInstantMagic(Ability ability)
@@ -630,6 +637,36 @@ public class AbilityExecutor : MonoBehaviour
             Quaternion.identity
         );
 
+    }
+
+    public void ShowNoUsesLeftMessage()
+    {
+        if (playerStats != null && playerStats.outOfRangePrefab != null)
+        {
+            GameObject msg = Instantiate(
+                playerStats.outOfRangePrefab,
+                playerStats.transform.position + Vector3.up * 2f,
+                Quaternion.identity
+            );
+
+            msg.GetComponentInChildren<TMPro.TMP_Text>().text = "No Uses Left!";
+            Destroy(msg, 1f);
+        }
+    }
+
+    public void ShowNoSpellSlotsMessage()
+    {
+        if (playerStats != null && playerStats.outOfRangePrefab != null)
+        {
+            GameObject msg = Instantiate(
+                playerStats.outOfRangePrefab,
+                playerStats.transform.position + Vector3.up * 2f,
+                Quaternion.identity
+            );
+
+            msg.GetComponentInChildren<TMPro.TMP_Text>().text = "No Spell Slots!";
+            Destroy(msg, 1f);
+        }
     }
 
 

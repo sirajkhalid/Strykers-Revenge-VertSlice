@@ -85,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1868916615
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -1573353697476631247, guid: 0a9e9375c2efbba40997ebf6c5d6079f,
     type: 3}
@@ -248,6 +248,7 @@ MonoBehaviour:
   currentHealth: 0
   armorClass: 0
   initiative: 0
+  rolledInitiative: 0
   athletics: 0
   acrobatics: 0
   sleightOfHand: 0
@@ -329,11 +330,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
   abilities:
-  - {fileID: 11400000, guid: 48898c58aea7764408f440bba6ef2040, type: 2}
-  - {fileID: 11400000, guid: 933472d345d117348b0175713dc143c5, type: 2}
   - {fileID: 11400000, guid: 524795d1fcb376a46a83b866162a4b5b, type: 2}
+  - {fileID: 11400000, guid: 48898c58aea7764408f440bba6ef2040, type: 2}
   - {fileID: 11400000, guid: b8698ab02adbffa4aa76bafb3605e71c, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 6dbf1f864f56bc541a69fc0707c73060, type: 2}
+  - {fileID: 11400000, guid: 931fc42500189f84c94692cf7db24c0b, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
