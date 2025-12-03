@@ -22,17 +22,21 @@ public class UIHoverPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (rect == null) return;
+
         scaleTween?.Kill();
         scaleTween = rect
             .DOScale(hoverScale, hoverTime)
-            .SetEase(Ease.OutBack);
+            .SetEase(Ease.OutBack);   // uses normal (scaled) time
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (rect == null) return;
+
         scaleTween?.Kill();
         scaleTween = rect
             .DOScale(normalScale, normalTime)
-            .SetEase(Ease.OutBack);
+            .SetEase(Ease.OutBack);   // uses normal (scaled) time
     }
 }

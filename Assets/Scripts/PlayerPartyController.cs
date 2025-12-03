@@ -270,4 +270,6 @@ public class PlayerPartyController : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
         }
     }
+
+
 }

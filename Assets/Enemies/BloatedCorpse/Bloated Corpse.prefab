@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8983463322286771940}
   - component: {fileID: 5431015048163812394}
   - component: {fileID: -8907701141783262192}
+  - component: {fileID: -5027258154347297065}
   m_Layer: 0
   m_Name: Bloated Corpse
   m_TagString: Enemy
@@ -182,9 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   enemyStats: {fileID: 0}
   battleManager: {fileID: 0}
-  healthBarOffset: {x: 0, y: 1, z: 0}
-  barSize: {x: 0.35, y: 0.05}
-  miniDisplayedHP: 1
   enemyInfoBox: {fileID: 0}
   enemyNameText: {fileID: 0}
   enemyHealthNum: {fileID: 0}
@@ -289,7 +287,6 @@ MonoBehaviour:
   circleAngularSpeed: 90
   circleRandomizeDirection: 1
   chaseSpeedMultiplier: 1.5
-  isFollower: 0
   canMove: 1
   externalControl: 0
   isInBattle: 0
@@ -305,12 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775baf9a7d4a92e45811cfa4ea197ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyGroupController
-  leader: {fileID: 0}
   followers: []
   baseRadius: 1.5
   jitterAmount: 0.3
   jitterSpeed: 1.5
-  autoFindFollowers: 1
 --- !u!114 &-8907701141783262192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,3 +323,30 @@ MonoBehaviour:
   coneHalfAngle: 45
   coneDistance: 6
   battleTriggerRange: 2
+--- !u!50 &-5027258154347297065
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324183076802201904}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

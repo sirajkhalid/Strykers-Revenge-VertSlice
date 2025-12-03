@@ -277,7 +277,6 @@ public class EnemyUI : MonoBehaviour
         float target = fadeIn ? 1f : 0f;
         float duration = 0.25f;
 
-        // Ensure the UI is active before fading
         if (fadeIn)
         {
             if (enemyInfoBox != null)
@@ -289,26 +288,41 @@ public class EnemyUI : MonoBehaviour
 
         // Name
         if (enemyNameText != null)
+        {
+            enemyNameText.DOKill();                      // ✅ kill old tween
             enemyNameText.DOFade(target, duration);
+        }
 
         // HP Number
         if (enemyHealthNum != null)
+        {
+            enemyHealthNum.DOKill();
             enemyHealthNum.DOFade(target, duration);
+        }
 
         // Type Text
         if (enemyTypeText != null)
+        {
+            enemyTypeText.DOKill();
             enemyTypeText.DOFade(target, duration);
+        }
 
         // Portrait
         if (enemyPortrait != null)
+        {
+            enemyPortrait.DOKill();
             enemyPortrait.DOFade(target, duration);
+        }
 
         // Portrait BG
         if (enemyPortraitBox != null)
         {
             Image bg = enemyPortraitBox.GetComponent<Image>();
             if (bg != null)
+            {
+                bg.DOKill();
                 bg.DOFade(target, duration);
+            }
         }
 
         // Health Fill bar
@@ -316,16 +330,11 @@ public class EnemyUI : MonoBehaviour
         {
             var img = enemyHealthFill.GetComponent<Image>();
             if (img != null)
+            {
+                img.DOKill();
                 img.DOFade(target, duration);
+            }
         }
-
-        // Whole info box BG
-        /**if (enemyInfoBox != null)
-        {
-            Image bg = enemyInfoBox.GetComponent<Image>();
-            if (bg != null)
-                bg.DOFade(target, duration);
-        }**/
 
         // After fade OUT, fully disable the UI 
         if (!fadeIn)
@@ -340,6 +349,7 @@ public class EnemyUI : MonoBehaviour
             });
         }
     }
+
 
     public void PunchUI()
     {
