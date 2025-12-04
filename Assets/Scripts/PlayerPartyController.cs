@@ -270,6 +270,10 @@ public class PlayerPartyController : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
         }
     }
-
+    public void TriggerSprintCameraShake()
+    {
+        if (impulseSource != null)
+            impulseSource.GenerateImpulse();
+    }
 
 }

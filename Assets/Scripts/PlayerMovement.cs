@@ -1,124 +1,240 @@
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
+
+[RequireComponent(typeof(SpriteRenderer), typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float moveSpeed = 5f;
-    private Vector2 movement;
-    public bool canMove = true;
+    [Header("Movement Speeds")]
+    public float smoothing = 15f;
+    public float sprintBonus = 3f;
+
+    private Vector2 rawInput;
+    private Vector2 smoothVelocity;
+
+    private float baseMoveSpeed = 5f; // fallback if CharacterStats missing
+
+    [Header("Footstep Audio")]
+    public AudioSource audioSource;
+    public AudioClip walkFootstepSFX;
+    public AudioClip sprintFootstepSFX;
+    private float footstepTimer;
 
     [Header("Components")]
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private CharacterStats stats;
 
-    // Hashes for safe checking
+    // Animation Hashes
     private int walkUpHash;
     private int walkDownHash;
+    private int runHash;
+    private int idleHash;
+    private int sprintHash;
+
+    // Diagonal animation Hashes (KEPT but commented)
     private int diagUpLeftHash;
     private int diagDownRightHash;
 
-    private bool hasWalkUp;
-    private bool hasWalkDown;
-    private bool hasDiagUpLeft;
-    private bool hasDiagDownRight;
+    private bool hasWalkUp, hasWalkDown, hasRun, hasIdle, hasSprint;
+    private bool hasDiagUpLeft, hasDiagDownRight;
 
-    void Start()
+    private bool wasSprinting = false;
+
+    public bool canMove = true;
+
+    void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        stats = GetComponent<CharacterStats>();
 
+        // animation state hashes
         walkUpHash = Animator.StringToHash("WalkUp");
         walkDownHash = Animator.StringToHash("WalkDown");
+        runHash = Animator.StringToHash("Run");
+        idleHash = Animator.StringToHash("Idle");
+        sprintHash = Animator.StringToHash("Sprint");
+
         diagUpLeftHash = Animator.StringToHash("DiagUpLeft");
         diagDownRightHash = Animator.StringToHash("DiagDownRight");
 
         hasWalkUp = animator.HasState(0, walkUpHash);
         hasWalkDown = animator.HasState(0, walkDownHash);
+        hasRun = animator.HasState(0, runHash);
+        hasIdle = animator.HasState(0, idleHash);
+        hasSprint = animator.HasState(0, sprintHash);
+
         hasDiagUpLeft = animator.HasState(0, diagUpLeftHash);
         hasDiagDownRight = animator.HasState(0, diagDownRightHash);
+
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (canMove)
+        if (!canMove)
         {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+            rawInput = Vector2.zero;
+            animator.SetFloat("Speed", 0f);
+            animator.Play(idleHash);
+            HandleFootsteps(false);
+            return;
+        }
 
-            float moveMagnitude = Mathf.Abs(movement.x) + Mathf.Abs(movement.y);
-            animator.SetFloat("Speed", moveMagnitude);
+        // ----------------------------
+        // MOVEMENT INPUT
+        // ----------------------------
+        rawInput.x = Input.GetAxisRaw("Horizontal");
+        rawInput.y = Input.GetAxisRaw("Vertical");
+        rawInput = rawInput.normalized;
 
-            
-            if (movement.x > 0.1f && movement.y > 0.1f && hasDiagDownRight)
+        // Smooth movement
+        smoothVelocity = Vector2.Lerp(smoothVelocity, rawInput, Time.deltaTime * smoothing);
+
+        // Drive the Speed parameter for Idle <-> Run transitions
+        float moveMagnitude = Mathf.Abs(rawInput.x) + Mathf.Abs(rawInput.y);
+        animator.SetFloat("Speed", moveMagnitude);
+
+        float absX = Mathf.Abs(rawInput.x);
+        float absY = Mathf.Abs(rawInput.y);
+
+        // ----------------------------
+        // SPRINT STATE + CAMERA SHAKE
+        // ----------------------------
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+
+        // Trigger camera pulse ONLY when sprint starts
+        if (isSprinting && !wasSprinting)
+        {
+            var party = FindFirstObjectByType<PlayerPartyController>();
+            if (party != null)
+                party.TriggerSprintCameraShake();
+        }
+        wasSprinting = isSprinting;
+
+        // ------------------------------------------
+        // OPTIONAL DIAGONAL ANIMATIONS (COMMENTED)
+        // ------------------------------------------
+        /*
+        if (absX > 0.1f && absY > 0.1f)
+        {
+            if (rawInput.x > 0 && rawInput.y > 0 && hasDiagDownRight)
             {
-                // Down-Right
                 spriteRenderer.flipX = true;
                 animator.Play(diagDownRightHash);
                 return;
             }
-
-            if (movement.x < -0.1f && movement.y < -0.1f && hasDiagUpLeft)
+            if (rawInput.x < 0 && rawInput.y < 0 && hasDiagUpLeft)
             {
-                // Up-Left
                 spriteRenderer.flipX = true;
                 animator.Play(diagUpLeftHash);
                 return;
             }
-
-            if (movement.x < -0.1f && movement.y > 0.1f && hasDiagDownRight)
+            if (rawInput.x < 0 && rawInput.y > 0 && hasDiagDownRight)
             {
-                // Down-Left (flip Down-Right)
                 spriteRenderer.flipX = false;
                 animator.Play(diagDownRightHash);
                 return;
             }
-
-            if (movement.x > 0.1f && movement.y < -0.1f && hasDiagUpLeft)
+            if (rawInput.x > 0 && rawInput.y < 0 && hasDiagUpLeft)
             {
-                // Up-Right (flip Up-Left)
                 spriteRenderer.flipX = false;
                 animator.Play(diagUpLeftHash);
                 return;
             }
+        }
+        */
 
-            // vertical only
-            if (movement.y > 0.1f && hasWalkUp)
-            {
-                animator.Play(walkUpHash);
-                return;
-            }
-            if (movement.y < -0.1f && hasWalkDown)
-            {
-                animator.Play(walkDownHash);
-                return;
-            }
+        // ----------------------------
+        // ANIMATION CHOICES
+        // ----------------------------
+        // Up / Down
+        if (rawInput.y > 0.1f && hasWalkUp)
+        {
+            animator.Play(walkUpHash);
+        }
+        else if (rawInput.y < -0.1f && hasWalkDown)
+        {
+            animator.Play(walkDownHash);
+        }
+        // Left / Right
+        else if (absX > 0.1f)
+        {
+            spriteRenderer.flipX = rawInput.x < 0;
 
-            // horizontal only
-            if (Mathf.Abs(movement.x) > 0.1f)
-            {
-                spriteRenderer.flipX = movement.x < 0;
-                animator.Play("Run");
-                return;
-            }
-
-            // idle
-            animator.Play("Idle");
+            if (isSprinting && hasSprint)
+                animator.Play(sprintHash);
+            else
+                animator.Play(runHash);
         }
         else
         {
-            movement = Vector2.zero;
-            animator.SetFloat("Speed", 0);
-            animator.Play("Idle");
+            animator.Play(idleHash);
         }
+
+        // ----------------------------
+        // FOOTSTEP SFX
+        // ----------------------------
+        HandleFootsteps(isSprinting);
     }
+
 
     void FixedUpdate()
     {
-        if (canMove)
+        if (!canMove) return;
+
+        float speed = CalculateMovementSpeed();
+        Vector2 move = smoothVelocity * speed * Time.fixedDeltaTime;
+        transform.Translate(move);
+    }
+
+    // ------------------------------------------------------
+    // Calculate movement speed (CharacterStats + bonus)
+    // ------------------------------------------------------
+    float CalculateMovementSpeed()
+    {
+        float move = baseMoveSpeed;
+
+        if (stats != null)
+            move = stats.maxMovement / 6f;
+
+        move += 3f; // your buff
+        if (Input.GetKey(KeyCode.LeftShift))
+            move += sprintBonus;
+
+        return move;
+    }
+
+    // ------------------------------------------------------
+    // FOOTSTEP AUDIO SYSTEM
+    // ------------------------------------------------------
+    void HandleFootsteps(bool sprinting)
+    {
+        // If not moving → stop all footsteps
+        if (rawInput.magnitude < 0.1f || !canMove)
         {
-            transform.Translate(movement * moveSpeed * Time.fixedDeltaTime);
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            return;
+        }
+
+        AudioClip desiredClip = sprinting ? sprintFootstepSFX : walkFootstepSFX;
+
+        // If clip changed (walk → sprint OR sprint → walk)
+        if (audioSource.clip != desiredClip)
+        {
+            audioSource.clip = desiredClip;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+
+        // If clip is set but not playing, start it
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = desiredClip;
+            audioSource.loop = true;
+            audioSource.Play();
         }
     }
-   
+
 }
