@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Bite
   abilityDescription: A vicious bite attack dealing physical damage.
-  abilityIcon: {fileID: 954719233889060856, guid: dea69b82cd1463248965dcdf8927eaaf,
+  abilityIcon: {fileID: -4509359564991771626, guid: 17b79eb4743d19e418ec1b8ec24e8103,
     type: 3}
   isUnlocked: 1
   category: 0
@@ -44,3 +44,4 @@ MonoBehaviour:
   specialEffect: 0
   numberOfDice: 1
   diceSides: 6
+  maxUsesPerBattle: 0

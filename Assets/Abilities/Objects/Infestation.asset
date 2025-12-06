@@ -16,7 +16,8 @@ MonoBehaviour:
   abilityDescription: You cause a cloud of mites, fleas, and other parasites to assault
     one creature you can see within range. The target takes minor poison damage and
     is momentarily distracted.
-  abilityIcon: {fileID: 21300000, guid: 1d6d7bf04d2101c4ea04650b6d6b911b, type: 3}
+  abilityIcon: {fileID: -6452096652286942366, guid: 1c48287424f473b45bf6dd3dae8f45a6,
+    type: 3}
   isUnlocked: 1
   category: 2
   baseDamage: 4
@@ -45,3 +46,4 @@ MonoBehaviour:
   specialEffect: 4
   numberOfDice: 1
   diceSides: 6
+  maxUsesPerBattle: 0
