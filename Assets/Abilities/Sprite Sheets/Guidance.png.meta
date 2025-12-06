@@ -179,12 +179,12 @@ TextureImporter:
       name: Guidance_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 69
-        width: 30
-        height: 34
+        x: 0
+        y: 65
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -201,12 +201,12 @@ TextureImporter:
       name: Guidance_1
       rect:
         serializedVersion: 2
-        x: 73
-        y: 69
-        width: 30
-        height: 34
+        x: 64
+        y: 65
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: Guidance_2
       rect:
         serializedVersion: 2
-        x: 137
-        y: 75
-        width: 30
-        height: 34
+        x: 128
+        y: 65
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: Guidance_3
       rect:
         serializedVersion: 2
-        x: 201
-        y: 87
-        width: 30
-        height: 34
+        x: 192
+        y: 65
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: Guidance_4
       rect:
         serializedVersion: 2
-        x: 231
-        y: 87
-        width: 14
-        height: 14
+        x: 256
+        y: 65
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: Guidance_5
       rect:
         serializedVersion: 2
-        x: 265
-        y: 91
-        width: 30
-        height: 34
+        x: 320
+        y: 65
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -311,12 +311,12 @@ TextureImporter:
       name: Guidance_6
       rect:
         serializedVersion: 2
-        x: 295
-        y: 91
-        width: 14
-        height: 14
+        x: 0
+        y: 1
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -333,12 +333,12 @@ TextureImporter:
       name: Guidance_7
       rect:
         serializedVersion: 2
-        x: 329
-        y: 93
-        width: 30
-        height: 34
+        x: 64
+        y: 1
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -355,12 +355,12 @@ TextureImporter:
       name: Guidance_8
       rect:
         serializedVersion: 2
-        x: 359
-        y: 93
-        width: 14
-        height: 14
+        x: 128
+        y: 1
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -377,12 +377,12 @@ TextureImporter:
       name: Guidance_9
       rect:
         serializedVersion: 2
-        x: 39
-        y: 69
-        width: 14
-        height: 14
+        x: 192
+        y: 1
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -399,12 +399,12 @@ TextureImporter:
       name: Guidance_10
       rect:
         serializedVersion: 2
-        x: 103
-        y: 69
-        width: 14
-        height: 14
+        x: 256
+        y: 1
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -417,253 +417,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Guidance_11
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 75
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e535f0c3051e8b6d0800000000000000
-      internalID: -2974379819156941986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_12
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 29
-        width: 30
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e1ecf653314475810800000000000000
-      internalID: 1753945429175684638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_13
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 29
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0d2e202679c60a2d0800000000000000
-      internalID: -3269493932030762288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_14
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 31
-        width: 30
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d049cdb1aa6b81550800000000000000
-      internalID: 6131851734393066509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_15
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 31
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa1746341927260d0800000000000000
-      internalID: -3431053997876416086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_16
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 31
-        width: 30
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d07bb79a4db99a1b0800000000000000
-      internalID: -5644809320253376755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_17
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 31
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c5c4e62b2fe87fd90800000000000000
-      internalID: -7064020317480530852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_18
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 31
-        width: 30
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad393505a447bd490800000000000000
-      internalID: -7720449273672526886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_19
-      rect:
-        serializedVersion: 2
-        x: 231
-        y: 31
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 069fa3d0fbfaf3500800000000000000
-      internalID: 378214128817994080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_20
-      rect:
-        serializedVersion: 2
-        x: 265
-        y: 31
-        width: 30
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 087feaf9521447b30800000000000000
-      internalID: 4284120775384823680
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guidance_21
-      rect:
-        serializedVersion: 2
-        x: 295
-        y: 31
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ece8e3b70b8ef9fa0800000000000000
-      internalID: -5791654751095583026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4c9225153f568b647ab63781565da5ed
     internalID: 0
     vertices: []
     indices: 
@@ -671,23 +429,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":64.0,"y":63.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":1.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Guidance_0: 4454460702272806429
       Guidance_1: -5166682680207026022
       Guidance_10: 1690506073464548103
-      Guidance_11: -2974379819156941986
-      Guidance_12: 1753945429175684638
-      Guidance_13: -3269493932030762288
-      Guidance_14: 6131851734393066509
-      Guidance_15: -3431053997876416086
-      Guidance_16: -5644809320253376755
-      Guidance_17: -7064020317480530852
-      Guidance_18: -7720449273672526886
-      Guidance_19: 378214128817994080
       Guidance_2: 3556869986741558891
-      Guidance_20: 4284120775384823680
-      Guidance_21: -5791654751095583026
       Guidance_3: 8219303034074781173
       Guidance_4: 2428070912047325611
       Guidance_5: -5120909904832858958
