@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
+  m_Name: Dragon Breath
+  m_EditorClassIdentifier: Assembly-CSharp::Ability
+  abilityName: Dragon Breath
+  abilityDescription: 'Conjure up your inner dragon. Breath fire onto your foe. '
+  abilityIcon: {fileID: 21300000, guid: e8a68fd17ce42174e9b24babd0ae6629, type: 3}
+  isUnlocked: 1
+  category: 2
+  baseDamage: 6
+  damageScaling: 1
+  scalingAttribute: 4
+  usesSpellSlot: 0
+  spellLevel: 0
+  slotCost: 0
+  actionType: 0
+  consumesAction: 1
+  consumesBonusAction: 0
+  consumesFreeAction: 0
+  targetType: 1
+  range: 1
+  areaRadius: 0
+  requiresLineOfSight: 1
+  deliveryType: 2
+  visualEffectPrefab: {fileID: 6880138820844841831, guid: b840de7f18eecce428134ad269205bef,
+    type: 3}
+  abilitySound: {fileID: 0}
+  appliesStatusEffect: 0
+  statusEffectName: 
+  statusDuration: 0
+  abilityAnimation: {fileID: 0}
+  damageType: 1
+  specialEffect: 1
+  numberOfDice: 3
+  diceSides: 6
+  maxUsesPerBattle: 1
