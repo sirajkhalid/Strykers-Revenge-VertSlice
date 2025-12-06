@@ -179,12 +179,12 @@ TextureImporter:
       name: GuidingBolt_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 285
-        width: 194
-        height: 198
+        x: 0
+        y: 252
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -201,12 +201,12 @@ TextureImporter:
       name: GuidingBolt_1
       rect:
         serializedVersion: 2
-        x: 381
-        y: 467
-        width: 6
-        height: 6
+        x: 256
+        y: 252
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: GuidingBolt_2
       rect:
         serializedVersion: 2
-        x: 1065
-        y: 321
-        width: 215
-        height: 148
+        x: 512
+        y: 252
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: GuidingBolt_3
       rect:
         serializedVersion: 2
-        x: 813
-        y: 315
-        width: 212
-        height: 148
+        x: 768
+        y: 252
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: GuidingBolt_4
       rect:
         serializedVersion: 2
-        x: 853
-        y: 457
-        width: 6
-        height: 6
+        x: 1024
+        y: 252
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: GuidingBolt_5
       rect:
         serializedVersion: 2
-        x: 1125
-        y: 457
-        width: 6
-        height: 6
+        x: 0
+        y: 0
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -311,12 +311,12 @@ TextureImporter:
       name: GuidingBolt_6
       rect:
         serializedVersion: 2
-        x: 311
-        y: 305
-        width: 198
-        height: 140
+        x: 256
+        y: 0
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -333,12 +333,12 @@ TextureImporter:
       name: GuidingBolt_7
       rect:
         serializedVersion: 2
-        x: 385
-        y: 439
-        width: 6
-        height: 6
+        x: 512
+        y: 0
+        width: 256
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,319 +351,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_8
-      rect:
-        serializedVersion: 2
-        x: 565
-        y: 309
-        width: 204
-        height: 146
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 55b445744bc59a0b0800000000000000
-      internalID: -5716936322609558699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_9
-      rect:
-        serializedVersion: 2
-        x: 1103
-        y: 445
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 311984e9ab0cb7a90800000000000000
-      internalID: -7315041261981232877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_10
-      rect:
-        serializedVersion: 2
-        x: 325
-        y: 435
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 407e8677b568a2430800000000000000
-      internalID: 3758964566397609732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_11
-      rect:
-        serializedVersion: 2
-        x: 307
-        y: 409
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1097b25fe728e8c80800000000000000
-      internalID: -8318567979915970303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_12
-      rect:
-        serializedVersion: 2
-        x: 1061
-        y: 395
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3695bbc7564b57650800000000000000
-      internalID: 6230084007514298723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_13
-      rect:
-        serializedVersion: 2
-        x: 289
-        y: 377
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e5f4559b860dfdb0800000000000000
-      internalID: -4756638434857781786
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_14
-      rect:
-        serializedVersion: 2
-        x: 351
-        y: 307
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7383b13608dc3990800000000000000
-      internalID: -7404806166188686465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_15
-      rect:
-        serializedVersion: 2
-        x: 1151
-        y: 307
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16f629827e9db93f0800000000000000
-      internalID: -892880514261553311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_16
-      rect:
-        serializedVersion: 2
-        x: 381
-        y: 291
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 11f92ba6015ed4830800000000000000
-      internalID: 4057150698003013393
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_17
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 195
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 05b870d99d25300c0800000000000000
-      internalID: -4610750498901357744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_18
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 55
-        width: 222
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c850c3dc74b2dcb0800000000000000
-      internalID: -4840608201248319294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_19
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 179
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af2c23560e8dcc3f0800000000000000
-      internalID: -879089368961989894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_20
-      rect:
-        serializedVersion: 2
-        x: 327
-        y: 105
-        width: 186
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b05d0fe6f2384f60800000000000000
-      internalID: 8018715172687139001
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GuidingBolt_21
-      rect:
-        serializedVersion: 2
-        x: 631
-        y: 121
-        width: 138
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 11c3e8baba9f23c50800000000000000
-      internalID: 6643646916037852177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9baace89004e79a44b9224b5b0ec367f
     internalID: 0
     vertices: []
     indices: 
@@ -671,30 +363,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":2.0},"gridSpriteSize":{"x":256.0,"y":252.0},"gridSpriteOffset":{"x":0.0,"y":8.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       GuidingBolt_0: -754143811332029480
       GuidingBolt_1: 3883990137516989456
-      GuidingBolt_10: 3758964566397609732
-      GuidingBolt_11: -8318567979915970303
-      GuidingBolt_12: 6230084007514298723
-      GuidingBolt_13: -4756638434857781786
-      GuidingBolt_14: -7404806166188686465
-      GuidingBolt_15: -892880514261553311
-      GuidingBolt_16: 4057150698003013393
-      GuidingBolt_17: -4610750498901357744
-      GuidingBolt_18: -4840608201248319294
-      GuidingBolt_19: -879089368961989894
       GuidingBolt_2: 4392606091653967725
-      GuidingBolt_20: 8018715172687139001
-      GuidingBolt_21: 6643646916037852177
       GuidingBolt_3: 6576450271931756831
       GuidingBolt_4: 7558010869776365355
       GuidingBolt_5: 52059424711350263
       GuidingBolt_6: 3645445926364227984
       GuidingBolt_7: 1010167075033522355
-      GuidingBolt_8: -5716936322609558699
-      GuidingBolt_9: -7315041261981232877
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
