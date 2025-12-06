@@ -1554,13 +1554,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet2_52
+      name: BloodSplatter_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 150
-        width: 49
-        height: 46
+        x: 8
+        y: 171
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1711,10 +1711,10 @@ TextureImporter:
       name: TileSet2_59
       rect:
         serializedVersion: 2
-        x: 229
-        y: 144
-        width: 29
-        height: 32
+        x: 232
+        y: 147
+        width: 26
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1734,9 +1734,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 261
-        y: 144
-        width: 29
-        height: 32
+        y: 147
+        width: 26
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2046,7 +2046,7 @@ TextureImporter:
         width: 19
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2068,7 +2068,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2082,13 +2082,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSet2_77
+      name: GoldBookCase_3
       rect:
         serializedVersion: 2
-        x: 104
-        y: 14
-        width: 62
-        height: 59
+        x: 107
+        y: 17
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2433,6 +2433,138 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BloodSplatter_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 171
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8018550f8287974199703efa7119fd7
+      internalID: -1283732066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodSplatter_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 152
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da503143468c0c14f98d16d7dafde2b5
+      internalID: -2033969933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BloodSplatter_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 152
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b9d25e358ed54448efcfef98fee9d1
+      internalID: -1720868925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldBookCase_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 46
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54378d6d6148c94b977706c8b73e0c0
+      internalID: 1966076528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldBookCase_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 46
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b06512264cbf294095959175c999f5a
+      internalID: -629601005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldBookCase_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 17
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c62616809781704dbe8438049b7f213
+      internalID: 1517469365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2447,6 +2579,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      BloodSplatter_0: 1393660124976769382
+      BloodSplatter_1: -2341811876580665630
+      BloodSplatter_3: 2089676799620120206
+      BloodSplatter_4: -6702370751554107785
+      GoldBookCase_0: 1966076528
+      GoldBookCase_1: -629601005
+      GoldBookCase_3: -5571240194474916353
+      GoldBookCase_4: 1517469365
       TileSet2_0: 4699072054668786125
       TileSet2_1: -4459723881856570345
       TileSet2_10: -7328198872810611571
@@ -2495,7 +2635,6 @@ TextureImporter:
       TileSet2_5: 2298178197108123531
       TileSet2_50: -6329653933387919199
       TileSet2_51: 9110612309651520126
-      TileSet2_52: 1393660124976769382
       TileSet2_53: 7010554486218532193
       TileSet2_54: 7478644381313779052
       TileSet2_55: 2008339446953560543
@@ -2521,8 +2660,6 @@ TextureImporter:
       TileSet2_73: -3172463777521188166
       TileSet2_74: 7480335628778737332
       TileSet2_75: 6756642980008930013
-      TileSet2_76: -2341811876580665630
-      TileSet2_77: -5571240194474916353
       TileSet2_78: -4000833018615137972
       TileSet2_79: -5252838706206177584
       TileSet2_8: 8145489105177552935
@@ -2531,8 +2668,6 @@ TextureImporter:
       TileSet2_82: -5985099997109400105
       TileSet2_83: 666756335323107011
       TileSet2_84: 5978261842957050576
-      TileSet2_85: 2089676799620120206
-      TileSet2_86: -6702370751554107785
       TileSet2_87: -2039732044052540184
       TileSet2_88: 4239839399117042568
       TileSet2_89: 4758201746311940697
