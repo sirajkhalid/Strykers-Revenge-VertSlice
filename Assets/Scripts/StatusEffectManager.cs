@@ -11,6 +11,69 @@ public class StatusEffectManager : MonoBehaviour
     private Tween floatTween;
     private Tween fadeTween;
 
+    // ---------------------------------------------------------
+    //  BARRIER STATUS EFFECT
+    // ---------------------------------------------------------
+    [Header("Barrier Effect")]
+    public bool hasBarrier = false;
+    public int barrierRoundsRemaining = 0;
+
+    [Tooltip("Percentage of damage reduced while barrier is active. 0.5 = 50% reduction.")]
+    [Range(0f, 1f)]
+    public float barrierDamageReduction = 0.5f;
+
+    private GameObject activeBarrierVFX;
+
+    /// Applies a temporary barrier effect that reduces incoming damage.
+
+    public void ApplyBarrier(int rounds, float damageReduction, GameObject vfxPrefab)
+    {
+        hasBarrier = true;
+        barrierRoundsRemaining = rounds;
+        barrierDamageReduction = damageReduction;
+
+        // Remove old VFX if still active
+        if (activeBarrierVFX != null)
+        {
+            Destroy(activeBarrierVFX);
+            activeBarrierVFX = null;
+        }
+
+        // Spawn VFX on player
+        if (vfxPrefab != null)
+        {
+            activeBarrierVFX = Instantiate(vfxPrefab, transform);
+            activeBarrierVFX.transform.localPosition = Vector3.zero;
+            activeBarrierVFX.transform.localScale = Vector3.one * 0.5f;
+
+            //activeBarrierVFX.transform.localScale = vfxPrefab.transform.localScale;
+
+            // Destroy after two cycles (about 2 seconds)
+            Destroy(activeBarrierVFX, 2f);
+        }
+    }
+
+    // Called at the start of each of this character's turns.
+    // Decrements durations and removes expired effects.
+
+    public void TickStatusEffects()
+    {
+        // Barrier Duration Countdown
+        if (hasBarrier)
+        {
+            barrierRoundsRemaining--;
+            if (barrierRoundsRemaining <= 0)
+            {
+                hasBarrier = false;
+            }
+        }
+    }
+
+
+    // ---------------------------------------------------------
+    //  BLESS EFFECT (Your original code)
+    // ---------------------------------------------------------
+
     public void ApplyBless(float duration)
     {
         // Destroy old indicator if it exists
@@ -27,9 +90,9 @@ public class StatusEffectManager : MonoBehaviour
 
         // Animate floating using DOTween (gentle up-down loop)
         floatTween = activeBlessIndicator.transform
-       .DOLocalMoveY(1f, 1f) // slightly higher for float
-       .SetLoops(-1, LoopType.Yoyo)
-       .SetEase(Ease.InOutSine);
+           .DOLocalMoveY(1f, 1f) // slightly higher for float
+           .SetLoops(-1, LoopType.Yoyo)
+           .SetEase(Ease.InOutSine);
 
         // Fade out at the end of duration
         var sr = activeBlessIndicator.GetComponent<SpriteRenderer>();

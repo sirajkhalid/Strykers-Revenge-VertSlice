@@ -322,6 +322,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
     type: 3}
+  hasBarrier: 0
+  barrierRoundsRemaining: 0
+  barrierDamageReduction: 0.5
 --- !u!114 &8540340804623000089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +343,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8698ab02adbffa4aa76bafb3605e71c, type: 2}
   - {fileID: 11400000, guid: 9b959b6873014b344a6694b4c6b9ca4b, type: 2}
   - {fileID: 11400000, guid: 931fc42500189f84c94692cf7db24c0b, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 008c09ad2da9b184ea11c5a80caac6df, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

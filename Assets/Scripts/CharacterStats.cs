@@ -125,7 +125,7 @@ public class CharacterStats : MonoBehaviour
     public GameObject floatingDamagePrefab;
     public GameObject outOfRangePrefab;
 
-    public event Action OnHealthChanged; //Called when health changes
+    public event Action OnHealthChanged; // Called when health changes
     public event Action OnStatsInitialized;
     public event Action OnMovementChanged;
     public event Action OnDeath;
@@ -152,6 +152,10 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Ability Animation")]
     public string castAnimationTrigger = "CastTrigger";
+
+    [HideInInspector] public bool isSneaking = false;   // prevents ability usage
+    [HideInInspector] public bool isImmune = false;      // prevents damage
+
 
 
 
@@ -683,6 +687,19 @@ public class CharacterStats : MonoBehaviour
         if (!this.gameObject.activeInHierarchy)
             return;
 
+        if (isImmune)
+        {
+            ShowFloatingText("Immune!", Color.cyan);
+            return;
+        }
+
+        // --- BARRIER DAMAGE REDUCTION ---
+        var effects = GetComponent<StatusEffectManager>();
+        if (effects != null && effects.hasBarrier)
+        {
+            amount = Mathf.RoundToInt(amount * (1f - effects.barrierDamageReduction));
+        }
+        
         if (isMiss)
         {
             ShowFloatingText("MISS", Color.white);
@@ -777,6 +794,11 @@ public class CharacterStats : MonoBehaviour
         int roll = UnityEngine.Random.Range(1, 21);
 
         initiative = roll + baseInitiative;
+    }
+    public void RestoreAllSpellSlots()
+    {
+        currentLevel1Slots = maxLevel1Slots;
+        currentLevel2Slots = maxLevel2Slots;
     }
 
 

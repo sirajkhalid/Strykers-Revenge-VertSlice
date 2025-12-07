@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Infestation
   abilityDescription: You cause a cloud of mites, fleas, and other parasites to assault
-    one creature you can see within range. The target takes minor poison damage and
-    is momentarily distracted.
+    one creature you can see within range. The target takes minor poison damage.
   abilityIcon: {fileID: -6452096652286942366, guid: 1c48287424f473b45bf6dd3dae8f45a6,
     type: 3}
   isUnlocked: 1
@@ -47,3 +46,4 @@ MonoBehaviour:
   numberOfDice: 1
   diceSides: 6
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

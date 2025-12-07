@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire Hand
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Fire Hand
-  abilityDescription: 'Shoot a fiery hand at the target. Possibly cause burning. '
+  abilityDescription: 'Shoot a fiery fist at the target. Possibly cause burning. '
   abilityIcon: {fileID: 8755577859061972821, guid: 8ea30fd4a573d8041b2eea3ef310bd98,
     type: 3}
   isUnlocked: 1
@@ -45,3 +45,4 @@ MonoBehaviour:
   numberOfDice: 3
   diceSides: 6
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

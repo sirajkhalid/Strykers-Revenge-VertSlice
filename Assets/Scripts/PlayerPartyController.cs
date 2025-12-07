@@ -122,12 +122,29 @@ public class PlayerPartyController : MonoBehaviour
             Destroy(vfx, oldStats.vfxLifetime);
         }
 
-        // NO DISABLING until after switch is fully done
+        // -------------------------------
+        // SNEAK-SAFE RESET FOR OLD CHAR
+        // -------------------------------
+        // Only reset opacity + immunity if NOT sneaking
+        if (!oldStats.isSneaking)
+        {
+            oldStats.isImmune = false;
+
+            SpriteRenderer oldSR = oldChar.GetComponent<SpriteRenderer>();
+            if (oldSR != null)
+                oldSR.color = new Color(oldSR.color.r, oldSR.color.g, oldSR.color.b, 1f);
+        }
+        // If sneaking → keep its alpha + keep immune flag until Sneak ends naturally
+
+
+        // Disable old character
         oldChar.SetActive(false);
 
+        // Enable new one
         newChar.transform.position = pos;
         newChar.SetActive(true);
 
+        // Battle logic
         if (inBattle)
             newStats.midSwapEnteredTurn = true;
 
@@ -148,6 +165,23 @@ public class PlayerPartyController : MonoBehaviour
         activeIndex = newIndex;
         HookCamera();
 
+        // -------------------------------
+        // SNEAK-SAFE RESET FOR NEW CHAR
+        // -------------------------------
+        // Only reset if the new char *was sneaking* before the switch
+        if (newStats.isSneaking)
+        {
+            newStats.isSneaking = false;
+            newStats.isImmune = false;
+
+            SpriteRenderer sr = activeMember.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+        }
+        // Otherwise do nothing — don’t touch opacity!
+
+
+        // HUD/Portrait UI Updates
         var hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
         if (hud)
         {
@@ -159,11 +193,10 @@ public class PlayerPartyController : MonoBehaviour
         if (teamUI)
         {
             teamUI.RefreshDisplay();
-            teamUI.PlayPortraitSelectFX(newIndex); 
+            teamUI.PlayPortraitSelectFX(newIndex);
         }
 
-
-        // MID-BATTLE SWITCH LOGIC
+        // MID-BATTLE TURN LOGIC
         if (inBattle)
         {
             oldStats.hasBonusAction = false;
@@ -275,5 +308,7 @@ public class PlayerPartyController : MonoBehaviour
         if (impulseSource != null)
             impulseSource.GenerateImpulse();
     }
+
+
 
 }

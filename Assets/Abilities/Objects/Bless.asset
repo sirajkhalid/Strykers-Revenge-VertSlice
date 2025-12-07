@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Bless
   abilityDescription: Imbues party with divine favor, granting them +1d4 to attack
     rolls until the start of your next turn.
-  abilityIcon: {fileID: 21300000, guid: 511b7df189d509e4bbb3271bf1df0df5, type: 3}
+  abilityIcon: {fileID: 21300000, guid: c16d3e5511c9e1341b0bd70dcb31fb81, type: 3}
   isUnlocked: 1
   category: 3
   baseDamage: 0
@@ -44,3 +44,4 @@ MonoBehaviour:
   specialEffect: 0
   numberOfDice: 1
   diceSides: 4
+  maxUsesPerBattle: 0

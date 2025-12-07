@@ -101,8 +101,12 @@ public class TurnManager : MonoBehaviour
         }
 
         currentTurnObject = combatants[currentTurnIndex];
-
-        // 🔥 Update UI highlight
+        
+        // Tick status effects such as Barrier
+        var effects = currentTurnObject.GetComponent<StatusEffectManager>();
+        effects?.TickStatusEffects();
+        
+        // Update UI highlight
         turnOrderUI?.UpdateTurnHighlight(currentTurnObject);
 
         // Skip dead

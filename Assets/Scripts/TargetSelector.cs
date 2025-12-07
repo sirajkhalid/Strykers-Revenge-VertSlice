@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using DG.Tweening;
+﻿using DG.Tweening;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TargetSelector : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class TargetSelector : MonoBehaviour
 
     void HandleHover()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         Vector3 mouseWorld = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0;
 
@@ -75,6 +79,8 @@ public class TargetSelector : MonoBehaviour
     // -------------------------------------------------------
     void HandleSelection()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         if (Input.GetMouseButtonDown(0))
         {
             // Clicked on an enemy

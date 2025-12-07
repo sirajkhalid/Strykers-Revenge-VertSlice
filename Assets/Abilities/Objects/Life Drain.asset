@@ -20,8 +20,8 @@ MonoBehaviour:
   baseDamage: 5
   damageScaling: 1
   scalingAttribute: 3
-  usesSpellSlot: 0
-  spellLevel: 0
+  usesSpellSlot: 1
+  spellLevel: 1
   slotCost: 1
   actionType: 0
   consumesAction: 1
@@ -43,3 +43,4 @@ MonoBehaviour:
   specialEffect: 0
   numberOfDice: 1
   diceSides: 6
+  maxUsesPerBattle: 0
