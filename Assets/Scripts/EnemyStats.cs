@@ -72,6 +72,7 @@ public class EnemyStats : MonoBehaviour
     [Header("Animation")]
     public Animator enemyAnimator;
     public string castAnimationTrigger = "CastTrigger";
+    public string castAnimationTrigger2 = "CastTrigger2";
 
     [Header("Spell Slots")]
     public int spellSlotsLevel1 = 0;
@@ -83,8 +84,6 @@ public class EnemyStats : MonoBehaviour
 
     // event for health changes
     public event Action OnHealthChanged;
-
-
 
     void Awake()
     {

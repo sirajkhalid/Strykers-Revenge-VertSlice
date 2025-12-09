@@ -187,11 +187,28 @@ public class EnemyAIController : MonoBehaviour
         Debug.Log($"{stats.enemyName} uses {ability.abilityName}!");
 
         // Animation
-        if (stats.enemyAnimator && !string.IsNullOrEmpty(stats.castAnimationTrigger))
+        if (stats.enemyAnimator)
         {
-            stats.enemyAnimator.SetTrigger(stats.castAnimationTrigger);
-            yield return new WaitForSeconds(0.25f);
+            // 50/50 which animation to play
+            bool useAltCast = Random.value < 0.5f;
+
+            string triggerToUse = useAltCast
+                ? stats.castAnimationTrigger2
+                : stats.castAnimationTrigger;
+
+            // Safety: make sure string is not empty
+            if (!string.IsNullOrEmpty(triggerToUse))
+            {
+                stats.enemyAnimator.ResetTrigger(stats.castAnimationTrigger);
+                stats.enemyAnimator.ResetTrigger(stats.castAnimationTrigger2);
+
+                stats.enemyAnimator.SetTrigger(triggerToUse);
+
+                // adjust timing if needed; keep same as before
+                yield return new WaitForSeconds(1f);
+            }
         }
+
 
         // Spell slot cost
         if (ability.usesSpellSlot)
@@ -371,15 +388,21 @@ public class EnemyAIController : MonoBehaviour
             yield break;
         }
 
-
         // -------------------------------------------------------
-        // INSTANT MAGIC
+        // INSTANT MAGIC (Centered on the player)
         // -------------------------------------------------------
         if (ability.deliveryType == Ability.DeliveryType.Instant)
         {
-            if (ability.visualEffectPrefab)
+            if (ability.visualEffectPrefab && targetStats != null)
             {
-                GameObject vfx = Instantiate(ability.visualEffectPrefab, targetPos, Quaternion.identity);
+                Vector3 vfxPos = targetStats.transform.position; // centered perfectly
+
+                GameObject vfx = Instantiate(
+                    ability.visualEffectPrefab,
+                    vfxPos,
+                    Quaternion.identity
+                );
+
                 Destroy(vfx, 1.0f);
             }
 

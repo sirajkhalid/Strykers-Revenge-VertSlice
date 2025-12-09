@@ -33,7 +33,7 @@ MonoBehaviour:
   range: 2
   areaRadius: 0
   requiresLineOfSight: 1
-  deliveryType: 3
+  deliveryType: 1
   visualEffectPrefab: {fileID: 8635373277417198616, guid: f7624bb3569703f41aabcd7f72335b37,
     type: 3}
   abilitySound: {fileID: 0}
@@ -46,3 +46,4 @@ MonoBehaviour:
   numberOfDice: 1
   diceSides: 4
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

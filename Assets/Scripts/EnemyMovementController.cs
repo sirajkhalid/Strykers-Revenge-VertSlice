@@ -71,7 +71,7 @@ public class EnemyMovementController : MonoBehaviour
 
     private float stuckTimer = 0f;
     private Vector3 lastMoveCheckPos;
-
+    private float lastDistanceToPlayer = -1f;
 
 
     void Awake()
@@ -316,58 +316,64 @@ public class EnemyMovementController : MonoBehaviour
         if (dir.x > 0.01f)
         {
             Vector3 scale = transform.localScale;
-            scale.x = -Mathf.Abs(scale.x); // face right
+            scale.x = -Mathf.Abs(scale.x);
             transform.localScale = scale;
         }
         else if (dir.x < -0.01f)
         {
             Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x); // face left
+            scale.x = Mathf.Abs(scale.x);
             transform.localScale = scale;
         }
 
         // ----------------------------
-        // MAIN FORWARD MOVEMENT
+        // MOVE TOWARD TARGET
         // ----------------------------
         transform.position = pos + dir.normalized * speed * Time.deltaTime;
 
-        // ----------------------------
-        // STUCK / CORNER HANDLING
-        // ----------------------------
-        // make sure we have an initial reference
-        if (lastMoveCheckPos == Vector3.zero)
-            lastMoveCheckPos = transform.position;
 
-        // Only care about this when chasing the player
-        if (movementType == EnemyMovementType.ChasePlayer)
+        // ----------------------------
+        // SMART STUCK DETECTION
+        // ----------------------------
+        if (movementType == EnemyMovementType.ChasePlayer && player != null)
         {
-            stuckTimer += Time.deltaTime;
+            float currentDist = Vector3.Distance(transform.position, player.position);
 
-            if (stuckTimer >= 2f)
+            // initialize on start
+            if (lastDistanceToPlayer < 0f)
+                lastDistanceToPlayer = currentDist;
+
+            // check every frame if we're closing the distance
+            if (Mathf.Abs(currentDist - lastDistanceToPlayer) < 0.015f)
             {
-                float movedDist = Vector3.Distance(transform.position, lastMoveCheckPos);
-
-                // If barely moved in 2 seconds → assume stuck on a corner
-                if (movedDist < 0.05f && player != null)
-                {
-                    // Decide vertical nudge based on where the player is
-                    Vector3 verticalDir =
-                        (player.position.y > transform.position.y) ? Vector3.up : Vector3.down;
-
-                    float sideStep = speed * Time.deltaTime;   // small nudge
-                    transform.position += verticalDir * sideStep;
-                }
-
-                // reset window
-                lastMoveCheckPos = transform.position;
+                // Distance to player is NOT changing → likely stuck
+                stuckTimer += Time.deltaTime;
+            }
+            else
+            {
+                // moving properly → reset stuck logic
                 stuckTimer = 0f;
             }
+
+            // After 2 sec of not getting closer → assume stuck
+            if (stuckTimer >= 2f)
+            {
+                Vector3 verticalDir =
+                    (player.position.y > transform.position.y)
+                    ? Vector3.up
+                    : Vector3.down;
+
+                transform.position += verticalDir * (speed * Time.deltaTime);
+
+                stuckTimer = 0f;
+            }
+
+            lastDistanceToPlayer = currentDist;
         }
+
 
         return true;
     }
-
-
 
     private void UpdateAnimation(bool isMoving)
     {

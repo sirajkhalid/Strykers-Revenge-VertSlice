@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8bfa3e630fc024cba3846031d439a6, type: 3}
+  m_Name: Necromancer
+  m_EditorClassIdentifier: Assembly-CSharp::AIBehaviorProfile
+  preferredMeleeRange: 2
+  preferredRangedRange: 10
+  prefersRanged: 1
+  prefersUtilityWhenLowHP: 0
+  utilityHPThreshold: 1
+  useShadowStepWhenStuck: 1
+  useShadowStepForFlanking: 0

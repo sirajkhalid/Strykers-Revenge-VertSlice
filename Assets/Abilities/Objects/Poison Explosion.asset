@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
+  m_Name: Poison Explosion
+  m_EditorClassIdentifier: Assembly-CSharp::Ability
+  abilityName: Poison Explosion
+  abilityDescription: Your dirty ways paid off, now throw all the poison on your
+    foe, let 'em taste it.
+  abilityIcon: {fileID: 21300000, guid: a20d322c5e65a6746808e67a31dfe555, type: 3}
+  isUnlocked: 1
+  category: 1
+  baseDamage: 3
+  damageScaling: 2
+  scalingAttribute: 1
+  usesSpellSlot: 1
+  spellLevel: 1
+  slotCost: 1
+  actionType: 0
+  consumesAction: 1
+  consumesBonusAction: 0
+  consumesFreeAction: 0
+  targetType: 1
+  range: 13
+  areaRadius: 0
+  requiresLineOfSight: 1
+  deliveryType: 4
+  visualEffectPrefab: {fileID: 2152822971409027628, guid: ce58f122bf4fc9b4e991b6caf9a3e4b1,
+    type: 3}
+  abilitySound: {fileID: 0}
+  appliesStatusEffect: 0
+  statusEffectName: 
+  statusDuration: 0
+  abilityAnimation: {fileID: 0}
+  damageType: 4
+  specialEffect: 4
+  numberOfDice: 1
+  diceSides: 4
+  maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

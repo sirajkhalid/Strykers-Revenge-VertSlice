@@ -128,12 +128,12 @@ TextureImporter:
       name: Cycil_WalkDown_0
       rect:
         serializedVersion: 2
-        x: 121
-        y: 2
-        width: 78
-        height: 255
+        x: 61
+        y: 9
+        width: 74
+        height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Cycil_WalkDown_1
       rect:
         serializedVersion: 2
-        x: 223
-        y: 4
-        width: 83
-        height: 253
+        x: 162
+        y: 9
+        width: 82
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: Cycil_WalkDown_2
       rect:
         serializedVersion: 2
-        x: 324
-        y: 6
-        width: 88
-        height: 254
+        x: 278
+        y: 7
+        width: 86
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: Cycil_WalkDown_3
       rect:
         serializedVersion: 2
-        x: 444
-        y: 8
-        width: 84
-        height: 254
+        x: 384
+        y: 5
+        width: 81
+        height: 251
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: Cycil_WalkDown_4
       rect:
         serializedVersion: 2
-        x: 553
-        y: 8
+        x: 491
+        y: 3
         width: 76
-        height: 255
+        height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7f0e469bda4cda84a93013912b156c75
     internalID: 0
     vertices: []
     indices: 
@@ -246,7 +246,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Cycil_WalkDown_0: 6288988525953766917
       Cycil_WalkDown_1: 5607818581400857499
