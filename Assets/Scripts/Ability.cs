@@ -64,6 +64,13 @@ public class Ability : ScriptableObject
     [System.NonSerialized]
     public int usesThisBattle = 0;
 
+    [Header("Lifetime Uses")]
+    [Tooltip("How many uses are allowed in the lifetime ")]
+    public int MaxLifetimeUses = 0;
+
+    [System.NonSerialized]
+    public int LifetimeUses = 0;
+
 
     public enum AbilityCategory { Melee, Ranged, Magic, Support, Utility, Passive }
     public enum TargetType { Self, Enemy, Ally, Area }

@@ -110,7 +110,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1085118638413065071}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
@@ -119,11 +119,11 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   characterName: Kontas
   race: 0
-  characterClass: 2
+  characterClass: 5
   background: 0
   alignment: 4
   characterPortrait: {fileID: 8726226383768013425, guid: 1486092b2f00f0e4fa09464ceb33bbef,
@@ -292,6 +292,9 @@ MonoBehaviour:
   hasSwitchedThisRound: 0
   midSwapEnteredTurn: 0
   castAnimationTrigger: CastTrigger
+  isCasting: 0
+  isSneaking: 0
+  isImmune: 0
 --- !u!114 &3968197236777214605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +325,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
     type: 3}
+  hasBarrier: 0
+  barrierRoundsRemaining: 0
+  barrierDamageReduction: 0.5
 --- !u!114 &3194323988442220174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,15 +341,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
   abilities:
-  - {fileID: 11400000, guid: e7a2fe8a4959acc40842013fb3dd6914, type: 2}
-  - {fileID: 11400000, guid: fa023a8326e9ad54f92f6b19ca23af36, type: 2}
-  - {fileID: 11400000, guid: b8698ab02adbffa4aa76bafb3605e71c, type: 2}
-  - {fileID: 11400000, guid: b752d3d49ccb42346ac866c5d22c382e, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c4371447a9dd14a47bd99509da184710, type: 2}
+  - {fileID: 11400000, guid: f0be4ffa30488f247b56bb5615954a63, type: 2}
+  - {fileID: 11400000, guid: cee224d5c3c40454ca1d519ca7b2cfff, type: 2}
+  - {fileID: 11400000, guid: 53e585bbf67219c4cb4275e5ad8f1877, type: 2}
+  - {fileID: 11400000, guid: 0fb89dca2d3e66f45a1aa03e2ab6350a, type: 2}
+  - {fileID: 11400000, guid: e7c4f72204ce25247b635ad362d30bd2, type: 2}
+  - {fileID: 11400000, guid: 9e1f12a131444f44e9d0b5eb6ef95da6, type: 2}
+  - {fileID: 11400000, guid: 342c4af6f07f60d4e994a99d3c91137b, type: 2}
+  - {fileID: 11400000, guid: ea6a58f0f9a7e2e429b1b2a4129e056b, type: 2}
 --- !u!82 &8941960538905399636
 AudioSource:
   m_ObjectHideFlags: 0

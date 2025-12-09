@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Thunderquake
   abilityDescription: Call upon the heavens, unleash an explosive strike of thunder
-    upon an enemy.
+    upon a group of enemies.
   abilityIcon: {fileID: 6631875522450760562, guid: 3741ee1d71c11a5499c160bcb060b08e,
     type: 3}
   isUnlocked: 1
   category: 2
   baseDamage: 3
   damageScaling: 1
-  scalingAttribute: 0
+  scalingAttribute: 3
   usesSpellSlot: 1
   spellLevel: 1
   slotCost: 1
@@ -31,9 +31,9 @@ MonoBehaviour:
   consumesFreeAction: 0
   targetType: 1
   range: 10
-  areaRadius: 0
+  areaRadius: 5
   requiresLineOfSight: 1
-  deliveryType: 0
+  deliveryType: 4
   visualEffectPrefab: {fileID: 8775995653650964340, guid: 1afd36db295f45946a7f431a483d51c0,
     type: 3}
   abilitySound: {fileID: 0}
@@ -46,3 +46,4 @@ MonoBehaviour:
   numberOfDice: 2
   diceSides: 8
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

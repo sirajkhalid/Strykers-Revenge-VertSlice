@@ -112,7 +112,14 @@ public class BattleMovement : MonoBehaviour
 
             lastPosition = transform.position;
         }
+
+        // If an ability restored movement, unlock movement again
+        if (characterStats.currentMovement > 0f && turnManager.isPlayerTurn)
+        {
+            playerMovement.canMove = true;
+        }
     }
+
 
     void UpdateUI()
     {

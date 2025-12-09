@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
   m_Name: Close Wounds
   m_EditorClassIdentifier: Assembly-CSharp::Ability
-  abilityName: 
-  abilityDescription: 
-  abilityIcon: {fileID: 0}
+  abilityName: Close Wounds
+  abilityDescription: Years of work as a cleric has allowed you to heal in a pinch.
+    Heal a party member.
+  abilityIcon: {fileID: 21300000, guid: 511b7df189d509e4bbb3271bf1df0df5, type: 3}
   isUnlocked: 1
-  category: 0
-  baseDamage: 0
+  category: 3
+  baseDamage: 5
   damageScaling: 1
-  scalingAttribute: 0
+  scalingAttribute: 4
   usesSpellSlot: 1
   spellLevel: 1
   slotCost: 1
@@ -27,19 +28,21 @@ MonoBehaviour:
   consumesAction: 1
   consumesBonusAction: 0
   consumesFreeAction: 0
-  targetType: 1
-  range: 1
+  targetType: 2
+  range: 0
   areaRadius: 0
   requiresLineOfSight: 1
   deliveryType: 0
-  visualEffectPrefab: {fileID: 0}
+  visualEffectPrefab: {fileID: 3585649781249327112, guid: c27aafde98c16fc4b8e8939f9a6231d6,
+    type: 3}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
   statusEffectName: 
   statusDuration: 0
   abilityAnimation: {fileID: 0}
-  damageType: 0
+  damageType: 5
   specialEffect: 0
   numberOfDice: 1
-  diceSides: 6
+  diceSides: 8
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

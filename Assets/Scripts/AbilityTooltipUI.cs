@@ -62,6 +62,9 @@ public class AbilityTooltipUI : MonoBehaviour
     private CanvasGroup canvasGroup;
     private static AbilityTooltipUI instance;
     private Tween showTween;
+    private Outline borderOutline;
+    private Tween glowTween;
+
 
     void Awake()
     {
@@ -82,6 +85,8 @@ public class AbilityTooltipUI : MonoBehaviour
             if (canvasGroup == null)
                 canvasGroup = tooltipPanel.AddComponent<CanvasGroup>();
         }
+        borderOutline = tooltipPanel.GetComponent<Outline>();
+
     }
 
     void Start()
@@ -150,6 +155,8 @@ public class AbilityTooltipUI : MonoBehaviour
             // settle down to 100%
             .Append(tooltipRect.DOScale(1f, 0.10f).SetEase(Ease.OutSine));
 
+        StartGlowEffect(ability);
+
     }
 
     public void Hide()
@@ -161,6 +168,9 @@ public class AbilityTooltipUI : MonoBehaviour
         tooltipPanel.SetActive(false);
         if (canvasGroup != null)
             canvasGroup.alpha = 0f;
+
+        glowTween?.Kill();
+
     }
 
     void Update()
@@ -245,6 +255,37 @@ public class AbilityTooltipUI : MonoBehaviour
             damageTypeIcon.sprite = s;
             damageTypeIcon.gameObject.SetActive(s != null);
         }
+
+        if (borderOutline != null)
+        {
+            switch (ability.category)
+            {
+                case Ability.AbilityCategory.Melee:
+                    borderOutline.effectColor = meleeColor;
+                    break;
+
+                case Ability.AbilityCategory.Ranged:
+                    borderOutline.effectColor = rangedColor;
+                    break;
+
+                case Ability.AbilityCategory.Magic:
+                    borderOutline.effectColor = magicColor;
+                    break;
+
+                case Ability.AbilityCategory.Support:
+                    borderOutline.effectColor = supportColor;
+                    break;
+
+                case Ability.AbilityCategory.Utility:
+                    borderOutline.effectColor = utilityColor;
+                    break;
+
+                case Ability.AbilityCategory.Passive:
+                    borderOutline.effectColor = passiveColor;
+                    break;
+            }
+        }
+
     }
 
     private void SetupDamageLine(Ability ability)
@@ -331,12 +372,36 @@ public class AbilityTooltipUI : MonoBehaviour
         if (!string.IsNullOrEmpty(radius))
             line += $" • {radius}";
 
-        targetRangeText.text = line;
-        targetRangeText.gameObject.SetActive(true);
+        if (string.IsNullOrWhiteSpace(line) || line == ability.targetType.ToString())
+        {
+            targetRangeText.gameObject.SetActive(false);
+        }
+        else
+        {
+            targetRangeText.text = line;
+            targetRangeText.gameObject.SetActive(true);
+        }
+
     }
 
     private void SetupScalingAndEffectLine(Ability ability)
     {
+        // Utility & Passive never show scaling
+        if (ability.category == Ability.AbilityCategory.Utility ||
+            ability.category == Ability.AbilityCategory.Passive)
+        {
+            // BUT still show secondary effects (Burn, Stun)
+            if (ability.appliesStatusEffect && !string.IsNullOrEmpty(ability.statusEffectName))
+            {
+                scalingAndEffectText.text = ability.statusEffectName;
+                scalingAndEffectText.gameObject.SetActive(true);
+            }
+            else
+            {
+                scalingAndEffectText.gameObject.SetActive(false);
+            }
+            return;
+        }
         if (scalingAndEffectText == null)
             return;
 
@@ -462,17 +527,74 @@ public class AbilityTooltipUI : MonoBehaviour
         if (usesPerBattleText == null)
             return;
 
-        // If this ability has no per-battle limit → hide the UI element
-        if (ability.maxUsesPerBattle <= 0)
+        // --- LIFETIME USES (takes priority because they never overlap with battle uses) ---
+        if (ability.MaxLifetimeUses > 0)
         {
-            usesPerBattleText.gameObject.SetActive(false);
+            int left = Mathf.Max(0, ability.MaxLifetimeUses - ability.LifetimeUses);
+            usesPerBattleText.text = $"Uses Left: {left}/{ability.MaxLifetimeUses}";
+            usesPerBattleText.gameObject.SetActive(true);
             return;
         }
 
-        // Ability HAS a per-battle limit → show the UI
-        int left = Mathf.Max(0, ability.maxUsesPerBattle - ability.usesThisBattle);
-        usesPerBattleText.text = $"Uses Left: {left}/{ability.maxUsesPerBattle}";
-        usesPerBattleText.gameObject.SetActive(true);
+        // --- PER BATTLE USES ---
+        if (ability.maxUsesPerBattle > 0)
+        {
+            int left = Mathf.Max(0, ability.maxUsesPerBattle - ability.usesThisBattle);
+            usesPerBattleText.text = $"Uses Left: {left}/{ability.maxUsesPerBattle}";
+            usesPerBattleText.gameObject.SetActive(true);
+            return;
+        }
+
+        // No limits → hide
+        usesPerBattleText.gameObject.SetActive(false);
+    }
+
+    private void StartGlowEffect(Ability ability)
+    {
+        if (borderOutline == null)
+            return;
+
+        glowTween?.Kill();
+
+        // Determine base category color
+        Color baseColor = Color.white;
+
+        switch (ability.category)
+        {
+            case Ability.AbilityCategory.Melee:
+                baseColor = meleeColor;
+                break;
+
+            case Ability.AbilityCategory.Ranged:
+                baseColor = rangedColor;
+                break;
+
+            case Ability.AbilityCategory.Magic:
+                baseColor = magicColor;
+                break;
+
+            case Ability.AbilityCategory.Support:
+                baseColor = supportColor;
+                break;
+
+            case Ability.AbilityCategory.Utility:
+                baseColor = utilityColor;
+                break;
+
+            case Ability.AbilityCategory.Passive:
+                baseColor = passiveColor;
+                break;
+        }
+
+        // Start with solid category color
+        borderOutline.effectColor = baseColor;
+
+        // Animate glow (pulsing alpha)
+        glowTween = DOTween.Sequence()
+            .Append(borderOutline.DOFade(0.25f, 0.6f))  // dim
+            .Append(borderOutline.DOFade(1f, 0.6f))     // bright
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine);
     }
 
 }

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Barrier
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Barrier
-  abilityDescription: Conjure up a barrier, that protect you for dear life. Boosts
-    AC.
+  abilityDescription: 'Conjure up a barrier, that protect you for dear life. Reduce
+    incoming damage by 50% for 3 turns. '
   abilityIcon: {fileID: 21300000, guid: 1458237dbb3c6d54f8fe9d39c0175d00, type: 3}
   isUnlocked: 1
   category: 4
   baseDamage: 0
   damageScaling: 0
-  scalingAttribute: 0
+  scalingAttribute: 4
   usesSpellSlot: 1
   spellLevel: 1
   slotCost: 1
@@ -29,11 +29,11 @@ MonoBehaviour:
   consumesBonusAction: 1
   consumesFreeAction: 0
   targetType: 0
-  range: 5
-  areaRadius: 2
+  range: 0
+  areaRadius: 0
   requiresLineOfSight: 1
   deliveryType: 0
-  visualEffectPrefab: {fileID: 1096056346157440618, guid: 606be4dc85476724aad6bc55946de8cb,
+  visualEffectPrefab: {fileID: 5589773322435456053, guid: ef9443e3479a8ba4e95ff0cb040d9302,
     type: 3}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
@@ -45,3 +45,4 @@ MonoBehaviour:
   numberOfDice: 0
   diceSides: 0
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

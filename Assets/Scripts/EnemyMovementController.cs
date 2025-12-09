@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using UnityEngine;
 
 public enum EnemyMovementType
@@ -31,6 +32,11 @@ public class EnemyMovementController : MonoBehaviour
     [Header("Chase Behavior")]
     public float chaseSpeedMultiplier = 1.5f;
 
+    [Header("Chase Stop Conditions")]
+    public float chaseMaxDistance = 8f;     // how far before giving up
+    public float chaseMaxTime = 4f;         // how long before giving up
+    private float chaseTimer = 0f;
+
     // Auto-detected follower flag
     private bool isFollower = false;
 
@@ -59,6 +65,14 @@ public class EnemyMovementController : MonoBehaviour
     private Transform player;
 
     public bool isInBattle = false;
+    private Vector3 lastPosition;
+    private bool battleMoving = false;
+    private bool hasFollowTarget = false;
+
+    private float stuckTimer = 0f;
+    private Vector3 lastMoveCheckPos;
+    private float lastDistanceToPlayer = -1f;
+
 
     void Awake()
     {
@@ -80,6 +94,8 @@ public class EnemyMovementController : MonoBehaviour
     void Start()
     {
         SetupMovementPattern();
+        lastPosition = transform.position;
+
     }
 
     void Update()
@@ -87,11 +103,7 @@ public class EnemyMovementController : MonoBehaviour
         if (partyController != null && partyController.activeMember != null)
             player = partyController.activeMember.transform;
 
-        if (isInBattle)
-        {
-            UpdateAnimation(false);
-            return;
-        }
+
 
         if (!canMove)
         {
@@ -104,9 +116,17 @@ public class EnemyMovementController : MonoBehaviour
         // FOLLOWERS: only external target
         if (isFollower)
         {
-            if (externalControl)
+            if (hasFollowTarget)
+            {
                 isMoving = MoveTowards(externalTarget, moveSpeed);
+                hasFollowTarget = false; // consume target for this frame
+            }
+            else
+            {
+                isMoving = false;
+            }
         }
+
         else
         {
             // LEADER
@@ -135,6 +155,17 @@ public class EnemyMovementController : MonoBehaviour
                         break;
                 }
             }
+        }
+        if (isInBattle)
+        {
+            // detect if the AI is moving the enemy
+            float moved = Vector3.Distance(transform.position, lastPosition);
+            battleMoving = moved > 0.001f;
+
+            UpdateAnimation(battleMoving);
+
+            lastPosition = transform.position;
+            return;
         }
 
         UpdateAnimation(isMoving);
@@ -221,23 +252,126 @@ public class EnemyMovementController : MonoBehaviour
 
     private bool UpdateChase()
     {
-        if (player == null) return false;
+        if (player == null)
+            return false;
+
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        // Count chase time
+        chaseTimer += Time.deltaTime;
+
+        // Give up conditions
+        if (distance > chaseMaxDistance || chaseTimer > chaseMaxTime)
+        {
+            // Reset chase
+            movementType = EnemyMovementType.Idle;
+            externalControl = false;
+            chaseTimer = 0f;
+
+            // Return to origin
+            StartCoroutine(ReturnToOrigin());
+            return false;
+        }
+
         float speed = moveSpeed * chaseSpeedMultiplier;
         return MoveTowards(player.position, speed);
+    }
+
+    private IEnumerator ReturnToOrigin()
+    {
+        float speed = moveSpeed;
+        Vector3 target = originPos;
+
+        while (Vector3.Distance(transform.position, target) > 0.05f)
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                target,
+                speed * Time.deltaTime
+            );
+
+            UpdateAnimation(true);
+            yield return null;
+        }
+
+        UpdateAnimation(false);
     }
 
     // ---------------------------
     // Helpers
     // ---------------------------
-    private bool MoveTowards(Vector3 target, float speed)
+    public bool MoveTowards(Vector3 target, float speed)
     {
         Vector3 pos = transform.position;
         Vector3 dir = target - pos;
 
+        // Prevent sudden teleport if target is too far away
+        if (dir.magnitude > 2f)
+            dir = dir.normalized * 2f;
+
         if (dir.sqrMagnitude < 0.0001f)
             return false;
 
+        // Flip sprite based on horizontal direction
+        if (dir.x > 0.01f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = -Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
+        else if (dir.x < -0.01f)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
+
+        // ----------------------------
+        // MOVE TOWARD TARGET
+        // ----------------------------
         transform.position = pos + dir.normalized * speed * Time.deltaTime;
+
+
+        // ----------------------------
+        // SMART STUCK DETECTION
+        // ----------------------------
+        if (movementType == EnemyMovementType.ChasePlayer && player != null)
+        {
+            float currentDist = Vector3.Distance(transform.position, player.position);
+
+            // initialize on start
+            if (lastDistanceToPlayer < 0f)
+                lastDistanceToPlayer = currentDist;
+
+            // check every frame if we're closing the distance
+            if (Mathf.Abs(currentDist - lastDistanceToPlayer) < 0.015f)
+            {
+                // Distance to player is NOT changing → likely stuck
+                stuckTimer += Time.deltaTime;
+            }
+            else
+            {
+                // moving properly → reset stuck logic
+                stuckTimer = 0f;
+            }
+
+            // After 2 sec of not getting closer → assume stuck
+            if (stuckTimer >= 2f)
+            {
+                Vector3 verticalDir =
+                    (player.position.y > transform.position.y)
+                    ? Vector3.up
+                    : Vector3.down;
+
+                transform.position += verticalDir * (speed * Time.deltaTime);
+
+                stuckTimer = 0f;
+            }
+
+            lastDistanceToPlayer = currentDist;
+        }
+
+
         return true;
     }
 
@@ -269,10 +403,24 @@ public class EnemyMovementController : MonoBehaviour
 
     public void OnBattleStarted()
     {
-        canMove = false;
         isInBattle = true;
+
+        // Stop autonomous roaming movement
         externalControl = false;
         movementType = EnemyMovementType.Idle;
-        UpdateAnimation(false);
+
+        // do not disable movement completely
+        // canMove = false;
+
+        //UpdateAnimation(battleMoving);
     }
+
+    public void ReceiveFollowTarget(Vector3 target)
+    {
+        externalTarget = target;
+        hasFollowTarget = true;
+        externalControl = true;
+    }
+
+
 }

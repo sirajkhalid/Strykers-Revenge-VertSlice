@@ -134,12 +134,12 @@ TextureImporter:
       name: Cycil_Bow_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 0
-        width: 80
-        height: 254
+        x: 61
+        y: 21
+        width: 86
+        height: 262
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: Cycil_Bow_1
       rect:
         serializedVersion: 2
-        x: 129
-        y: 0
-        width: 84
-        height: 254
+        x: 156
+        y: 20
+        width: 88
+        height: 263
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: Cycil_Bow_2
       rect:
         serializedVersion: 2
-        x: 213
-        y: 0
-        width: 87
-        height: 248
+        x: 245
+        y: 23
+        width: 93
+        height: 260
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,12 +200,12 @@ TextureImporter:
       name: Cycil_Bow_3
       rect:
         serializedVersion: 2
-        x: 296
-        y: 1
+        x: 341
+        y: 22
         width: 121
-        height: 247
+        height: 261
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -222,12 +222,12 @@ TextureImporter:
       name: Cycil_Bow_4
       rect:
         serializedVersion: 2
-        x: 413
-        y: 1
-        width: 121
-        height: 247
+        x: 468
+        y: 24
+        width: 120
+        height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,12 +244,12 @@ TextureImporter:
       name: Cycil_Bow_5
       rect:
         serializedVersion: 2
-        x: 538
-        y: 1
-        width: 87
-        height: 248
+        x: 605
+        y: 22
+        width: 89
+        height: 261
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +266,12 @@ TextureImporter:
       name: Cycil_Bow_6
       rect:
         serializedVersion: 2
-        x: 635
-        y: 0
-        width: 84
-        height: 253
+        x: 721
+        y: 22
+        width: 87
+        height: 261
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fdad586701993d8488b64581e5209b9f
     internalID: 0
     vertices: []
     indices: 
@@ -296,7 +296,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Cycil_Bow_0: 7292043978376353168
       Cycil_Bow_1: 7126191850906332065

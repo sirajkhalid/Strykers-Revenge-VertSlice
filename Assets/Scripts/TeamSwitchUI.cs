@@ -17,6 +17,12 @@ public class TeamSwitchUI : MonoBehaviour
     public TMP_Text C_HealthText;
     public TMP_Text V_HealthText;
 
+    [Header("Health Fill Bars (red)")]
+    public Image Z_HealthFill;
+    public Image X_HealthFill;
+    public Image C_HealthFill;
+    public Image V_HealthFill;
+
     [Header("Hover Behavior")]
     public bool showHealthOnHover = true;
     private int hoveredIndex = -1;
@@ -28,43 +34,70 @@ public class TeamSwitchUI : MonoBehaviour
 
     private PlayerPartyController party;
     public Transform PortraitContainer;
+    public System.Action<int> onHealPortraitClicked;
 
+    // Remember each bar's full width so we can scale it
+    private float zMaxWidth;
+    private float xMaxWidth;
+    private float cMaxWidth;
+    private float vMaxWidth;
 
     IEnumerator Start()
     {
         yield return null;
 
         party = FindFirstObjectByType<PlayerPartyController>();
-        RefreshDisplay();
 
+        // Cache the "full" width of each health bar
+        if (Z_HealthFill != null) zMaxWidth = Z_HealthFill.rectTransform.sizeDelta.x;
+        if (X_HealthFill != null) xMaxWidth = X_HealthFill.rectTransform.sizeDelta.x;
+        if (C_HealthFill != null) cMaxWidth = C_HealthFill.rectTransform.sizeDelta.x;
+        if (V_HealthFill != null) vMaxWidth = V_HealthFill.rectTransform.sizeDelta.x;
+
+        // Subscribe to health-changed events so UI updates on damage + healing
+        if (party != null)
+        {
+            foreach (var member in party.partyMembers)
+            {
+                var stats = member.GetComponent<CharacterStats>();
+                if (stats != null)
+                    stats.OnHealthChanged += RefreshDisplay;
+            }
+        }
+
+        RefreshDisplay();
         yield return new WaitForSeconds(0.05f);
         RefreshDisplay();
     }
-
-
 
     public void RefreshDisplay()
     {
         if (party == null || party.partyMembers.Count == 0) return;
 
-        UpdateSlot(0, Z_Portrait, Z_HealthText);
-        UpdateSlot(1, X_Portrait, X_HealthText);
-        UpdateSlot(2, C_Portrait, C_HealthText);
-        UpdateSlot(3, V_Portrait, V_HealthText);
+        UpdateSlot(0, Z_Portrait, Z_HealthText, Z_HealthFill, zMaxWidth);
+        UpdateSlot(1, X_Portrait, X_HealthText, X_HealthFill, xMaxWidth);
+        UpdateSlot(2, C_Portrait, C_HealthText, C_HealthFill, cMaxWidth);
+        UpdateSlot(3, V_Portrait, V_HealthText, V_HealthFill, vMaxWidth);
     }
 
-    void UpdateSlot(int index, Image portrait, TMP_Text healthText)
+    void UpdateSlot(int index, Image portrait, TMP_Text healthText, Image fillBar, float maxWidth)
     {
         if (index >= party.partyMembers.Count)
         {
-            portrait.enabled = false;
-            healthText.text = "";
+            if (portrait != null) portrait.enabled = false;
+            if (healthText != null) healthText.text = "";
+            if (fillBar != null)
+            {
+                var rt = fillBar.rectTransform;
+                rt.sizeDelta = new Vector2(0f, rt.sizeDelta.y);
+            }
             return;
         }
 
         GameObject obj = party.partyMembers[index];
         CharacterStats stats = obj.GetComponent<CharacterStats>();
 
+        // Portrait
         portrait.enabled = true;
         portrait.sprite = stats.characterSquarePortrait;
 
@@ -75,13 +108,19 @@ public class TeamSwitchUI : MonoBehaviour
         if (isDead)
         {
             portrait.color = deadColor;
-            healthText.text = "Dead";
             healthText.gameObject.SetActive(true);
+            healthText.text = "Dead";
 
             var fx = portrait.GetComponent<PartyPortraitFX>();
             if (fx != null)
                 fx.PlayDeadEffect();
 
+            // Empty the bar
+            if (fillBar != null)
+            {
+                var rt = fillBar.rectTransform;
+                rt.sizeDelta = new Vector2(0f, rt.sizeDelta.y);
+            }
             return;
         }
         else
@@ -93,8 +132,22 @@ public class TeamSwitchUI : MonoBehaviour
 
         portrait.color = isSelected ? activeColor : inactiveColor;
 
+        // Text
         healthText.gameObject.SetActive(true);
         healthText.text = $"{stats.currentHealth}/{stats.maxHealth}";
+
+        // Bar width based on HP%
+        if (fillBar != null && maxWidth > 0f)
+        {
+            float ratio = stats.maxHealth > 0
+                ? (float)stats.currentHealth / stats.maxHealth
+                : 0f;
+
+            ratio = Mathf.Clamp01(ratio);
+
+            RectTransform rt = fillBar.rectTransform;
+            rt.sizeDelta = new Vector2(maxWidth * ratio, rt.sizeDelta.y);
+        }
     }
 
     public void OnPortraitHover(int index)
@@ -113,6 +166,14 @@ public class TeamSwitchUI : MonoBehaviour
 
     public void ClickPortrait(int index)
     {
+        // Heal-selection mode
+        if (onHealPortraitClicked != null)
+        {
+            onHealPortraitClicked.Invoke(index);
+            return;
+        }
+
+        // Block switching during battle
         var battle = FindFirstObjectByType<BattleStateManager>();
         if (battle != null && battle.isBattleActive)
             return;
@@ -124,7 +185,6 @@ public class TeamSwitchUI : MonoBehaviour
         {
             party.SwitchTo(index);
 
-            // Play select animation
             var fx = party.partyMembers[index].GetComponentInChildren<PartyPortraitFX>();
             if (fx != null)
                 fx.PlaySelectEffect();
@@ -133,15 +193,12 @@ public class TeamSwitchUI : MonoBehaviour
 
     public void PlayPortraitSelectFX(int index)
     {
+        if (PortraitContainer == null) return;
+        if (index < 0 || index >= PortraitContainer.childCount) return;
+
         Transform portrait = PortraitContainer.GetChild(index);
-
-        if (portrait != null)
-        {
-            var fx = portrait.GetComponent<PartyPortraitFX>();
-            if (fx != null)
-                fx.PlaySelectEffect();
-        }
+        var fx = portrait.GetComponent<PartyPortraitFX>();
+        if (fx != null)
+            fx.PlaySelectEffect();
     }
-
-
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Playables;
 using UnityEngine;
 
@@ -10,14 +11,19 @@ public class EnemyAIController : MonoBehaviour
     private Transform targetPlayer;
 
     public AIBehaviorProfile behavior;
+    private EnemyMovementController mover;
 
-    private const float ENEMY_DAMAGE_MULTIPLIER = 0.4f;
+    private Ability lastUsedAbility = null;
+    private int lastUsedCount = 0;
+
+    private const float ENEMY_DAMAGE_MULTIPLIER = 0.5f;
 
     void Start()
     {
         stats = GetComponent<EnemyStats>();
         loadout = GetComponent<EnemyAbilityLoadout>();
         turnManager = FindFirstObjectByType<TurnManager>();
+        mover = GetComponent<EnemyMovementController>();
 
         // Always target current active player
         var party = FindFirstObjectByType<PlayerPartyController>();
@@ -72,41 +78,63 @@ public class EnemyAIController : MonoBehaviour
 
     private Ability ChooseBestAbility(float distance)
     {
-        Ability fallback = null;
+        List<Ability> usable = new List<Ability>();
 
-        foreach (var ability in loadout.abilities)
+        // Filter abilities that are unlocked and have needed spell slots
+        foreach (var a in loadout.abilities)
         {
-            if (!ability.isUnlocked) continue;
+            if (!a.isUnlocked) continue;
 
-            // Spell slot check
-            if (ability.usesSpellSlot &&
-                !stats.HasSpellSlots(ability.spellLevel, ability.slotCost))
+            if (a.usesSpellSlot &&
+                !stats.HasSpellSlots(a.spellLevel, a.slotCost))
                 continue;
 
-            // Utility logic
-            if (ability.category == Ability.AbilityCategory.Utility)
-            {
-                if (behavior.prefersUtilityWhenLowHP &&
-                    stats.currentHealth <= stats.maxHealth * behavior.utilityHPThreshold)
-                {
-                    return ability;
-                }
-            }
-
-            // Melee preference
-            if (ability.deliveryType == Ability.DeliveryType.Melee &&
-                distance <= ability.range)
-            {
-                return ability;
-            }
-
-            // Ranged / Magic
-            if (ability.category == Ability.AbilityCategory.Magic)
-                fallback = ability;
+            usable.Add(a);
         }
 
-        return fallback != null ? fallback : (loadout.abilities.Count > 0 ? loadout.abilities[0] : null);
+        if (usable.Count == 0)
+            return null;
+
+        // -------- Prevent using same ability 3+ times in a row --------
+        if (lastUsedAbility != null && lastUsedCount >= 2)
+        {
+            // Remove the last-used ability temporarily
+            usable.Remove(lastUsedAbility);
+        }
+
+        // If only 1 ability remains after filtering, use it
+        if (usable.Count == 1)
+            return usable[0];
+
+        // ----------------------
+        // Weighted random choice
+        // ----------------------
+        // Example weights: Melee = 2, Ranged = 2, Magic = 3, Utility = 1
+        int GetWeight(Ability a)
+        {
+            switch (a.category)
+            {
+                case Ability.AbilityCategory.Melee: return 2;
+                case Ability.AbilityCategory.Ranged: return 2;
+                case Ability.AbilityCategory.Magic: return 3;
+                case Ability.AbilityCategory.Utility: return 1;
+                default: return 1;
+            }
+        }
+
+        // Build weighted list
+        List<Ability> weightedList = new List<Ability>();
+        foreach (var a in usable)
+        {
+            int w = GetWeight(a);
+            for (int i = 0; i < w; i++)
+                weightedList.Add(a);
+        }
+
+        Ability chosen = weightedList[Random.Range(0, weightedList.Count)];
+        return chosen;
     }
+
 
     private IEnumerator MoveTowardTargetIfNeeded(float dist, Ability ability)
     {
@@ -127,11 +155,8 @@ public class EnemyAIController : MonoBehaviour
         while (Vector3.Distance(transform.position, destination) > 0.02f)
         {
             // Move toward destination at constant speed
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                destination,
-                speed * Time.deltaTime
-            );
+            mover.MoveTowards(destination, speed);
+
 
             // Make sure the sprite doesn't rotate weirdly
             transform.rotation = Quaternion.identity;
@@ -148,14 +173,42 @@ public class EnemyAIController : MonoBehaviour
 
     private IEnumerator UseChosenAbility(Ability ability)
     {
+
+        // Track repeated ability usage
+        if (lastUsedAbility == ability)
+        {
+            lastUsedCount++;
+        }
+        else
+        {
+            lastUsedAbility = ability;
+            lastUsedCount = 1;
+        }
         Debug.Log($"{stats.enemyName} uses {ability.abilityName}!");
 
         // Animation
-        if (stats.enemyAnimator && !string.IsNullOrEmpty(stats.castAnimationTrigger))
+        if (stats.enemyAnimator)
         {
-            stats.enemyAnimator.SetTrigger(stats.castAnimationTrigger);
-            yield return new WaitForSeconds(0.25f);
+            // 50/50 which animation to play
+            bool useAltCast = Random.value < 0.5f;
+
+            string triggerToUse = useAltCast
+                ? stats.castAnimationTrigger2
+                : stats.castAnimationTrigger;
+
+            // Safety: make sure string is not empty
+            if (!string.IsNullOrEmpty(triggerToUse))
+            {
+                stats.enemyAnimator.ResetTrigger(stats.castAnimationTrigger);
+                stats.enemyAnimator.ResetTrigger(stats.castAnimationTrigger2);
+
+                stats.enemyAnimator.SetTrigger(triggerToUse);
+
+                // adjust timing if needed; keep same as before
+                yield return new WaitForSeconds(1f);
+            }
         }
+
 
         // Spell slot cost
         if (ability.usesSpellSlot)
@@ -188,6 +241,33 @@ public class EnemyAIController : MonoBehaviour
 
             if (ability.visualEffectPrefab)
                 Instantiate(ability.visualEffectPrefab, newPos, Quaternion.identity);
+
+            yield break;
+        }
+        // -------------------------------------------------------
+        // AREA DAMAGE (Acid Leak, etc.)
+        // -------------------------------------------------------
+        if (ability.deliveryType == Ability.DeliveryType.Area)
+        {
+            PlayerPartyController party = FindFirstObjectByType<PlayerPartyController>();
+            if (party == null) yield break;
+
+            GameObject active = party.activeMember;
+
+            // Play VFX at the feet of the active player
+            if (ability.visualEffectPrefab && active != null)
+            {
+                Vector3 pos = active.transform.position + new Vector3(0, -0.3f, 0);
+                GameObject vfx = Instantiate(ability.visualEffectPrefab, pos, Quaternion.identity);
+                Destroy(vfx, 1f);
+            }
+
+            // Damage ONLY the active player (behaves like normal single-target ability)
+            CharacterStats activeStats = active.GetComponent<CharacterStats>();
+            if (activeStats != null)
+            {
+                ResolveDamage(ability, activeStats);
+            }
 
             yield break;
         }
@@ -290,8 +370,15 @@ public class EnemyAIController : MonoBehaviour
 
             while (proj && Vector3.Distance(proj.transform.position, targetPos) > 0.1f)
             {
+                // Move
                 proj.transform.position =
                     Vector3.MoveTowards(proj.transform.position, targetPos, speed * Time.deltaTime);
+
+                // Rotate toward player
+                Vector3 direction = (targetPos - proj.transform.position).normalized;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                proj.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
                 yield return null;
             }
 
@@ -302,13 +389,20 @@ public class EnemyAIController : MonoBehaviour
         }
 
         // -------------------------------------------------------
-        // INSTANT MAGIC
+        // INSTANT MAGIC (Centered on the player)
         // -------------------------------------------------------
         if (ability.deliveryType == Ability.DeliveryType.Instant)
         {
-            if (ability.visualEffectPrefab)
+            if (ability.visualEffectPrefab && targetStats != null)
             {
-                GameObject vfx = Instantiate(ability.visualEffectPrefab, targetPos, Quaternion.identity);
+                Vector3 vfxPos = targetStats.transform.position; // centered perfectly
+
+                GameObject vfx = Instantiate(
+                    ability.visualEffectPrefab,
+                    vfxPos,
+                    Quaternion.identity
+                );
+
                 Destroy(vfx, 1.0f);
             }
 
@@ -324,7 +418,14 @@ public class EnemyAIController : MonoBehaviour
         if (ability.deliveryType == Ability.DeliveryType.Melee)
         {
             if (ability.visualEffectPrefab)
-                Instantiate(ability.visualEffectPrefab, targetPos, Quaternion.identity);
+            {
+                GameObject vfx = Instantiate(
+                    ability.visualEffectPrefab,
+                    targetPos,
+                    Quaternion.identity
+                );
+                Destroy(vfx, 1.0f); // cleanup
+            }
 
             ResolveDamage(ability, targetStats);
             yield break;

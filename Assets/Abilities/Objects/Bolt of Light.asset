@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
+  m_Name: Bolt of Light
+  m_EditorClassIdentifier: Assembly-CSharp::Ability
+  abilityName: Bolt of Light
+  abilityDescription: Blast a single target with a holy ray of light. The Gods would
+    be proud.
+  abilityIcon: {fileID: 21300000, guid: 4637953d65a24364aab3372a525b9ed2, type: 3}
+  isUnlocked: 1
+  category: 2
+  baseDamage: 5
+  damageScaling: 1
+  scalingAttribute: 4
+  usesSpellSlot: 1
+  spellLevel: 1
+  slotCost: 1
+  actionType: 0
+  consumesAction: 1
+  consumesBonusAction: 0
+  consumesFreeAction: 0
+  targetType: 1
+  range: 10
+  areaRadius: 0
+  requiresLineOfSight: 1
+  deliveryType: 2
+  visualEffectPrefab: {fileID: 6225162155035761004, guid: f845ebf4dba04ab4592cb8781c89113e,
+    type: 3}
+  abilitySound: {fileID: 0}
+  appliesStatusEffect: 0
+  statusEffectName: 
+  statusDuration: 0
+  abilityAnimation: {fileID: 0}
+  damageType: 5
+  specialEffect: 0
+  numberOfDice: 1
+  diceSides: 10
+  maxUsesPerBattle: 0

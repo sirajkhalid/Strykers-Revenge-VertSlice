@@ -9,12 +9,14 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler,
     public int slotNumber;
     public Image iconImage;
     public Ability assignedAbility;
+    public bool isTemporarilyDisabled = false;
 
     private AbilityExecutor executor;
     private BattleStateManager battle;
 
     private CharacterStats playerStats;
     private bool isUsable = true;
+
     void Start()
     {
         if (iconImage == null)
@@ -49,6 +51,11 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler,
 
         if (battle != null && !battle.isBattleActive)
             return;
+        if (isTemporarilyDisabled)
+        {
+            //executor.ShowCustomMessage("Can't use that while Sneaking!");
+            return;
+        }
 
         RefreshUsability();
 
@@ -96,30 +103,55 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler,
 
     private void RefreshUsability()
     {
+        var party = FindFirstObjectByType<PlayerPartyController>();
+        if (party != null)
+            playerStats = party.GetActiveStats();
+
         isUsable = true;
 
         if (assignedAbility == null)
             return;
 
-        // Check uses-per-battle
+        // If player is sneaking → ONLY allow Sneak Attack
+        if (playerStats != null && playerStats.isSneaking)
+        {
+            if (assignedAbility == null || assignedAbility.abilityName != "Sneak Attack")
+            {
+                isUsable = false;
+            }
+        }
         if (assignedAbility.maxUsesPerBattle > 0 &&
             assignedAbility.usesThisBattle >= assignedAbility.maxUsesPerBattle)
         {
             isUsable = false;
         }
-
-        // Check spell slots
+        if (assignedAbility.MaxLifetimeUses > 0 &&
+            assignedAbility.LifetimeUses >= assignedAbility.MaxLifetimeUses)
+        {
+            isUsable = false;
+        }
         if (isUsable && assignedAbility.usesSpellSlot)
         {
-            if (playerStats != null &&
+            if (playerStats == null ||
                 !playerStats.HasSpellSlots(assignedAbility.spellLevel, assignedAbility.slotCost))
             {
                 isUsable = false;
             }
         }
 
-        // Apply gray-out
-        iconImage.color = isUsable ? Color.white : new Color(0.4f, 0.4f, 0.4f, 1f);
+        iconImage.color = isUsable
+            ? Color.white
+            : new Color(0.4f, 0.4f, 0.4f, 1f);
     }
+
+    public void OnClick()
+    {
+        if (isTemporarilyDisabled)
+            return;
+
+        executor.ExecuteAbility(assignedAbility, null);
+    }
+
+
 
 }

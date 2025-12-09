@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c26b7794d968b24cad802bfa0b28767, type: 3}
+  m_Name: Fancy Footwork
+  m_EditorClassIdentifier: Assembly-CSharp::Ability
+  abilityName: Fancy Footwork
+  abilityDescription: Years of running from the law has given you incredible cardio.
+    Refill your movement stat.
+  abilityIcon: {fileID: 303316133638329983, guid: dc18cebf6e50e6a4cabd72175059992e,
+    type: 3}
+  isUnlocked: 1
+  category: 4
+  baseDamage: 0
+  damageScaling: 0
+  scalingAttribute: 1
+  usesSpellSlot: 0
+  spellLevel: 0
+  slotCost: 0
+  actionType: 1
+  consumesAction: 0
+  consumesBonusAction: 1
+  consumesFreeAction: 0
+  targetType: 0
+  range: 0
+  areaRadius: 0
+  requiresLineOfSight: 1
+  deliveryType: 0
+  visualEffectPrefab: {fileID: 530491280759239538, guid: ec05b11912c9fda4d8cde6dca3e6170b,
+    type: 3}
+  abilitySound: {fileID: 0}
+  appliesStatusEffect: 0
+  statusEffectName: 
+  statusDuration: 0
+  abilityAnimation: {fileID: 0}
+  damageType: 0
+  specialEffect: 0
+  numberOfDice: 1
+  diceSides: 6
+  maxUsesPerBattle: 0
+  MaxLifetimeUses: 0
