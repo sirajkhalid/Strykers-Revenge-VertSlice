@@ -326,11 +326,47 @@ public class EnemyMovementController : MonoBehaviour
             transform.localScale = scale;
         }
 
-        // Correct movement
+        // ----------------------------
+        // MAIN FORWARD MOVEMENT
+        // ----------------------------
         transform.position = pos + dir.normalized * speed * Time.deltaTime;
+
+        // ----------------------------
+        // STUCK / CORNER HANDLING
+        // ----------------------------
+        // make sure we have an initial reference
+        if (lastMoveCheckPos == Vector3.zero)
+            lastMoveCheckPos = transform.position;
+
+        // Only care about this when chasing the player
+        if (movementType == EnemyMovementType.ChasePlayer)
+        {
+            stuckTimer += Time.deltaTime;
+
+            if (stuckTimer >= 2f)
+            {
+                float movedDist = Vector3.Distance(transform.position, lastMoveCheckPos);
+
+                // If barely moved in 2 seconds → assume stuck on a corner
+                if (movedDist < 0.05f && player != null)
+                {
+                    // Decide vertical nudge based on where the player is
+                    Vector3 verticalDir =
+                        (player.position.y > transform.position.y) ? Vector3.up : Vector3.down;
+
+                    float sideStep = speed * Time.deltaTime;   // small nudge
+                    transform.position += verticalDir * sideStep;
+                }
+
+                // reset window
+                lastMoveCheckPos = transform.position;
+                stuckTimer = 0f;
+            }
+        }
 
         return true;
     }
+
 
 
     private void UpdateAnimation(bool isMoving)
