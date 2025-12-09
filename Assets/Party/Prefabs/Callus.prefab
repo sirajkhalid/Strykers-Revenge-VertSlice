@@ -292,6 +292,9 @@ MonoBehaviour:
   hasSwitchedThisRound: 0
   midSwapEnteredTurn: 0
   castAnimationTrigger: CastTrigger
+  isCasting: 0
+  isSneaking: 0
+  isImmune: 0
 --- !u!114 &3968197236777214605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +325,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   blessIndicatorPrefab: {fileID: 7899173493892532272, guid: 32fa672c606d34148b37a15e12aafef0,
     type: 3}
+  hasBarrier: 0
+  barrierRoundsRemaining: 0
+  barrierDamageReduction: 0.5
 --- !u!114 &-6381758806445957918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +359,8 @@ AudioSource:
   m_GameObject: {fileID: 1085118638413065071}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 347408161640016462, guid: e4041833ede042145b211a48bd2ba43d,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0

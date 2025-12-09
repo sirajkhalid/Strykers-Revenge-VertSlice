@@ -9546,6 +9546,7 @@ GameObject:
   - component: {fileID: 1591452744823590278}
   - component: {fileID: 6494560534752402481}
   - component: {fileID: 1727430082724833516}
+  - component: {fileID: 6307296711154406846}
   m_Layer: 5
   m_Name: OptionsPanel
   m_TagString: Untagged
@@ -9638,6 +9639,23 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!114 &6307296711154406846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855061628049079884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6872b19021cc99743bfb673430473725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionsMenu
+  resolutionDropdown: {fileID: 7447909646521358304}
+  graphicsDropdown: {fileID: 5166187562414793003}
+  musicSlider: {fileID: 4163199718767162577}
+  sfxSlider: {fileID: 2846974200069515228}
+  audioMixer: {fileID: 24100000, guid: e4041833ede042145b211a48bd2ba43d, type: 2}
 --- !u!1 &3866373679955837237
 GameObject:
   m_ObjectHideFlags: 0
