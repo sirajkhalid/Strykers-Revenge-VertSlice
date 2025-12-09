@@ -106,11 +106,16 @@ public class PauseMenu : MonoBehaviour
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
 
-                // Close sub-panels when exiting
+                // Reset sub-panels
                 if (optionsPanel != null) optionsPanel.SetActive(false);
                 if (helpPanel != null) helpPanel.SetActive(false);
+
+                // Ensure main window is active when closed via ESC/P
+                if (window != null)
+                    window.gameObject.SetActive(true);
             });
     }
+
 
     // -------- BUTTON FUNCTIONS -------- //
 
