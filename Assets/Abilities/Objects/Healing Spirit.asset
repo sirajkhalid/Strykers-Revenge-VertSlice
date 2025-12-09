@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Healing Spirit
   m_EditorClassIdentifier: Assembly-CSharp::Ability
   abilityName: Healing Spirit
-  abilityDescription: 'Target a party member, give them a little healing every round. '
+  abilityDescription: Heal every party member for a minor amount.
   abilityIcon: {fileID: 21300000, guid: 2e350bcef09f70943ba03de78d8c063a, type: 3}
   isUnlocked: 1
   category: 3
-  baseDamage: 4
+  baseDamage: 1
   damageScaling: 1
   scalingAttribute: 3
   usesSpellSlot: 1
@@ -32,16 +32,16 @@ MonoBehaviour:
   areaRadius: 0
   requiresLineOfSight: 1
   deliveryType: 0
-  visualEffectPrefab: {fileID: 4525476136081790591, guid: 3c6c1c0318c7d86478487204d713a6f8,
+  visualEffectPrefab: {fileID: 6820656750336470544, guid: 8e55c6c0dcbffcd45b69701a6e50e2f1,
     type: 3}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
   statusEffectName: 
   statusDuration: 0
   abilityAnimation: {fileID: 0}
-  damageType: 0
+  damageType: 5
   specialEffect: 0
   numberOfDice: 1
-  diceSides: 6
-  maxUsesPerBattle: 0
+  diceSides: 4
+  maxUsesPerBattle: 2
   MaxLifetimeUses: 0

@@ -14,6 +14,15 @@ TextureImporter:
   - first:
       213: -2805703651540499683
     second: GnatIdle_3
+  - first:
+      213: -1050692333387870814
+    second: GnatIdle_4
+  - first:
+      213: -3161734099189519855
+    second: GnatIdle_5
+  - first:
+      213: -8625231579423527005
+    second: GnatIdle_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,12 +134,12 @@ TextureImporter:
       name: GnatIdle_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 127
-        height: 123
+        x: 19
+        y: 9
+        width: 63
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +156,12 @@ TextureImporter:
       name: GnatIdle_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 1
-        width: 127
-        height: 124
+        x: 97
+        y: 10
+        width: 63
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +178,12 @@ TextureImporter:
       name: GnatIdle_2
       rect:
         serializedVersion: 2
-        x: 296
-        y: 3
-        width: 124
-        height: 123
+        x: 172
+        y: 10
+        width: 63
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +200,12 @@ TextureImporter:
       name: GnatIdle_3
       rect:
         serializedVersion: 2
-        x: 434
-        y: 1
-        width: 127
-        height: 124
+        x: 263
+        y: 12
+        width: 63
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,11 +218,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: GnatIdle_4
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 11
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad803cb3e03b61f0800000000000000
+      internalID: -1050692333387870814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GnatIdle_5
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 12
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11aa19f96934f14d0800000000000000
+      internalID: -3161734099189519855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GnatIdle_6
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 10
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3afaaf2b3950d4880800000000000000
+      internalID: -8625231579423527005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b75d38d43c3e7c84cae866f8e1d26f7f
     internalID: 0
     vertices: []
     indices: 
@@ -227,6 +302,9 @@ TextureImporter:
       GnatIdle_1: 8033448528307036830
       GnatIdle_2: 1952918993435452794
       GnatIdle_3: -2805703651540499683
+      GnatIdle_4: -1050692333387870814
+      GnatIdle_5: -3161734099189519855
+      GnatIdle_6: -8625231579423527005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

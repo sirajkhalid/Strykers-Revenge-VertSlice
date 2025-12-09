@@ -72,6 +72,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Prevent movement animations from overriding Cast animation
+        if (stats != null && stats.isCasting)
+        {
+            animator.SetFloat("Speed", 0);
+            HandleFootsteps(false);
+            return;
+        }
+
         if (!canMove)
         {
             rawInput = Vector2.zero;

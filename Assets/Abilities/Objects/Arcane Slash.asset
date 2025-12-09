@@ -21,10 +21,10 @@ MonoBehaviour:
   category: 0
   baseDamage: 0
   damageScaling: 1
-  scalingAttribute: 0
-  usesSpellSlot: 1
-  spellLevel: 1
-  slotCost: 1
+  scalingAttribute: 3
+  usesSpellSlot: 0
+  spellLevel: 0
+  slotCost: 0
   actionType: 0
   consumesAction: 1
   consumesBonusAction: 0
@@ -41,8 +41,9 @@ MonoBehaviour:
   statusEffectName: 
   statusDuration: 0
   abilityAnimation: {fileID: 0}
-  damageType: 0
+  damageType: 6
   specialEffect: 0
   numberOfDice: 1
-  diceSides: 8
+  diceSides: 4
   maxUsesPerBattle: 1
+  MaxLifetimeUses: 0

@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class AbilityExecutor : MonoBehaviour
@@ -11,6 +12,14 @@ public class AbilityExecutor : MonoBehaviour
     private TurnManager turnManager;
     private PlayerHUDManager hud;
     private PlayerPartyController party;
+
+    [Header("Reusable Message UI")]
+    public TMP_Text messageTextUI;   // drag your TMP in the inspector
+    public CanvasGroup messageGroup; // drag a canvas group on same object
+
+    private Tween messageFadeTween;
+    private Tween messageFloatTween;
+
 
     void Start()
     {
@@ -121,9 +130,13 @@ public class AbilityExecutor : MonoBehaviour
         if (playerAnimator != null &&
             !string.IsNullOrEmpty(playerStats.castAnimationTrigger))
         {
+            playerStats.isCasting = true;
+
             playerAnimator.ResetTrigger(playerStats.castAnimationTrigger);
             playerAnimator.SetTrigger(playerStats.castAnimationTrigger);
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.8f);
+            playerStats.isCasting = false;
+
         }
 
         // --- STEP 4: ABILITY EXECUTION ---
@@ -202,6 +215,21 @@ public class AbilityExecutor : MonoBehaviour
                 break;
 
             case Ability.TargetType.Ally:
+                if (ability.abilityName == "Bless")
+                {
+                    StartCoroutine(ExecuteBless(ability));
+                    break;
+                }
+                if (ability.abilityName == "Close Wounds")
+                {
+                    StartCoroutine(ExecuteHealAlly(ability));
+                    break;
+                }
+                if (ability.abilityName == "Healing Spirit")
+                {
+                    StartCoroutine(ExecuteHealingSpirit(ability));
+                    break;
+                }
                 StartCoroutine(ExecuteAllyAbility(ability));
                 break;
         }
@@ -835,35 +863,12 @@ public class AbilityExecutor : MonoBehaviour
         Destroy(msg, 1f);
     }
 
-    private void ShowOutOfRangeMessage()
-    {
-        ShowCustomMessage("Out of range!");
-    }
+    public void ShowSelectTargetMessage() => ShowMessageUI("Select a target!");
+    public void ShowOutOfRangeMessage() => ShowMessageUI("Out of range!");
+    public void ShowNoActionMessage() => ShowMessageUI("No actions available!");
+    public void ShowNoSpellSlotsMessage() => ShowMessageUI("No spell slots!");
+    public void ShowNoUsesLeftMessage() => ShowMessageUI("No uses left!");
 
-    private void ShowSelectTargetMessage()
-    {
-        ShowCustomMessage("Select a target!");
-    }
-
-    private void ShowSelectAreaMessage()
-    {
-        ShowCustomMessage("Select an area!");
-    }
-
-    private void ShowNoActionMessage()
-    {
-        ShowCustomMessage("No actions available!");
-    }
-
-    public void ShowNoUsesLeftMessage()
-    {
-        ShowCustomMessage("No Uses Left!");
-    }
-
-    public void ShowNoSpellSlotsMessage()
-    {
-        ShowCustomMessage("No Spell Slots!");
-    }
 
     // ----------------- KNOCKBACK HELPERS -----------------
     private Vector2 GetSafePushPosition(Rigidbody2D enemyRb, Vector2 direction, float distance)
@@ -1251,7 +1256,249 @@ public class AbilityExecutor : MonoBehaviour
         yield return null;
     }
 
+    private IEnumerator ExecuteHealAlly(Ability ability)
+    {
+        RefreshActiveCharacter();
+        if (playerStats == null) yield break;
 
+        var party = FindFirstObjectByType<PlayerPartyController>();
+        if (party == null || party.partyMembers.Count == 0) yield break;
+
+        // Disable party switching during selection
+        party.disableSwitching = true;
+
+        // Floating message that stays until healed
+        ShowMessageUI("Select an ally to heal (Press Z/X/C/V)", 999f);
+
+        int selectedIndex = -1;
+        bool selectionMade = false;
+
+        // Portrait click hookup
+        TeamSwitchUI teamUI = FindFirstObjectByType<TeamSwitchUI>();
+        if (teamUI != null)
+        {
+            teamUI.onHealPortraitClicked = (idx) =>
+            {
+                selectedIndex = idx;
+                selectionMade = true;
+            };
+        }
+
+        // --- WAIT FOR KEYBIND OR CLICK ---
+        while (!selectionMade)
+        {
+            if (Input.GetKeyDown(KeyCode.Z)) { selectedIndex = 0; selectionMade = true; }
+            if (Input.GetKeyDown(KeyCode.X)) { selectedIndex = 1; selectionMade = true; }
+            if (Input.GetKeyDown(KeyCode.C)) { selectedIndex = 2; selectionMade = true; }
+            if (Input.GetKeyDown(KeyCode.V)) { selectedIndex = 3; selectionMade = true; }
+
+            yield return null;
+        }
+
+        HideMessageUI();
+
+        if (teamUI != null)
+            teamUI.onHealPortraitClicked = null;
+
+        // Validate
+        if (selectedIndex < 0 || selectedIndex >= party.partyMembers.Count)
+        {
+            party.disableSwitching = false;
+            yield break;
+        }
+
+        GameObject targetObj = party.partyMembers[selectedIndex];
+        if (targetObj == null)
+        {
+            party.disableSwitching = false;
+            yield break;
+        }
+
+        CharacterStats targetStats = targetObj.GetComponent<CharacterStats>();
+        // ---- DO NOT ALLOW HEALING DEAD ALLIES ----
+        if (targetStats.currentHealth <= 0)
+        {
+            ShowCustomMessage("Cannot heal the dead!");
+            party.disableSwitching = false;
+            yield break;
+        }
+
+        // ---- PLAY VFX ON ACTIVE PLAYER ----
+        if (ability.visualEffectPrefab != null)
+        {
+            GameObject fx = Instantiate(
+                ability.visualEffectPrefab,
+                playerStats.transform.position,
+                Quaternion.identity
+            );
+
+            fx.transform.localScale = ability.visualEffectPrefab.transform.localScale;
+
+            Animator anim = fx.GetComponent<Animator>();
+            if (anim != null) anim.Rebind();
+
+            var ps = fx.GetComponent<ParticleSystem>();
+            if (ps != null) ps.Play();
+
+            Destroy(fx, 1.5f);
+        }
+
+        // ---- HEAL ROLL ----
+        int mod = GetModifierForScaling(playerStats, ability.scalingAttribute);
+        int diceRoll = D20System.RollDice(ability.numberOfDice, ability.diceSides);
+        int healAmount = Mathf.Max(1, ability.baseDamage + diceRoll + mod);
+
+        targetStats.SetCurrentHealth(targetStats.currentHealth + healAmount);
+
+        // Floating heal number on the ACTIVE MEMBER
+        if (playerStats.floatingDamagePrefab != null)
+            playerStats.ShowFloatingText("+" + healAmount, Color.green);
+
+        // Re-enable switching
+        party.disableSwitching = false;
+
+        yield return null;
+    }
+
+    private void ShowMessageUI(string msg, float duration = 1.5f)
+    {
+        if (messageTextUI == null || messageGroup == null)
+            return;
+
+        // Set message text
+        messageTextUI.text = msg;
+
+        // Stop previous tweens
+        messageFadeTween?.Kill();
+        messageFloatTween?.Kill();
+
+        // Reset alpha
+        messageGroup.alpha = 0f;
+        messageGroup.gameObject.SetActive(true);
+
+        RectTransform msgRect = messageGroup.transform as RectTransform;
+
+        // --- FLOAT ANIMATION (BOBBING UP/DOWN LOOP) ---
+        messageFloatTween = msgRect.DOAnchorPosY(
+            msgRect.anchoredPosition.y + 15f, // move up 15px
+            0.6f
+        )
+        .SetLoops(-1, LoopType.Yoyo)
+        .SetEase(Ease.InOutSine);
+
+        // --- FADE IN + FADE OUT ---
+        messageFadeTween = DOTween.Sequence()
+            .Append(messageGroup.DOFade(1f, 0.25f))   // fade in
+            .AppendInterval(duration)                // stay visible
+            .Append(messageGroup.DOFade(0f, 0.35f))  // fade out
+            .OnComplete(() =>
+            {
+                messageGroup.gameObject.SetActive(false);
+                messageFloatTween.Kill();
+            });
+    }
+
+    private void HideMessageUI()
+    {
+        messageFadeTween?.Kill();
+        messageFloatTween?.Kill();
+
+        if (messageGroup != null)
+            messageGroup.gameObject.SetActive(false);
+    }
+    private IEnumerator ExecuteHealingSpirit(Ability ability)
+    {
+        RefreshActiveCharacter();
+        if (playerStats == null) yield break;
+
+        var party = FindFirstObjectByType<PlayerPartyController>();
+        if (party == null || party.partyMembers.Count == 0) yield break;
+
+        // ---- PLAY VFX ABOVE ACTIVE CHARACTER ----
+        if (ability.visualEffectPrefab != null)
+        {
+            Vector3 spawnPos = playerStats.transform.position + Vector3.up * 3.0f;
+
+            GameObject fx = Instantiate(
+                ability.visualEffectPrefab,
+                spawnPos,
+                Quaternion.identity
+            );
+
+            // Keep the prefab's original scale
+            fx.transform.localScale = ability.visualEffectPrefab.transform.localScale;
+
+            // Ensure animator/particles actually play
+            Animator anim = fx.GetComponent<Animator>();
+            if (anim != null) anim.Rebind();
+
+            ParticleSystem ps = fx.GetComponent<ParticleSystem>();
+            if (ps != null) ps.Play();
+
+            Destroy(fx, 2f);
+        }
+
+        // ---- CALCULATE HEAL VALUE (ONCE) ----
+        int mod = GetModifierForScaling(playerStats, ability.scalingAttribute);
+        int diceRoll = D20System.RollDice(ability.numberOfDice, ability.diceSides);
+        int healAmount = Mathf.Max(1, ability.baseDamage + diceRoll + mod);
+
+        // ---- HEAL EVERY PARTY MEMBER ----
+        foreach (GameObject member in party.partyMembers)
+        {
+            if (member == null) continue;
+
+            CharacterStats stats = member.GetComponent<CharacterStats>();
+            if (stats == null) continue;
+
+            // Skip dead allies (prevent resurrection)
+            if (stats.currentHealth <= 0)
+                continue;
+
+            // Apply heal
+            stats.SetCurrentHealth(stats.currentHealth + healAmount);
+
+            // Floating heal number above each healed ally
+            if (stats.floatingDamagePrefab != null)
+            {
+                stats.ShowFloatingText("+" + healAmount, Color.green);
+            }
+        }
+
+        yield return null;
+    }
+    private IEnumerator ExecuteBless(Ability ability)
+    {
+        RefreshActiveCharacter();
+        if (playerStats == null) yield break;
+
+        // --- PLAY VFX IN FRONT OF PLAYER ---
+        if (ability.visualEffectPrefab != null)
+        {
+            Vector3 spawnPos = playerStats.transform.position + Vector3.up * 3.0f;
+
+            GameObject fx = Instantiate(
+                ability.visualEffectPrefab,
+                spawnPos,
+                Quaternion.identity
+            );
+
+            // Use prefab’s original scale
+            fx.transform.localScale = ability.visualEffectPrefab.transform.localScale;
+
+            Destroy(fx, 1.5f);
+        }
+
+        // --- APPLY BLESS STATUS EFFECT ---
+        var effects = playerStats.GetComponent<StatusEffectManager>();
+        if (effects != null)
+        {
+            // Ability's status duration already stored in inspector
+            effects.ApplyBless(ability.statusDuration);
+        }
+
+        yield return null;
+    }
 
 
 }

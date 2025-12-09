@@ -21,6 +21,7 @@ public class PlayerPartyController : MonoBehaviour
     public float spawnOffsetY = 0.0f;
 
     public CinemachineImpulseSource impulseSource;
+    public bool disableSwitching = false;
 
     void Start()
     {
@@ -83,9 +84,10 @@ public class PlayerPartyController : MonoBehaviour
     // SWITCH FUNCTION
     public void SwitchTo(int newIndex)
     {
+        if (disableSwitching)
+            return;
         if (newIndex < 0 || newIndex >= partyMembers.Count)
             return;
-
         if (newIndex == activeIndex)
             return;
 
@@ -104,9 +106,24 @@ public class PlayerPartyController : MonoBehaviour
         if (newStats.currentHealth <= 0)
             return;
 
+        // -------------------------------
+        // BATTLE + TURN CONTEXT
+        // -------------------------------
         var battle = FindFirstObjectByType<BattleStateManager>();
         var turnManager = FindFirstObjectByType<TurnManager>();
         bool inBattle = battle && battle.isBattleActive;
+
+        // If in battle, switching costs a BONUS ACTION.
+        // If player has no bonus OR already switched this round -> cannot switch.
+        if (inBattle)
+        {
+            if (!oldStats.hasBonusAction || oldStats.hasSwitchedThisRound)
+            {
+                // Optional feedback
+                oldStats.ShowFloatingText("No bonus action to switch!", Color.yellow);
+                return;
+            }
+        }
 
         // POSITION + VFX
         Transform anchor = oldChar.transform.childCount > 0
@@ -125,7 +142,6 @@ public class PlayerPartyController : MonoBehaviour
         // -------------------------------
         // SNEAK-SAFE RESET FOR OLD CHAR
         // -------------------------------
-        // Only reset opacity + immunity if NOT sneaking
         if (!oldStats.isSneaking)
         {
             oldStats.isImmune = false;
@@ -134,8 +150,6 @@ public class PlayerPartyController : MonoBehaviour
             if (oldSR != null)
                 oldSR.color = new Color(oldSR.color.r, oldSR.color.g, oldSR.color.b, 1f);
         }
-        // If sneaking → keep its alpha + keep immune flag until Sneak ends naturally
-
 
         // Disable old character
         oldChar.SetActive(false);
@@ -144,11 +158,10 @@ public class PlayerPartyController : MonoBehaviour
         newChar.transform.position = pos;
         newChar.SetActive(true);
 
-        // Battle logic
         if (inBattle)
             newStats.midSwapEnteredTurn = true;
 
-        if (inBattle)
+        if (inBattle && turnManager != null)
             turnManager.ReplaceCombatant(oldChar, newChar);
 
         if (impulseSource)
@@ -168,7 +181,6 @@ public class PlayerPartyController : MonoBehaviour
         // -------------------------------
         // SNEAK-SAFE RESET FOR NEW CHAR
         // -------------------------------
-        // Only reset if the new char *was sneaking* before the switch
         if (newStats.isSneaking)
         {
             newStats.isSneaking = false;
@@ -178,8 +190,6 @@ public class PlayerPartyController : MonoBehaviour
             if (sr != null)
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
         }
-        // Otherwise do nothing — don’t touch opacity!
-
 
         // HUD/Portrait UI Updates
         var hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
@@ -196,15 +206,22 @@ public class PlayerPartyController : MonoBehaviour
             teamUI.PlayPortraitSelectFX(newIndex);
         }
 
+        // -------------------------------
         // MID-BATTLE TURN LOGIC
-        if (inBattle)
+        // -------------------------------
+        if (inBattle && turnManager != null)
         {
+            // Old character spends BONUS ACTION to switch
             oldStats.hasBonusAction = false;
-            oldStats.hasAction = false;
             oldStats.hasSwitchedThisRound = true;
+            // Do NOT touch oldStats.hasAction here.
 
-            newStats.hasAction = false;
-            newStats.hasBonusAction = true;
+            // New character:
+            // - ALWAYS gets an action
+            // - NO bonus action (because switch consumed it)
+            // - FULL movement
+            newStats.hasAction = true;
+            newStats.hasBonusAction = false;
             newStats.currentMovement = newStats.maxMovement;
 
             turnManager.currentTurnObject = newChar;
@@ -218,6 +235,7 @@ public class PlayerPartyController : MonoBehaviour
                 battleUI.ShowTurnBanner(newStats.characterName);
         }
     }
+
 
     // Next alive (switch on death)
     public bool HasAliveBackup()

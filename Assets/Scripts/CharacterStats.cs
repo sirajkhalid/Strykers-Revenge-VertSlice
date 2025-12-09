@@ -93,7 +93,6 @@ public class CharacterStats : MonoBehaviour
     public int initiative;          // base initiative (DEX + skills)
     public int rolledInitiative;    // final initiative after D20
 
-
     [Header("Skills (auto, flat numbers)")]
     public int athletics;
     public int acrobatics;
@@ -118,8 +117,6 @@ public class CharacterStats : MonoBehaviour
     public float baseMovement = 12f;   // Base movement before modifiers
     public float maxMovement;          // Calculated total
     public float currentMovement;      // Used during battle
-
-
 
     [Header("UI Feedback")]
     public GameObject floatingDamagePrefab;
@@ -152,6 +149,8 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Ability Animation")]
     public string castAnimationTrigger = "CastTrigger";
+    public bool isCasting = false;
+
 
     [HideInInspector] public bool isSneaking = false;   // prevents ability usage
     [HideInInspector] public bool isImmune = false;      // prevents damage
@@ -579,11 +578,17 @@ public class CharacterStats : MonoBehaviour
         currentHealth = Mathf.Clamp(newHealth, 0, maxHealth);
         OnHealthChanged?.Invoke();
 
+        // NEW: force update party health bars
+        var teamUI = FindFirstObjectByType<TeamSwitchUI>(FindObjectsInactive.Include);
+        if (teamUI != null)
+            teamUI.RefreshDisplay();
+
         if (currentHealth <= 0)
         {
             HandleDeath();
         }
     }
+
 
     private void HandleDeath()
     {
@@ -685,7 +690,7 @@ public class CharacterStats : MonoBehaviour
     {
         // Prevent hits on dead/inactive character
         if (!this.gameObject.activeInHierarchy)
-            return;
+         return;
 
         if (isImmune)
         {
@@ -699,7 +704,7 @@ public class CharacterStats : MonoBehaviour
         {
             amount = Mathf.RoundToInt(amount * (1f - effects.barrierDamageReduction));
         }
-        
+
         if (isMiss)
         {
             ShowFloatingText("MISS", Color.white);
@@ -800,6 +805,7 @@ public class CharacterStats : MonoBehaviour
         currentLevel1Slots = maxLevel1Slots;
         currentLevel2Slots = maxLevel2Slots;
     }
+
 
 
 }

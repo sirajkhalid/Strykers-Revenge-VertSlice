@@ -29,11 +29,11 @@ MonoBehaviour:
   consumesBonusAction: 0
   consumesFreeAction: 0
   targetType: 2
-  range: 10
+  range: 0
   areaRadius: 0
   requiresLineOfSight: 1
   deliveryType: 0
-  visualEffectPrefab: {fileID: 240173430993639377, guid: c27aafde98c16fc4b8e8939f9a6231d6,
+  visualEffectPrefab: {fileID: 3585649781249327112, guid: c27aafde98c16fc4b8e8939f9a6231d6,
     type: 3}
   abilitySound: {fileID: 0}
   appliesStatusEffect: 0
@@ -45,3 +45,4 @@ MonoBehaviour:
   numberOfDice: 1
   diceSides: 8
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

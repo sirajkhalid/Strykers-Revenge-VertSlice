@@ -28,9 +28,6 @@ public class EnemyUI : MonoBehaviour
     public GameObject enemyPortraitBox;
     public Image enemyPortrait;
 
-    [Header("Highlight Settings")]
-    public Color highlightColor = Color.yellow;
-
     private Camera cam;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -84,48 +81,6 @@ public class EnemyUI : MonoBehaviour
         if (enemyStats != null)
             enemyStats.OnHealthChanged -= UpdateTopBar;
     }
-
-    // -------------------------------
-    // HOVER UI
-    // -------------------------------
-    void OnMouseEnter()
-    {
-        if (Time.timeScale == 0f) return;
-
-        var selector = FindFirstObjectByType<TargetSelector>();
-        if (selector == null) return;
-
-        ShowInfoUI();
-        UpdateTopBar();
-
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color =
-                (selector.lockedTarget == transform) ? selector.selectedColor : highlightColor;
-        }
-    }
-
-    void OnMouseExit()
-    {
-        if (Time.timeScale == 0f) return;
-
-        var selector = FindFirstObjectByType<TargetSelector>();
-        if (selector == null) return;
-
-        if (selector.lockedTarget == transform)
-        {
-            ShowInfoUI();
-            UpdateTopBar();
-            if (spriteRenderer != null)
-                spriteRenderer.color = selector.selectedColor;
-
-            return;
-        }
-
-        HideInfoUI();
-        ResetColor();
-    }
-
 
     // TOP BAR UI
 
@@ -214,9 +169,6 @@ public class EnemyUI : MonoBehaviour
             redTex
         );
     }
-
-
-
 
     // UI Helpers
 

@@ -6,7 +6,6 @@ public class StatusEffectManager : MonoBehaviour
 {
     [Header("Effect Prefabs")]
     public GameObject blessIndicatorPrefab;
-
     private GameObject activeBlessIndicator;
     private Tween floatTween;
     private Tween fadeTween;

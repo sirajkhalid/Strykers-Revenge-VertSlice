@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4988637882972301213}
   - component: {fileID: 5066166189470553662}
   - component: {fileID: -7135463569813622484}
+  - component: {fileID: -5027258154347297065}
   - component: {fileID: -6635058855351182383}
   - component: {fileID: 6649234393219757417}
   - component: {fileID: 1497034400118839153}
@@ -19,7 +20,6 @@ GameObject:
   - component: {fileID: 8983463322286771940}
   - component: {fileID: 5431015048163812394}
   - component: {fileID: -8907701141783262192}
-  - component: {fileID: -5027258154347297065}
   m_Layer: 0
   m_Name: Bloated Corpse
   m_TagString: Enemy
@@ -147,6 +147,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.16, y: 1.25}
   m_EdgeRadius: 0
+--- !u!50 &-5027258154347297065
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324183076802201904}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!95 &-6635058855351182383
 Animator:
   serializedVersion: 7
@@ -248,9 +275,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAbilityLoadout
   abilities:
-  - {fileID: 11400000, guid: 9a2117e77a70a5a4cb68bc27ef988e3e, type: 2}
+  - {fileID: 11400000, guid: d24318362ccbab249b4e1aaba4ada841, type: 2}
   - {fileID: 11400000, guid: e2cdea6e305b1944c8e1d301cc700106, type: 2}
-  - {fileID: 11400000, guid: fb1ba3061032e474689c1944eb4727c5, type: 2}
+  - {fileID: 11400000, guid: 96a1a9259fee0b645958869ab677a13b, type: 2}
+  - {fileID: 11400000, guid: e07db6290a12d784e81713bf555c172d, type: 2}
+  - {fileID: 11400000, guid: e1304a5f71afcae4d9d17dec33d2a9e5, type: 2}
+  - {fileID: 11400000, guid: 9a2117e77a70a5a4cb68bc27ef988e3e, type: 2}
   chooseRandomAbility: 1
 --- !u!114 &5181030918936642381
 MonoBehaviour:
@@ -287,6 +317,8 @@ MonoBehaviour:
   circleAngularSpeed: 90
   circleRandomizeDirection: 1
   chaseSpeedMultiplier: 1.5
+  chaseMaxDistance: 8
+  chaseMaxTime: 4
   canMove: 1
   externalControl: 0
   isInBattle: 0
@@ -323,30 +355,3 @@ MonoBehaviour:
   coneHalfAngle: 45
   coneDistance: 6
   battleTriggerRange: 2
---- !u!50 &-5027258154347297065
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4

@@ -67,7 +67,8 @@ public class EnemyGroupController : MonoBehaviour
 
             // Target position = leader + current offset
             Vector3 target = leaderPos + currentOffsets[i];
-            follower.SetExternalTarget(target);
+            follower.ReceiveFollowTarget(target);
+            follower.chaseSpeedMultiplier = 1.0f;
         }
     }
 
