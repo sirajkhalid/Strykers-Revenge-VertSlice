@@ -145,7 +145,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.12, y: 0.23}
+  m_Size: {x: 1.12, y: 0.32}
   m_EdgeRadius: 0
 --- !u!50 &-5027258154347297065
 Rigidbody2D:
@@ -256,6 +256,7 @@ MonoBehaviour:
   currentMovement: 0
   enemyAnimator: {fileID: 0}
   castAnimationTrigger: CastTrigger
+  castAnimationTrigger2: CastTrigger2
   spellSlotsLevel1: 4
   spellSlotsLevel2: 1
   maxSpellSlotsLevel1: 4
