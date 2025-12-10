@@ -35,7 +35,7 @@ MonoBehaviour:
   deliveryType: 2
   visualEffectPrefab: {fileID: 6225162155035761004, guid: f845ebf4dba04ab4592cb8781c89113e,
     type: 3}
-  abilitySound: {fileID: 0}
+  abilitySound: {fileID: 8300000, guid: af08a6741890f5a44973caec5cdc288a, type: 3}
   appliesStatusEffect: 0
   statusEffectName: 
   statusDuration: 0
@@ -45,3 +45,4 @@ MonoBehaviour:
   numberOfDice: 1
   diceSides: 10
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

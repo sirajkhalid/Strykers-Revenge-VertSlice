@@ -16,6 +16,10 @@ public class EnemyAIController : MonoBehaviour
     private Ability lastUsedAbility = null;
     private int lastUsedCount = 0;
 
+    public AudioSource abilityAudioSource;
+    private static AudioSource globalAbilitySource;
+
+
     private const float ENEMY_DAMAGE_MULTIPLIER = 0.5f;
 
     void Start()
@@ -29,6 +33,14 @@ public class EnemyAIController : MonoBehaviour
         var party = FindFirstObjectByType<PlayerPartyController>();
         if (party != null && party.activeMember != null)
             targetPlayer = party.activeMember.transform;
+
+        if (globalAbilitySource == null)
+        {
+            GameObject obj = GameObject.Find("AbilitiesSource");
+            if (obj != null)
+                globalAbilitySource = obj.GetComponent<AudioSource>();
+        }
+
     }
 
     public IEnumerator TakeTurn()
@@ -185,6 +197,8 @@ public class EnemyAIController : MonoBehaviour
             lastUsedCount = 1;
         }
         Debug.Log($"{stats.enemyName} uses {ability.abilityName}!");
+
+        PlayAbilitySound(ability);
 
         // Animation
         if (stats.enemyAnimator)
@@ -496,13 +510,27 @@ public class EnemyAIController : MonoBehaviour
             transform.localScale = scale;
         }
     }
-
-
-
-
     public void ForceRetarget(Transform newTarget)
     {
         targetPlayer = newTarget;
     }
+    private void PlayAbilitySound(Ability ability)
+    {
+        if (ability == null) return;
+        if (ability.abilitySound == null) return;
+
+        // Use global AbilitiesSource instead of enemy-local AudioSource
+        if (globalAbilitySource == null)
+        {
+            GameObject obj = GameObject.Find("AbilitiesSource");
+            if (obj != null)
+                globalAbilitySource = obj.GetComponent<AudioSource>();
+        }
+
+        if (globalAbilitySource != null)
+            globalAbilitySource.PlayOneShot(ability.abilitySound);
+    }
+
+
 
 }

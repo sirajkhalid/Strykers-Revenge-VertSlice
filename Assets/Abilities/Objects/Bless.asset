@@ -35,7 +35,7 @@ MonoBehaviour:
   deliveryType: 4
   visualEffectPrefab: {fileID: 4710142049957223477, guid: fd0891b990b8e264e8a185a718cbb327,
     type: 3}
-  abilitySound: {fileID: 0}
+  abilitySound: {fileID: 8300000, guid: 68cab9eee57cf45468107a63354ac055, type: 3}
   appliesStatusEffect: 1
   statusEffectName: Blessed
   statusDuration: 1
@@ -45,3 +45,4 @@ MonoBehaviour:
   numberOfDice: 1
   diceSides: 4
   maxUsesPerBattle: 0
+  MaxLifetimeUses: 0

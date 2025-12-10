@@ -11,11 +11,11 @@ public class MainMenuController : MonoBehaviour
     public Button quitButton;
 
     [Header("Scene Names")]
-    public string battleScene = "BattleSystem";
+    public string battleScene = "Castle1";
     public string creditsScene = "Credits";
 
     [Header("Fade")]
-    public Image fadeOverlay;       // A black fullscreen Image
+    public Image fadeOverlay;    
     public float fadeTime = 0.75f;  // How long the fade lasts
 
     void Start()
