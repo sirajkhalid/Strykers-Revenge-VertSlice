@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   enemyName: Necromancer
   creatureType: 2
-  enemyPortrait: {fileID: 3389446028299116169, guid: 9d9d0929e05d07c48998c223500838d2,
+  enemyPortrait: {fileID: 3389446028299116169, guid: 35e3243a054dd004aaae8c0ce8449ab6,
     type: 3}
   level: 1
   strength: 6
@@ -255,8 +255,9 @@ MonoBehaviour:
   xpReward: 50
   maxMovement: 5
   currentMovement: 0
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: -6635058855351182383}
   castAnimationTrigger: CastTrigger
+  castAnimationTrigger2: CastTrigger2
   spellSlotsLevel1: 6
   spellSlotsLevel2: 1
   maxSpellSlotsLevel1: 6
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAIController
   behavior: {fileID: 11400000, guid: 848502a40ae32474ba267b582934a0da, type: 2}
+  abilityAudioSource: {fileID: 0}
 --- !u!114 &8983463322286771940
 MonoBehaviour:
   m_ObjectHideFlags: 0

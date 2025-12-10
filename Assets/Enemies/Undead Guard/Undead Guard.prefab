@@ -37,7 +37,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.58, y: 7.45, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -208,6 +208,7 @@ MonoBehaviour:
   currentMovement: 0
   enemyAnimator: {fileID: 0}
   castAnimationTrigger: CastTrigger
+  castAnimationTrigger2: CastTrigger2
   spellSlotsLevel1: 4
   spellSlotsLevel2: 1
   maxSpellSlotsLevel1: 4
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAIController
   behavior: {fileID: 11400000, guid: 0c25e25fb6a550e4499279004c91fb0e, type: 2}
+  abilityAudioSource: {fileID: 0}
 --- !u!114 &8983463322286771940
 MonoBehaviour:
   m_ObjectHideFlags: 0
