@@ -20,6 +20,8 @@ public class AbilityExecutor : MonoBehaviour
     private Tween messageFadeTween;
     private Tween messageFloatTween;
 
+    public AudioSource abilityAudioSource;
+
 
     void Start()
     {
@@ -140,6 +142,7 @@ public class AbilityExecutor : MonoBehaviour
         }
 
         // --- STEP 4: ABILITY EXECUTION ---
+        PlayAbilitySound(ability);
         switch (ability.targetType)
         {
             case Ability.TargetType.Self:
@@ -1498,6 +1501,14 @@ public class AbilityExecutor : MonoBehaviour
         }
 
         yield return null;
+    }
+    private void PlayAbilitySound(Ability ability)
+    {
+        if (ability == null) return;
+        if (ability.abilitySound == null) return;
+        if (abilityAudioSource == null) return;
+
+        abilityAudioSource.PlayOneShot(ability.abilitySound);
     }
 
 

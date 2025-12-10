@@ -43,6 +43,8 @@ public class PlayerHUDManager : MonoBehaviour
 
     [Header("Resting")]
     public Button shortRestButton;
+    private int shortRestsUsed = 0;
+    private const int maxShortRests = 3;
 
     [Header("Skill Bar")]
     public Transform skillBarParent;
@@ -321,11 +323,53 @@ public class PlayerHUDManager : MonoBehaviour
     {
         if (playerStats == null) return;
 
-        playerStats.currentLevel1Slots = playerStats.maxLevel1Slots;
-        playerStats.currentLevel2Slots = playerStats.maxLevel2Slots;
+        // Limit to 3 uses
+        if (shortRestsUsed >= maxShortRests)
+        {
+            shortRestButton.interactable = false;
+            return;
+        }
 
+        shortRestsUsed++;
+
+        // Restore spell slots + health for the WHOLE party
+        var party = FindFirstObjectByType<PlayerPartyController>();
+        if (party != null)
+        {
+            foreach (var member in party.partyMembers)
+            {
+                if (member == null) continue;
+
+                CharacterStats stats = member.GetComponent<CharacterStats>();
+                if (stats == null) continue;
+
+                // Heal to full
+                stats.SetCurrentHealth(stats.maxHealth);
+
+                // REVIVE WITHOUT SPAWNING THEM:
+                if (stats.currentHealth <= 0)
+                {
+                    stats.currentHealth = stats.maxHealth;
+                }
+
+                // Restore movement
+                stats.ResetMovement();
+
+                // Restore spell slots
+                stats.RestoreAllSpellSlots();
+            }
+        }
+
+        // Update UI for current character
+        UpdateHealthBar();
+        UpdateMovementText();
         UpdateSpellSlotUI();
-        Debug.Log("Short Rest: Spell slots restored.");
+
+        Debug.Log("Short Rest: Party fully restored.");
+
+        // Disable after 3 rests
+        if (shortRestsUsed >= maxShortRests)
+            shortRestButton.interactable = false;
     }
 
     void UpdateSpellSlotPanels()
