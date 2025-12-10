@@ -11,7 +11,7 @@ public class MainMenuController : MonoBehaviour
     public Button quitButton;
 
     [Header("Scene Names")]
-    public string battleScene = "Castle1";
+    public string CastleScene = "Castle1";
     public string creditsScene = "Credits";
 
     [Header("Fade")]
@@ -36,7 +36,7 @@ public class MainMenuController : MonoBehaviour
 
     void OnNewGame()
     {
-        StartCoroutine(FadeAndLoad(battleScene));
+        StartCoroutine(FadeAndLoad(CastleScene));
     }
 
     void OnCredits()
