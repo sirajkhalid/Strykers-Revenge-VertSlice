@@ -4,39 +4,48 @@ using DG.Tweening;
 
 public class UIHoverPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("Hover Settings")]
-    public float hoverScale = 1.12f;
-    public float hoverTime = 0.15f;
+    [Header("Pulse Settings")]
+    public float pulseScale = 1.1f;
+    public float pulseDuration = 0.15f;
 
-    [Header("Idle Settings")]
-    public float normalScale = 1f;
-    public float normalTime = 0.18f;
+    [Header("Audio Settings")]
+    public AudioClip hoverSound; // Assign in inspector
+    public float volume = 0.45f;
 
-    private RectTransform rect;
-    private Tween scaleTween;
+    private AudioSource audioSource;
 
     void Awake()
     {
-        rect = GetComponent<RectTransform>();
+        // Auto-add AudioSource
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.volume = volume;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (rect == null) return;
-
-        scaleTween?.Kill();
-        scaleTween = rect
-            .DOScale(hoverScale, hoverTime)
-            .SetEase(Ease.OutBack);   // uses normal (scaled) time
+        PlayPulse();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (rect == null) return;
+        // Optional: reset scale when leaving
+        transform.DOScale(1f, 0.15f).SetEase(Ease.OutQuad);
+    }
 
-        scaleTween?.Kill();
-        scaleTween = rect
-            .DOScale(normalScale, normalTime)
-            .SetEase(Ease.OutBack);   // uses normal (scaled) time
+    private void PlayPulse()
+    {
+        // Play sound
+        if (hoverSound != null)
+            audioSource.PlayOneShot(hoverSound);
+
+        // Kill existing tweens so effects don’t stack
+        transform.DOKill();
+
+        // Hover Pulse Animation
+        transform.DOScale(pulseScale, pulseDuration)
+            .SetLoops(2, LoopType.Yoyo)
+            .SetEase(Ease.OutQuad);
     }
 }

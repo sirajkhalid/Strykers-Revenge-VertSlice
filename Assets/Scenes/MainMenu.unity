@@ -558,6 +558,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: a529ec1f429b10746a86563ee6f5bf68, type: 3}
+  volume: 0.45
 --- !u!114 &89564137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,6 +1508,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: a529ec1f429b10746a86563ee6f5bf68, type: 3}
+  volume: 0.45
 --- !u!114 &662859025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,6 +1614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 697892266}
   - component: {fileID: 697892265}
+  - component: {fileID: 697892267}
   m_Layer: 0
   m_Name: FireCrackle
   m_TagString: Untagged
@@ -1631,7 +1636,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e7df37976ab9852478f6d19ebbda60fb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1730,6 +1735,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &697892267
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697892264}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 347408161640016462, guid: e4041833ede042145b211a48bd2ba43d,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 4333643f1bf83b047a8fdf2398a40181, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &759024080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,6 +2249,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 0}
+  volume: 0.45
 --- !u!114 &972830913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,6 +2839,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: a529ec1f429b10746a86563ee6f5bf68, type: 3}
+  volume: 0.45
 --- !u!114 &1233604608
 MonoBehaviour:
   m_ObjectHideFlags: 0

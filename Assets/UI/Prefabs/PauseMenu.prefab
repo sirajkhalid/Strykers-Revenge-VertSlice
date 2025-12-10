@@ -93,6 +93,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &128682970205162843
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +568,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &390209834384001928
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +870,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &551489258746592676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,6 +1204,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &706104223672351662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1435,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &720123966879004949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,6 +1766,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &983761085274851085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,6 +2255,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 0}
+  volume: 0.45
 --- !u!114 &4579715014461864522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2255,10 +2269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4a04a49885db84c8f8052cf2dc9278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIHoverPulse
-  hoverScale: 1.12
-  hoverTime: 0.15
-  normalScale: 1
-  normalTime: 0.18
+  pulseScale: 1.1
+  pulseDuration: 0.15
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &1152041634748342152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,6 +3134,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &1590032552620143540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,6 +3664,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &1746167542830877214
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4096,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &1901015251997491660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,6 +4350,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &1970132777264703669
 GameObject:
   m_ObjectHideFlags: 0
@@ -4900,7 +4922,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 434.715, y: -391.47794}
-  m_SizeDelta: {x: 869.43, y: 302.2436}
+  m_SizeDelta: {x: 869.43, y: 302.24362}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715980600891993021
 MonoBehaviour:
@@ -5021,6 +5043,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &2141674681808799657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,6 +5274,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &2231560533294667305
 GameObject:
   m_ObjectHideFlags: 0
@@ -5400,6 +5426,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &2242090870802161827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5765,6 +5793,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &2382572872913341210
 GameObject:
   m_ObjectHideFlags: 0
@@ -5858,6 +5888,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &2406874114513707996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6192,10 +6224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4a04a49885db84c8f8052cf2dc9278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIHoverPulse
-  hoverScale: 1.12
-  hoverTime: 0.15
-  normalScale: 1
-  normalTime: 0.18
+  pulseScale: 1.1
+  pulseDuration: 0.15
+  hoverSound: {fileID: 0}
+  volume: 0.45
 --- !u!1 &2558885767156140701
 GameObject:
   m_ObjectHideFlags: 0
@@ -6606,6 +6638,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 0}
+  volume: 0.45
 --- !u!1 &2596804791794762335
 GameObject:
   m_ObjectHideFlags: 0
@@ -6837,6 +6871,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &2651126282686752998
 GameObject:
   m_ObjectHideFlags: 0
@@ -6987,6 +7023,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &2760120958543962677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7291,6 +7329,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 0}
+  volume: 0.45
 --- !u!1 &2957234782401704305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7723,6 +7763,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &3128345948668482794
 GameObject:
   m_ObjectHideFlags: 0
@@ -7879,6 +7921,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &3237652999299070125
 GameObject:
   m_ObjectHideFlags: 0
@@ -8183,6 +8227,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &3385253967455551906
 GameObject:
   m_ObjectHideFlags: 0
@@ -8620,6 +8666,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &3584265750961459676
 GameObject:
   m_ObjectHideFlags: 0
@@ -9062,6 +9110,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &3694743204454224282
 GameObject:
   m_ObjectHideFlags: 0
@@ -9224,6 +9274,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &3709466954433636821
 GameObject:
   m_ObjectHideFlags: 0
@@ -9317,6 +9369,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: a529ec1f429b10746a86563ee6f5bf68, type: 3}
+  volume: 0.45
 --- !u!1 &3760806246294110270
 GameObject:
   m_ObjectHideFlags: 0
@@ -9748,6 +9802,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &3909937237294173986
 GameObject:
   m_ObjectHideFlags: 0
@@ -9941,6 +9997,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!114 &985813209858804025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10054,6 +10112,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &4019793208827175882
 GameObject:
   m_ObjectHideFlags: 0
@@ -10222,6 +10282,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &4117395602658473588
 GameObject:
   m_ObjectHideFlags: 0
@@ -10382,6 +10444,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &4125520310318733549
 GameObject:
   m_ObjectHideFlags: 0
@@ -10542,6 +10606,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &4153199664513167942
 GameObject:
   m_ObjectHideFlags: 0
@@ -10828,6 +10894,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &4294812216658636948
 GameObject:
   m_ObjectHideFlags: 0
@@ -11533,6 +11601,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &4510265180610039304
 GameObject:
   m_ObjectHideFlags: 0
@@ -11764,6 +11834,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &4626444079197416716
 GameObject:
   m_ObjectHideFlags: 0
@@ -12600,6 +12672,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &5396040424954317326
 GameObject:
   m_ObjectHideFlags: 0
@@ -12729,6 +12803,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &5499627270631867250
 GameObject:
   m_ObjectHideFlags: 0
@@ -12946,6 +13022,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &5533190205141102848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13039,6 +13117,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &5555543324999792289
 GameObject:
   m_ObjectHideFlags: 0
@@ -13740,6 +13820,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &5844579010269716318
 GameObject:
   m_ObjectHideFlags: 0
@@ -13970,6 +14052,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &6034550522774091002
 GameObject:
   m_ObjectHideFlags: 0
@@ -14561,6 +14645,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &6198510414843476076
 GameObject:
   m_ObjectHideFlags: 0
@@ -14711,6 +14797,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &6248441946494532656
 GameObject:
   m_ObjectHideFlags: 0
@@ -15274,6 +15362,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &6592421582617671600
 GameObject:
   m_ObjectHideFlags: 0
@@ -15503,6 +15593,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: a529ec1f429b10746a86563ee6f5bf68, type: 3}
+  volume: 0.45
 --- !u!1 &6684864836707957912
 GameObject:
   m_ObjectHideFlags: 0
@@ -16314,6 +16406,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &7061858840999998984
 GameObject:
   m_ObjectHideFlags: 0
@@ -16725,6 +16819,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &7337378982704437238
 GameObject:
   m_ObjectHideFlags: 0
@@ -16956,6 +17052,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &7489494751280870372
 GameObject:
   m_ObjectHideFlags: 0
@@ -17958,6 +18056,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &7928993647665771072
 GameObject:
   m_ObjectHideFlags: 0
@@ -18588,6 +18688,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &8684476714018116027
 GameObject:
   m_ObjectHideFlags: 0
@@ -18952,6 +19054,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
 --- !u!1 &8777661324318888332
 GameObject:
   m_ObjectHideFlags: 0
@@ -18986,7 +19090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 408.16113, y: -0}
+  m_AnchoredPosition: {x: 408.16113, y: 0}
   m_SizeDelta: {x: 816.32227, y: 79.61096}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5081563590828704836
@@ -19349,6 +19453,8 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 0}
+  volume: 0.45
 --- !u!1 &8936780055663750028
 GameObject:
   m_ObjectHideFlags: 0
@@ -19694,3 +19800,5 @@ MonoBehaviour:
   hoverTime: 0.15
   normalScale: 1
   normalTime: 0.18
+  hoverSound: {fileID: 8300000, guid: b04ceb9faace8e64eba422775e910205, type: 3}
+  volume: 0.45
