@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -14,7 +15,8 @@ public class PlayerHUDManager : MonoBehaviour
     public TMP_Text movementText;
 
     [Header("Settings")]
-    public float maxBarWidth = 541f;
+    private float maxBarWidth = 0f;
+    private RectTransform healthParentRT;
     private bool isInCombat = false;
 
     [Header("Action Economy UI")]
@@ -70,6 +72,7 @@ public class PlayerHUDManager : MonoBehaviour
 
     void Start()
     {
+        // Cache references safely
         if (playerStats != null)
         {
             playerStats.OnHealthChanged += UpdateHealthBar;
@@ -78,11 +81,19 @@ public class PlayerHUDManager : MonoBehaviour
             playerStats.OnMovementChanged += UpdateMovementText;
         }
 
+        // Cache parent RectTransform for health bar
+        if (healthFill != null)
+            healthParentRT = healthFill.transform.parent.GetComponent<RectTransform>();
+
+        // Ensure layout is built before measuring width
+        StartCoroutine(InitializeBarWidthSafely());
+
         InitializeHUD();
 
         if (shortRestButton != null)
             shortRestButton.onClick.AddListener(OnShortRestPressed);
     }
+
 
     public void SetTarget(CharacterStats newStats)
     {
@@ -436,7 +447,18 @@ public class PlayerHUDManager : MonoBehaviour
             }
         }
     }
+    private IEnumerator InitializeBarWidthSafely()
+    {
+        // Wait one frame so Unity calculates UI layout
+        yield return null;
 
+        if (healthParentRT != null)
+            maxBarWidth = healthParentRT.rect.width;
+
+        // Safety fallback if something still gives 0
+        if (maxBarWidth <= 0f)
+            maxBarWidth = 300f; // fallback so animation never breaks
+    }
 
 
 
