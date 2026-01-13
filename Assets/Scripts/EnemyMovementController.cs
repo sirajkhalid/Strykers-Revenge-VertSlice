@@ -33,8 +33,8 @@ public class EnemyMovementController : MonoBehaviour
     public float chaseSpeedMultiplier = 1.5f;
 
     [Header("Chase Stop Conditions")]
-    public float chaseMaxDistance = 8f;     // how far before giving up
-    public float chaseMaxTime = 4f;         // how long before giving up
+    public float chaseMaxDistance = 8f;     
+    public float chaseMaxTime = 4f;         
     private float chaseTimer = 0f;
 
     // Auto-detected follower flag
@@ -113,13 +113,13 @@ public class EnemyMovementController : MonoBehaviour
 
         bool isMoving = false;
 
-        // FOLLOWERS: only external target
+        
         if (isFollower)
         {
             if (hasFollowTarget)
             {
                 isMoving = MoveTowards(externalTarget, moveSpeed);
-                hasFollowTarget = false; // consume target for this frame
+                hasFollowTarget = false; 
             }
             else
             {
@@ -171,9 +171,9 @@ public class EnemyMovementController : MonoBehaviour
         UpdateAnimation(isMoving);
     }
 
-    // ---------------------------
+
     // Setup
-    // ---------------------------
+
     private void SetupMovementPattern()
     {
         // Back & Forth
@@ -192,9 +192,9 @@ public class EnemyMovementController : MonoBehaviour
         }
     }
 
-    // ---------------------------
+
     // Movement Modes
-    // ---------------------------
+
     private bool UpdateBackAndForth()
     {
         Vector3 target = goingToB ? pointB : pointA;
@@ -297,9 +297,9 @@ public class EnemyMovementController : MonoBehaviour
         UpdateAnimation(false);
     }
 
-    // ---------------------------
+
     // Helpers
-    // ---------------------------
+
     public bool MoveTowards(Vector3 target, float speed)
     {
         Vector3 pos = transform.position;
@@ -326,15 +326,15 @@ public class EnemyMovementController : MonoBehaviour
             transform.localScale = scale;
         }
 
-        // ----------------------------
+ 
         // MOVE TOWARD TARGET
-        // ----------------------------
+ 
         transform.position = pos + dir.normalized * speed * Time.deltaTime;
 
 
-        // ----------------------------
+
         // SMART STUCK DETECTION
-        // ----------------------------
+
         if (movementType == EnemyMovementType.ChasePlayer && player != null)
         {
             float currentDist = Vector3.Distance(transform.position, player.position);
@@ -343,7 +343,7 @@ public class EnemyMovementController : MonoBehaviour
             if (lastDistanceToPlayer < 0f)
                 lastDistanceToPlayer = currentDist;
 
-            // check every frame if we're closing the distance
+            // check every frame 
             if (Mathf.Abs(currentDist - lastDistanceToPlayer) < 0.015f)
             {
                 // Distance to player is NOT changing → likely stuck
@@ -381,9 +381,9 @@ public class EnemyMovementController : MonoBehaviour
         animator.SetBool("Walk", isMoving);
     }
 
-    // ---------------------------
-    // External control (followers or forced chase)
-    // ---------------------------
+
+    // External control 
+
     public void SetExternalTarget(Vector3 worldPosition)
     {
         externalControl = true;
@@ -405,14 +405,9 @@ public class EnemyMovementController : MonoBehaviour
     {
         isInBattle = true;
 
-        // Stop autonomous roaming movement
         externalControl = false;
         movementType = EnemyMovementType.Idle;
 
-        // do not disable movement completely
-        // canMove = false;
-
-        //UpdateAnimation(battleMoving);
     }
 
     public void ReceiveFollowTarget(Vector3 target)

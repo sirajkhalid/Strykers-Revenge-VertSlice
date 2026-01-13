@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         if (window == null)
             window = GetComponentInChildren<RectTransform>();
 
-        // Start ACTIVE but invisible
+        
         gameObject.SetActive(true);
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
@@ -117,7 +117,6 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    // -------- BUTTON FUNCTIONS -------- //
 
     public void ResumeGame()
     {
@@ -163,14 +162,14 @@ public class PauseMenu : MonoBehaviour
 
         window.gameObject.SetActive(true);
 
-        // Optional pop animation again
+        
         window.localScale = Vector3.one * 0.8f;
         window.DOScale(1f, 0.25f)
               .SetEase(Ease.OutBack)
               .SetUpdate(true);
     }
 
-    // Close ONLY the Options panel and return to the main pause window
+    
     public void CloseOptionsPanel()
     {
         if (optionsPanel != null)
@@ -180,7 +179,7 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    // Close ONLY the Help panel and return to the main pause window
+    
     public void CloseHelpPanel()
     {
         if (helpPanel != null)

@@ -53,16 +53,16 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler,
             return;
         if (isTemporarilyDisabled)
         {
-            //executor.ShowCustomMessage("Can't use that while Sneaking!");
+           
             return;
         }
 
         RefreshUsability();
 
-        // Ability disabled?
+       
         if (!isUsable)
         {
-            // Which message?
+            
             if (assignedAbility.maxUsesPerBattle > 0 &&
                 assignedAbility.usesThisBattle >= assignedAbility.maxUsesPerBattle)
             {
@@ -76,7 +76,7 @@ public class SkillSlot : MonoBehaviour, IPointerClickHandler,
             return;
         }
 
-        // Usable → play click + execute normally
+        
         PlayClickPop();
         executor.ExecuteAbility(assignedAbility);
     }

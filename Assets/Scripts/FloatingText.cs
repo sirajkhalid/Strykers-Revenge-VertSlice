@@ -50,20 +50,10 @@ public class FloatingText : MonoBehaviour
 
         Sequence seq = DOTween.Sequence();
 
-        // Scale punch
-       /* seq.Append(rect.DOPunchScale(
-            new Vector3(punchScale, punchScale, 1f),
-            punchDuration,
-            2,
-            0.5f));**/
-
-        // Move up
         seq.Join(rect.DOAnchorPos(endPos, duration).SetEase(Ease.OutCubic));
 
-        // Fade out
         seq.Join(group.DOFade(0f, duration));
 
-        // Add a slight random rotation
        seq.Join(rect.DOLocalRotate(
             new Vector3(0, 0, Random.Range(-18f, 18f)),
             duration,

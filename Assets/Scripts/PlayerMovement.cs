@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 rawInput;
     private Vector2 smoothVelocity;
 
-    private float baseMoveSpeed = 5f; // fallback if CharacterStats missing
+    private float baseMoveSpeed = 5f; 
 
     [Header("Footstep Audio")]
     public AudioSource audioSource;
@@ -23,14 +23,14 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private CharacterStats stats;
 
-    // Animation Hashes
+    // Animation 
     private int walkUpHash;
     private int walkDownHash;
     private int runHash;
     private int idleHash;
     private int sprintHash;
 
-    // Diagonal animation Hashes (KEPT but commented)
+    
     private int diagUpLeftHash;
     private int diagDownRightHash;
 
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Prevent movement animations from overriding Cast animation
+        
         if (stats != null && stats.isCasting)
         {
             animator.SetFloat("Speed", 0);
@@ -96,10 +96,9 @@ public class PlayerMovement : MonoBehaviour
         rawInput.y = Input.GetAxisRaw("Vertical");
         rawInput = rawInput.normalized;
 
-        // Smooth movement
+        
         smoothVelocity = Vector2.Lerp(smoothVelocity, rawInput, Time.deltaTime * smoothing);
 
-        // Drive the Speed parameter for Idle <-> Run transitions
         float moveMagnitude = Mathf.Abs(rawInput.x) + Mathf.Abs(rawInput.y);
         animator.SetFloat("Speed", moveMagnitude);
 
@@ -107,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         float absY = Mathf.Abs(rawInput.y);
 
         // ----------------------------
-        // SPRINT STATE + CAMERA SHAKE
+        // SPRINT STATE and CAMERA SHAKE
         // ----------------------------
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
 
@@ -120,9 +119,9 @@ public class PlayerMovement : MonoBehaviour
         }
         wasSprinting = isSprinting;
 
-        // ------------------------------------------
-        // OPTIONAL DIAGONAL ANIMATIONS (COMMENTED)
-        // ------------------------------------------
+        // --------------------------------
+        // OPTIONAL DIAGONAL ANIMATIONS 
+        // --------------------------------
         /*
         if (absX > 0.1f && absY > 0.1f)
         {
@@ -218,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
     // ------------------------------------------------------
     void HandleFootsteps(bool sprinting)
     {
-        // If not moving → stop all footsteps
+        
         if (rawInput.magnitude < 0.1f || !canMove)
         {
             if (audioSource.isPlaying)
@@ -228,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
 
         AudioClip desiredClip = sprinting ? sprintFootstepSFX : walkFootstepSFX;
 
-        // If clip changed (walk → sprint OR sprint → walk)
+        
         if (audioSource.clip != desiredClip)
         {
             audioSource.clip = desiredClip;
@@ -236,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Play();
         }
 
-        // If clip is set but not playing, start it
+        
         if (!audioSource.isPlaying)
         {
             audioSource.clip = desiredClip;

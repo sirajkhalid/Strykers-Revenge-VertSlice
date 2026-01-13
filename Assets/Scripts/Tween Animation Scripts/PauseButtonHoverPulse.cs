@@ -13,7 +13,7 @@ public class PauseButtonHoverPulse : MonoBehaviour, IPointerEnterHandler, IPoint
     public float normalTime = 0.18f;
 
     [Header("Audio Settings")]
-    public AudioClip hoverSound;   // Assign in Inspector
+    public AudioClip hoverSound;   
     public float volume = 0.45f;
 
     private RectTransform rect;

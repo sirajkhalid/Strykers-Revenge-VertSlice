@@ -15,7 +15,7 @@ public class EnemyUI : MonoBehaviour
     private Texture2D blackTex;
 
     [Header("Mini Bar Animation")]
-    private float miniDisplayedHP = 1f; // smoothed health %
+    private float miniDisplayedHP = 1f; 
 
     [Header("Top Hover UI (Enemy Info)")]
     public GameObject enemyInfoBox;
@@ -45,7 +45,6 @@ public class EnemyUI : MonoBehaviour
         if (battleManager == null)
             battleManager = FindFirstObjectByType<BattleStateManager>();
 
-        // Create textures for mini bar
         redTex = new Texture2D(1, 1);
         redTex.SetPixel(0, 0, Color.red);
         redTex.Apply();
@@ -120,7 +119,7 @@ public class EnemyUI : MonoBehaviour
     }
 
 
-    // MINI BAR (above their head)
+    // MINI BAR 
     void OnGUI()
     {
         if (battleManager == null || enemyStats == null)
@@ -135,42 +134,40 @@ public class EnemyUI : MonoBehaviour
         if (spriteRenderer == null)
             return;
 
-        // Auto-get sprite bounds
         Bounds b = spriteRenderer.bounds;
 
-        // Auto position bar slightly above sprite
         Vector3 worldPos = new Vector3(
             b.center.x,
-            b.max.y + 0.30f,        // 0.15 world units above head
+            b.max.y + 0.30f,       
             b.center.z
         );
 
         Vector3 screenPos = cam.WorldToScreenPoint(worldPos);
         screenPos.y = Screen.height - screenPos.y;
 
-        // Auto-size bar based on sprite width
-        float width = b.size.x * 60f;   // Looks good at any size
-        float height = b.size.y * 5f;   // Thin, clean bar
+
+        float width = b.size.x * 60f;   
+        float height = b.size.y * 5f;   
 
         float realHP = Mathf.Clamp01((float)enemyStats.currentHealth / enemyStats.maxHealth);
 
-        // Smooth animation (always on)
+
         miniDisplayedHP = Mathf.Lerp(miniDisplayedHP, realHP, Time.deltaTime * 10f);
 
-        // Background
+
         GUI.DrawTexture(
             new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width, height),
             blackTex
         );
 
-        // Foreground HP bar
+
         GUI.DrawTexture(
             new Rect(screenPos.x - width / 2, screenPos.y - height / 2, width * miniDisplayedHP, height),
             redTex
         );
     }
 
-    // UI Helpers
+
 
     public void ShowInfoUI()
     {
@@ -179,13 +176,13 @@ public class EnemyUI : MonoBehaviour
         if (enemyPortraitBox != null)
             enemyPortraitBox.SetActive(true);
 
-        FadeInfoUI(true);   // FADE IN
+        FadeInfoUI(true); 
         UpdateTopBar();
     }
 
     public void HideInfoUI()
     {
-        FadeInfoUI(false);  // FADE OUT
+        FadeInfoUI(false); 
 
         // turn off objects after fade completes
         StartCoroutine(DisableAfterFade());
@@ -241,7 +238,7 @@ public class EnemyUI : MonoBehaviour
         // Name
         if (enemyNameText != null)
         {
-            enemyNameText.DOKill();                      // ✅ kill old tween
+            enemyNameText.DOKill();                     
             enemyNameText.DOFade(target, duration);
         }
 

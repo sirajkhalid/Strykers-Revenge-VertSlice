@@ -6,7 +6,7 @@ using DG.Tweening;
 public class BannerAnimator : MonoBehaviour
 {
     [Header("References")]
-    public TextMeshProUGUI textMesh;  // Assign in Inspector
+    public TextMeshProUGUI textMesh;  
 
     [Header("Show Animation")]
     public float fadeInDuration = 0.25f;
@@ -60,7 +60,7 @@ public class BannerAnimator : MonoBehaviour
 
         textMesh.text = message;
 
-        gameObject.SetActive(true);     // Activate banner panel
+        gameObject.SetActive(true);     
 
         // Reset state
         canvasGroup.alpha = 0f;
@@ -96,14 +96,13 @@ public class BannerAnimator : MonoBehaviour
                 true));
         }
 
-        // Hold
+        
         seq.AppendInterval(holdTime);
 
-        // Fade out + slide up
+        
         seq.Append(canvasGroup.DOFade(0f, fadeOutDuration));
         seq.Join(rect.DOAnchorPosY(slideAmount, fadeOutDuration).SetEase(Ease.InOutSine));
 
-        // Disable the whole banner automatically
         seq.OnComplete(() =>
         {
             gameObject.SetActive(false);

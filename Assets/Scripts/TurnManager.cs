@@ -102,7 +102,6 @@ public class TurnManager : MonoBehaviour
 
         currentTurnObject = combatants[currentTurnIndex];
         
-        // Tick status effects such as Barrier
         var effects = currentTurnObject.GetComponent<StatusEffectManager>();
         effects?.TickStatusEffects();
         
@@ -127,7 +126,7 @@ public class TurnManager : MonoBehaviour
             battleUIManager.ShowTurnBanner(name);
         }
 
-        // PLAYER TURN
+        // Player turn
         if (currentTurnObject.GetComponent<CharacterStats>())
         {
             isPlayerTurn = true;
@@ -146,7 +145,7 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
-            // ENEMY TURN
+            // enemy turn
             isPlayerTurn = false;
             EnableEndTurnButton(false);
             StartCoroutine(EnemyTurn(currentTurnObject));
@@ -187,7 +186,6 @@ public class TurnManager : MonoBehaviour
         EnableEndTurnButton(false);
         isPlayerTurn = false;
 
-        // 🔥 This is the ONE correct place to call it.
         turnOrderUI?.AdvanceTurn(currentTurnObject);
 
         combatants = combatants.Where(c => c != null).ToList();
@@ -205,7 +203,6 @@ public class TurnManager : MonoBehaviour
         if (currentTurnIndex >= combatants.Count)
             currentTurnIndex = 0;
 
-        // Start of new round → resort
         if (currentTurnIndex == 0)
         {
             combatants = combatants
@@ -214,7 +211,6 @@ public class TurnManager : MonoBehaviour
                 .ToList();
         }
 
-        // Skip dead
         int safety = 0;
         while ((combatants[currentTurnIndex] == null || !IsAlive(combatants[currentTurnIndex])) && safety < 50)
         {
@@ -225,15 +221,9 @@ public class TurnManager : MonoBehaviour
             safety++;
         }
 
-        // ❌ DO NOT put AdvanceTurn() here again
-
         StartTurn();
     }
 
-
-    // --------------------------------------------------------------------
-    // HELPERS
-    // --------------------------------------------------------------------
     private bool IsAlive(GameObject obj)
     {
         if (!obj) return false;
@@ -265,7 +255,6 @@ public class TurnManager : MonoBehaviour
             battleUIManager.endTurnButton.interactable = value;
     }
 
-    // REPLACE (SWAP CHARACTERS)
     public void ReplaceCombatant(GameObject oldObj, GameObject newObj)
     {
         int index = combatants.IndexOf(oldObj);
@@ -293,10 +282,10 @@ public class TurnManager : MonoBehaviour
 
         combatants.Remove(obj);
 
-        // REMOVE FROM TURN ORDER UI
+
         turnOrderUI?.RemovePortrait(obj);
 
-        // TELL battleStateManager this enemy died
+
         if (obj.GetComponent<EnemyStats>())
             battleStateManager?.MarkEnemyKilled(obj);
 

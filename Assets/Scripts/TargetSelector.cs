@@ -40,7 +40,7 @@ public class TargetSelector : MonoBehaviour
 
         if (enemyUI != hoveredEnemyUI)
         {
-            // Remove hover highlight from previous hovered enemy (if not selected)
+
             if (hoveredEnemyUI != null && hoveredEnemyUI != selectedEnemyUI)
             {
                 hoveredEnemyUI.ResetColor();
@@ -49,7 +49,7 @@ public class TargetSelector : MonoBehaviour
 
             hoveredEnemyUI = enemyUI;
 
-            // Apply hover highlight
+
             if (hoveredEnemyUI != null && hoveredEnemyUI != selectedEnemyUI)
             {
                 hoveredEnemyUI.SetTemporaryHighlight(hoverColor);
@@ -63,7 +63,7 @@ public class TargetSelector : MonoBehaviour
             {
                 hoverTarget = null;
 
-                // If nothing hovered → keep selected UI visible
+
                 if (selectedEnemyUI != null)
                 {
                     selectedEnemyUI.ShowInfoUI();
@@ -74,9 +74,7 @@ public class TargetSelector : MonoBehaviour
         }
     }
 
-    // -------------------------------------------------------
     // SELECTION (LEFT CLICK)
-    // -------------------------------------------------------
     void HandleSelection()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -102,7 +100,6 @@ public class TargetSelector : MonoBehaviour
                 selectedEnemyUI.FadeInfoUI(true);
                 selectedEnemyUI.UpdateTopBar();
 
-                // 🔥 PUNCH ANIMATION (scale bump)
                 selectedEnemyUI.PunchUI();
             }
             else

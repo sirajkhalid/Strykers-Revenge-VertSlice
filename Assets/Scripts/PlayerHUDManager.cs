@@ -52,9 +52,9 @@ public class PlayerHUDManager : MonoBehaviour
     public Transform skillBarParent;
 
     [Header("Animated Health Bar")]
-    public Image chipHealthFill;     // Secondary bar that lags behind
-    public float chipDelay = 0.25f;  // Delay before chip bar starts shrinking
-    public float chipSpeed = 0.6f;   // How fast chip bar shrinks
+    public Image chipHealthFill;     
+    public float chipDelay = 0.25f; 
+    public float chipSpeed = 0.6f;   
     public Color damageFlashColor = new Color(1f, 0.3f, 0.3f);
     public float flashDuration = 0.15f;
 
@@ -72,7 +72,7 @@ public class PlayerHUDManager : MonoBehaviour
 
     void Start()
     {
-        // Cache references safely
+        
         if (playerStats != null)
         {
             playerStats.OnHealthChanged += UpdateHealthBar;
@@ -81,11 +81,11 @@ public class PlayerHUDManager : MonoBehaviour
             playerStats.OnMovementChanged += UpdateMovementText;
         }
 
-        // Cache parent RectTransform for health bar
+        
         if (healthFill != null)
             healthParentRT = healthFill.transform.parent.GetComponent<RectTransform>();
 
-        // Ensure layout is built before measuring width
+        
         StartCoroutine(InitializeBarWidthSafely());
 
         InitializeHUD();
@@ -99,7 +99,7 @@ public class PlayerHUDManager : MonoBehaviour
     {
         if (playerStats != null)
         {
-            // Unhook old events
+            
             playerStats.OnHealthChanged -= UpdateHealthBar;
             playerStats.OnStatsInitialized -= InitializeHUD;
             playerStats.OnMovementChanged -= UpdateMovementText;
@@ -109,13 +109,13 @@ public class PlayerHUDManager : MonoBehaviour
 
         if (playerStats != null)
         {
-            // Hook events
+            
             playerStats.OnHealthChanged += UpdateHealthBar;
             playerStats.OnStatsInitialized += InitializeHUD;
             playerStats.OnMovementChanged += UpdateMovementText;
         }
 
-        // Force refresh
+        
         InitializeHUD();
     }
 
@@ -158,20 +158,20 @@ public class PlayerHUDManager : MonoBehaviour
 
         float healthPercent = Mathf.Clamp01((float)playerStats.currentHealth / playerStats.maxHealth);
 
-        // --- MAIN BAR INSTANT UPDATE ---
+       
         RectTransform mainRT = healthFill.GetComponent<RectTransform>();
         float newWidth = maxBarWidth * healthPercent;
 
-        // Animate the main bar
+        
         mainRT.DOSizeDelta(
             new Vector2(newWidth, mainRT.sizeDelta.y),
             0.25f
         ).SetEase(Ease.OutCubic);
 
-        // Update text
+        
         healthNumText.text = $"{playerStats.currentHealth} / {playerStats.maxHealth}";
 
-        // --- DAMAGE FLASH (only if losing HP) ---
+        // DAMAGE FLASH only if losing HP 
         if (healthFill.fillAmount > healthPercent)
         {
             // Kill previous flash
@@ -183,7 +183,7 @@ public class PlayerHUDManager : MonoBehaviour
                 .SetEase(Ease.OutQuad);
         }
 
-        // --- CHIP DAMAGE BAR ---
+        // CHIP DAMAGE BAR
         if (chipHealthFill != null)
         {
             RectTransform chipRT = chipHealthFill.GetComponent<RectTransform>();
@@ -210,7 +210,7 @@ public class PlayerHUDManager : MonoBehaviour
             }
         }
 
-        // --- LOW HEALTH PULSE (under 30%) ---
+        // LOW HEALTH PULSE under 30% 
         float lowPercent = playerStats.currentHealth / (float)playerStats.maxHealth;
 
         if (lowPercent < 0.30f)
@@ -230,7 +230,7 @@ public class PlayerHUDManager : MonoBehaviour
             healthFill.transform.localScale = Vector3.one;
         }
 
-        // Update the fillAmount AFTER animations for logic purposes
+        
         healthFill.fillAmount = healthPercent;
     }
 
@@ -246,7 +246,7 @@ public class PlayerHUDManager : MonoBehaviour
         }
         else
         {
-            // always show max movement when not in combat
+           
             movementText.text = $"{playerStats.maxMovement:0.0}m";
         }
 
@@ -300,7 +300,7 @@ public class PlayerHUDManager : MonoBehaviour
             GameObject slot = Instantiate(spellSlotPrefab, level2SlotPanel);
             Image img = slot.GetComponent<Image>();
 
-            // Use the darker Level II spell slot sprite if assigned, otherwise fall back to normal
+            
             if (slotAvailableSpriteII != null)
                 img.sprite = slotAvailableSpriteII;
             else

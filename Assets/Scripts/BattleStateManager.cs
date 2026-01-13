@@ -14,7 +14,7 @@ public class BattleStateManager : MonoBehaviour
     public float postBattleGraceTime = 2f;
     private float graceTimer = 0f;
 
-    // Tracks overworld enemies that participated in THIS battle.
+    // Tracks overworld enemies that participated in current battle.
     private List<GameObject> currentBattleEnemies = new List<GameObject>();
 
     // Tracks ONLY enemies that actually died during battle.

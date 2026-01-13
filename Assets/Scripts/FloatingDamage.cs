@@ -5,7 +5,7 @@ using DG.Tweening;
 public class FloatingDamage : MonoBehaviour
 {
     [Header("General Settings")]
-    public bool useWorldScale = true;     // <-- DAMAGE uses this. OUT OF RANGE sets this OFF.
+    public bool useWorldScale = true;     
     public float worldScale = 0.02f;
 
     [Header("Motion")]
@@ -28,7 +28,6 @@ public class FloatingDamage : MonoBehaviour
             return;
         }
 
-        // Only apply tiny scale for floating DAMAGE numbers
         if (useWorldScale)
             transform.localScale = Vector3.one * worldScale;
 
@@ -44,7 +43,6 @@ public class FloatingDamage : MonoBehaviour
 
         startPos = transform.position;
 
-        // Mesh Renderer sorting (for world space canvas)
         var mr = GetComponentInChildren<MeshRenderer>();
         if (mr != null)
         {
@@ -67,27 +65,24 @@ public class FloatingDamage : MonoBehaviour
 
         Sequence seq = DOTween.Sequence();
 
-        // Smooth upward movement
         seq.Join(
             transform.DOMove(targetPos, duration)
                      .SetEase(Ease.OutCubic)
         );
 
-        // Fade nicely
         seq.Join(
             damageText.DOFade(0f, duration)
                       .SetEase(Ease.InOutQuad)
         );
 
-        // Punch effect for visibility (optional)
         if (punchOnSpawn)
         {
             seq.Join(
                 transform.DOPunchScale(
                     new Vector3(0.1f, 0.1f, 0f),
-                    0.35f,   // duration
-                    8,       // vibrato
-                    0.7f     // elasticity
+                    0.35f,  
+                    8,      
+                    0.7f     
                 )
             );
         }

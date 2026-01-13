@@ -47,7 +47,7 @@ public class PlayerPartyController : MonoBehaviour
 
         Vector3 startPos = transform.position;
 
-        // First member = active
+        
         GameObject first = Instantiate(partyPrefabs[0], startPos, Quaternion.identity);
         activeMember = first;
         partyMembers.Add(first);
@@ -139,9 +139,7 @@ public class PlayerPartyController : MonoBehaviour
             Destroy(vfx, oldStats.vfxLifetime);
         }
 
-        // -------------------------------
-        // SNEAK-SAFE RESET FOR OLD CHAR
-        // -------------------------------
+
         if (!oldStats.isSneaking)
         {
             oldStats.isImmune = false;
@@ -178,9 +176,7 @@ public class PlayerPartyController : MonoBehaviour
         activeIndex = newIndex;
         HookCamera();
 
-        // -------------------------------
-        // SNEAK-SAFE RESET FOR NEW CHAR
-        // -------------------------------
+
         if (newStats.isSneaking)
         {
             newStats.isSneaking = false;
