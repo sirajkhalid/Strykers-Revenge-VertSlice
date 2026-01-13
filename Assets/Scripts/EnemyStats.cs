@@ -164,7 +164,7 @@ public class EnemyStats : MonoBehaviour
 
     void CalculateMovement()
     {
-        // Race-based monster speeds (D&D inspired)
+       
         float raceSpeed = creatureType switch
         {
             CreatureType.Giant => 35f,
@@ -177,9 +177,9 @@ public class EnemyStats : MonoBehaviour
         };
 
         float movement =
-            (raceSpeed / 5f) +      // converts 30ft → 6 movement
-            (dexMod * 0.2f) +       // weaker dex influence for monsters
-            (strength / 20f);       // big monsters get slightly more
+            (raceSpeed / 5f) +      
+            (dexMod * 0.2f) +      
+            (strength / 20f);      
 
         maxMovement = Mathf.Max(1f, Mathf.RoundToInt(movement));
         currentMovement = maxMovement;
@@ -229,42 +229,39 @@ public class EnemyStats : MonoBehaviour
     {
         Debug.Log($"{enemyName} has been defeated!");
 
-        // Mark HP as 0
+
         currentHealth = 0;
 
-        // Disable AI if present
         var ai = GetComponent<EnemyAIController>();
         if (ai != null)
             ai.enabled = false;
 
-        // Stop movement cleanly
+
         var mover = GetComponent<EnemyMovementController>();
         if (mover != null)
         {
-            mover.OnBattleStarted();  // stops immediately
+            mover.OnBattleStarted();
             mover.canMove = false;
         }
 
-        // Disable collider
+
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
 
 
-        // Notify TurnManager the enemy died
         TurnManager turn = FindFirstObjectByType<TurnManager>();
         if (turn != null)
             turn.RemoveCombatant(gameObject);
 
-        // Notify BattleStateManager
+
         BattleStateManager bsm = FindFirstObjectByType<BattleStateManager>();
         if (bsm != null)
             bsm.MarkEnemyKilled(gameObject);
 
-        // Play fade-out
+
         StartCoroutine(FadeOut());
 
-        // DO NOT destroy. Cleanup happens after battle.
     }
 
 
@@ -286,7 +283,7 @@ public class EnemyStats : MonoBehaviour
             yield return null;
         }
 
-        // hide, but don't destroy
+
         sr.enabled = false;
     }
 
@@ -338,7 +335,7 @@ public class EnemyStats : MonoBehaviour
         {
             case 1: return spellSlotsLevel1 >= cost;
             case 2: return spellSlotsLevel2 >= cost;
-            default: return true; // level 0 = cantrip, always allowed
+            default: return true; 
         }
     }
 

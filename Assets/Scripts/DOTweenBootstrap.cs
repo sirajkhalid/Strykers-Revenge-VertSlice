@@ -5,6 +5,6 @@ public class DOTweenBootstrap : MonoBehaviour
 {
     void Awake()
     {
-        DOTween.SetTweensCapacity(500, 100); // or whatever
+        DOTween.SetTweensCapacity(500, 100); 
     }
 }

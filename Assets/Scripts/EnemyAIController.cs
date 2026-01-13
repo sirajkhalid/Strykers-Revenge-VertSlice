@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.Playables;
 using UnityEngine;
 
 public class EnemyAIController : MonoBehaviour
@@ -107,7 +106,7 @@ public class EnemyAIController : MonoBehaviour
         if (usable.Count == 0)
             return null;
 
-        // -------- Prevent using same ability 3+ times in a row --------
+        // Prevent using same ability 3+ times in a row
         if (lastUsedAbility != null && lastUsedCount >= 2)
         {
             // Remove the last-used ability temporarily
@@ -118,9 +117,9 @@ public class EnemyAIController : MonoBehaviour
         if (usable.Count == 1)
             return usable[0];
 
-        // ----------------------
+
         // Weighted random choice
-        // ----------------------
+
         // Example weights: Melee = 2, Ranged = 2, Magic = 3, Utility = 1
         int GetWeight(Ability a)
         {
@@ -161,7 +160,7 @@ public class EnemyAIController : MonoBehaviour
         Vector3 direction = (targetPlayer.position - transform.position).normalized;
         Vector3 destination = transform.position + direction * moveDist;
 
-        // Smooth but simple movement
+
         float speed = 3.0f; // tweak for faster/slower enemies
 
         while (Vector3.Distance(transform.position, destination) > 0.02f)
@@ -169,14 +168,11 @@ public class EnemyAIController : MonoBehaviour
             // Move toward destination at constant speed
             mover.MoveTowards(destination, speed);
 
-
-            // Make sure the sprite doesn't rotate weirdly
             transform.rotation = Quaternion.identity;
 
             yield return null;
         }
 
-        // Snap exactly on the final tile
         transform.position = destination;
         stats.currentMovement = 0;
     }
@@ -186,7 +182,6 @@ public class EnemyAIController : MonoBehaviour
     private IEnumerator UseChosenAbility(Ability ability)
     {
 
-        // Track repeated ability usage
         if (lastUsedAbility == ability)
         {
             lastUsedCount++;
@@ -210,7 +205,6 @@ public class EnemyAIController : MonoBehaviour
                 ? stats.castAnimationTrigger2
                 : stats.castAnimationTrigger;
 
-            // Safety: make sure string is not empty
             if (!string.IsNullOrEmpty(triggerToUse))
             {
                 stats.enemyAnimator.ResetTrigger(stats.castAnimationTrigger);
@@ -218,7 +212,6 @@ public class EnemyAIController : MonoBehaviour
 
                 stats.enemyAnimator.SetTrigger(triggerToUse);
 
-                // adjust timing if needed; keep same as before
                 yield return new WaitForSeconds(1f);
             }
         }
@@ -291,7 +284,6 @@ public class EnemyAIController : MonoBehaviour
         // -------------------------------------------------------
         if (ability.deliveryType == Ability.DeliveryType.Ray)
         {
-            // VFX: stretch a sprite between caster and target
             if (ability.visualEffectPrefab)
             {
                 float dist = Vector3.Distance(casterPos, targetPos);
@@ -304,24 +296,21 @@ public class EnemyAIController : MonoBehaviour
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 vfx.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-                // stretch along X so it visually reaches the target
                 float baseLength = 3f; // tweak if sprite’s default length is different
                 float stretch = dist / baseLength;
                 Vector3 scale = vfx.transform.localScale;
                 scale.x *= stretch;
                 vfx.transform.localScale = scale;
 
-                // optional: slow the animation a bit so it "lingers"
                 Animator anim = vfx.GetComponent<Animator>();
                 if (anim != null)
                     anim.speed = 0.8f;   // tweak for more/less linger
 
-                // let the animation play
                 yield return new WaitForSeconds(0.6f);
                 Destroy(vfx);
             }
 
-            // target might have died / despawned during the VFX
+
             if (targetStats == null ||
                 !targetStats.gameObject.activeInHierarchy ||
                 targetStats.currentHealth <= 0)
@@ -368,7 +357,7 @@ public class EnemyAIController : MonoBehaviour
             {
                 string text = isMiss ? "MISS" : $"-{tunedDamage}";
                 Color color = isCrit ? Color.yellow : Color.red;
-                //targetStats.ShowFloatingText(text, color);
+
             }
 
             yield break;
@@ -403,7 +392,7 @@ public class EnemyAIController : MonoBehaviour
         }
 
         // -------------------------------------------------------
-        // INSTANT MAGIC (Centered on the player)
+        // INSTANT MAGIC 
         // -------------------------------------------------------
         if (ability.deliveryType == Ability.DeliveryType.Instant)
         {
@@ -423,7 +412,6 @@ public class EnemyAIController : MonoBehaviour
             ResolveDamage(ability, targetStats);
             yield break;
         }
-
 
 
         // -------------------------------------------------------
@@ -447,7 +435,6 @@ public class EnemyAIController : MonoBehaviour
     }
     private void ResolveDamage(Ability ability, CharacterStats targetStats)
     {
-        // Target vanished, died, or is inactive → stop
         if (targetStats == null ||
             targetStats.currentHealth <= 0 ||
             !targetStats.gameObject.activeInHierarchy)
@@ -458,21 +445,18 @@ public class EnemyAIController : MonoBehaviour
             ability.numberOfDice,
             ability.diceSides,
             ability.scalingAttribute,
-            stats,                    // EnemyStats (attacker)
-            targetStats.armorClass,   // Player AC
+            stats,                    
+            targetStats.armorClass,   
             out int finalDamage,
             out bool isCrit,
             out bool isMiss
         );
 
-        // If target died or deactivated mid-calc, bail
         if (targetStats == null || !targetStats.gameObject.activeInHierarchy)
             return;
 
-        // Apply enemy tuning multiplier
         int tunedDamage = Mathf.FloorToInt(finalDamage * ENEMY_DAMAGE_MULTIPLIER);
 
-        // Apply damage using tuned value
         targetStats.TakeDamage(tunedDamage, isCrit, isMiss);
 
         // Floating damage feedback
@@ -481,7 +465,7 @@ public class EnemyAIController : MonoBehaviour
             string text = isMiss ? "MISS" : $"-{tunedDamage}";
             Color color = isCrit ? Color.yellow : Color.red;
 
-            //targetStats.ShowFloatingText(text, color);
+
         }
     }
 
@@ -519,7 +503,6 @@ public class EnemyAIController : MonoBehaviour
         if (ability == null) return;
         if (ability.abilitySound == null) return;
 
-        // Use global AbilitiesSource instead of enemy-local AudioSource
         if (globalAbilitySource == null)
         {
             GameObject obj = GameObject.Find("AbilitiesSource");

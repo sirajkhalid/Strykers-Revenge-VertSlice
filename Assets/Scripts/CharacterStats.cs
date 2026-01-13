@@ -90,8 +90,8 @@ public class CharacterStats : MonoBehaviour
     public int armorClass;
 
     [Header("Combat Stats")]
-    public int initiative;          // base initiative (DEX + skills)
-    public int rolledInitiative;    // final initiative after D20
+    public int initiative;          
+    public int rolledInitiative;    
 
     [Header("Skills (auto, flat numbers)")]
     public int athletics;
@@ -114,15 +114,15 @@ public class CharacterStats : MonoBehaviour
     public int persuasion;
 
     [Header("Movement")]
-    public float baseMovement = 12f;   // Base movement before modifiers
-    public float maxMovement;          // Calculated total
-    public float currentMovement;      // Used during battle
+    public float baseMovement = 12f;   
+    public float maxMovement;          
+    public float currentMovement;      
 
     [Header("UI Feedback")]
     public GameObject floatingDamagePrefab;
     public GameObject outOfRangePrefab;
 
-    public event Action OnHealthChanged; // Called when health changes
+    public event Action OnHealthChanged; 
     public event Action OnStatsInitialized;
     public event Action OnMovementChanged;
     public event Action OnDeath;
@@ -152,8 +152,8 @@ public class CharacterStats : MonoBehaviour
     public bool isCasting = false;
 
 
-    [HideInInspector] public bool isSneaking = false;   // prevents ability usage
-    [HideInInspector] public bool isImmune = false;      // prevents damage
+    [HideInInspector] public bool isSneaking = false;   
+    [HideInInspector] public bool isImmune = false;      
 
 
 
@@ -450,11 +450,11 @@ public class CharacterStats : MonoBehaviour
                 break;
         }
 
-        // If current slots exceed max (testing purposes)
+        
         currentLevel1Slots = Mathf.Clamp(currentLevel1Slots, 0, maxLevel1Slots);
         currentLevel2Slots = Mathf.Clamp(currentLevel2Slots, 0, maxLevel2Slots);
 
-        // If initializing (first time), ensure full recharge
+        
         if (currentLevel1Slots == 0 && level == 1)
             currentLevel1Slots = maxLevel1Slots;
         if (currentLevel2Slots == 0 && level == 1)
@@ -651,7 +651,7 @@ public class CharacterStats : MonoBehaviour
         else if (spellLevel == 2) currentLevel2Slots = Mathf.Max(0, currentLevel2Slots - cost);
     }
 
-    // Reset each time this character’s turn starts
+    
     public void ResetTurnActions()
     {
         hasAction = true;
@@ -680,7 +680,6 @@ public class CharacterStats : MonoBehaviour
 
         sr.color = endColor;
 
-        // NOW safe to deactivate
         gameObject.SetActive(false);
     }
 
@@ -698,7 +697,7 @@ public class CharacterStats : MonoBehaviour
             return;
         }
 
-        // --- BARRIER DAMAGE REDUCTION ---
+        // BARRIER DAMAGE REDUCTION 
         var effects = GetComponent<StatusEffectManager>();
         if (effects != null && effects.hasBarrier)
         {
@@ -721,17 +720,15 @@ public class CharacterStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // Notify party
+
             var party = FindFirstObjectByType<PlayerPartyController>();
             if (party != null)
                 party.NotifyMemberDied(this);
 
-            // Remove from turn manager
             var tm = FindFirstObjectByType<TurnManager>();
             if (tm != null)
                 tm.RemoveCombatant(this.gameObject);
 
-            // Start fade ONLY if object is still active
             if (this.gameObject.activeInHierarchy)
                 StartCoroutine(FadeOut());
         }
@@ -761,10 +758,10 @@ public class CharacterStats : MonoBehaviour
         temp.sprite = sr.sprite;
         temp.sortingOrder = sr.sortingOrder;
 
-        // Copy tint
+
         temp.color = sr.color;
 
-        // Fade over time
+
         float duration = 1.5f;
         float elapsed = 0f;
 
@@ -783,19 +780,15 @@ public class CharacterStats : MonoBehaviour
 
     public void CalculateInitiative()
     {
-        // DEX mod still factors in
+
         int dexBonus = dexMod;
 
-        // Proficiency scaling (BG3-style)
         int proficiency = 2 + Mathf.FloorToInt((level - 1) / 4);
 
-        // Awareness based on skills
         int awareness = Mathf.FloorToInt((perception / 5f) + (insight / 10f));
 
-        // Final static initiative score for ordering BEFORE roll
         int baseInitiative = dexBonus + proficiency + awareness;
 
-        // The roll (done each battle)
         int roll = UnityEngine.Random.Range(1, 21);
 
         initiative = roll + baseInitiative;

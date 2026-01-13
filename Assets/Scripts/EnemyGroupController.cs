@@ -22,7 +22,7 @@ public class EnemyGroupController : MonoBehaviour
 
     void Awake()
     {
-        // If this enemy is a follower (child of another enemy that has EnemyMovementController), disable.
+        
         if (transform.parent != null &&
             transform.parent.GetComponent<EnemyMovementController>() != null)
         {
@@ -62,7 +62,7 @@ public class EnemyGroupController : MonoBehaviour
             var follower = followers[i];
             if (follower == null) continue;
 
-            // Update jitter path
+            
             UpdateFollowerOffset(i);
 
             // Target position = leader + current offset

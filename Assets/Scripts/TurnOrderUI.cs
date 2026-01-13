@@ -6,18 +6,18 @@ using DG.Tweening;
 public class TurnOrderUI : MonoBehaviour
 {
     [Header("References")]
-    public GameObject turnPortraitPrefab;   // Prefab with ONLY an Image
-    public Transform portraitContainer;     // Parent for portraits (RectTransform)
+    public GameObject turnPortraitPrefab;   
+    public Transform portraitContainer;     
 
-    // Maps combatant object → its Image
+
     private readonly Dictionary<GameObject, Image> portraitLookup =
         new Dictionary<GameObject, Image>();
 
-    // Visual order of portraits (left → right)
+    // Visual order of portraits (left to right)
     private readonly List<Image> orderedPortraits = new List<Image>();
 
     private GameObject currentHighlightedObj;
-    private float slotWidth = 100f; // will be set from first portrait
+    private float slotWidth = 100f; 
 
 
     void Awake()
@@ -59,13 +59,11 @@ public class TurnOrderUI : MonoBehaviour
                     img.sprite = es.enemyPortrait;
             }
 
-            // Make sure this RectTransform is driven by anchoredPosition
             RectTransform rt = img.rectTransform;
             rt.anchorMin = new Vector2(0f, 0.5f);
             rt.anchorMax = new Vector2(0f, 0.5f);
             rt.pivot = new Vector2(0.5f, 0.5f);
 
-            // Start slightly smaller + transparent
             img.color = new Color(1f, 1f, 1f, 0f);
             rt.localScale = Vector3.one * 0.7f;
 
@@ -80,7 +78,6 @@ public class TurnOrderUI : MonoBehaviour
             slotWidth = rt0.rect.width > 0 ? rt0.rect.width : 100f;
         }
 
-        // Place them in a row, touching each other
         for (int i = 0; i < orderedPortraits.Count; i++)
         {
             RectTransform rt = orderedPortraits[i].rectTransform;
@@ -98,9 +95,6 @@ public class TurnOrderUI : MonoBehaviour
         rt.DOScale(1f, 0.35f).SetEase(Ease.OutBack);
     }
 
-    // --------------------------------------------------------------------
-    // HIGHLIGHT CURRENT TURN
-    // --------------------------------------------------------------------
     public void UpdateTurnHighlight(GameObject currentObj)
     {
         currentHighlightedObj = currentObj;
@@ -198,18 +192,18 @@ public class TurnOrderUI : MonoBehaviour
               .OnComplete(() =>
               {
                   Destroy(img.gameObject);
-                  AnimatePortraitReposition(); // <-- MOVE OTHERS RIGHT AWAY
+                  AnimatePortraitReposition(); 
               });
         }
         else
         {
-            // Fallback if somehow null
+            // Fallback
             AnimatePortraitReposition();
         }
     }
 
     // --------------------------------------------------------------------
-    // CLEAR UI (used when battle ends)
+    // CLEAR UI (when battle ends)
     // --------------------------------------------------------------------
     public void ClearUI()
     {

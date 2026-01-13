@@ -13,7 +13,7 @@ public class PartyInputHandler : MonoBehaviour
     {
         if (party == null) return;
 
-        // Always allow switching. SwitchTo() enforces battle rules.
+        
         if (Input.GetKeyDown(KeyCode.Z)) party.SwitchTo(0);
         if (Input.GetKeyDown(KeyCode.X)) party.SwitchTo(1);
         if (Input.GetKeyDown(KeyCode.C)) party.SwitchTo(2);

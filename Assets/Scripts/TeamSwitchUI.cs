@@ -36,7 +36,7 @@ public class TeamSwitchUI : MonoBehaviour
     public Transform PortraitContainer;
     public System.Action<int> onHealPortraitClicked;
 
-    // Remember each bar's full width so we can scale it
+    
     private float zMaxWidth;
     private float xMaxWidth;
     private float cMaxWidth;
@@ -48,13 +48,13 @@ public class TeamSwitchUI : MonoBehaviour
 
         party = FindFirstObjectByType<PlayerPartyController>();
 
-        // Cache the "full" width of each health bar
+       
         if (Z_HealthFill != null) zMaxWidth = Z_HealthFill.rectTransform.sizeDelta.x;
         if (X_HealthFill != null) xMaxWidth = X_HealthFill.rectTransform.sizeDelta.x;
         if (C_HealthFill != null) cMaxWidth = C_HealthFill.rectTransform.sizeDelta.x;
         if (V_HealthFill != null) vMaxWidth = V_HealthFill.rectTransform.sizeDelta.x;
 
-        // Subscribe to health-changed events so UI updates on damage + healing
+        
         if (party != null)
         {
             foreach (var member in party.partyMembers)
@@ -115,7 +115,7 @@ public class TeamSwitchUI : MonoBehaviour
             if (fx != null)
                 fx.PlayDeadEffect();
 
-            // Empty the bar
+            
             if (fillBar != null)
             {
                 var rt = fillBar.rectTransform;

@@ -14,8 +14,8 @@ public class AbilityExecutor : MonoBehaviour
     private PlayerPartyController party;
 
     [Header("Reusable Message UI")]
-    public TMP_Text messageTextUI;   // drag your TMP in the inspector
-    public CanvasGroup messageGroup; // drag a canvas group on same object
+    public TMP_Text messageTextUI;   
+    public CanvasGroup messageGroup; 
 
     private Tween messageFadeTween;
     private Tween messageFloatTween;
@@ -33,7 +33,7 @@ public class AbilityExecutor : MonoBehaviour
             mainCamera = Camera.main;
     }
 
-    // Always sync active member
+
     private void RefreshActiveCharacter()
     {
         if (party == null)
@@ -62,10 +62,9 @@ public class AbilityExecutor : MonoBehaviour
         RefreshActiveCharacter();
         if (playerStats == null) yield break;
 
-        // Must be player's turn
         if (turnManager != null && !turnManager.isPlayerTurn) yield break;
 
-        // --- SNEAK RESTRICTIONS ---
+        // SNEAK RESTRICTIONS
         if (playerStats.isSneaking)
         {
             // Only Sneak Attack allowed
@@ -83,7 +82,7 @@ public class AbilityExecutor : MonoBehaviour
             yield break;
         }
 
-        // --- PER-BATTLE USAGE LIMIT CHECK ---
+        //  PER-BATTLE USAGE LIMIT CHECK 
         if (ability.maxUsesPerBattle > 0 &&
             ability.usesThisBattle >= ability.maxUsesPerBattle)
         {
@@ -91,7 +90,7 @@ public class AbilityExecutor : MonoBehaviour
             yield break;
         }
 
-        // --- STEP 1: CHECK RANGE / TARGET BEFORE COSTS ---
+        //  STEP 1: CHECK RANGE / TARGET BEFORE COSTS 
         if (ability.targetType == Ability.TargetType.Enemy)
         {
             Transform locked = FindFirstObjectByType<TargetSelector>()?.GetCurrentTarget();
@@ -111,7 +110,7 @@ public class AbilityExecutor : MonoBehaviour
             }
         }
 
-        // --- STEP 2: CHECK SPELL SLOTS ---
+        //  STEP 2: CHECK SPELL SLOTS 
         if (ability.usesSpellSlot &&
             !playerStats.HasSpellSlots(ability.spellLevel, ability.slotCost))
         {
@@ -119,7 +118,7 @@ public class AbilityExecutor : MonoBehaviour
             yield break;
         }
 
-        // --- STEP 3: CONSUME COSTS ---
+        //  STEP 3: CONSUME COSTS 
         playerStats.ConsumeActionType(ability.actionType);
 
         if (ability.usesSpellSlot)
@@ -141,7 +140,7 @@ public class AbilityExecutor : MonoBehaviour
 
         }
 
-        // --- STEP 4: ABILITY EXECUTION ---
+        //  STEP 4: ABILITY EXECUTION 
         PlayAbilitySound(ability);
         switch (ability.targetType)
         {
@@ -241,9 +240,7 @@ public class AbilityExecutor : MonoBehaviour
 
     }
 
-    // ============================================================
     // SELF ABILITY (HEAL, ETC)
-    // ============================================================
     IEnumerator ExecuteSelfAbility(Ability ability)
     {
         if (ability == null || playerStats == null)
@@ -301,9 +298,9 @@ public class AbilityExecutor : MonoBehaviour
         }
     }
 
-    // ============================================================
+
     // PROJECTILE ABILITY
-    // ============================================================
+
     IEnumerator FireTowardEnemyOnly(Ability ability)
     {
         if (ability.visualEffectPrefab == null || mainCamera == null || playerStats == null)
@@ -376,9 +373,9 @@ public class AbilityExecutor : MonoBehaviour
         enemyStats.TakeDamage(finalDamage, isCrit, isMiss);
     }
 
-    // ============================================================
-    // MELEE ABILITY (incl. Wide Slash + Push)
-    // ============================================================
+
+    // MELEE ABILITY 
+ 
     IEnumerator ExecuteMeleeAbility(Ability ability)
     {
         if (ability == null || playerStats == null)
@@ -405,7 +402,7 @@ public class AbilityExecutor : MonoBehaviour
 
         yield return new WaitForSeconds(0.25f);
 
-        // FIND TARGET (locked → closest)
+        // FIND TARGET
         TargetSelector selector = FindFirstObjectByType<TargetSelector>();
         Transform lockedTarget = selector?.GetCurrentTarget();
 
@@ -505,9 +502,7 @@ public class AbilityExecutor : MonoBehaviour
         }
     }
 
-    // ============================================================
-    // RAY ABILITY (e.g. Dragon Breath)
-    // ============================================================
+    // RAY ABILITY 
     private IEnumerator ExecuteRayAbility(Ability ability)
     {
         TargetSelector selector = FindFirstObjectByType<TargetSelector>();
@@ -533,7 +528,7 @@ public class AbilityExecutor : MonoBehaviour
 
         float beamLength = Mathf.Min(dist, ability.range);
 
-        // SPAWN BEAM VFX
+
         GameObject beam = null;
 
         if (ability.visualEffectPrefab)
@@ -587,9 +582,9 @@ public class AbilityExecutor : MonoBehaviour
             Destroy(beam, 1.5f);
     }
 
-    // ============================================================
+
     // INSTANT MAGIC (spawn at enemy)
-    // ============================================================
+
     IEnumerator ExecuteInstantMagic(Ability ability)
     {
         if (ability == null || playerStats == null) yield break;
@@ -712,17 +707,17 @@ public class AbilityExecutor : MonoBehaviour
     }
 
 
-    // ============================================================
-    // Ally single-target (placeholder)
-    // ============================================================
+
+    // Ally single-target 
+
     IEnumerator ExecuteAllyAbility(Ability ability)
     {
         yield break;
     }
 
-    // ============================================================
+
     // HELPERS
-    // ============================================================
+
     private int GetModifierForScaling(CharacterStats stats, Ability.ScalingAttribute scaling)
     {
         switch (scaling)
@@ -847,7 +842,7 @@ public class AbilityExecutor : MonoBehaviour
         return true;
     }
 
-    // ----------------- POPUP HELPERS -----------------
+    // POPUP HELPERS
     private void ShowCustomMessage(string text)
     {
         if (playerStats == null || playerStats.outOfRangePrefab == null)
@@ -873,7 +868,7 @@ public class AbilityExecutor : MonoBehaviour
     public void ShowNoUsesLeftMessage() => ShowMessageUI("No uses left!");
 
 
-    // ----------------- KNOCKBACK HELPERS -----------------
+    // KNOCKBACK HELPERS
     private Vector2 GetSafePushPosition(Rigidbody2D enemyRb, Vector2 direction, float distance)
     {
         Vector2 start = enemyRb.position;
@@ -904,9 +899,8 @@ public class AbilityExecutor : MonoBehaviour
         }
     }
 
-    // ============================================================
+
     // WIDE SLASH
-    // ============================================================
     private IEnumerator ExecuteWideSlash(Ability ability)
     {
         Vector3 playerPos = playerStats.transform.position;
@@ -967,9 +961,8 @@ public class AbilityExecutor : MonoBehaviour
             Destroy(slash, 0.35f);
     }
 
-    // ===============================================
-    // DASH ATTACK (Teleport behind enemy and strike)
-    // ===============================================
+
+    // DASH ATTACK
     private IEnumerator ExecuteDashAttack(Ability ability)
     {
         RefreshActiveCharacter();
@@ -1011,7 +1004,7 @@ public class AbilityExecutor : MonoBehaviour
                                      
 
         Vector3 endPos = enemyPos + (-dir * dashDistance);
-        endPos.z = 0f;   // ensure stays in 2D plane
+        endPos.z = 0f;   
 
         // Play VFX at start
         if (ability.visualEffectPrefab != null)
@@ -1030,9 +1023,9 @@ public class AbilityExecutor : MonoBehaviour
             Destroy(endFX, 1f);
         }
 
-        // ------------------------------------------
+ 
         // DAMAGE CALCULATION
-        // ------------------------------------------
+
         ResolveAttack(
             ability.baseDamage,
             ability.numberOfDice,
@@ -1050,9 +1043,9 @@ public class AbilityExecutor : MonoBehaviour
         yield return null;
     }
 
-    // =====================================================================
-    // FANCY FOOTWORK (Refill movement, play VFX above player, no damage)
-    // =====================================================================
+
+    // FANCY FOOTWORK 
+
     private IEnumerator ExecuteFancyFootwork(Ability ability)
     {
         RefreshActiveCharacter();
@@ -1065,7 +1058,7 @@ public class AbilityExecutor : MonoBehaviour
         if (ability.visualEffectPrefab != null)
         {
             Vector3 spawnPos = playerStats.transform.position + Vector3.up * 3.0f;
-            // ^ Adjust 1.0f if needed, but your pivot should already align this perfectly
+
 
             GameObject fx = Instantiate(
                 ability.visualEffectPrefab,
@@ -1073,12 +1066,10 @@ public class AbilityExecutor : MonoBehaviour
                 Quaternion.identity
             );
 
-            // Do NOT scale it — use prefab scale
+
             Destroy(fx, 1.5f);
         }
 
-        // Optional: Show message
-        //playerStats.ShowFloatingText("Movement Restored", Color.lightGoldenRodYellow);
 
         yield return null;
     }
@@ -1088,7 +1079,6 @@ public class AbilityExecutor : MonoBehaviour
         RefreshActiveCharacter();
         if (playerStats == null) yield break;
 
-        // Play VFX at player (keep prefab scale)
         if (ability.visualEffectPrefab != null)
         {
             GameObject fx = Instantiate(
@@ -1102,11 +1092,11 @@ public class AbilityExecutor : MonoBehaviour
             Destroy(fx, 1.5f);
         }
 
-        // Activate Sneak state
+
         playerStats.isSneaking = true;
         playerStats.isImmune = true;
 
-        // Fade sprite renderer
+
         SpriteRenderer sr = playerStats.GetComponent<SpriteRenderer>();
         if (sr != null)
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.35f);
@@ -1215,12 +1205,12 @@ public class AbilityExecutor : MonoBehaviour
         RefreshActiveCharacter();
         if (playerStats == null) yield break;
 
-        // --- PLAY VFX IN FRONT OF PLAYER ---
+
         if (ability.visualEffectPrefab != null)
         {
             Vector3 spawnPos = playerStats.transform.position;
 
-            // Push slightly in front of character (toward camera)
+
             spawnPos.z -= 0.1f;
 
             GameObject fx = Instantiate(
@@ -1229,21 +1219,20 @@ public class AbilityExecutor : MonoBehaviour
                 Quaternion.identity
             );
 
-            // Use prefab's original scale
+
             fx.transform.localScale = ability.visualEffectPrefab.transform.localScale;
 
             Destroy(fx, 1.5f);
         }
 
-        // --- RESTORE SPELL SLOTS ---
         playerStats.RestoreAllSpellSlots();
 
-        // Update HUD
+
         var hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
         if (hud != null)
             hud.UpdateSpellSlotUI();
 
-        // --- HANDLE LIFETIME USES ---
+        //  HANDLE LIFETIME USES 
         if (ability.MaxLifetimeUses > 0)
         {
             ability.LifetimeUses++;
@@ -1287,7 +1276,6 @@ public class AbilityExecutor : MonoBehaviour
             };
         }
 
-        // --- WAIT FOR KEYBIND OR CLICK ---
         while (!selectionMade)
         {
             if (Input.GetKeyDown(KeyCode.Z)) { selectedIndex = 0; selectionMade = true; }
@@ -1318,7 +1306,7 @@ public class AbilityExecutor : MonoBehaviour
         }
 
         CharacterStats targetStats = targetObj.GetComponent<CharacterStats>();
-        // ---- DO NOT ALLOW HEALING DEAD ALLIES ----
+        // DO NOT ALLOW HEALING DEAD ALLIES 
         if (targetStats.currentHealth <= 0)
         {
             ShowCustomMessage("Cannot heal the dead!");
@@ -1326,7 +1314,7 @@ public class AbilityExecutor : MonoBehaviour
             yield break;
         }
 
-        // ---- PLAY VFX ON ACTIVE PLAYER ----
+        // PLAY VFX ON ACTIVE PLAYER
         if (ability.visualEffectPrefab != null)
         {
             GameObject fx = Instantiate(
@@ -1346,7 +1334,7 @@ public class AbilityExecutor : MonoBehaviour
             Destroy(fx, 1.5f);
         }
 
-        // ---- HEAL ROLL ----
+        // HEAL ROLL
         int mod = GetModifierForScaling(playerStats, ability.scalingAttribute);
         int diceRoll = D20System.RollDice(ability.numberOfDice, ability.diceSides);
         int healAmount = Mathf.Max(1, ability.baseDamage + diceRoll + mod);
@@ -1381,7 +1369,6 @@ public class AbilityExecutor : MonoBehaviour
 
         RectTransform msgRect = messageGroup.transform as RectTransform;
 
-        // --- FLOAT ANIMATION (BOBBING UP/DOWN LOOP) ---
         messageFloatTween = msgRect.DOAnchorPosY(
             msgRect.anchoredPosition.y + 15f, // move up 15px
             0.6f
@@ -1389,11 +1376,10 @@ public class AbilityExecutor : MonoBehaviour
         .SetLoops(-1, LoopType.Yoyo)
         .SetEase(Ease.InOutSine);
 
-        // --- FADE IN + FADE OUT ---
         messageFadeTween = DOTween.Sequence()
-            .Append(messageGroup.DOFade(1f, 0.25f))   // fade in
-            .AppendInterval(duration)                // stay visible
-            .Append(messageGroup.DOFade(0f, 0.35f))  // fade out
+            .Append(messageGroup.DOFade(1f, 0.25f))   
+            .AppendInterval(duration)                
+            .Append(messageGroup.DOFade(0f, 0.35f))  
             .OnComplete(() =>
             {
                 messageGroup.gameObject.SetActive(false);
@@ -1417,7 +1403,6 @@ public class AbilityExecutor : MonoBehaviour
         var party = FindFirstObjectByType<PlayerPartyController>();
         if (party == null || party.partyMembers.Count == 0) yield break;
 
-        // ---- PLAY VFX ABOVE ACTIVE CHARACTER ----
         if (ability.visualEffectPrefab != null)
         {
             Vector3 spawnPos = playerStats.transform.position + Vector3.up * 3.0f;
@@ -1428,10 +1413,8 @@ public class AbilityExecutor : MonoBehaviour
                 Quaternion.identity
             );
 
-            // Keep the prefab's original scale
             fx.transform.localScale = ability.visualEffectPrefab.transform.localScale;
 
-            // Ensure animator/particles actually play
             Animator anim = fx.GetComponent<Animator>();
             if (anim != null) anim.Rebind();
 
@@ -1441,12 +1424,12 @@ public class AbilityExecutor : MonoBehaviour
             Destroy(fx, 2f);
         }
 
-        // ---- CALCULATE HEAL VALUE (ONCE) ----
+        // CALCULATE HEAL VALUE
         int mod = GetModifierForScaling(playerStats, ability.scalingAttribute);
         int diceRoll = D20System.RollDice(ability.numberOfDice, ability.diceSides);
         int healAmount = Mathf.Max(1, ability.baseDamage + diceRoll + mod);
 
-        // ---- HEAL EVERY PARTY MEMBER ----
+        //  HEAL EVERY PARTY MEMBER 
         foreach (GameObject member in party.partyMembers)
         {
             if (member == null) continue;
@@ -1454,14 +1437,14 @@ public class AbilityExecutor : MonoBehaviour
             CharacterStats stats = member.GetComponent<CharacterStats>();
             if (stats == null) continue;
 
-            // Skip dead allies (prevent resurrection)
+            // Skip dead allies 
             if (stats.currentHealth <= 0)
                 continue;
 
             // Apply heal
             stats.SetCurrentHealth(stats.currentHealth + healAmount);
 
-            // Floating heal number above each healed ally
+            // Floating heal number
             if (stats.floatingDamagePrefab != null)
             {
                 stats.ShowFloatingText("+" + healAmount, Color.green);
@@ -1475,7 +1458,6 @@ public class AbilityExecutor : MonoBehaviour
         RefreshActiveCharacter();
         if (playerStats == null) yield break;
 
-        // --- PLAY VFX IN FRONT OF PLAYER ---
         if (ability.visualEffectPrefab != null)
         {
             Vector3 spawnPos = playerStats.transform.position + Vector3.up * 3.0f;
@@ -1486,17 +1468,16 @@ public class AbilityExecutor : MonoBehaviour
                 Quaternion.identity
             );
 
-            // Use prefab’s original scale
+
             fx.transform.localScale = ability.visualEffectPrefab.transform.localScale;
 
             Destroy(fx, 1.5f);
         }
 
-        // --- APPLY BLESS STATUS EFFECT ---
         var effects = playerStats.GetComponent<StatusEffectManager>();
         if (effects != null)
         {
-            // Ability's status duration already stored in inspector
+
             effects.ApplyBless(ability.statusDuration);
         }
 

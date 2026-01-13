@@ -12,7 +12,7 @@ public class OptionsMenu : MonoBehaviour
     public Slider sfxSlider;
 
     [Header("Audio Mixer")]
-    public AudioMixer audioMixer;  // <-- ADD THIS
+    public AudioMixer audioMixer;  
 
     private readonly Vector2Int[] fixedResolutions =
     {

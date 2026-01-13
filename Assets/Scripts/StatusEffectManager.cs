@@ -10,9 +10,7 @@ public class StatusEffectManager : MonoBehaviour
     private Tween floatTween;
     private Tween fadeTween;
 
-    // ---------------------------------------------------------
-    //  BARRIER STATUS EFFECT
-    // ---------------------------------------------------------
+
     [Header("Barrier Effect")]
     public bool hasBarrier = false;
     public int barrierRoundsRemaining = 0;
@@ -23,7 +21,7 @@ public class StatusEffectManager : MonoBehaviour
 
     private GameObject activeBarrierVFX;
 
-    /// Applies a temporary barrier effect that reduces incoming damage.
+
 
     public void ApplyBarrier(int rounds, float damageReduction, GameObject vfxPrefab)
     {
@@ -31,7 +29,7 @@ public class StatusEffectManager : MonoBehaviour
         barrierRoundsRemaining = rounds;
         barrierDamageReduction = damageReduction;
 
-        // Remove old VFX if still active
+
         if (activeBarrierVFX != null)
         {
             Destroy(activeBarrierVFX);
@@ -45,15 +43,12 @@ public class StatusEffectManager : MonoBehaviour
             activeBarrierVFX.transform.localPosition = Vector3.zero;
             activeBarrierVFX.transform.localScale = Vector3.one * 0.5f;
 
-            //activeBarrierVFX.transform.localScale = vfxPrefab.transform.localScale;
 
-            // Destroy after two cycles (about 2 seconds)
             Destroy(activeBarrierVFX, 2f);
         }
     }
 
     // Called at the start of each of this character's turns.
-    // Decrements durations and removes expired effects.
 
     public void TickStatusEffects()
     {
@@ -69,9 +64,6 @@ public class StatusEffectManager : MonoBehaviour
     }
 
 
-    // ---------------------------------------------------------
-    //  BLESS EFFECT (Your original code)
-    // ---------------------------------------------------------
 
     public void ApplyBless(float duration)
     {

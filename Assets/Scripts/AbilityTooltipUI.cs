@@ -11,9 +11,9 @@ public class AbilityTooltipUI : MonoBehaviour
     public TMP_Text abilityDescriptionText;
 
     [Header("Main Lines")]
-    public TMP_Text damageText;            // "Damage: 5 – 11"
-    public TMP_Text targetRangeText;       // "Enemy • Range 6m • Radius 3m"
-    public TMP_Text scalingAndEffectText;  // "STR • Burn"
+    public TMP_Text damageText;            
+    public TMP_Text targetRangeText;       
+    public TMP_Text scalingAndEffectText;  
     public TMP_Text usesPerBattleText;
 
 
@@ -119,7 +119,7 @@ public class AbilityTooltipUI : MonoBehaviour
         return instance;
     }
 
-    // Called from SkillSlot.OnPointerEnter
+   
     public void Show(Ability ability, Vector2 position)
     {
         if (tooltipPanel == null || ability == null)
@@ -146,13 +146,11 @@ public class AbilityTooltipUI : MonoBehaviour
         canvasGroup.alpha = 0f;
 
         showTween = DOTween.Sequence()
-            // fade in
+
             .Join(canvasGroup.DOFade(1f, 0.20f))
 
-            // scale pop (80% → 105%)
             .Join(tooltipRect.DOScale(1.05f, 0.22f).SetEase(Ease.OutQuad))
-
-            // settle down to 100%
+           
             .Append(tooltipRect.DOScale(1f, 0.10f).SetEase(Ease.OutSine));
 
         StartGlowEffect(ability);
@@ -182,7 +180,7 @@ public class AbilityTooltipUI : MonoBehaviour
         }
     }
 
-    // ----------------- SETUP HELPERS -----------------
+    // SETUP HELPERS 
 
     private void SetupHeader(Ability ability)
     {
@@ -232,12 +230,12 @@ public class AbilityTooltipUI : MonoBehaviour
             categoryIcon.sprite = s;
             categoryIcon.gameObject.SetActive(s != null);
 
-            // Tint name with category color (optional)
+            // Tint name with category color 
             if (abilityNameText != null)
                 abilityNameText.color = c;
         }
 
-        // Damage type icon ONLY (no text)
+        // Damage type icon 
         if (damageTypeIcon != null)
         {
             Sprite s = null;
@@ -309,7 +307,7 @@ public class AbilityTooltipUI : MonoBehaviour
                 int maxHeal = Mathf.RoundToInt(Mathf.Abs(ability.baseDamage) + mod * 2);
 
                 damageText.text = $"Heals: {minHeal} – {maxHeal}";
-                //damageText.color = Color.green;
+                
                 damageText.gameObject.SetActive(true);
             }
             else
@@ -340,7 +338,7 @@ public class AbilityTooltipUI : MonoBehaviour
         int maxTotal = Mathf.Max(0, ability.baseDamage + maxDice + attackMod);
 
         damageText.text = $"Damage: {minTotal} – {maxTotal}";
-        //damageText.color = Color.red;
+        
         damageText.gameObject.SetActive(true);
     }
 
@@ -352,7 +350,7 @@ public class AbilityTooltipUI : MonoBehaviour
             return;
 
         // Target type
-        string target = ability.targetType.ToString();      // Self / Enemy / Ally / Area
+        string target = ability.targetType.ToString(); 
 
         // Range & radius
         string range = ability.range > 0.01f
@@ -386,11 +384,9 @@ public class AbilityTooltipUI : MonoBehaviour
 
     private void SetupScalingAndEffectLine(Ability ability)
     {
-        // Utility & Passive never show scaling
         if (ability.category == Ability.AbilityCategory.Utility ||
             ability.category == Ability.AbilityCategory.Passive)
         {
-            // BUT still show secondary effects (Burn, Stun)
             if (ability.appliesStatusEffect && !string.IsNullOrEmpty(ability.statusEffectName))
             {
                 scalingAndEffectText.text = ability.statusEffectName;
@@ -408,11 +404,9 @@ public class AbilityTooltipUI : MonoBehaviour
         string scaling = GetScalingShort(ability.scalingAttribute);
         string effect = "";
 
-        // Secondary effect as plain word (no label)
         if (ability.appliesStatusEffect && !string.IsNullOrEmpty(ability.statusEffectName))
             effect = ability.statusEffectName;
 
-        // Build "STR • Burn" or just "STR" or just "Burn"
         if (!string.IsNullOrEmpty(scaling) && !string.IsNullOrEmpty(effect))
             scalingAndEffectText.text = $"{scaling} • {effect}";
         else if (!string.IsNullOrEmpty(scaling))
@@ -430,7 +424,6 @@ public class AbilityTooltipUI : MonoBehaviour
 
     private void SetupActionIcons(Ability ability)
     {
-        // Clear all first
         if (actionIconImage != null)
         {
             actionIconImage.gameObject.SetActive(false);
@@ -481,7 +474,7 @@ public class AbilityTooltipUI : MonoBehaviour
 
     }
 
-    // ----------------- HELPERS -----------------
+    //HELPERS 
 
     private CharacterStats GetActiveStats()
     {
@@ -527,7 +520,7 @@ public class AbilityTooltipUI : MonoBehaviour
         if (usesPerBattleText == null)
             return;
 
-        // --- LIFETIME USES (takes priority because they never overlap with battle uses) ---
+        // LIFETIME USES
         if (ability.MaxLifetimeUses > 0)
         {
             int left = Mathf.Max(0, ability.MaxLifetimeUses - ability.LifetimeUses);
@@ -536,7 +529,7 @@ public class AbilityTooltipUI : MonoBehaviour
             return;
         }
 
-        // --- PER BATTLE USES ---
+        // PER BATTLE USES 
         if (ability.maxUsesPerBattle > 0)
         {
             int left = Mathf.Max(0, ability.maxUsesPerBattle - ability.usesThisBattle);
@@ -589,7 +582,7 @@ public class AbilityTooltipUI : MonoBehaviour
         // Start with solid category color
         borderOutline.effectColor = baseColor;
 
-        // Animate glow (pulsing alpha)
+        // Animate glow 
         glowTween = DOTween.Sequence()
             .Append(borderOutline.DOFade(0.25f, 0.6f))  // dim
             .Append(borderOutline.DOFade(1f, 0.6f))     // bright

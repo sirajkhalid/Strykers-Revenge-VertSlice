@@ -29,7 +29,7 @@ public class TMPGlowEffect : MonoBehaviour
         mat.SetFloat("_OutlineWidth", outlineWidth);
         mat.SetColor("_OutlineColor", outlineColor);
 
-        // GLOW (works only with Glow-capable shaders)
+        // GLOW
         if (mat.HasProperty("_GlowColor"))
         {
             mat.SetColor("_GlowColor", glowColor);

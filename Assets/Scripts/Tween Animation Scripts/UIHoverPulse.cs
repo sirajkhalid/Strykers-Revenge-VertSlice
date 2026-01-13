@@ -30,7 +30,7 @@ public class UIHoverPulse : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Optional: reset scale when leaving
+        
         transform.DOScale(1f, 0.15f).SetEase(Ease.OutQuad);
     }
 
