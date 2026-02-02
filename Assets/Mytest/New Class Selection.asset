@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdd3fd735a287145b7628ccf6e6568e, type: 3}
+  m_Name: New Class Selection
+  m_EditorClassIdentifier: Assembly-CSharp::ClassSelection
+  character:
+  - characterName: Rogue
+    characterObject: {fileID: -8868272330977153355, guid: a57495a8c74caa54bbbd779ff5a9325f,
+      type: 3}
+    CharacterScript: {fileID: 1085118638413065071, guid: 3e688d81ced1a4a4a9d5fff51c0df405,
+      type: 3}
+  - characterName: Fighter
+    characterObject: {fileID: -6316146769876622214, guid: 64428ab3e57e4664baa60ba207f2aef0,
+      type: 3}
+    CharacterScript: {fileID: 1085118638413065071, guid: acebf0b3a99932148929771cfad0fdc4,
+      type: 3}
+  - characterName: Wizard
+    characterObject: {fileID: -8153732336401678040, guid: 96213bc6e797d234c98dcffd046171af,
+      type: 3}
+    CharacterScript: {fileID: 1085118638413065071, guid: e8157e769b11f4142b7ad6799828d282,
+      type: 3}
+  - characterName: Cleric
+    characterObject: {fileID: 5410219936463808304, guid: b7e530721ad0f64478da634793b14b51,
+      type: 3}
+    CharacterScript: {fileID: 1085118638413065071, guid: 156ace5532fee8f43ac957caf138b1c9,
+      type: 3}

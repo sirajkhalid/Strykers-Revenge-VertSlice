@@ -23,9 +23,8 @@ GameObject:
   - component: {fileID: -6173469501378198329}
   - component: {fileID: 8717735179648387124}
   - component: {fileID: -6874720901940499454}
-  - component: {fileID: -1787832826344498037}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,8 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8153732336401678040, guid: 96213bc6e797d234c98dcffd046171af,
-    type: 3}
+  m_Sprite: {fileID: 43432494280949020, guid: 1424b5d6b6a14d748b2ccdf5711be516, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,7 +168,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.68}
+    oldSize: {x: 0.26, y: 0.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -232,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   characterName: Kontas
   race: 0
-  characterClass: 5
+  characterClass: 2
   background: 3
   alignment: 4
   characterPortrait: {fileID: 8726226383768013425, guid: 1486092b2f00f0e4fa09464ceb33bbef,
@@ -346,14 +344,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
   abilities:
-  - {fileID: 11400000, guid: c4371447a9dd14a47bd99509da184710, type: 2}
-  - {fileID: 11400000, guid: f0be4ffa30488f247b56bb5615954a63, type: 2}
-  - {fileID: 11400000, guid: 53e585bbf67219c4cb4275e5ad8f1877, type: 2}
-  - {fileID: 11400000, guid: 0fb89dca2d3e66f45a1aa03e2ab6350a, type: 2}
-  - {fileID: 11400000, guid: e7c4f72204ce25247b635ad362d30bd2, type: 2}
-  - {fileID: 11400000, guid: 9e1f12a131444f44e9d0b5eb6ef95da6, type: 2}
-  - {fileID: 11400000, guid: 342c4af6f07f60d4e994a99d3c91137b, type: 2}
-  - {fileID: 11400000, guid: ea6a58f0f9a7e2e429b1b2a4129e056b, type: 2}
+  - {fileID: 11400000, guid: 9a0d2b5afe8d7424fa9cc0d71dce6863, type: 2}
+  - {fileID: 11400000, guid: 4364b4b8c056bb649abb3dd4a1a9fafc, type: 2}
+  - {fileID: 11400000, guid: e7a2fe8a4959acc40842013fb3dd6914, type: 2}
+  - {fileID: 11400000, guid: 7b860caa9ca21db4cb1a9557bca0bf50, type: 2}
+  - {fileID: 11400000, guid: fa023a8326e9ad54f92f6b19ca23af36, type: 2}
+  - {fileID: 11400000, guid: 6dbf1f864f56bc541a69fc0707c73060, type: 2}
+  - {fileID: 11400000, guid: c36bc98b57e20e64f8d5758fae88bcf2, type: 2}
+  - {fileID: 11400000, guid: 2eb63b9240d052c4c98c44cd56c6c86f, type: 2}
+  - {fileID: 11400000, guid: 48898c58aea7764408f440bba6ef2040, type: 2}
 --- !u!82 &8941960538905399636
 AudioSource:
   m_ObjectHideFlags: 0
@@ -554,7 +553,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.68}
+    oldSize: {x: 0.26, y: 0.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -667,18 +666,3 @@ MonoBehaviour:
     onDialogueSystemUnpause:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &-1787832826344498037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085118638413065071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbee2c8f13353b47b6bdbfd26bf2ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ImagePlayer
-  classDB: {fileID: 11400000, guid: c7c049ee12933c242a641e313248c20b, type: 2}
-  artworkSprite: {fileID: 2507056343034171923}
-  CharacterScript: {fileID: 1085118638413065071}

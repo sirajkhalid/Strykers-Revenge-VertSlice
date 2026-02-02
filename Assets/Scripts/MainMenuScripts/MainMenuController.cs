@@ -75,6 +75,6 @@ public class MainMenuController : MonoBehaviour
         yield return Fade(0f, 1f);
 
         // load new scene
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene("Castle1");
     }
 }
