@@ -151,7 +151,7 @@ public class PlayerHUDManager : MonoBehaviour
         UpdateSpellSlotPanels();
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if (playerStats == null || healthFill == null || healthNumText == null)
             return;

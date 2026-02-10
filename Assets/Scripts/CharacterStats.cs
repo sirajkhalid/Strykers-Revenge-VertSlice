@@ -91,7 +91,9 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Combat Stats")]
     public int initiative;          
-    public int rolledInitiative;    
+    public int rolledInitiative;
+    public int bonusHP = 0; // Extra HP gained during play such as from chest rewards.
+
 
     [Header("Skills (auto, flat numbers)")]
     public int athletics;
@@ -158,7 +160,7 @@ public class CharacterStats : MonoBehaviour
 
 
 
-    void Start()
+    public void Start()
     {
         CalculateAllStats();
         CalculateSpellSlots();
@@ -259,7 +261,7 @@ public class CharacterStats : MonoBehaviour
         };
     }
 
-    void CalculateDerivedStats()
+    public void CalculateDerivedStats()
     {
         // HP Calculation
         int baseHP = 40;   // default
@@ -303,7 +305,7 @@ public class CharacterStats : MonoBehaviour
         };
 
         // HP Calculation
-        maxHealth = baseHP + raceHP + backgroundHP + (conMod * 3);
+        maxHealth = baseHP + raceHP + backgroundHP + (conMod * 3) + bonusHP;
 
         if (level > 1)
             maxHealth += (level - 1) * (hpPerLevel + (conMod * 2));
@@ -497,7 +499,7 @@ public class CharacterStats : MonoBehaviour
             LevelUp();
     }
 
-    void LevelUp()
+    public void LevelUp()
     {
         level++;
         currentEXP -= expToNextLevel;
