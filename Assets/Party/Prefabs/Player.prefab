@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 8717735179648387124}
   - component: {fileID: -6874720901940499454}
   - component: {fileID: -1787832826344498037}
-  - component: {fileID: 6239094796291375629}
+  - component: {fileID: -7984816698554712668}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -255,12 +255,12 @@ MonoBehaviour:
   intMod: 14
   wisMod: 12
   chaMod: 9
-  maxHealth: 107
+  maxHealth: 90
   currentHealth: 48
   armorClass: 27
   initiative: 18
   rolledInitiative: 0
-  bonusHP: 1
+  bonusHP: 9
   athletics: 20
   acrobatics: 20
   sleightOfHand: 20
@@ -684,7 +684,7 @@ MonoBehaviour:
   classDB: {fileID: 11400000, guid: c7c049ee12933c242a641e313248c20b, type: 2}
   artworkSprite: {fileID: 2507056343034171923}
   CharacterScript: {fileID: 1085118638413065071}
---- !u!114 &6239094796291375629
+--- !u!114 &-7984816698554712668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -697,5 +697,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChestUpgrade
   characterStats: {fileID: -600588334513296953}
-  playerHUDManager: {fileID: 6490393191742630872, guid: 4907e897ea011104b9e41b93ff9faeee,
-    type: 3}

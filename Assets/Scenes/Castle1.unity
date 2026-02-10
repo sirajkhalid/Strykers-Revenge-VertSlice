@@ -70431,6 +70431,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.78125, y: 0.875}
   m_EdgeRadius: 0
+--- !u!114 &526236509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526236492}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f79ea21d78c28b49803504755a1b0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChestUpgrade
+  characterStats: {fileID: -600588334513296953, guid: 3e688d81ced1a4a4a9d5fff51c0df405,
+    type: 3}
+  playerHUDManager: {fileID: 6490393191742630872, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
 --- !u!4 &565591704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3974113281628005044, guid: 4c23aadabd36b9143ba1641a481c0510,
@@ -118393,6 +118409,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 526236506}
+    - targetCorrespondingSourceObject: {fileID: 1353881250764554926, guid: 08b1e44075935d347ace669efe6756cd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 526236509}
   m_SourcePrefab: {fileID: 100100000, guid: 08b1e44075935d347ace669efe6756cd, type: 3}
 --- !u!1001 &6072271299745674640
 PrefabInstance:

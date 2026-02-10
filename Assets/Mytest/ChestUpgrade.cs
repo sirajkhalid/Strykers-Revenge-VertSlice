@@ -8,7 +8,7 @@ public class ChestUpgrade : MonoBehaviour
 {
 
     public CharacterStats characterStats;
-    public PlayerHUDManager playerHUDManager;
+   
     
 
 
@@ -19,7 +19,7 @@ public class ChestUpgrade : MonoBehaviour
         characterStats.CalculateDerivedStats();
 
 
-        playerHUDManager.UpdateHealthBar();
+       
 
     }
 
@@ -32,7 +32,8 @@ public class ChestUpgrade : MonoBehaviour
         // Recompute maxHealth using the increased bonus HP value:
         characterStats.CalculateDerivedStats();
 
-        playerHUDManager.UpdateHealthBar();
+        FindFirstObjectByType<PlayerHUDManager>().UpdateHealthBar();
+
     }
     public void gainMovement(double amount)
     {
