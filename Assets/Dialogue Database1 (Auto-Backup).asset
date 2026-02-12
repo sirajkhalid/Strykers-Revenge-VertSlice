@@ -3517,7 +3517,9 @@ MonoBehaviour:
       userScript: '
 
 
-'
+        ;
+
+        gainHP(0)'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3532,11 +3534,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -3548,15 +3550,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Health
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -3621,14 +3623,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: gainHP(0)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 75.66667
-        y: 218.33331
+        y: 218.77191
         width: 160
         height: 30
     - id: 5
@@ -3654,7 +3656,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Gain more HP by 8
+        value: Gain more HP by 1
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3670,9 +3672,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'gainHP(8);
-
-        gainHP(0)'
+      userScript: gainHP(1);
       onExecute:
         m_PersistentCalls:
           m_Calls: []

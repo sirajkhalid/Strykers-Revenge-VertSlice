@@ -261,6 +261,9 @@ MonoBehaviour:
   initiative: 18
   rolledInitiative: 0
   bonusHP: 9
+  bonusDamage: 3
+  bonusArmor: 1
+  bonusMovement: 2
   athletics: 20
   acrobatics: 20
   sleightOfHand: 20
@@ -697,3 +700,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChestUpgrade
   characterStats: {fileID: -600588334513296953}
+  Chest: {fileID: 0}

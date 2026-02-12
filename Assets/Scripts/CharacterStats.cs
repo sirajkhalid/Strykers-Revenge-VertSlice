@@ -93,6 +93,9 @@ public class CharacterStats : MonoBehaviour
     public int initiative;          
     public int rolledInitiative;
     public int bonusHP = 0; // Extra HP gained during play such as from chest rewards.
+    public int bonusDamage = 3;
+    public int bonusArmor = 1;
+    public int bonusMovement = 2;
 
 
     [Header("Skills (auto, flat numbers)")]
@@ -332,7 +335,7 @@ public class CharacterStats : MonoBehaviour
             _ => 10
         };
 
-        int ac = baseAC;
+        int ac = baseAC + bonusArmor;
 
         // Always add DexMod
         ac += dexMod;
@@ -346,9 +349,9 @@ public class CharacterStats : MonoBehaviour
 
         // Skill-based bonuses
         ac += Mathf.FloorToInt(acrobatics / 6f);  
-        ac += Mathf.FloorToInt(athletics / 10f);  
+        ac += Mathf.FloorToInt(athletics / 10f);
 
-        armorClass = Mathf.Max(ac, 10);
+        armorClass = Mathf.Max(ac, 10) + bonusArmor;
 
 
         // MOVEMENT Calculation

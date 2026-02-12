@@ -3512,12 +3512,15 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 2
+        destinationConversationID: 8
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
-      userScript: '
-
-
-'
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3621,14 +3624,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: gainArmor(1)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 75.66667
-        y: 218.33331
+        x: 78.29825
+        y: 221.84207
         width: 160
         height: 30
     - id: 5

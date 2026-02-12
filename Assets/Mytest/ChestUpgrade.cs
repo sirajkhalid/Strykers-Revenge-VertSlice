@@ -8,7 +8,8 @@ public class ChestUpgrade : MonoBehaviour
 {
 
     public CharacterStats characterStats;
-   
+
+    
     
 
 
@@ -32,19 +33,33 @@ public class ChestUpgrade : MonoBehaviour
         // Recompute maxHealth using the increased bonus HP value:
         characterStats.CalculateDerivedStats();
 
-        FindFirstObjectByType<PlayerHUDManager>().UpdateHealthBar();
+        GameObject Chest = GameObject.Find("Chest");
+        Chest.gameObject.SetActive(false);
 
     }
     public void gainMovement(double amount)
     {
+        characterStats.bonusHP += (int)amount;
 
+        // Recompute maxHealth using the increased bonus HP value:
+        characterStats.CalculateDerivedStats();
+
+       
     }
     public void gainDamage(double amount)
     {
+        characterStats.bonusHP += (int)amount;
 
+        // Recompute maxHealth using the increased bonus HP value:
+        characterStats.CalculateDerivedStats();
     }
-    public void gainArmor()
+    public void gainArmor(double amount)
     {
+        characterStats.bonusArmor += (int)amount;
+
+        // Recompute maxHealth using the increased bonus HP value:
+        characterStats.CalculateDerivedStats();
+
 
     }
 
@@ -53,6 +68,8 @@ public class ChestUpgrade : MonoBehaviour
             // Make the functions available to Lua: (Replace these lines with your own.)
 
             Lua.RegisterFunction(nameof(gainHP), this, SymbolExtensions.GetMethodInfo(() => gainHP((double)0)));
+
+            Lua.RegisterFunction(nameof(gainArmor), this, SymbolExtensions.GetMethodInfo(() => gainArmor((double)0)));
         }
 
        
