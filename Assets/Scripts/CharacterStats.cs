@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using PixelCrushers.DialogueSystem;
 
 public enum Race
 {
@@ -800,5 +801,27 @@ public class CharacterStats : MonoBehaviour
     }
 
 
+    public string currentCharisma = "10";
+
+    public bool HasCharisma(string requiredCharisma)
+    {
+        return currentCharisma == requiredCharisma;
+    }
+
+    #region Register with Lua
+    void OnEnable()
+    {
+        Lua.RegisterFunction("HasCharisma", this, SymbolExtensions.GetMethodInfo(() => HasCharisma(string.Empty)));
+
+        //Lua.RegisterFunction(nameof(AddOne), this, SymbolExtensions.GetMethodInfo(() => AddOne((double)0)));
+    }
+
+    void OnDisable()
+    {
+        Lua.UnregisterFunction("HasCharisma");
+
+        //Lua.UnregisterFunction(nameof(AddOne));
+    }
+    #endregion
 
 }

@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 804298104}
   - component: {fileID: 804298106}
   - component: {fileID: 804298105}
+  - component: {fileID: 804298107}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -501,6 +502,84 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   debug: 0
+--- !u!114 &804298107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804298103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bbb8980a162d34f8f1245d27ea872c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  characterName: Player
+  race: 0
+  characterClass: 0
+  background: 4
+  alignment: 4
+  characterPortrait: {fileID: 0}
+  characterSquarePortrait: {fileID: 0}
+  level: 1
+  currentEXP: 0
+  expToNextLevel: 1000
+  strength: 10
+  dexterity: 10
+  constitution: 10
+  intelligence: 10
+  wisdom: 10
+  charisma: 10
+  strMod: 0
+  dexMod: 0
+  conMod: 0
+  intMod: 0
+  wisMod: 0
+  chaMod: 0
+  maxHealth: 0
+  currentHealth: 0
+  armorClass: 0
+  initiative: 0
+  rolledInitiative: 0
+  athletics: 0
+  acrobatics: 0
+  sleightOfHand: 0
+  stealth: 0
+  arcana: 0
+  history: 0
+  investigation: 0
+  nature: 0
+  religion: 0
+  animalHandling: 0
+  insight: 0
+  medicine: 0
+  perception: 0
+  survival: 0
+  deception: 0
+  intimidation: 0
+  performance: 0
+  persuasion: 0
+  baseMovement: 12
+  maxMovement: 0
+  currentMovement: 0
+  floatingDamagePrefab: {fileID: 0}
+  outOfRangePrefab: {fileID: 0}
+  maxLevel1Slots: 0
+  currentLevel1Slots: 0
+  maxLevel2Slots: 0
+  currentLevel2Slots: 0
+  hasAction: 1
+  hasBonusAction: 1
+  swapInVFX: {fileID: 0}
+  swapOutVFX: {fileID: 0}
+  vfxLifetime: 1
+  hasSwitchedThisRound: 0
+  midSwapEnteredTurn: 0
+  castAnimationTrigger: CastTrigger
+  isCasting: 0
+  isSneaking: 0
+  isImmune: 0
+  currentCharisma: 10
 --- !u!1 &1493725028
 GameObject:
   m_ObjectHideFlags: 0
