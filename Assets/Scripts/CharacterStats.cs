@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting;
 
 public enum Race
 {
@@ -158,13 +159,24 @@ public class CharacterStats : MonoBehaviour
 
 
     [HideInInspector] public bool isSneaking = false;   
-    [HideInInspector] public bool isImmune = false;      
+    [HideInInspector] public bool isImmune = false;
 
-
+    private static GameObject instance;
 
 
     public void Start()
     {
+        if (instance == null)
+        {
+            instance = this.gameObject;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(instance);
+        }
+
+            DontDestroyOnLoad(this);
         CalculateAllStats();
         CalculateSpellSlots();
         
@@ -179,12 +191,14 @@ public class CharacterStats : MonoBehaviour
 
     public void CalculateAllStats()
     {
+        DontDestroyOnLoad(this);
         CalculateModifiers();
         ApplyRaceBonuses();
         ApplyClassBonuses();
         CalculateDerivedStats();
         CalculateSkills();
         CalculateSpellSlots();
+
     }
 
     void CalculateModifiers()

@@ -9,9 +9,6 @@ public class ChestUpgrade : MonoBehaviour
 
     public CharacterStats characterStats;
 
-    
-    
-
 
     public void Start()
     {
@@ -19,8 +16,6 @@ public class ChestUpgrade : MonoBehaviour
         
         characterStats.CalculateDerivedStats();
 
-
-       
 
     }
 
