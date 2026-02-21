@@ -799,29 +799,4 @@ public class CharacterStats : MonoBehaviour
         currentLevel1Slots = maxLevel1Slots;
         currentLevel2Slots = maxLevel2Slots;
     }
-
-
-    public string currentCharisma = "10";
-
-    public bool HasCharisma(string requiredCharisma)
-    {
-        return currentCharisma == requiredCharisma;
-    }
-
-    #region Register with Lua
-    void OnEnable()
-    {
-        Lua.RegisterFunction("HasCharisma", this, SymbolExtensions.GetMethodInfo(() => HasCharisma(string.Empty)));
-
-        //Lua.RegisterFunction(nameof(AddOne), this, SymbolExtensions.GetMethodInfo(() => AddOne((double)0)));
-    }
-
-    void OnDisable()
-    {
-        Lua.UnregisterFunction("HasCharisma");
-
-        //Lua.UnregisterFunction(nameof(AddOne));
-    }
-    #endregion
-
 }

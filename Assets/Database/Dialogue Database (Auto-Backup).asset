@@ -1181,7 +1181,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["Charisma"] == true
+      conditionsString: HasCharisma("10")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1230,7 +1230,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["Charisma"] == false
+      conditionsString: HasCharisma("10")  == false
       userScript: 
       onExecute:
         m_PersistentCalls:
