@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbbc84c70300ba489dc1fe1961516ec, type: 3}
+  m_Name: Conversation Lua Functions
+  m_EditorClassIdentifier: Assembly-CSharp-Editor-firstpass::PixelCrushers.DialogueSystem.Wrappers.CustomLuaFunctionInfo
+  conditionFunctions:
+  - functionName: Player/HasAthletics
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasSOH
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasArcana
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasHistory
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasInvestigation
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasReligion
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasInsight
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasDeception
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasPersuasion
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasPerformance
+    parameters: 02000000
+    returnValue: 1
+  - functionName: Player/HasPersuasion
+    parameters: 02000000
+    returnValue: 1
+  scriptFunctions: []
