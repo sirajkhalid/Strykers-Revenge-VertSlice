@@ -178,7 +178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.22254059, y: 0.0849247}
-  m_EdgeRadius: 0.2
+  m_EdgeRadius: 0
 --- !u!114 &5849754685806107408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,3 +700,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChestUpgrade
   characterStats: {fileID: -600588334513296953}
+  Chest: {fileID: 0}
