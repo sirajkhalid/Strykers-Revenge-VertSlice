@@ -164,10 +164,19 @@ public class CharacterStats : MonoBehaviour
     private static GameObject instance;
 
 
-     void Start()
+    public void Start()
     {
-        
-    
+        if (instance == null)
+        {
+            instance = this.gameObject;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(instance);
+        }
+
+            DontDestroyOnLoad(this);
         CalculateAllStats();
         CalculateSpellSlots();
         
