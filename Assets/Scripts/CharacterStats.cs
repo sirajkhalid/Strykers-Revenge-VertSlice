@@ -161,22 +161,12 @@ public class CharacterStats : MonoBehaviour
     [HideInInspector] public bool isSneaking = false;   
     [HideInInspector] public bool isImmune = false;
 
-    private static GameObject instance;
+   
+    
 
-
-    public void Start()
+    void Start()
     {
-        if (instance == null)
-        {
-            instance = this.gameObject;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(instance);
-        }
-
-            DontDestroyOnLoad(this);
+        
         CalculateAllStats();
         CalculateSpellSlots();
         
