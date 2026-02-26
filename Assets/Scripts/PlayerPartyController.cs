@@ -1,10 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPartyController : MonoBehaviour
 {
+    public static PlayerPartyController Instance { get; private set; }
+
     [Header("Party Setup")]
     public List<GameObject> partyPrefabs = new List<GameObject>();
 
@@ -23,18 +25,81 @@ public class PlayerPartyController : MonoBehaviour
     public CinemachineImpulseSource impulseSource;
     public bool disableSwitching = false;
 
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this)
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     void Start()
     {
         if (!mainCamera)
             mainCamera = Camera.main;
 
-        SpawnInitialParty();
+        CleanupNullMembers();
 
-        var ui = FindFirstObjectByType<TeamSwitchUI>();
+        //  (prevents extra clones on new scene loads)
+        if (partyMembers.Count == 0 || partyMembers.TrueForAll(m => m == null))
+            SpawnInitialParty();
+        else
+            EnsureActiveMemberValid();
+
+        HookCamera();
+        RefreshUI();
+        Invoke(nameof(ForceHUDInit), 0.1f);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!mainCamera)
+            mainCamera = Camera.main;
+
+        CleanupNullMembers();
+        EnsureActiveMemberValid();
+        HookCamera();
+        RefreshUI();
+        Invoke(nameof(ForceHUDInit), 0.1f);
+    }
+
+    void CleanupNullMembers()
+    {
+        partyMembers.RemoveAll(m => m == null);
+    }
+
+    void EnsureActiveMemberValid()
+    {
+        if (activeMember != null) return;
+
+        if (partyMembers.Count > 0)
+        {
+            activeMember = partyMembers[Mathf.Clamp(activeIndex, 0, partyMembers.Count - 1)];
+            if (activeMember == null)
+            {
+                activeIndex = 0;
+                activeMember = partyMembers[0];
+            }
+        }
+    }
+
+    void RefreshUI()
+    {
+        var ui = FindFirstObjectByType<TeamSwitchUI>(FindObjectsInactive.Include);
         if (ui != null)
             ui.RefreshDisplay();
-
-        Invoke(nameof(ForceHUDInit), 0.1f);
     }
 
     void SpawnInitialParty()
@@ -47,15 +112,22 @@ public class PlayerPartyController : MonoBehaviour
 
         Vector3 startPos = transform.position;
 
-        
+        partyMembers.Clear();
+
+        // First member = active
         GameObject first = Instantiate(partyPrefabs[0], startPos, Quaternion.identity);
+        DontDestroyOnLoad(first);
+
         activeMember = first;
+        activeIndex = 0;
         partyMembers.Add(first);
 
         // Others inactive
         for (int i = 1; i < partyPrefabs.Count; i++)
         {
             GameObject p = Instantiate(partyPrefabs[i], startPos, Quaternion.identity);
+            DontDestroyOnLoad(p);
+
             p.SetActive(false);
             partyMembers.Add(p);
         }
@@ -76,7 +148,7 @@ public class PlayerPartyController : MonoBehaviour
 
     void HookCamera()
     {
-        var cine = FindFirstObjectByType<CinemachineCamera>();
+        var cine = FindFirstObjectByType<CinemachineCamera>(FindObjectsInactive.Include);
         if (cine != null && activeMember)
             cine.Follow = activeMember.transform;
     }
@@ -86,8 +158,12 @@ public class PlayerPartyController : MonoBehaviour
     {
         if (disableSwitching)
             return;
+
+        CleanupNullMembers();
+
         if (newIndex < 0 || newIndex >= partyMembers.Count)
             return;
+
         if (newIndex == activeIndex)
             return;
 
@@ -109,17 +185,15 @@ public class PlayerPartyController : MonoBehaviour
         // -------------------------------
         // BATTLE + TURN CONTEXT
         // -------------------------------
-        var battle = FindFirstObjectByType<BattleStateManager>();
-        var turnManager = FindFirstObjectByType<TurnManager>();
+        var battle = FindFirstObjectByType<BattleStateManager>(FindObjectsInactive.Include);
+        var turnManager = FindFirstObjectByType<TurnManager>(FindObjectsInactive.Include);
         bool inBattle = battle && battle.isBattleActive;
 
         // If in battle, switching costs a BONUS ACTION.
-        // If player has no bonus OR already switched this round -> cannot switch.
         if (inBattle)
         {
             if (!oldStats.hasBonusAction || oldStats.hasSwitchedThisRound)
             {
-                // Optional feedback
                 oldStats.ShowFloatingText("No bonus action to switch!", Color.yellow);
                 return;
             }
@@ -138,7 +212,6 @@ public class PlayerPartyController : MonoBehaviour
             GameObject vfx = Instantiate(oldStats.swapOutVFX, anchor.position, Quaternion.identity);
             Destroy(vfx, oldStats.vfxLifetime);
         }
-
 
         if (!oldStats.isSneaking)
         {
@@ -176,7 +249,6 @@ public class PlayerPartyController : MonoBehaviour
         activeIndex = newIndex;
         HookCamera();
 
-
         if (newStats.isSneaking)
         {
             newStats.isSneaking = false;
@@ -195,7 +267,7 @@ public class PlayerPartyController : MonoBehaviour
             hud.RefreshSkillBar(newStats);
         }
 
-        var teamUI = FindFirstObjectByType<TeamSwitchUI>();
+        var teamUI = FindFirstObjectByType<TeamSwitchUI>(FindObjectsInactive.Include);
         if (teamUI)
         {
             teamUI.RefreshDisplay();
@@ -207,15 +279,9 @@ public class PlayerPartyController : MonoBehaviour
         // -------------------------------
         if (inBattle && turnManager != null)
         {
-            // Old character spends BONUS ACTION to switch
             oldStats.hasBonusAction = false;
             oldStats.hasSwitchedThisRound = true;
-            // Do NOT touch oldStats.hasAction here.
 
-            // New character:
-            // - ALWAYS gets an action
-            // - NO bonus action (because switch consumed it)
-            // - FULL movement
             newStats.hasAction = true;
             newStats.hasBonusAction = false;
             newStats.currentMovement = newStats.maxMovement;
@@ -232,12 +298,15 @@ public class PlayerPartyController : MonoBehaviour
         }
     }
 
-
     // Next alive (switch on death)
     public bool HasAliveBackup()
     {
+        CleanupNullMembers();
+
         foreach (var member in partyMembers)
         {
+            if (member == null) continue;
+
             if (member != activeMember &&
                 member.GetComponent<CharacterStats>().currentHealth > 0)
                 return true;
@@ -250,8 +319,11 @@ public class PlayerPartyController : MonoBehaviour
         if (activeMember == null) return null;
         return activeMember.GetComponent<CharacterStats>();
     }
+
     public void SwitchToNextAlive()
     {
+        CleanupNullMembers();
+
         for (int i = 0; i < partyMembers.Count; i++)
         {
             if (i != activeIndex)
@@ -259,7 +331,6 @@ public class PlayerPartyController : MonoBehaviour
                 var stats = partyMembers[i].GetComponent<CharacterStats>();
                 if (stats.currentHealth > 0)
                 {
-                    
                     SwitchTo(i);
                     return;
                 }
@@ -269,11 +340,17 @@ public class PlayerPartyController : MonoBehaviour
 
     void ForceHUDInit()
     {
+        if (activeMember == null) return;
+
         var hud = FindFirstObjectByType<PlayerHUDManager>(FindObjectsInactive.Include);
         if (hud)
         {
-            hud.SetTarget(activeMember.GetComponent<CharacterStats>());
-            hud.RefreshSkillBar(activeMember.GetComponent<CharacterStats>());
+            var cs = activeMember.GetComponent<CharacterStats>();
+            if (cs != null)
+            {
+                hud.SetTarget(cs);
+                hud.RefreshSkillBar(cs);
+            }
         }
     }
 
@@ -299,30 +376,27 @@ public class PlayerPartyController : MonoBehaviour
         if (deadGO != activeMember)
             return;
 
-        // If there is another alive party member, switch
         if (HasAliveBackup())
         {
             SwitchToNextAlive();
 
-            // After switching, retarget again
             foreach (var ai in FindObjectsByType<EnemyAIController>(
                          FindObjectsInactive.Include,
                          FindObjectsSortMode.None))
             {
-                ai.ForceRetarget(activeMember.transform);
+                if (activeMember != null)
+                    ai.ForceRetarget(activeMember.transform);
             }
         }
         else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOver");
         }
     }
+
     public void TriggerSprintCameraShake()
     {
         if (impulseSource != null)
             impulseSource.GenerateImpulse();
     }
-
-
-
 }
