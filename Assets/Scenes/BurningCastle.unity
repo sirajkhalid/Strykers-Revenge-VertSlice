@@ -10229,8 +10229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadScene
   sceneName: Castle1
-  Collider2D: {fileID: 6140009141073789175, guid: 3e688d81ced1a4a4a9d5fff51c0df405,
-    type: 3}
+  Collider2D: {fileID: 807702630}
 --- !u!4 &807702632
 Transform:
   m_ObjectHideFlags: 0
@@ -37040,62 +37039,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1970566425
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1970566426}
-  - component: {fileID: 1970566427}
-  m_Layer: 0
-  m_Name: PlayerSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1970566426
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970566425}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.46, y: 10.98398, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1970566427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970566425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3021f1ff98d0fd04bb2ec8a82e8b6f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerPartyController
-  partyPrefabs:
-  - {fileID: 1085118638413065071, guid: 3e688d81ced1a4a4a9d5fff51c0df405, type: 3}
-  - {fileID: 1085118638413065071, guid: 6177103126615704995458241972578b, type: 3}
-  - {fileID: 1085118638413065071, guid: 775a4f3657dc3ed44b7e4e2745292a64, type: 3}
-  - {fileID: 1085118638413065071, guid: f6173eaa7682d29499f5eda67d22986b, type: 3}
-  partyMembers: []
-  activeIndex: 0
-  activeMember: {fileID: 0}
-  mainCamera: {fileID: 0}
-  spawnOffsetY: 0
-  impulseSource: {fileID: 0}
-  disableSwitching: 0
 --- !u!1 &2104152295
 GameObject:
   m_ObjectHideFlags: 0
@@ -38802,4 +38745,3 @@ SceneRoots:
   - {fileID: 1685074881}
   - {fileID: 982038936}
   - {fileID: 2127807372}
-  - {fileID: 1970566426}
