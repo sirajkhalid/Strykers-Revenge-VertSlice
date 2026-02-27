@@ -82,6 +82,10 @@ public class TeamSwitchUI : MonoBehaviour
 
     void UpdateSlot(int index, Image portrait, TMP_Text healthText, Image fillBar, float maxWidth)
     {
+        if (portrait == null) return;
+        if (healthText == null) return;
+        if (fillBar == null) return;
+
         if (index >= party.partyMembers.Count)
         {
             if (portrait != null) portrait.enabled = false;
