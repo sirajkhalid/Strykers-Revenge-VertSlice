@@ -17,16 +17,12 @@ GameObject:
   - component: {fileID: -600588334513296953}
   - component: {fileID: 3968197236777214605}
   - component: {fileID: -4433796842676876510}
-  - component: {fileID: 3194323988442220174}
-  - component: {fileID: 8941960538905399636}
-  - component: {fileID: 2613253268976215742}
-  - component: {fileID: -6173469501378198329}
-  - component: {fileID: 8717735179648387124}
-  - component: {fileID: -6874720901940499454}
-  - component: {fileID: -1787832826344498037}
-  - component: {fileID: 7875827251111204339}
+  - component: {fileID: 2674539544089438551}
+  - component: {fileID: -6896624358268064977}
+  - component: {fileID: -5262644574918051110}
+  - component: {fileID: 7182177878625313799}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Sulfur 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,8 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8868272330977153355, guid: a57495a8c74caa54bbbd779ff5a9325f,
-    type: 3}
+  m_Sprite: {fileID: 43432494280949020, guid: 1424b5d6b6a14d748b2ccdf5711be516, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +111,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1085118638413065071}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
+  m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
@@ -125,11 +120,11 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -167,18 +162,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.024080828, y: -0.28005153}
+  m_Offset: {x: 0.0074547827, y: -0.24849221}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 0.62}
+    oldSize: {x: 0.26, y: 0.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.22254059, y: 0.0849247}
-  m_EdgeRadius: 0.2
+  m_Size: {x: 0.25490957, y: 0.09301548}
+  m_EdgeRadius: 0
 --- !u!114 &5849754685806107408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   smoothing: 15
   sprintBonus: 3
-  audioSource: {fileID: 8941960538905399636}
+  audioSource: {fileID: -6896624358268064977}
   walkFootstepSFX: {fileID: 8300000, guid: a9b790cc09ed0de408ce8d6b835ddc69, type: 3}
   sprintFootstepSFX: {fileID: 8300000, guid: c7e047923247813448fb952fc8963ec4, type: 3}
   canMove: 1
@@ -231,60 +226,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bbb8980a162d34f8f1245d27ea872c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
-  characterName: Kontas
-  race: 0
-  characterClass: 5
-  background: 3
-  alignment: 4
-  characterPortrait: {fileID: 8726226383768013425, guid: 1486092b2f00f0e4fa09464ceb33bbef,
+  characterName: Sulfur
+  race: 2
+  characterClass: 3
+  background: 8
+  alignment: 1
+  characterPortrait: {fileID: 1828737029785011499, guid: e13e69964f3c7c542b97526741c2e8c9,
     type: 3}
-  characterSquarePortrait: {fileID: -2666963863285671113, guid: afb81e48257d6694c836d53618b55038,
+  characterSquarePortrait: {fileID: -6894578866100436022, guid: 10acf96cdd05acb43a889f46a1845614,
     type: 3}
   level: 1
   currentEXP: 0
   expToNextLevel: 1000
   strength: 14
-  dexterity: 13
-  constitution: 12
-  intelligence: 11
-  wisdom: 11
-  charisma: 11
-  strMod: 10
-  dexMod: 10
-  conMod: 12
-  intMod: 14
-  wisMod: 12
-  chaMod: 9
-  maxHealth: 90
-  currentHealth: 48
-  armorClass: 27
-  initiative: 18
+  dexterity: 8
+  constitution: 13
+  intelligence: 10
+  wisdom: 15
+  charisma: 12
+  strMod: 0
+  dexMod: 0
+  conMod: 0
+  intMod: 0
+  wisMod: 0
+  chaMod: 0
+  maxHealth: 0
+  currentHealth: 0
+  armorClass: 0
+  initiative: 0
   rolledInitiative: 0
-  bonusHP: 9
+  bonusHP: 0
   bonusDamage: 3
   bonusArmor: 1
   bonusMovement: 2
-  athletics: 20
-  acrobatics: 20
-  sleightOfHand: 20
-  stealth: 20
-  arcana: 24
-  history: 24
-  investigation: 24
-  nature: 24
-  religion: 24
-  animalHandling: 22
-  insight: 22
-  medicine: 22
-  perception: 22
-  survival: 22
-  deception: 19
-  intimidation: 19
-  performance: 19
-  persuasion: 19
+  athletics: 0
+  acrobatics: 0
+  sleightOfHand: 0
+  stealth: 0
+  arcana: 0
+  history: 0
+  investigation: 0
+  nature: 0
+  religion: 0
+  animalHandling: 0
+  insight: 0
+  medicine: 0
+  perception: 0
+  survival: 0
+  deception: 0
+  intimidation: 0
+  performance: 0
+  persuasion: 0
   baseMovement: 12
-  maxMovement: 22
-  currentMovement: 22
+  maxMovement: 12
+  currentMovement: 0
   floatingDamagePrefab: {fileID: 3301753505469938636, guid: 871d92440ead06f409228cb39b15bef7,
     type: 3}
   outOfRangePrefab: {fileID: 3301753505469938636, guid: d33cbc57824aa1849a149bdb4e07ee77,
@@ -295,10 +290,10 @@ MonoBehaviour:
   currentLevel2Slots: 0
   hasAction: 1
   hasBonusAction: 1
-  swapInVFX: {fileID: 5112884705721682434, guid: f0c2f491b80c814429dba440b7bdae72,
+  swapInVFX: {fileID: 3357881137920810797, guid: 27990001924fa7c41911bdbd5b4fe7bd,
     type: 3}
   swapOutVFX: {fileID: 0}
-  vfxLifetime: 0.9
+  vfxLifetime: 1
   hasSwitchedThisRound: 0
   midSwapEnteredTurn: 0
   castAnimationTrigger: CastTrigger
@@ -338,7 +333,7 @@ MonoBehaviour:
   hasBarrier: 0
   barrierRoundsRemaining: 0
   barrierDamageReduction: 0.5
---- !u!114 &3194323988442220174
+--- !u!114 &2674539544089438551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,15 +346,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityLoadout
   abilities:
-  - {fileID: 11400000, guid: c4371447a9dd14a47bd99509da184710, type: 2}
-  - {fileID: 11400000, guid: f0be4ffa30488f247b56bb5615954a63, type: 2}
-  - {fileID: 11400000, guid: 53e585bbf67219c4cb4275e5ad8f1877, type: 2}
-  - {fileID: 11400000, guid: 0fb89dca2d3e66f45a1aa03e2ab6350a, type: 2}
-  - {fileID: 11400000, guid: e7c4f72204ce25247b635ad362d30bd2, type: 2}
-  - {fileID: 11400000, guid: 9e1f12a131444f44e9d0b5eb6ef95da6, type: 2}
-  - {fileID: 11400000, guid: 342c4af6f07f60d4e994a99d3c91137b, type: 2}
-  - {fileID: 11400000, guid: ea6a58f0f9a7e2e429b1b2a4129e056b, type: 2}
---- !u!82 &8941960538905399636
+  - {fileID: 11400000, guid: b752d3d49ccb42346ac866c5d22c382e, type: 2}
+  - {fileID: 11400000, guid: 5e1bbe3d1757af142a0affac55e66db9, type: 2}
+  - {fileID: 11400000, guid: 2107dd5297c864d418a8b860d36b1ae9, type: 2}
+  - {fileID: 11400000, guid: 36440164c28ecf54ea13a4ac97806547, type: 2}
+  - {fileID: 11400000, guid: 48898c58aea7764408f440bba6ef2040, type: 2}
+  - {fileID: 11400000, guid: 37e7aa100a62b6e429612846e6baf0c2, type: 2}
+  - {fileID: 11400000, guid: 3757626ec1f93d24fbe4f2d9d8ee2bdb, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!82 &-6896624358268064977
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,7 +453,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2613253268976215742
+--- !u!114 &-5262644574918051110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,7 +468,7 @@ MonoBehaviour:
   selectAt: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1
   distanceFrom: 0
   maxSelectionDistance: 30
   runRaycasts: 0
@@ -507,7 +503,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   debug: 0
---- !u!114 &-6173469501378198329
+--- !u!114 &7182177878625313799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -516,187 +512,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1085118638413065071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf9481d631e872c45a9f702509a148ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 42f17d3292d455242a47944a59dea99c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.SelectorUseStandardUIElements
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.SelectorUseStandardUIElements
   tagSpecificElements: []
   layerSpecificElements: []
---- !u!61 &8717735179648387124
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085118638413065071}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 0.62}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2, y: 0.65}
-  m_EdgeRadius: 0
---- !u!114 &-6874720901940499454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085118638413065071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5473918a168c44fa0294bd4d1399f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.DialogueSystemEvents
-  conversationEvents:
-    onConversationStart:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5849754685806107408}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onConversationEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5849754685806107408}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-    runOnConversationEndEventsAtEndOfFrame: 0
-    onConversationCancelled:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLineEarly:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLine:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLineEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLineCancelled:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationResponseMenu:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationResponseMenuTimeout:
-      m_PersistentCalls:
-        m_Calls: []
-    onLinkedConversationStart:
-      m_PersistentCalls:
-        m_Calls: []
-  barkEvents:
-    onBarkStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onBarkEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onBarkLine:
-      m_PersistentCalls:
-        m_Calls: []
-  sequenceEvents:
-    onSequenceStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onSequenceEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  questEvents:
-    onQuestStateChange:
-      m_PersistentCalls:
-        m_Calls: []
-    onQuestTrackingEnabled:
-      m_PersistentCalls:
-        m_Calls: []
-    onQuestTrackingDisabled:
-      m_PersistentCalls:
-        m_Calls: []
-    onUpdateQuestTracker:
-      m_PersistentCalls:
-        m_Calls: []
-  pauseEvents:
-    onDialogueSystemPause:
-      m_PersistentCalls:
-        m_Calls: []
-    onDialogueSystemUnpause:
-      m_PersistentCalls:
-        m_Calls: []
---- !u!114 &-1787832826344498037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085118638413065071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbee2c8f13353b47b6bdbfd26bf2ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ImagePlayer
-  classDB: {fileID: 11400000, guid: c7c049ee12933c242a641e313248c20b, type: 2}
-  artworkSprite: {fileID: 2507056343034171923}
-  CharacterScript: {fileID: 1085118638413065071}
---- !u!114 &7875827251111204339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085118638413065071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f79ea21d78c28b49803504755a1b0d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChestUpgrade
-  characterStats: {fileID: -600588334513296953}

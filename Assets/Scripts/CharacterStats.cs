@@ -726,6 +726,8 @@ public class CharacterStats : MonoBehaviour
         ShowFloatingText("-" + amount, floatColor);
 
         OnHealthChanged?.Invoke();
+  
+
 
         if (currentHealth <= 0)
         {

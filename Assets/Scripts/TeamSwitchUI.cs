@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class TeamSwitchUI : MonoBehaviour
 {
@@ -82,10 +83,13 @@ public class TeamSwitchUI : MonoBehaviour
 
     void UpdateSlot(int index, Image portrait, TMP_Text healthText, Image fillBar, float maxWidth)
     {
-        if (portrait == null) return;
-        if (healthText == null) return;
-        if (fillBar == null) return;
-
+        //hack
+       if (portrait == null) return;
+       if (healthText == null) return;
+       if (fillBar == null) return;
+       
+        
+       
         if (index >= party.partyMembers.Count)
         {
             if (portrait != null) portrait.enabled = false;
@@ -108,6 +112,7 @@ public class TeamSwitchUI : MonoBehaviour
         bool isDead = stats.currentHealth <= 0;
         bool isSelected = party.activeIndex == index;
         bool isHovered = hoveredIndex == index;
+        if (stats == null) return;
 
         if (isDead)
         {

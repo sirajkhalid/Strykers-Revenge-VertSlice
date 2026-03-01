@@ -78,6 +78,7 @@ public class BattleMovement : MonoBehaviour
         lastPosition = transform.position;
 
         playerMovement.canMove = true;
+        
     }
 
     void EndBattleMovement()
@@ -94,6 +95,7 @@ public class BattleMovement : MonoBehaviour
         lastPosition = transform.position;
         playerMovement.canMove = true;
         UpdateUI();
+        
     }
 
     void TrackMovement()
