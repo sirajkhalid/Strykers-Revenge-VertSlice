@@ -188,10 +188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   smoothing: 15
   sprintBonus: 3
-  audioSource: {fileID: 0}
-  walkFootstepSFX: {fileID: 0}
-  sprintFootstepSFX: {fileID: 0}
-  canMove: 0
+  audioSource: {fileID: -6896624358268064977}
+  walkFootstepSFX: {fileID: 8300000, guid: a9b790cc09ed0de408ce8d6b835ddc69, type: 3}
+  sprintFootstepSFX: {fileID: 8300000, guid: c7e047923247813448fb952fc8963ec4, type: 3}
+  canMove: 1
 --- !u!95 &5648930091950226366
 Animator:
   serializedVersion: 7
