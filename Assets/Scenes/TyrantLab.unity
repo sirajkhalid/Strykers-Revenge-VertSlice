@@ -125991,7 +125991,7 @@ MonoBehaviour:
   - {fileID: 1085118638413065071, guid: f6173eaa7682d29499f5eda67d22986b, type: 3}
   partyMembers: []
   activeIndex: 0
-  activeMember: {fileID: 0}
+  activeMember: {fileID: 1798727726}
   mainCamera: {fileID: 696841611}
   spawnOffsetY: 0
   impulseSource: {fileID: 696841612}
@@ -126712,6 +126712,12 @@ Animator:
   m_CorrespondingSourceObject: {fileID: -6635058855351182383, guid: c89b53a481e691247b53c11471704908,
     type: 3}
   m_PrefabInstance: {fileID: 1581418999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1798727726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2740612779636824646, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1877606302}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1877606302
 PrefabInstance:

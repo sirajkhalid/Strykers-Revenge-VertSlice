@@ -463,6 +463,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8286346129866196219, guid: 12658a5e16bd4214f950bd8b2baeb845,
+        type: 3}
+      propertyPath: _collisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286346129866196219, guid: 12658a5e16bd4214f950bd8b2baeb845,
+        type: 3}
+      propertyPath: _collisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1038750546}
+    - target: {fileID: 8286346129866196219, guid: 12658a5e16bd4214f950bd8b2baeb845,
+        type: 3}
+      propertyPath: _collisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286346129866196219, guid: 12658a5e16bd4214f950bd8b2baeb845,
+        type: 3}
+      propertyPath: _collisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286346129866196219, guid: 12658a5e16bd4214f950bd8b2baeb845,
+        type: 3}
+      propertyPath: _collisionExit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14131,7 +14156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1038750547
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21630,7 +21655,7 @@ Transform:
   m_GameObject: {fileID: 1510262236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.34, y: -6.15, z: 0}
+  m_LocalPosition: {x: -15.2, y: -11.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

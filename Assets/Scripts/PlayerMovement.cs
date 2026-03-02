@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
+        
     }
 
     void Update()
