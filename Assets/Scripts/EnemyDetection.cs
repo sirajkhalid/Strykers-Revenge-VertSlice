@@ -105,7 +105,12 @@ public class EnemyDetection : MonoBehaviour
 
         PlayerMovement pm = player.GetComponent<PlayerMovement>();
         if (pm != null)
+        {
             pm.canMove = false;
+            Debug.Log("EnemyDetection - line - 110");
+        }
+            
+            
 
         List<GameObject> battleEnemies = new() { gameObject };
 

@@ -16,6 +16,7 @@ public class BattleMovement : MonoBehaviour
 
     void Start()
     {
+        
         if (characterStats == null)
             characterStats = GetComponent<CharacterStats>();
 
@@ -36,8 +37,23 @@ public class BattleMovement : MonoBehaviour
         lastPosition = transform.position;
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        if (battleManager == null)
+            battleManager = FindFirstObjectByType<BattleStateManager>();
+
+        if (movementText == null)
+        {
+            var found = GameObject.Find("MovementNum");
+            if (found != null)
+                movementText = found.GetComponent<TMP_Text>();
+        }
+        BeginBattleMovement();
+    }
+
     void Update()
     {
+        
         if (battleManager != null)
         {
             if (battleManager.isBattleActive && !wasBattleActive)
@@ -49,10 +65,18 @@ public class BattleMovement : MonoBehaviour
         }
 
         if (!battleManager || !battleManager.isBattleActive)
+        {
+           
             return;
+        }
+           
 
         if (turnManager == null)
+        {
+            Debug.Log("turn manager");
             return;
+        }
+            
 
         // Detect start of player turn
         if (turnManager.isPlayerTurn && !wasPlayerTurn)
@@ -64,6 +88,7 @@ public class BattleMovement : MonoBehaviour
         if (!turnManager.isPlayerTurn)
         {
             playerMovement.canMove = false;
+            Debug.Log("Im here - in playermovement in line 66");
             return;
         }
 
@@ -78,13 +103,14 @@ public class BattleMovement : MonoBehaviour
         lastPosition = transform.position;
 
         playerMovement.canMove = true;
-        
+        Debug.Log("Im here - in playermovement in line 80");
+
     }
 
     void EndBattleMovement()
     {
         playerMovement.canMove = true;
-
+        Debug.Log("Im here - in playermovement in line 89");
         if (movementText != null)
             movementText.text = "";
     }
@@ -93,6 +119,7 @@ public class BattleMovement : MonoBehaviour
     {
         characterStats.ResetMovement();
         lastPosition = transform.position;
+        Debug.Log("Im here - in playermovement in line 98");
         playerMovement.canMove = true;
         UpdateUI();
         
@@ -100,6 +127,7 @@ public class BattleMovement : MonoBehaviour
 
     void TrackMovement()
     {
+        Debug.Log("trackmovement");
         float moved = Vector3.Distance(transform.position, lastPosition);
 
         if (moved > 0f)
@@ -110,6 +138,7 @@ public class BattleMovement : MonoBehaviour
             {
                 characterStats.currentMovement = 0f;
                 playerMovement.canMove = false;
+                Debug.Log("Im here - in playermovement in line 116");
             }
 
             lastPosition = transform.position;
@@ -119,6 +148,7 @@ public class BattleMovement : MonoBehaviour
         if (characterStats.currentMovement > 0f && turnManager.isPlayerTurn)
         {
             playerMovement.canMove = true;
+            Debug.Log("Im here - in playermovement in line 121");
         }
     }
 
@@ -129,4 +159,5 @@ public class BattleMovement : MonoBehaviour
         movementText.text =
             $"{characterStats.currentMovement:F2}m / {characterStats.maxMovement:F2}m";
     }
+   
 }

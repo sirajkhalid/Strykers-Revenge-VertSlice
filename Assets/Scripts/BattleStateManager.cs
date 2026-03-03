@@ -23,6 +23,7 @@ public class BattleStateManager : MonoBehaviour
 
     void Start()
     {
+        
         if (battleUI != null)
             battleUI.SetActive(false);
 
