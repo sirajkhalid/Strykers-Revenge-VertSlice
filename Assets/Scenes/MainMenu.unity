@@ -604,9 +604,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: ResumeGame
+      - m_Target: {fileID: 783356511}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3057,7 +3057,7 @@ MonoBehaviour:
   newGameButton: {fileID: 89564137}
   creditsButton: {fileID: 662859025}
   quitButton: {fileID: 1233604608}
-  CastleScene: BattleSystem
+  CastleScene: GoldenTutorial
   creditsScene: Credits
   fadeOverlay: {fileID: 1416971011}
   fadeTime: 0.75

@@ -2804,6 +2804,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318678554}
   m_CullTransparentMesh: 1
+--- !u!1001 &322558918
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.2362
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 54.1756
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684051380404623409, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931019509795886905, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931019509795886905, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510722601841485660, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_Name
+      value: Styrker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098205991922628262, guid: 2a3ef52452a5cb54a8ed37000bac6ff1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8971971048206562530, guid: 9c6c78d71fbc9d142994604c6d2ff315,
+        type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a3ef52452a5cb54a8ed37000bac6ff1, type: 3}
 --- !u!1 &324401331
 GameObject:
   m_ObjectHideFlags: 0
@@ -16635,7 +16729,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 31
-      m_TileSpriteIndex: 49
+      m_TileSpriteIndex: 51
       m_TileMatrixIndex: 14
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16981,14 +17075,14 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 5572833294901756499, guid: 5df7cfb8f4c9d3b46a70296854c9ab96,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -4459723881856570345, guid: 5df7cfb8f4c9d3b46a70296854c9ab96,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 7772152732872235622, guid: 5df7cfb8f4c9d3b46a70296854c9ab96,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -4459723881856570345, guid: 5df7cfb8f4c9d3b46a70296854c9ab96,
+      type: 3}
   - m_RefCount: 52
     m_Data: {fileID: 4699072054668786125, guid: 5df7cfb8f4c9d3b46a70296854c9ab96,
       type: 3}
@@ -26045,3 +26139,4 @@ SceneRoots:
   - {fileID: 2026423388}
   - {fileID: 1191060258}
   - {fileID: 1567100267}
+  - {fileID: 322558918}
