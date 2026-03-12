@@ -9,17 +9,19 @@ public class ConversationStatRegister : MonoBehaviour
 {
     //Referencing GameObjects
     private CharacterStats characterStats;
-    public GameObject athleticsTrigger;
-    public GameObject sleightOfHandTrigger;
-    public GameObject arcanaTrigger;
-    public GameObject historyTrigger;
-    public GameObject investigationTrigger;
-    public GameObject religionTrigger;
-    public GameObject insightTrigger;
-    public GameObject deceptionTrigger;
-    public GameObject persuasionTrigger;
-    public GameObject performanceTrigger;
-    public GameObject intimidationTrigger;
+
+    GameObject parentTrigger;
+    GameObject athleticsTrigger;
+    GameObject sleightOfHandTrigger;
+    GameObject arcanaTrigger;
+    GameObject historyTrigger;
+    GameObject investigationTrigger;
+    GameObject religionTrigger;
+    GameObject insightTrigger;
+    GameObject deceptionTrigger;
+    GameObject persuasionTrigger;
+    GameObject performanceTrigger;
+    GameObject intimidationTrigger;
 
     //int used for the dice roll
     int diceRollNumber;
@@ -47,6 +49,29 @@ public class ConversationStatRegister : MonoBehaviour
     {
         //Updates the players stats within this script ever 10 second via coroutine
         StartCoroutine(UpdatePlayerStats());
+        StartCoroutine(UpdateSceneTriggers());
+    }
+
+    IEnumerator UpdateSceneTriggers()
+    {
+        yield return new WaitForSeconds(1);
+
+        parentTrigger = GameObject.Find("Dice Roll Triggers");
+
+        if (parentTrigger != null )
+        {
+            athleticsTrigger = parentTrigger.transform.GetChild(0).gameObject;
+            sleightOfHandTrigger = parentTrigger.transform.GetChild(1).gameObject;
+            arcanaTrigger = parentTrigger.transform.GetChild(2).gameObject;
+            historyTrigger = parentTrigger.transform.GetChild(3).gameObject;
+            investigationTrigger = parentTrigger.transform.GetChild(4).gameObject;
+            religionTrigger = parentTrigger.transform.GetChild(5).gameObject;
+            insightTrigger = parentTrigger.transform.GetChild(6).gameObject;
+            deceptionTrigger = parentTrigger.transform.GetChild(7).gameObject;
+            persuasionTrigger = parentTrigger.transform.GetChild(8).gameObject;
+            performanceTrigger = parentTrigger.transform.GetChild(9).gameObject;
+            intimidationTrigger = parentTrigger.transform.GetChild(10).gameObject;
+        }
     }
 
     IEnumerator UpdatePlayerStats()
