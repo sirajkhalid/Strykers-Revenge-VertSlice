@@ -37,7 +37,7 @@ public class BattleMovement : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    private void OnLevelWasLoaded(int level)
+    private void OnLevelWasLoaded(int level) // potiential problem regarding reset.  Also may have to do with character stats and playeermovement
     {
         if (battleManager == null)
             battleManager = FindFirstObjectByType<BattleStateManager>();
