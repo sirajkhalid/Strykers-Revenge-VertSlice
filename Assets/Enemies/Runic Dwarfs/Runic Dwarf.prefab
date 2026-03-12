@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 7423733288043358618}
   - component: {fileID: 4672308384377429527}
   - component: {fileID: 3424910148745173041}
-  - component: {fileID: 196229091853111878}
   m_Layer: 0
   m_Name: Runic Dwarf
   m_TagString: Enemy
@@ -358,26 +357,3 @@ MonoBehaviour:
   coneHalfAngle: 45
   coneDistance: 6
   battleTriggerRange: 2
---- !u!114 &196229091853111878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5399131702510482937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aaeeb73512b4564f8b84c5b582fa1d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ConversationStatRegister
-  athleticsTrigger: {fileID: 0}
-  sleightOfHandTrigger: {fileID: 0}
-  arcanaTrigger: {fileID: 0}
-  historyTrigger: {fileID: 0}
-  investigationTrigger: {fileID: 0}
-  religionTrigger: {fileID: 0}
-  insightTrigger: {fileID: 0}
-  deceptionTrigger: {fileID: 0}
-  persuasionTrigger: {fileID: 0}
-  performanceTrigger: {fileID: 0}
-  intimidationTrigger: {fileID: 0}
