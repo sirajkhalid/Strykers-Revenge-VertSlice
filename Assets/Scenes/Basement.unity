@@ -36067,13 +36067,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.5544586
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9693272
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.010472938
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.007138908
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.91
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 858197682616859840, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
@@ -36081,6 +36101,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5882252880953381172, guid: 4d2ce537b416a99469de8797b81bc99c,
         type: 3}
+    - target: {fileID: 1056185101241624316, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7e8bffa1f47f69140a9611184c193b3b, type: 2}
     - target: {fileID: 1804250577310922318, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: movementType
@@ -36369,6 +36394,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 160849764}
     m_Modifications:
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.1368561
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.11157192
+      objectReference: {fileID: 0}
     - target: {fileID: 4165455087481387223, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: followers.Array.size
@@ -59080,6 +59115,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 160849764}
     m_Modifications:
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2104752
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.074762374
+      objectReference: {fileID: 0}
     - target: {fileID: 4165455087481387223, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: followers.Array.size
@@ -59447,6 +59492,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 160849764}
     m_Modifications:
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.262999
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.04850039
+      objectReference: {fileID: 0}
     - target: {fileID: 7661463343329887040, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Name
@@ -59595,6 +59650,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 160849764}
     m_Modifications:
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2629924
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.048503757
+      objectReference: {fileID: 0}
     - target: {fileID: 7661463343329887040, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Name
