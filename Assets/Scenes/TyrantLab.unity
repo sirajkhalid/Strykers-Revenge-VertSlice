@@ -1590,6 +1590,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.61
       objectReference: {fileID: 0}
+    - target: {fileID: -6635058855351182383, guid: c89b53a481e691247b53c11471704908,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8577952264af73c4abc9f893eb6aa19a, type: 2}
     - target: {fileID: -1602314608913290954, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: abilities.Array.size
@@ -1785,7 +1790,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2444886189413706964, guid: a0645f0566998354aa572ec7f703639d,
+      objectReference: {fileID: 1817518425913746615, guid: e2f7fc0c93fd93945ae9778b029f00bc,
         type: 3}
     - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -7696,12 +7701,12 @@ PrefabInstance:
     - target: {fileID: 7259545359622793805, guid: 89d86ed6f5c34c342aea4b372208df6e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.2002847
+      value: 2.258372
       objectReference: {fileID: 0}
     - target: {fileID: 7259545359622793805, guid: 89d86ed6f5c34c342aea4b372208df6e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.1476
+      value: -19.965
       objectReference: {fileID: 0}
     - target: {fileID: 7259545359622793805, guid: 89d86ed6f5c34c342aea4b372208df6e,
         type: 3}
@@ -135689,6 +135694,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2081320311}
     m_Modifications:
+    - target: {fileID: 1646418740697464320, guid: 45e46a7b390eb0e49991c598e1a00e85,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2040963348853260196, guid: 1dd3850801a46b6449273503961cfd07,
+        type: 3}
     - target: {fileID: 1867714486044544696, guid: 45e46a7b390eb0e49991c598e1a00e85,
         type: 3}
       propertyPath: enemyInfoBox
@@ -135779,6 +135790,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3336493846257502437, guid: 45e46a7b390eb0e49991c598e1a00e85,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: eb6e67e560e964546b4aec0a6bd83be8, type: 2}
     - target: {fileID: 5399131702510482937, guid: 45e46a7b390eb0e49991c598e1a00e85,
         type: 3}
       propertyPath: m_Name

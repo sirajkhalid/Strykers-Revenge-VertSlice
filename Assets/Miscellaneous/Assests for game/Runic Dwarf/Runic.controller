@@ -20,7 +20,7 @@ AnimatorStateMachine:
     m_Position: {x: 310, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4027877651436026248}
-    m_Position: {x: 520, y: -60, z: 0}
+    m_Position: {x: 530, y: -110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -1955258131417834248}
@@ -54,7 +54,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 781d2e7a6d691b649a00221ef4043cc7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 801aa56387e5e4a4b939b748e6692026, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -128,7 +128,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 781d2e7a6d691b649a00221ef4043cc7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 801aa56387e5e4a4b939b748e6692026, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -187,7 +187,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BloatedCorpse
+  m_Name: Runic
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: CastTrigger
@@ -242,7 +242,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ac5dcbd7e5327a94595c1674e4f46705, type: 2}
+  m_Motion: {fileID: 7400000, guid: 682e2a35a42b4c847993276a7cf80857, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -319,7 +319,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e743a57c8f0d15b48a0965667ad19fc4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2bc9c520c15ced94e91013f4e02392da, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
