@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &324183076802201904
+--- !u!1 &7475908004976774230
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4988637882972301213}
-  - component: {fileID: 5066166189470553662}
-  - component: {fileID: -7135463569813622484}
-  - component: {fileID: -5027258154347297065}
-  - component: {fileID: -6635058855351182383}
-  - component: {fileID: 6649234393219757417}
-  - component: {fileID: 1497034400118839153}
-  - component: {fileID: -1602314608913290954}
-  - component: {fileID: 5181030918936642381}
-  - component: {fileID: 8983463322286771940}
-  - component: {fileID: 5431015048163812394}
-  - component: {fileID: -8907701141783262192}
+  - component: {fileID: 7088058517957504733}
+  - component: {fileID: 7438356307475130475}
+  - component: {fileID: 5132720649268459264}
+  - component: {fileID: 4879622784488266556}
+  - component: {fileID: 3226320731043667571}
+  - component: {fileID: 983456144549134356}
+  - component: {fileID: 4166216517932116758}
+  - component: {fileID: 6535718045542245837}
+  - component: {fileID: 8915812897654140205}
+  - component: {fileID: 7977981750805099956}
+  - component: {fileID: 4104896809260317648}
+  - component: {fileID: 7934013155429935695}
   m_Layer: 0
-  m_Name: Bloated Corpse
+  m_Name: Lumbering Ghoul
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4988637882972301213
+--- !u!4 &7088058517957504733
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.58, y: 7.45, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -53.02, y: 34.9, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5066166189470553662
+--- !u!212 &7438356307475130475
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 9026757932403066129, guid: 9ecd892a86f99fb49a2188fcae2f55b3,
+  m_Sprite: {fileID: 1817518425913746615, guid: e2f7fc0c93fd93945ae9778b029f00bc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,13 +101,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-7135463569813622484
+--- !u!61 &5132720649268459264
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -135,26 +135,26 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.52}
+  m_Offset: {x: 0.005696535, y: 0.004114598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.11, y: 1.24}
+    oldSize: {x: 0.46, y: 0.62}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.12, y: 0.32}
+  m_Size: {x: 0.43061572, y: 0.57641727}
   m_EdgeRadius: 0
---- !u!50 &-5027258154347297065
+--- !u!50 &4879622784488266556
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -174,17 +174,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!95 &-6635058855351182383
+--- !u!95 &3226320731043667571
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 49847d13a2622614180ff93ef10bd6fb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8577952264af73c4abc9f893eb6aa19a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -196,19 +196,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6649234393219757417
+--- !u!114 &983456144549134356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bcdb1038f6c91f4d8521516f91a2463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  enemyStats: {fileID: 0}
+  enemyStats: {fileID: 4166216517932116758}
   battleManager: {fileID: 0}
   enemyInfoBox: {fileID: 0}
   enemyNameText: {fileID: 0}
@@ -217,58 +217,60 @@ MonoBehaviour:
   enemyTypeText: {fileID: 0}
   enemyPortraitBox: {fileID: 0}
   enemyPortrait: {fileID: 0}
---- !u!114 &1497034400118839153
+--- !u!114 &4166216517932116758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07ed6843e58faac4fa8966ee9478ebbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  enemyName: Enemy
-  creatureType: 22
-  enemyPortrait: {fileID: 0}
-  level: 1
-  strength: 10
-  dexterity: 10
-  constitution: 10
+  enemyName: Bloated Corpse
+  creatureType: 13
+  enemyPortrait: {fileID: 2041774358730955311, guid: dbf4f590f906e7942b0dc69dceda0458,
+    type: 3}
+  level: 2
+  strength: 16
+  dexterity: 16
+  constitution: 16
   intelligence: 10
   wisdom: 10
   charisma: 10
-  strMod: 0
-  dexMod: 0
-  conMod: 0
+  strMod: 3
+  dexMod: 3
+  conMod: 3
   intMod: 0
   wisMod: 0
   chaMod: 0
-  baseHealth: 10
-  maxHealth: 19
+  baseHealth: 100
+  maxHealth: 133
   currentHealth: 0
-  armorClass: 10
+  armorClass: 14
   initiative: 0
   rolledInitiative: 0
-  xpReward: 50
-  maxMovement: 5
+  xpReward: 80
+  maxMovement: 10
   currentMovement: 0
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 3226320731043667571}
   castAnimationTrigger: CastTrigger
   castAnimationTrigger2: CastTrigger2
   spellSlotsLevel1: 4
   spellSlotsLevel2: 1
   maxSpellSlotsLevel1: 4
   maxSpellSlotsLevel2: 1
-  floatingDamagePrefab: {fileID: 0}
---- !u!114 &-1602314608913290954
+  floatingDamagePrefab: {fileID: 3301753505469938636, guid: 871d92440ead06f409228cb39b15bef7,
+    type: 3}
+--- !u!114 &6535718045542245837
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7b7bbb5bd787ac42aabf3e6d38d8bbe, type: 3}
@@ -276,19 +278,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAbilityLoadout
   abilities:
   - {fileID: 11400000, guid: d24318362ccbab249b4e1aaba4ada841, type: 2}
-  - {fileID: 11400000, guid: e2cdea6e305b1944c8e1d301cc700106, type: 2}
-  - {fileID: 11400000, guid: 96a1a9259fee0b645958869ab677a13b, type: 2}
-  - {fileID: 11400000, guid: e07db6290a12d784e81713bf555c172d, type: 2}
-  - {fileID: 11400000, guid: e1304a5f71afcae4d9d17dec33d2a9e5, type: 2}
   - {fileID: 11400000, guid: 9a2117e77a70a5a4cb68bc27ef988e3e, type: 2}
+  - {fileID: 11400000, guid: 008c09ad2da9b184ea11c5a80caac6df, type: 2}
   chooseRandomAbility: 1
---- !u!114 &5181030918936642381
+--- !u!114 &8915812897654140205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bbb57944a95d74428d6c4f35b4224af, type: 3}
@@ -296,19 +295,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAIController
   behavior: {fileID: 11400000, guid: 820e23a52dd394941a3cc680c170f2e5, type: 2}
   abilityAudioSource: {fileID: 0}
---- !u!114 &8983463322286771940
+--- !u!114 &7977981750805099956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 331cfafdbb94a6c49bb2558290789598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovementController
-  movementType: 0
+  movementType: 2
   moveSpeed: 2
   patrolDistance: 3
   patrolDirection: {x: 1, y: 0}
@@ -323,29 +322,31 @@ MonoBehaviour:
   canMove: 1
   externalControl: 0
   isInBattle: 0
---- !u!114 &5431015048163812394
+--- !u!114 &4104896809260317648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 775baf9a7d4a92e45811cfa4ea197ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyGroupController
-  followers: []
+  followers:
+  - {fileID: 0}
+  - {fileID: 0}
   baseRadius: 1.5
   jitterAmount: 0.3
   jitterSpeed: 1.5
---- !u!114 &-8907701141783262192
+--- !u!114 &7934013155429935695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324183076802201904}
+  m_GameObject: {fileID: 7475908004976774230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4ba564dc5bad984daabdc4ff0122385, type: 3}
