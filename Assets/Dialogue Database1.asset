@@ -3719,7 +3719,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: What upgrade do you want?
+        value: What upgrade do you want? (This will effect your player character
+          only).
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3753,8 +3754,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 82.66666
+        x: 160.87721
+        y: 82.22806
         width: 160
         height: 30
     - id: 2
@@ -3910,7 +3911,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: gainArmor(1)
+      userScript: gainArmor(3)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3943,7 +3944,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Gain more HP by 1
+        value: Gain more HP by 5
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3959,14 +3960,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: gainHP(1);
+      userScript: gainHP(5);
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 281.33334
-        y: 213.99998
+        y: 214.43858
         width: 160
         height: 30
     entryGroups: []
