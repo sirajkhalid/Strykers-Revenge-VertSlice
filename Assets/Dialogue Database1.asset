@@ -11715,7 +11715,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: EventGuid
-        value: fa67f62a-9599-46a2-81b4-97aec48bdef6
+        value: 
         type: 0
         typeString: 
       conversationID: 24
@@ -12254,7 +12254,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: EventGuid
-        value: c553507d-e3f5-4e3e-a382-eff394e852e3
+        value: 
         type: 0
         typeString: 
       conversationID: 24
@@ -12313,7 +12313,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: EventGuid
-        value: aa809308-98d9-4d5e-af0b-c456baf9944b
+        value: 
         type: 0
         typeString: 
       conversationID: 24
@@ -17411,7 +17411,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: EventGuid
-        value: f6889e4e-98c6-4e19-a13f-6f5b5faa4aa7
+        value: 
         type: 0
         typeString: 
       conversationID: 36
@@ -17465,7 +17465,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: EventGuid
-        value: a4c55102-c430-4076-b222-88afc0fca776
+        value: 
         type: 0
         typeString: 
       conversationID: 36
@@ -17687,12 +17687,6 @@ MonoBehaviour:
       - originConversationID: 37
         originDialogueID: 12
         destinationConversationID: 37
-        destinationDialogueID: 13
-        isConnector: 0
-        priority: 2
-      - originConversationID: 37
-        originDialogueID: 12
-        destinationConversationID: 37
         destinationDialogueID: 14
         isConnector: 0
         priority: 2
@@ -17711,67 +17705,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 159.79999
         y: 87.40001
-        width: 160
-        height: 30
-    - id: 13
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Use Key
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 37
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 37
-        originDialogueID: 13
-        destinationConversationID: 37
-        destinationDialogueID: 15
-        isConnector: 0
-        priority: 2
-      - originConversationID: 37
-        originDialogueID: 13
-        destinationConversationID: 37
-        destinationDialogueID: 21
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 136.59999
-        y: 135.8
         width: 160
         height: 30
     - id: 14
@@ -17839,59 +17772,6 @@ MonoBehaviour:
         y: 86.2
         width: 160
         height: 30
-    - id: 15
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: The lock clicks and the door unlocks.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      - title: EventGuid
-        value: 60c9025f-e238-4cbe-a533-2804bf025396
-        type: 0
-        typeString: 
-      conversationID: 37
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 215
-        y: 200.20001
-        width: 160
-        height: 30
     - id: 16
       fields:
       - title: Title
@@ -17924,7 +17804,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: EventGuid
-        value: 571a5c0f-8099-4be0-b4e0-3c7790bfba0a
+        value: 
         type: 0
         typeString: 
       conversationID: 37
@@ -17984,7 +17864,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: EventGuid
-        value: a3755a67-a2c2-40e0-9399-b19dd523255d
+        value: 
         type: 0
         typeString: 
       conversationID: 37
@@ -18167,55 +18047,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 668.59973
         y: 201.40002
-        width: 160
-        height: 30
-    - id: 21
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: You do not have the required key.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 37
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 34.59999
-        y: 200.20001
         width: 160
         height: 30
     entryGroups: []
@@ -18749,7 +18580,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: EventGuid
-        value: a4b1825d-25a1-4250-8577-b7b78403a436
+        value: 
         type: 0
         typeString: 
       conversationID: 38
@@ -18802,7 +18633,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: EventGuid
-        value: dafd8d9d-36cf-43fd-ad83-a146b04ab4eb
+        value: 
         type: 0
         typeString: 
       conversationID: 38

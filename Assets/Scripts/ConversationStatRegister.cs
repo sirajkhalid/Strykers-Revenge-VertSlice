@@ -91,6 +91,23 @@ public class ConversationStatRegister : MonoBehaviour
         currentIntimidation = characterStats.intimidation.ToString();
     }
 
+    IEnumerator DisableTriggers()
+    {
+        yield return new WaitForSeconds(5);
+
+        athleticsTrigger.SetActive(false);
+        sleightOfHandTrigger.SetActive(false);
+        arcanaTrigger.SetActive(false);
+        historyTrigger.SetActive(false);
+        investigationTrigger.SetActive(false);
+        religionTrigger.SetActive(false);
+        insightTrigger.SetActive(false);
+        deceptionTrigger.SetActive(false);
+        persuasionTrigger.SetActive(false);
+        performanceTrigger.SetActive(false);
+        intimidationTrigger.SetActive(false);
+    }
+
     //Function for generating dice roll
     private void GenerateDiceRoll()
     {
@@ -100,16 +117,18 @@ public class ConversationStatRegister : MonoBehaviour
     bool HasAthletics(string requiredAthletics)
     {
         if (athleticsTrigger.activeSelf)
-        { 
+        {
             GenerateDiceRoll();
             if (diceRollNumber <= characterStats.athletics)
             {
                 requiredAthletics = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredAthletics = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -127,11 +146,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.sleightOfHand)
             {
                 requiredSOH = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredSOH = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -149,11 +170,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.arcana)
             {
                 requiredArcana = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredArcana = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -171,11 +194,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.history)
             {
                 requiredHistory = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredHistory = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -193,11 +218,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.investigation)
             {
                 requiredInvestigation = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredInvestigation = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -215,11 +242,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.religion)
             {
                 requiredReligion = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredReligion = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -237,11 +266,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.insight)
             {
                 requiredInsight = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredInsight = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -259,11 +290,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.deception)
             {
                 requiredDeception = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredDeception = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -281,11 +314,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.persuasion)
             {
                 requiredPersuasion = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredPersuasion = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -303,11 +338,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.performance)
             {
                 requiredPerformance = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredPerformance = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
@@ -325,11 +362,13 @@ public class ConversationStatRegister : MonoBehaviour
             if (diceRollNumber <= characterStats.intimidation)
             {
                 requiredIntimidation = "1";
+                StartCoroutine(DisableTriggers());
                 return true;
             }
             else
             {
                 requiredIntimidation = "0";
+                StartCoroutine(DisableTriggers());
                 return false;
             }
         }
