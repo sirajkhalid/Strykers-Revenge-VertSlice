@@ -190,11 +190,9 @@ MonoBehaviour:
   smoothing: 15
   sprintBonus: 3
   audioSource: {fileID: 7675128781121719844}
-  walkFootstepSFX: {fileID: 8300000, guid: a9b790cc09ed0de408ce8d6b835ddc69, type: 3}
-  sprintFootstepSFX: {fileID: 8300000, guid: c7e047923247813448fb952fc8963ec4, type: 3}
+  walkFootstepSFX: {fileID: 0}
+  sprintFootstepSFX: {fileID: 0}
   canMove: 1
-  dustPrefab: {fileID: 5298097538875491553, guid: 4c23aadabd36b9143ba1641a481c0510,
-    type: 3}
 --- !u!95 &5648930091950226366
 Animator:
   serializedVersion: 7
@@ -258,6 +256,10 @@ MonoBehaviour:
   armorClass: 0
   initiative: 0
   rolledInitiative: 0
+  bonusHP: 0
+  bonusDamage: 3
+  bonusArmor: 1
+  bonusMovement: 2
   athletics: 0
   acrobatics: 0
   sleightOfHand: 0
