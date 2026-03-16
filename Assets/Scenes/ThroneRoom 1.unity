@@ -2934,7 +2934,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'arrays.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1171486436}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5775,6 +5775,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1171486436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 802632504494832318, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+    type: 3}
+  m_PrefabInstance: {fileID: 402187851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1191060257
 GameObject:
   m_ObjectHideFlags: 0

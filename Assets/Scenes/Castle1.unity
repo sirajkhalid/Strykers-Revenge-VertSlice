@@ -476,6 +476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
+      propertyPath: xpReward
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
+        type: 3}
       propertyPath: enemyName
       value: Bloated Corpse
       objectReference: {fileID: 0}
@@ -120572,8 +120577,8 @@ SceneRoots:
   - {fileID: 873041050}
   - {fileID: 8074212424244132602}
   - {fileID: 765491580}
-  - {fileID: 1546308120}
   - {fileID: 1538005333}
+  - {fileID: 1546308120}
   - {fileID: 392369270}
   - {fileID: 3599868159424426143}
   - {fileID: 1494619444}
