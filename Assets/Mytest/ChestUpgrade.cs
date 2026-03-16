@@ -58,8 +58,7 @@ public class ChestUpgrade : MonoBehaviour
         // Recompute maxHealth using the increased bonus HP value:
         characterStats.CalculateDerivedStats();
 
-        GameObject Chest = GameObject.Find("Chest");
-        Chest.gameObject.SetActive(false);
+
     }
 
         void OnEnable()
