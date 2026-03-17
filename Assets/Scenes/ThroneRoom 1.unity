@@ -720,6 +720,52 @@ PrefabInstance:
       propertyPath: intelligence
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4603804947453965128, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyPortrait
+      value: 
+      objectReference: {fileID: 1302723820812287101, guid: 06db49d7a6abae846b18a08a0d1348df,
+        type: 3}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyInfoBox
+      value: 
+      objectReference: {fileID: 776936253}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: battleManager
+      value: 
+      objectReference: {fileID: 507591791}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyNameText
+      value: 
+      objectReference: {fileID: 776936252}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyPortrait
+      value: 
+      objectReference: {fileID: 776936247}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyTypeText
+      value: 
+      objectReference: {fileID: 776936249}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyHealthNum
+      value: 
+      objectReference: {fileID: 776936250}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyHealthFill
+      value: 
+      objectReference: {fileID: 776936251}
+    - target: {fileID: 7312491779485257162, guid: 286a37ca4e0b64b4986f0aec33fa7391,
+        type: 3}
+      propertyPath: enemyPortraitBox
+      value: 
+      objectReference: {fileID: 776936248}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2443,6 +2489,78 @@ MonoBehaviour:
 --- !u!225 &776936246 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 167193433958239581, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 776936243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &776936247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5004824146938895421, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 776936243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &776936248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6961287047961279065, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 776936243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &776936249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1516925283020141942, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 776936243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &776936250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5637079638196844147, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 776936243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &776936251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5183580819995381556, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 776936243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &776936252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4467289610207992269, guid: 4907e897ea011104b9e41b93ff9faeee,
+    type: 3}
+  m_PrefabInstance: {fileID: 776936243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &776936253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5167602623115520009, guid: 4907e897ea011104b9e41b93ff9faeee,
     type: 3}
   m_PrefabInstance: {fileID: 776936243}
   m_PrefabAsset: {fileID: 0}
@@ -7971,7 +8089,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4194284971611777511, guid: e4041833ede042145b211a48bd2ba43d,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: d707f9d7967606a48a762bdadc0e6d3a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 210ba36df95b0a94d95a34d6fac2f194, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.03
   m_Pitch: 1
