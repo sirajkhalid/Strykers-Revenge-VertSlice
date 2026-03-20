@@ -10,15 +10,8 @@ public class MonsterTrigger : MonoBehaviour
     public void OnTriggerExit2D(Collider2D other)
     {
         Door.SetActive(true);
-        for (int i = 0; i < arrays.Length; i++)
-        {
-            if (arrays[i].gameObject.activeInHierarchy && i < arrays.Length - 1)
-            {
-               
-                return;
-            }
-           
-        }
+      
+
     }
     private void Update()
     {
@@ -28,6 +21,7 @@ public class MonsterTrigger : MonoBehaviour
             Door.SetActive(false);
             return;
         }
+        
     }
     bool AllDestroyed(GameObject[] arrays)
     {

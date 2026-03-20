@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BattleMovement : MonoBehaviour
 {
@@ -35,12 +36,27 @@ public class BattleMovement : MonoBehaviour
 
         turnManager = FindFirstObjectByType<TurnManager>();
         lastPosition = transform.position;
+
+        SceneManager.sceneLoaded += this.OnLoadCallBack;
     }
 
-    private void OnLevelWasLoaded(int level) // potiential problem regarding reset.  Also may have to do with character stats and playeermovement
+    void OnLoadCallBack(Scene scene, LoadSceneMode sceneMode) // potiential problem regarding reset.  Also may have to do with character stats and playeermovement
     {
+
+        if (characterStats == null)
+            characterStats = GetComponent<CharacterStats>();
+
+        if (playerMovement == null)
+            playerMovement = GetComponent<PlayerMovement>();
+
         if (battleManager == null)
             battleManager = FindFirstObjectByType<BattleStateManager>();
+        if (turnManager == null)
+        {
+            
+            turnManager = FindFirstObjectByType<TurnManager>();
+            return;
+        }
 
         if (movementText == null)
         {
@@ -49,6 +65,8 @@ public class BattleMovement : MonoBehaviour
                 movementText = found.GetComponent<TMP_Text>();
         }
         BeginBattleMovement();
+        TrackMovement();
+        UpdateUI();
     }
 
     void Update()

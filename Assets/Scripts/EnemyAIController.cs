@@ -191,7 +191,7 @@ public class EnemyAIController : MonoBehaviour
             lastUsedAbility = ability;
             lastUsedCount = 1;
         }
-        Debug.Log($"{stats.enemyName} uses {ability.abilityName}!");
+       // Debug.Log($"{stats.enemyName} uses {ability.abilityName}!");
 
         PlayAbilitySound(ability);
 
