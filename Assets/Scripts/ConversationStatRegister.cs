@@ -384,7 +384,7 @@ public class ConversationStatRegister : MonoBehaviour
         //Registering the bool functions with the Lua code so they can be used by the dialogue system
         //New entries can use the following template below
 
-        //Lua.RegisterFunction("EnterFunctionNameHere", this, SymbolExtensions.GetMethodInfo(() => EnterFunctionNameHere(string.Empty)));
+        //Lua.RegisterFunction("nameof(EnterFunctionNameHere)", this, SymbolExtensions.GetMethodInfo(() => EnterFunctionNameHere(string.Empty)));
 
         Lua.RegisterFunction("HasAthletics", this, SymbolExtensions.GetMethodInfo(() => HasAthletics(string.Empty)));
         Lua.RegisterFunction("HasSOH", this, SymbolExtensions.GetMethodInfo(() => HasSOH(string.Empty)));
@@ -404,7 +404,7 @@ public class ConversationStatRegister : MonoBehaviour
         //Disables the bool functions in Lua since they are not on a persistent object
         //New entries can use the following template below
 
-        //Lua.UnregisterFunction("EnterFunctionNameHere");
+        //Lua.UnregisterFunction(nameof(EnterFunctionNameHere));
 
         Lua.UnregisterFunction("HasAthletics");
         Lua.UnregisterFunction("HasSOH");
