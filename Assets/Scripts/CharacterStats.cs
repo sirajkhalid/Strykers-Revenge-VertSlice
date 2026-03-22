@@ -179,8 +179,12 @@ public class CharacterStats : MonoBehaviour
         SceneManager.sceneLoaded += this.OnLoadCallBack;
 
     }
-    
-    
+
+    public void Reset()
+    {
+        CalculateAllStats();
+        CalculateSpellSlots();
+    }
 
     void OnLoadCallBack(Scene scene, LoadSceneMode sceneMode)
     {

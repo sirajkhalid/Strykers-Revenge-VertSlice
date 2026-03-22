@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Unity.Cinemachine;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,6 +25,12 @@ public class PlayerPartyController : MonoBehaviour
 
     public CinemachineImpulseSource impulseSource;
     public bool disableSwitching = false;
+
+    public string currentScene = "MyScene";
+    public string currentStartPoint = "StartPoint";
+    public string NotificationText = "";
+
+    
 
     void Awake()
     {
@@ -73,6 +80,21 @@ public class PlayerPartyController : MonoBehaviour
         HookCamera();
         RefreshUI();
         Invoke(nameof(ForceHUDInit), 0.1f);
+    }
+
+    public void LoadGameData()
+    {
+        currentScene = PlayerPrefs.GetString("MyGame", "MyScene");
+        currentStartPoint = PlayerPrefs.GetString("MyGameStartPoint", "MySceneMyPoint");
+    }
+    public void SaveGameData()
+    {
+       // PlayerPrefs.SetString("MyGame-scene", current)
+    }
+
+    public void ResetGameData()
+    {
+        
     }
 
     void CleanupNullMembers()
