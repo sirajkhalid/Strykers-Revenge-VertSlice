@@ -9167,6 +9167,9 @@ MonoBehaviour:
   spawnOffsetY: 0
   impulseSource: {fileID: 754566171}
   disableSwitching: 0
+  currentScene: MyScene
+  currentStartPoint: StartPoint
+  NotificationText: 
 --- !u!4 &426084919
 Transform:
   m_ObjectHideFlags: 0
@@ -15115,6 +15118,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5566664019620866987, guid: 4907e897ea011104b9e41b93ff9faeee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.9782104
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566664019620866987, guid: 4907e897ea011104b9e41b93ff9faeee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.415123
+      objectReference: {fileID: 0}
     - target: {fileID: 5580965508027299368, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -15819,6 +15832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954400220054454172, guid: 4907e897ea011104b9e41b93ff9faeee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.5892334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44249,7 +44267,7 @@ PrefabInstance:
     - target: {fileID: 6297487519236451923, guid: 7077779e67856ea4c905fbba72fcef93,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
