@@ -186,6 +186,9 @@ MonoBehaviour:
   spawnOffsetY: 0
   impulseSource: {fileID: 1832289205}
   disableSwitching: 0
+  currentScene: MyScene
+  currentStartPoint: StartPoint
+  NotificationText: 
 --- !u!4 &1904393
 Transform:
   m_ObjectHideFlags: 0
@@ -38525,12 +38528,12 @@ GameObject:
   - component: {fileID: 1488592385}
   - component: {fileID: 1488592386}
   m_Layer: 0
-  m_Name: Noble Crowd
+  m_Name: Sir George
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1488592382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38770,12 +38773,12 @@ GameObject:
   - component: {fileID: 1539811440}
   - component: {fileID: 1539811441}
   m_Layer: 0
-  m_Name: Noble Crowd
+  m_Name: Sir Arden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1539811437
 SpriteRenderer:
   m_ObjectHideFlags: 0
