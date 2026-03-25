@@ -2250,7 +2250,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 29.10982, y: 109.73929}
+    canvasScrollPosition: {x: 0, y: 109.73929}
     canvasZoom: 0.69275165
   - id: 2
     fields:
@@ -13922,8 +13922,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'How wonderful - the mortal flith has finally arrived.  Styrker said
-          you would show. '
+        value: "How wonderful\u2014the mortal filth has finally arrived. Styrker
+          said you would show."
         type: 0
         typeString: 
       - title: Sequence
@@ -13978,8 +13978,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: He was quite commanding - "kill those who kill my friends of peace"!
-          What an asshole.  A mortal like him commanding me... (He growls in frustration)
+        value: "He was quite commanding\u2014\"Kill those who kill my friends of
+          peace!\" What an asshole. A mortal like him, commanding me... (He growls
+          in frustration)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14020,7 +14021,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 203.78757
-        y: 132
+        y: 131.12088
         width: 160
         height: 30
     - id: 2
@@ -14046,7 +14047,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: If your with him then your against me - let's end this.
+        value: "If you\u2019re with him, then you\u2019re against me\u2014let\u2019s
+          end this."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14058,7 +14060,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14101,7 +14103,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Fine by me - filth.
+        value: Fine by me, filth.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14113,7 +14115,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -14150,7 +14152,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: You know we could work together - and take Styrker down.
+        value: You know, we could work together and take Styrker down.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14162,7 +14164,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14205,7 +14207,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Why would you work for him if you hate him.
+        value: Why would you work for him if you hate him?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14217,7 +14219,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14260,10 +14262,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Hmm - well since you will be dead in the next few minutes - I'll enlighten
-          you.  My Goddess - the Goddess of Grief decided to make that mortal her
-          Chosen.  I don't know how he convinced her to settle with this plan but,
-          my Goddess does what she wishes.
+        value: "Hmm, well, since you will be dead in the next few minutes, I'll enlighten
+          you. My Goddess\u2014the Goddess of Grief\u2014decided to make that mortal
+          her Chosen. I don't know how he convinced her to settle on this plan, but
+          my Goddess does what she wishes."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14275,7 +14277,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14324,10 +14326,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Well his plan of peace if bullshit - I seen what he pushed in the
-          Elven Terroritory and the City of Slaves.
-
-'
+        value: "Well, his plan of peace is bullshit\u2014I\u2019ve seen what he pushed
+          in the Elven Territory and the City of Slaves."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14339,7 +14339,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14382,8 +14382,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Why would she ever help him then wouldn't a massacure cause her more
-          sadness in the world.
+        value: Why would she ever help him, then? Wouldn't a massacre cause more
+          sadness in the world?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14395,7 +14395,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14438,8 +14438,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: As if.   I am a lich of great power - your just a filithy mortal scum
-          that deserves nothing but a slow painful death besides, it's not all bad.
+        value: "As if. I am a lich of great power\u2014you\u2019re just filthy mortal
+          scum that deserves nothing but a slow, painful death. Besides, it\u2019s
+          not all bad."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14451,7 +14452,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14506,7 +14507,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Oh I'm going to enjoy killing you.
+        value: Oh, I'm going to enjoy killing you.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14518,7 +14519,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -14555,10 +14556,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Well the Elves - yes he did push for the criminals to be punished
-          but for the City of Slaves.  That disease that spread thoughtout the city
-          - that was me.  Styrker was hoping to just kill the higher ups and then
-          help the people.  Kind-Hearted fool.
+        value: "Well, the Elves\u2014yes, he did push for the criminals to be punished\u2014but
+          as for the City of Slaves, that disease that spread throughout the city
+          was me. Styrker was hoping to just kill the higher-ups and then help the
+          people. Kind-hearted fool."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14570,7 +14571,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14613,8 +14614,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I may have been punished by my Goddess and Styrker but I let that
-          disease free in the city on my own wishes.  HAHAHA it was a beautiful sight
+        value: I may have been punished by my Goddess and Styrker, but I unleashed
+          that disease on the city of my own will. HAHAHA, it was a beautiful sight
           to see them all wither.
         type: 0
         typeString: CustomFieldType_Text
@@ -14627,7 +14628,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14688,11 +14689,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: She is also know as the Goddess of Destruction - I know your region
-          isn't the most religious but trust me on one thing.  She hates mortals
-          for what they did in the past.  But she will also hold tightly to those
-          who grieve for their lost.  Such a kind hearted mistress for such a vile
-          group.
+        value: 'She is also known as the Goddess of Destruction. I know your region
+          isn''t the most religious, but trust me on one thing: she hates mortals
+          for what they did in the past. But she also holds tightly to those who
+          grieve their losses. Such a kind-hearted mistress for such a vile group.'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14704,7 +14704,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 28
@@ -14737,7 +14737,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 99.34067, y: 0}
+    canvasScrollPosition: {x: 186.3736, y: 1.7582092}
     canvasZoom: 0.9100001
   - id: 29
     fields:
@@ -14863,8 +14863,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: It's a memory shard - it reveals the memories of the owner.  Would
-          you like to read it.
+        value: It's a memory shard. It reveals the memories of the owner. Would you
+          like to read it?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -14876,7 +14876,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 29
@@ -14992,7 +14992,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -15029,10 +15029,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: The "Tyrant king is furious.  More defective dwarfs come in and we
-          still haven't found away around their genetic condition.  We already lost
-          10 subjects and no super soldiers.  The king is getting restless and angry. 
-          I hope to find a break though soon.
+        value: The Tyrant King is furious. More defective dwarves have come in, and
+          we still haven't found a way around their genetic condition. We've already
+          lost 10 subjects and have no super soldiers. The king is growing restless
+          and angry. I hope to find a breakthrough soon.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15044,7 +15044,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -15185,10 +15185,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: The king was pleased that we finally got a first successful subject
-          and have been creating more of the Runic Dwarf - super soliders.  Turning
-          a defect into a useful tool!  I'm suprised the first sucessful test was
-          his own son - (harsh) but I'm just glad it's not my becon.
+        value: "The king was pleased that we finally got our first successful subject
+          and have been creating more Runic Dwarf super soldiers. Turning a defect
+          into a useful tool! I'm surprised the first successful test subject was
+          his own son\u2014harsh, but I'm just glad it's not at my beck and call."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15200,7 +15200,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 30
@@ -15243,12 +15243,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (A few days later) We have examined more of the Restraint genetic
-          in the subjects.  The annoying thing about this disease is that it's genetic
-          and can't be used as bio-weapon of some sort.  Or at least not yet.  The
-          tests we have done with the Super soldiers and test subjects have gone
-          well enough - only losing 3 subjects instead of 20.  But the king should
-          be pleased next visit.
+        value: "(A few days later) We have examined more of the Restraint gene in
+          the subjects. The annoying thing about this disease is that it's genetic
+          and can't be used as a bio-weapon of any sort, or at least not yet. The
+          tests we have conducted with the super soldiers and test subjects have
+          gone well enough\u2014only losing 3 subjects instead of 20. The king should
+          be pleased on his next visit."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15260,7 +15260,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -15401,10 +15401,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: The king has dispatched the first test of super soldiers against the
-          recent protestors - destructive results and thankfully the the collars
-          are working well.  I can see the hatered in their eyes but the collars
-          are safely in tact and unless something happens to the king we are fine!
+        value: The king has dispatched the first group of super soldiers against
+          the recent protesters. The results were destructive, and thankfully the
+          collars are working well. I can see the hatred in their eyes, but the collars
+          are safely intact, and unless something happens to the king, we are fine!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15416,7 +15416,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 31
@@ -15459,9 +15459,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: The rebels broke though - DAMN IT ALL.  I don't know how as well but
-          Styrker figured out how to break the collars! (just my luck) Well I'm not
-          going to die here I REFUSE to (the letter ends with a smear of blood).
+        value: "The rebels broke through\u2014DAMN IT ALL. I don't know how, but
+          Styrker figured out how to break the collars! (Just my luck.) Well, I'm
+          not going to die here\u2014I REFUSE to. (The letter ends with a smear of
+          blood.)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15473,7 +15474,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -15614,14 +15615,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'My father was not pleased - when he found out.  That I couldn''t
-          use magic... or at least magic just won''t work properly with me.
-
-
-          I
-          never understood why the Restrainted disease was so viled by dwarfs and
-          humans.  With humans - my guess was because they just hate everything.
-          But dwarfs... their suppose to be jolly figures right...?  '
+        value: "My father was not pleased when he found out that I couldn't use magic\u2014or
+          at least that it wouldn\u2019t work properly for me.\n\nI never understood
+          why the Restraint disease was so reviled by dwarves and humans. With humans,
+          my guess was that they just hate everything. But dwarves\u2026 they\u2019re
+          supposed to be jolly figures, right?**"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15633,7 +15631,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 32
@@ -15676,10 +15674,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: My father hit me today - my sister rushed to my side - only to be
-          beratted.  Said that he is going to make sure I become right.  I only see
-          a bunch of white dressed dwarfs outside my room.  I was told to wait by
-          my sister.  She won't betray me right?
+        value: "My father hit me today. My sister rushed to my side, only to be berated.
+          He said that he is going to make sure I become \u201Cright.\u201D I can
+          only see a bunch of white-dressed dwarves outside my room. I was told to
+          wait by my sister. She won\u2019t betray me, right?"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15691,7 +15689,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -15832,9 +15830,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: It's been a week since - I was thrown into these labs.  I seen 10
-          people die and heard screaming non-stop for the past 24- hours.  I have
-          vomitted 3 times today from the sound alone.
+        value: It's been a week since I was thrown into these labs. I've seen 10
+          people die and have heard nonstop screaming for the past 24 hours. I've
+          vomited three times today from the sound alone.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15846,7 +15844,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 33
@@ -15889,11 +15887,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "It was my turn - I was expecting to die - to finally get this twisted
-          project my father set up to be over with.  but the Owl must have a sick
-          sense of humor.\n\nFirst successful test run. Woo. \n\nI'm much more protected
-          they can't lose their one successful test rat.   But I fear that won't
-          last long."
+        value: "It was my turn. I was expecting to die\u2014to finally bring this
+          twisted project my father set up to an end. But the Owl must have a sick
+          sense of humor.\n\nFirst successful test run. Woo.\n\nI'm much more protected
+          now\u2014they can't lose their one successful test subject. But I fear
+          that won\u2019t last long."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15905,7 +15903,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 33
@@ -15948,12 +15946,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "I saw Sabbine corpse today as they were taking me for tests today. 
-          They figured out how to replicate the process and are now being more -
-          experimental.  The one bit of good news is that the other dwarfs look at
-          me as a leader figure - I don't know why maybe it's because I killed one
-          of the doctors by luck.  \n\nHowever, I will find a way to get us all out
-          of here.\n\nI must."
+        value: "I saw Sabbine\u2019s corpse as they were taking me for tests today.
+          They\u2019ve figured out how to replicate the process and are now becoming
+          more experimental. The one bit of good news is that the other dwarves see
+          me as a leader. I don\u2019t know why\u2014maybe it\u2019s because I killed
+          one of the doctors by luck.\n\nHowever, I will find a way to get us all
+          out of here.\n\nI must."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -15965,7 +15963,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 33
@@ -15981,7 +15979,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 152
+        x: 152.79999
         y: 256
         width: 160
         height: 30
@@ -16008,25 +16006,16 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '(The memory is bloody and hard to see read but eventually it comes
-          in better thanks to Callus).
-
-
-          We did it -Their all dead - every
-          single one of those damn doctors are dead...  The problem now is that we
-          are reviled too.  Thanks yo those collars we did things that we would never
-          have done.  So now the general public thing we are crazed cultists for
-          my father...
-
-
-          Though Crazy may be correct.  I don''t know why
-          but I feel like I see things differently.  My father supposedly got killed
-          by rebels but those rebels just put my sister in charge.  Supposedly she
-          helped them out greatly.  Good for her - I''m glad she grew a spine.
-
-
-          Wish
-          it was just before I got sent here.'
+        value: "(The memory is bloody and hard to read, but it eventually becomes
+          clearer thanks to Callus.)\n\nWe did it\u2014they\u2019re all dead. Every
+          single one of those damn doctors is dead... The problem now is that we
+          are reviled too. Thanks to those collars, we did things we would never
+          have done. So now the general public thinks we are crazed cultists for
+          my father...\n\nThough \u201Ccrazy\u201D may be correct. I don\u2019t know
+          why, but I feel like I see things differently. My father supposedly got
+          killed by rebels, but those rebels just put my sister in charge. Supposedly,
+          she helped them out greatly. Good for her\u2014I\u2019m glad she grew a
+          spine.\n\nWish it had happened before I got sent here."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16038,7 +16027,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 33
@@ -16081,18 +16070,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'They are really keeping the monarchy.
-
-
-          And here I thought
-          I was hereing voices.  You would think that after two kings of horror that
-          they would remove the monarch all together...  But I don''t think they
-          can.  After all it''s easy to just listen to a some authority figure then
-          thinking yourself...  That''s what the doctors always used as an excuse
-          - we are just falling orders...
-
-
-          Maybe we need something different.'
+        value: "They are really keeping the monarchy.\n\nAnd here I thought I was
+          hearing voices. You would think that after two kings of horror, they would
+          remove the monarchy altogether... but I don\u2019t think they can. After
+          all, it\u2019s easier to just listen to an authority figure than to think
+          for yourself. That\u2019s what the doctors always used as an excuse\u2014we
+          are just following orders...\n\nMaybe we need something different."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16104,7 +16087,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -16119,8 +16102,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 68.45361}
+    canvasZoom: 0.97
   - id: 34
     fields:
     - title: Title
@@ -16245,20 +16228,16 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'I may be going insane.  I just finished talking to the goddess Orin...
-          The lady of Grief/Destruction herself. (Crazy how life is).
-
-
-          But
-          the plan is relatively simple - We would unleash a horde of monsters onto
-          the region - we will have ghost ships making sure no one can escape.  While
-          the monsters run rampant.  We will give each city and town a choice - death
-          - or a culling of evil - (Children will be spared and be taken to a disclosed
-          location to be taught better then how current society teaches them)  Those
-          that we will be culling are basically any criminals - supporters of the
-          old regimes, and those that will cling on to certain policies of evil. 
-          We must remove any stain of the old society so that the new society we
-          are building is held down by the old.'
+        value: "I may be going insane. I just finished talking to the goddess Orin\u2014the
+          Lady of Grief and Destruction herself. (Crazy how life is.)\n\nBut the
+          plan is relatively simple. We will unleash a horde of monsters onto the
+          region, and ghost ships will ensure that no one can escape while the monsters
+          run rampant. We will give each city and town a choice: death or a culling
+          of evil. Children will be spared and taken to a disclosed location to be
+          taught better than how current society teaches them.\n\nThose we will be
+          culling are criminals, supporters of the old regimes, and those who cling
+          to certain policies of evil. We must remove any stain of the old society
+          so that the new society we are building is not held back by the old."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16270,7 +16249,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16319,17 +16298,15 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'In this way - we can truly build a world - against hate, ableism,
-          and getting true justice to the victims.  Orin when we finish will be the
-          ever gentle yet iron fist on justice and crime.  While for me, I will be
-          executed.  those that build the new society must be completly clean that''s
-          why Orin isn''t helping - only a servent of her''s which is now my servent. 
-          I will be executed and give the world to my brothers and sisters of the
-          runic dwarfs as their will be the ones who aren''t directly involved. 
-          Though their are some who refuse to leave me to carry this massacure by
-          myself.
-
-          (I''m honored)'
+        value: "In this way, we can truly build a world against hate, ableism, and
+          one that brings true justice to the victims. Orin, when we finish, will
+          be the ever-gentle yet iron fist of justice and crime. As for me, I will
+          be executed. Those who build the new society must be completely clean;
+          that\u2019s why Orin isn\u2019t helping\u2014only a servant of hers, who
+          is now my servant.\n\nI will be executed and give the world to my brothers
+          and sisters, the Runic Dwarves, as they are the ones who aren\u2019t directly
+          involved. Though there are some who refuse to leave me to carry this massacre
+          by myself.\n\n(I\u2019m honored.)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16341,7 +16318,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16384,20 +16361,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Today''s the day - I''m going to blow up my old home, my sister,
-          and countless others...  I''m probably gone mad haven''t I?  Maybe.  But
-          if I could save future generations from the problems of government abuse
-          then I will do it.  In order to save the world...
-
-
-          Thank you,
-          my diary,
-
-          Stryker.
-
-
-          (As the memories end you do see
-          a small diary underneth a bed.  It''s unreadable because of age).'
+        value: "Today's the day. I'm going to blow up my old home\u2014my sister
+          and countless others... I'm probably gone mad, haven\u2019t I? Maybe. But
+          if I can save future generations from the problems of government abuse,
+          then I will do it. In order to save the world...\n\nThank you, my diary,\nStryker.\n\n(As
+          the memories end, you do see a small diary underneath a bed. It's unreadable
+          because of age.)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16409,7 +16378,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -16446,15 +16415,15 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "(As I was preparing for the plan to save the world - I decided to
-          explore the world.  I wasn't surpised with the cruelty of the nobles and
-          while my sister was trying her best.  She was still corrupt.\n\nI did however,
-          explore the elven territories and the an Island near are continent.\n\nThe
-          elves were very accepting of me and my message - so much so that they protected
-          a bunch of dark elf refuggess that escaped to their home.  Despite the
-          council protests.  Those protests died quickly but after working with them
-          their new leaders a bit(We wanted to keep the people out of the way as
-          to keep their purity). \n\nI'm excited to see them in the new society."
+        value: "As I was preparing for the plan to save the world, I decided to explore
+          it. I wasn\u2019t surprised by the cruelty of the nobles, and while my
+          sister was trying her best, she was still corrupt.\n\nI did, however, explore
+          the elven territories and an island near our continent.\n\nThe elves were
+          very accepting of me and my message\u2014so much so that they protected
+          a group of dark elf refugees who had escaped to their land, despite the
+          council\u2019s protests. Those protests died quickly after working with
+          their new leaders a bit (we wanted to keep the people out of the way to
+          preserve their purity).\n\nI\u2019m excited to see them in the new society."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16466,7 +16435,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16515,12 +16484,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: My finally stop was at the city of slaves.  Though it was heartbreaking
-          to see how crushed their souls were.  Barely any money to survive - let
-          alone smile and when I brought up fighting back.  they just laughed - saying
-          they would rather not die and keep living... This wasn't living though
-          - it was simply existing.  I sweared to myself that I would save these
-          people.  No matter what.
+        value: "My final stop was at the City of Slaves. It was heartbreaking to
+          see how crushed their souls were. They barely had enough money to survive,
+          let alone smile, and when I brought up fighting back, they just laughed,
+          saying they would rather not die and keep living... This wasn\u2019t living,
+          though\u2014it was simply existing. I swore to myself that I would save
+          these people, no matter what."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16532,7 +16501,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16575,11 +16544,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I also went to the island of Orc's (As I like to call it) Supposedly
-          the Arden family were back to their old tricks trying to create a slave
-          planatation.  I of course burned these slavers to a pulp and found the
-          orc's to be some of the gentlist giants I ever met.  I agreed to come back
-          once my mission was done.
+        value: "I also went to the island of Orcs (as I like to call it). Supposedly,
+          the Arden family were back to their old tricks, trying to create a slave
+          plantation. I, of course, burned these slavers to a pulp and found the
+          orcs to be some of the gentlest giants I\u2019ve ever met. I agreed to
+          come back once my mission was done."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16591,7 +16560,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16699,7 +16668,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16754,7 +16723,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16775,8 +16744,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.0162514
+    canvasScrollPosition: {x: 0, y: 346.61316}
+    canvasZoom: 0.9562515
   - id: 35
     fields:
     - title: Title
@@ -17054,8 +17023,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hey you look like you can dance. Put on a good show and I'll let you
-          live.
+        value: Hey, you look like you can dance. Put on a good show, and I'll let
+          you live.
         type: 0
         typeString: 
       - title: Sequence
@@ -17454,8 +17423,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hey you're not half bad at this. Tell you what, I'll let you go this
-          time but if we meet again be prepared to dance for your life again.
+        value: "Hey, you're not half bad at this. Tell you what\u2014I'll let you
+          go this time, but if we meet again, be prepared to dance for your life."
         type: 0
         typeString: 
       - title: Sequence
@@ -17514,7 +17483,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Thanks, guess I'll be on way then...
+        value: Thanks, I guess I'll be on my way then...
         type: 0
         typeString: 
       - title: Sequence
@@ -17541,7 +17510,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0.7999878, y: 6.399994}
     canvasZoom: 1
   - id: 37
     fields:
@@ -18048,7 +18017,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 116.80002, y: 0}
     canvasZoom: 1
   - id: 38
     fields:
@@ -18296,7 +18265,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Well go about your business then!
+        value: Well, go about your business then!
         type: 0
         typeString: 
       - title: Sequence
@@ -18410,7 +18379,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hey what are you trying to pull here! Come back when you have a real
+        value: Hey, what are you trying to pull here! Come back when you have a real
           card.
         type: 0
         typeString: 
@@ -18464,7 +18433,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Looks good, be on your way then.
+        value: Looks good. Be on your way then.
         type: 0
         typeString: 
       - title: Sequence
@@ -18658,7 +18627,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 375.20004, y: 5.5999756}
     canvasZoom: 1
   - id: 39
     fields:
@@ -18784,17 +18753,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Hey this is Happi Chaos - I gave you a key is the diseased manor
-          :3  So look.  I may have caused some universal bugs to the current universe. 
-          I''m working on it so any resets or transportation happends that''s me
-          trying to fix the universe.  In this case, just head upward and you should
-          be back to where you should be.  Shouldn''t be any problems in the others
-          levels but hey sorry again.
-
-
-          From,
-
-          Happi Chaos :3'
+        value: "Hey, this is Happi Chaos\u2014I gave you a key to the diseased manor
+          :3 So, look. I may have caused some universal bugs in the current universe.
+          I'm working on it, so any resets or transportation that happens is me trying
+          to fix things. In this case, just head upward and you should be back where
+          you\u2019re supposed to be. There shouldn\u2019t be any problems in the
+          other levels, but hey, sorry again.\n\nFrom,\nHappi Chaos :3"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -18806,7 +18770,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
