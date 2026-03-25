@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: f65f144f77193b24ea0f79ddcc9c94ff
+guid: 12ba190884a81c34a835e365b2688996
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5880785939235264890
-    second: Rat_03_0
+      213: -7923239441464645226
+    second: Rats_Sheet_0
+  - first:
+      213: 5235807681404578252
+    second: Rats_Sheet_1
+  - first:
+      213: 4759609495181493317
+    second: Rats_Sheet_2
+  - first:
+      213: -573638024537908166
+    second: Rats_Sheet_3
+  - first:
+      213: -5292402858523214051
+    second: Rats_Sheet_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rat_03_0
+      name: Rats_Sheet_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 7
-        height: 16
+        x: 26
+        y: 16
+        width: 12
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a79da3c67afbc9150800000000000000
-      internalID: 5880785939235264890
+      spriteID: 699a22505bffa0290800000000000000
+      internalID: -7923239441464645226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rats_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 17
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9a162885359a840800000000000000
+      internalID: 5235807681404578252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rats_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 18
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5448edd4e978d0240800000000000000
+      internalID: 4759609495181493317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rats_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 19
+        width: 13
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3cd2c581470a08f0800000000000000
+      internalID: -573638024537908166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rats_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 17
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f3679f3ab9d86b0800000000000000
+      internalID: -5292402858523214051
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rat_03_0: 5880785939235264890
+      Rats_Sheet_0: -7923239441464645226
+      Rats_Sheet_1: 5235807681404578252
+      Rats_Sheet_2: 4759609495181493317
+      Rats_Sheet_3: -573638024537908166
+      Rats_Sheet_4: -5292402858523214051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -4,7 +4,7 @@ using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Reset1 : MonoBehaviour
+public class Reset2 : MonoBehaviour
 {
     [SerializeField] private float ResetButtonShowDelay = 5f;
     [SerializeField] private GameObject ResetButton;
@@ -20,7 +20,7 @@ public class Reset1 : MonoBehaviour
 
     public void ResetLevel1()
     {
-        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "ElvenTower" : "TyrantLab");
+        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "BurningCastle1" : "GoldenTutorial");
     }
 
     // Update is called once per frame
