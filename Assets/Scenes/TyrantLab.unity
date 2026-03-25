@@ -7172,7 +7172,7 @@ SpriteRenderer:
   m_Size: {x: 0.07, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &773813322
@@ -131237,6 +131237,9 @@ MonoBehaviour:
   spawnOffsetY: 0
   impulseSource: {fileID: 696841612}
   disableSwitching: 0
+  currentScene: MyScene
+  currentStartPoint: StartPoint
+  NotificationText: 
 --- !u!4 &1284023078
 Transform:
   m_ObjectHideFlags: 0
@@ -131440,6 +131443,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.53
       objectReference: {fileID: 0}
+    - target: {fileID: -6635058855351182383, guid: c89b53a481e691247b53c11471704908,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9731a81e1dd6cde46a496e5dc29ee022, type: 2}
     - target: {fileID: -1602314608913290954, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: chooseRandomAbility
@@ -131504,47 +131512,47 @@ PrefabInstance:
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: chaMod
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: conMod
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: dexMod
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: intMod
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: strMod
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: wisMod
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: wisdom
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: charisma
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: strength
-      value: 16
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131554,7 +131562,7 @@ PrefabInstance:
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: dexterity
-      value: 16
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131564,7 +131572,7 @@ PrefabInstance:
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: maxHealth
-      value: 142
+      value: 156
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131584,7 +131592,7 @@ PrefabInstance:
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: constitution
-      value: 16
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131594,7 +131602,7 @@ PrefabInstance:
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: intelligence
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1497034400118839153, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131641,7 +131649,7 @@ PrefabInstance:
     - target: {fileID: 4988637882972301213, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 4.6125846
       objectReference: {fileID: 0}
     - target: {fileID: 4988637882972301213, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131656,7 +131664,7 @@ PrefabInstance:
     - target: {fileID: 4988637882972301213, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 63.32
+      value: 64.45
       objectReference: {fileID: 0}
     - target: {fileID: 4988637882972301213, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131702,7 +131710,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3589487263230524980, guid: 39631d681e25a9f469dcd5892e1fb5fc,
+      objectReference: {fileID: -6968416067526049398, guid: 46ab891bfa5df7d428f312b406bc0763,
         type: 3}
     - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -131712,7 +131720,7 @@ PrefabInstance:
     - target: {fileID: 5431015048163812394, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: followers.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5431015048163812394, guid: c89b53a481e691247b53c11471704908,
         type: 3}
@@ -136942,6 +136950,16 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: be08ae91384bce245b2a10d45f85b171, type: 2}
+    - target: {fileID: 3485106354913218701, guid: 45e46a7b390eb0e49991c598e1a00e85,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485106354913218701, guid: 45e46a7b390eb0e49991c598e1a00e85,
+        type: 3}
+      propertyPath: baseHealth
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4672308384377429527, guid: 45e46a7b390eb0e49991c598e1a00e85,
         type: 3}
       propertyPath: followers.Array.size
