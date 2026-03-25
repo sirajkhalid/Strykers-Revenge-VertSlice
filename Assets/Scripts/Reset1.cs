@@ -20,7 +20,7 @@ public class Reset1 : MonoBehaviour
 
     public void ResetLevel1()
     {
-        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "Castle1" : "Golden Tutorial");
+        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "Castle1" : "GoldenTutorial");
     }
 
     // Update is called once per frame

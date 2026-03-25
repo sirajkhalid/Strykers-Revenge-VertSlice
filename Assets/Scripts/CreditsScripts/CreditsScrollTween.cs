@@ -27,8 +27,7 @@ public class CreditScrollTween : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown)
-            SceneManager.LoadScene(mainMenuScene);
+        
     }
 
     void PlayCredits()

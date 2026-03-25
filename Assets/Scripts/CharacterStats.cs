@@ -176,27 +176,12 @@ public class CharacterStats : MonoBehaviour
         OnStatsInitialized?.Invoke();
         OnHealthChanged?.Invoke();
         OnMovementChanged?.Invoke();
-        SceneManager.sceneLoaded += this.OnLoadCallBack;
+       
 
     }
 
-    public void Reset()
-    {
-        CalculateAllStats();
-        CalculateSpellSlots();
-    }
-
-    void OnLoadCallBack(Scene scene, LoadSceneMode sceneMode)
-    {
-        CalculateAllStats();
-        CalculateSpellSlots();
-        currentHealth = maxHealth;
-        currentMovement = maxMovement;
-
-        OnStatsInitialized?.Invoke();
-        OnHealthChanged?.Invoke();
-        OnMovementChanged?.Invoke();
-    }
+  
+   
 
     public void CalculateAllStats()
     {
