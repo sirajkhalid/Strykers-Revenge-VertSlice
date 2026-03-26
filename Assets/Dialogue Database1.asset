@@ -7163,13 +7163,13 @@ MonoBehaviour:
       - originConversationID: 16
         originDialogueID: 6
         destinationConversationID: 16
-        destinationDialogueID: 7
+        destinationDialogueID: 8
         isConnector: 0
         priority: 2
       - originConversationID: 16
         originDialogueID: 6
         destinationConversationID: 16
-        destinationDialogueID: 8
+        destinationDialogueID: 7
         isConnector: 0
         priority: 2
       - originConversationID: 16
@@ -7219,6 +7219,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: a7f0cb0a-b3b2-4083-8c9b-84c361d982b0
+        type: 0
+        typeString: 
       conversationID: 16
       isRoot: 0
       isGroup: 0
@@ -7246,8 +7250,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 279.7411
-        y: 287.60522
+        x: 289.63803
+        y: 302.4506
         width: 160
         height: 30
     - id: 8
@@ -7449,14 +7453,14 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasInsight("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 299.15857
+        x: 298.33383
         y: 388.09067
         width: 160
         height: 30
@@ -7499,7 +7503,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasInsight("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7616,7 +7620,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 120.912056, y: 19.95375}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.96999997
   - id: 17
     fields:
@@ -8254,6 +8258,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 1c34ea53-08bc-4c70-b6b5-73beecaea389
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8315,6 +8323,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: ff57e0a9-39b8-43a7-bb31-6ab632be8ffa
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8377,6 +8389,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 14495416-ad86-473a-9cad-10231abe615b
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8453,7 +8469,7 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: HasIntimidation("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8510,7 +8526,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 101.00003
-        y: 436.00003
+        y: 435.02438
         width: 160
         height: 30
     - id: 7
@@ -8543,6 +8559,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8551,15 +8571,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 218.19998
-        y: 239.33336
+        x: 220.15118
+        y: 255.91875
         width: 160
         height: 30
     - id: 8
@@ -8601,15 +8621,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasPersuasion("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 431.66675
-        y: 188.66667
+        x: 438.49603
+        y: 175.98381
         width: 160
         height: 30
     - id: 9
@@ -8696,18 +8716,18 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasPersuasion("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 597.66675
-        y: 136.00002
+        x: 641.5692
+        y: 139.90244
         width: 160
         height: 30
     - id: 11
@@ -8745,18 +8765,18 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 387.6667
-        y: 250
+        x: 394.49594
+        y: 254.87805
         width: 160
         height: 30
     - id: 12
@@ -8798,7 +8818,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasIntimidation("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9794,6 +9814,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: c81ccf9f-3e8c-44a3-a868-abe0b0f52fec
+        type: 0
+        typeString: 
       conversationID: 20
       isRoot: 0
       isGroup: 0
@@ -9808,6 +9832,12 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
+      - originConversationID: 20
+        originDialogueID: 2
+        destinationConversationID: 20
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9815,8 +9845,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 20.666672
-        y: 185.99998
+        x: 124.66667
+        y: 184.40001
         width: 160
         height: 30
     - id: 3
@@ -9850,6 +9880,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: ef7662af-4d68-401a-be09-64f2edb9bf7b
+        type: 0
+        typeString: 
       conversationID: 20
       isRoot: 0
       isGroup: 0
@@ -9864,6 +9898,12 @@ MonoBehaviour:
         destinationDialogueID: 8
         isConnector: 0
         priority: 2
+      - originConversationID: 20
+        originDialogueID: 3
+        destinationConversationID: 20
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9871,8 +9911,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 266
-        y: 249.33333
+        x: 430.8
+        y: 200.53334
         width: 160
         height: 30
     - id: 4
@@ -9905,12 +9945,16 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 4454c635-e572-444d-8a74-bd0bc5cb751e
+        type: 0
+        typeString: 
       conversationID: 20
       isRoot: 0
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 20
@@ -9932,8 +9976,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 484.6667
-        y: 181.99998
+        x: 647.8667
+        y: 118
         width: 160
         height: 30
     - id: 5
@@ -9975,15 +10019,16 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasPerformance("1")  == true or  or (HasPerformance("1") 
+        == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 38.66667
-        y: 241.33333
+        x: 11.399994
+        y: 242.93333
         width: 160
         height: 30
     - id: 6
@@ -10021,18 +10066,18 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 716.00006
-        y: 124.66664
+        x: 839.2001
+        y: 165.46666
         width: 160
         height: 30
     - id: 7
@@ -10075,15 +10120,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 484.6667
-        y: 231.99998
+        x: 647.8667
+        y: 168
         width: 160
         height: 30
     - id: 8
@@ -10132,15 +10177,15 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: HasReligion("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 266
-        y: 299.3333
+        x: 431.6
+        y: 250.53333
         width: 160
         height: 30
     - id: 10
@@ -10189,8 +10234,106 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 266
-        y: 399.3333
+        x: 433.19998
+        y: 308.13333
+        width: 160
+        height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 16
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I don't recognize you from anywhere though.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 20
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: HasPerformance("0")  == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 219.06668
+        y: 240.80003
+        width: 160
+        height: 30
+    - id: 12
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 16
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I am doubtful of your claim. I would need some proof first.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 20
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: HasReligion("0")  == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 614.8
+        y: 248.93332
         width: 160
         height: 30
     entryGroups: []
@@ -12337,7 +12480,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 143.05878, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.85000014
   - id: 25
     fields:

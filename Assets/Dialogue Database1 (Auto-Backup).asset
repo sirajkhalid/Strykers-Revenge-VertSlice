@@ -7163,13 +7163,13 @@ MonoBehaviour:
       - originConversationID: 16
         originDialogueID: 6
         destinationConversationID: 16
-        destinationDialogueID: 7
+        destinationDialogueID: 8
         isConnector: 0
         priority: 2
       - originConversationID: 16
         originDialogueID: 6
         destinationConversationID: 16
-        destinationDialogueID: 8
+        destinationDialogueID: 7
         isConnector: 0
         priority: 2
       - originConversationID: 16
@@ -7219,6 +7219,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: a7f0cb0a-b3b2-4083-8c9b-84c361d982b0
+        type: 0
+        typeString: 
       conversationID: 16
       isRoot: 0
       isGroup: 0
@@ -7246,8 +7250,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 279.7411
-        y: 287.60522
+        x: 289.63803
+        y: 302.4506
         width: 160
         height: 30
     - id: 8
@@ -7449,14 +7453,14 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasInsight("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 299.15857
+        x: 298.33383
         y: 388.09067
         width: 160
         height: 30
@@ -7499,7 +7503,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasInsight("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7616,7 +7620,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 120.912056, y: 19.95375}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.96999997
   - id: 17
     fields:
@@ -8254,6 +8258,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 1c34ea53-08bc-4c70-b6b5-73beecaea389
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8315,6 +8323,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: ff57e0a9-39b8-43a7-bb31-6ab632be8ffa
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8377,6 +8389,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 14495416-ad86-473a-9cad-10231abe615b
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8453,7 +8469,7 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: HasIntimidation("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8510,7 +8526,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 101.00003
-        y: 436.00003
+        y: 435.02438
         width: 160
         height: 30
     - id: 7
@@ -8543,6 +8559,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: 
       conversationID: 18
       isRoot: 0
       isGroup: 0
@@ -8551,7 +8571,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8559,7 +8579,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 218.19998
-        y: 239.33336
+        y: 238.35777
         width: 160
         height: 30
     - id: 8
@@ -8601,7 +8621,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasPersuasion("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8696,10 +8716,10 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasPersuasion("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8745,10 +8765,10 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8798,7 +8818,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasIntimidation("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9794,6 +9814,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: c81ccf9f-3e8c-44a3-a868-abe0b0f52fec
+        type: 0
+        typeString: 
       conversationID: 20
       isRoot: 0
       isGroup: 0
@@ -9816,7 +9840,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 20.666672
-        y: 185.99998
+        y: 185.2
         width: 160
         height: 30
     - id: 3
@@ -9850,6 +9874,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: ef7662af-4d68-401a-be09-64f2edb9bf7b
+        type: 0
+        typeString: 
       conversationID: 20
       isRoot: 0
       isGroup: 0
@@ -9905,12 +9933,16 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 4454c635-e572-444d-8a74-bd0bc5cb751e
+        type: 0
+        typeString: 
       conversationID: 20
       isRoot: 0
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 20
@@ -9932,8 +9964,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 484.6667
-        y: 181.99998
+        x: 647.8667
+        y: 118
         width: 160
         height: 30
     - id: 5
@@ -9975,7 +10007,8 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasPerformance("1")  == true or (HasPerformance("0")  ==
+        true)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -10021,18 +10054,18 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("0")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 716.00006
-        y: 124.66664
+        x: 839.2001
+        y: 165.46666
         width: 160
         height: 30
     - id: 7
@@ -10075,15 +10108,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: HasSOH("1")  == true
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 484.6667
-        y: 231.99998
+        x: 647.8667
+        y: 168
         width: 160
         height: 30
     - id: 8
@@ -10139,7 +10172,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 266
+        x: 266.80002
         y: 299.3333
         width: 160
         height: 30
@@ -12337,7 +12370,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 143.05878, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.85000014
   - id: 25
     fields:
@@ -16361,20 +16394,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Today''s the day - I''m going to blow up my old home, my sister,
-          and countless others...  I''m probably gone mad haven''t I?  Maybe.  But
-          if I could save future generations from the problems of government abuse
-          then I will do it.  In order to save the world...
-
-
-          Thank you,
-          my diary,
-
-          Stryker.
-
-
-          (As the memories end you do see
-          a small diary underneth a bed.  It''s unreadable because of age).'
+        value: "Today's the day. I'm going to blow up my old home\u2014my sister
+          and countless others... I'm probably gone mad, haven\u2019t I? Maybe. But
+          if I can save future generations from the problems of government abuse,
+          then I will do it. In order to save the world...\n\nThank you, my diary,\nStryker.\n\n(As
+          the memories end, you do see a small diary underneath a bed. It's unreadable
+          because of age.)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16386,7 +16411,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -16492,12 +16517,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: My finally stop was at the city of slaves.  Though it was heartbreaking
-          to see how crushed their souls were.  Barely any money to survive - let
-          alone smile and when I brought up fighting back.  they just laughed - saying
-          they would rather not die and keep living... This wasn't living though
-          - it was simply existing.  I sweared to myself that I would save these
-          people.  No matter what.
+        value: "My final stop was at the City of Slaves. It was heartbreaking to
+          see how crushed their souls were. They barely had enough money to survive,
+          let alone smile, and when I brought up fighting back, they just laughed,
+          saying they would rather not die and keep living... This wasn\u2019t living,
+          though\u2014it was simply existing. I swore to myself that I would save
+          these people, no matter what."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16509,7 +16534,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16552,11 +16577,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I also went to the island of Orc's (As I like to call it) Supposedly
-          the Arden family were back to their old tricks trying to create a slave
-          planatation.  I of course burned these slavers to a pulp and found the
-          orc's to be some of the gentlist giants I ever met.  I agreed to come back
-          once my mission was done.
+        value: "I also went to the island of Orcs (as I like to call it). Supposedly,
+          the Arden family were back to their old tricks, trying to create a slave
+          plantation. I, of course, burned these slavers to a pulp and found the
+          orcs to be some of the gentlest giants I\u2019ve ever met. I agreed to
+          come back once my mission was done."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16568,7 +16593,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 34
@@ -16752,8 +16777,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 46.44519}
-    canvasZoom: 1.0162514
+    canvasScrollPosition: {x: 0, y: 346.61316}
+    canvasZoom: 0.9562515
   - id: 35
     fields:
     - title: Title
@@ -17031,8 +17056,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hey you look like you can dance. Put on a good show and I'll let you
-          live.
+        value: Hey, you look like you can dance. Put on a good show, and I'll let
+          you live.
         type: 0
         typeString: 
       - title: Sequence
@@ -17431,8 +17456,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hey you're not half bad at this. Tell you what, I'll let you go this
-          time but if we meet again be prepared to dance for your life again.
+        value: "Hey, you're not half bad at this. Tell you what\u2014I'll let you
+          go this time, but if we meet again, be prepared to dance for your life."
         type: 0
         typeString: 
       - title: Sequence
@@ -17491,7 +17516,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Thanks, guess I'll be on way then...
+        value: Thanks, I guess I'll be on my way then...
         type: 0
         typeString: 
       - title: Sequence
@@ -17518,7 +17543,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0.7999878, y: 6.399994}
     canvasZoom: 1
   - id: 37
     fields:
@@ -18025,7 +18050,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 116.80002, y: 0}
     canvasZoom: 1
   - id: 38
     fields:
@@ -18273,7 +18298,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Well go about your business then!
+        value: Well, go about your business then!
         type: 0
         typeString: 
       - title: Sequence
@@ -18387,7 +18412,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hey what are you trying to pull here! Come back when you have a real
+        value: Hey, what are you trying to pull here! Come back when you have a real
           card.
         type: 0
         typeString: 
@@ -18441,7 +18466,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Looks good, be on your way then.
+        value: Looks good. Be on your way then.
         type: 0
         typeString: 
       - title: Sequence
@@ -18635,7 +18660,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 375.20004, y: 5.5999756}
     canvasZoom: 1
   - id: 39
     fields:
