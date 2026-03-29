@@ -18,9 +18,9 @@ public class Reset2 : MonoBehaviour
         ResetButton.gameObject.SetActive(true);
     }
 
-    public void ResetLevel1()
+    public void ResetLevel2()
     {
-        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "BurningCastle1" : "GoldenTutorial");
+        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "BurningCastle 1" : "GoldenTutorial");
     }
 
     // Update is called once per frame

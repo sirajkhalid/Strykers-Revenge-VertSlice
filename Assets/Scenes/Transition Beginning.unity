@@ -467,9 +467,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1149123709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2e6e1644d816c4c99a807429831825, type: 3}
+  m_Script: {fileID: 11500000, guid: f30e6f9fa78361b4386b5f83807e5b0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Reset1
+  m_EditorClassIdentifier: Assembly-CSharp::Reset
   ResetButtonShowDelay: 5
   ResetButton: {fileID: 1160403289}
   UseLoadingIntermediaryScene: 0
@@ -557,8 +557,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1149123713}
-        m_TargetAssemblyTypeName: Reset1, Assembly-CSharp
-        m_MethodName: ResetLevel1
+        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
+        m_MethodName: ResetLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
