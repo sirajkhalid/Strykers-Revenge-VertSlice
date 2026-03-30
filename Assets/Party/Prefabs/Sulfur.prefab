@@ -191,8 +191,8 @@ MonoBehaviour:
   smoothing: 15
   sprintBonus: 3
   audioSource: {fileID: -6896624358268064977}
-  walkFootstepSFX: {fileID: 8300000, guid: a9b790cc09ed0de408ce8d6b835ddc69, type: 3}
-  sprintFootstepSFX: {fileID: 8300000, guid: c7e047923247813448fb952fc8963ec4, type: 3}
+  walkFootstepSFX: {fileID: 8300000, guid: 658d193558296cf4caf6303c84cc1eb9, type: 3}
+  sprintFootstepSFX: {fileID: 8300000, guid: 4ce2e67d9d475954eb0a12a03d1218af, type: 3}
   canMove: 1
 --- !u!95 &5648930091950226366
 Animator:
@@ -355,8 +355,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 48898c58aea7764408f440bba6ef2040, type: 2}
   - {fileID: 11400000, guid: 37e7aa100a62b6e429612846e6baf0c2, type: 2}
   - {fileID: 11400000, guid: 3757626ec1f93d24fbe4f2d9d8ee2bdb, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9a0d2b5afe8d7424fa9cc0d71dce6863, type: 2}
+  - {fileID: 11400000, guid: 28ae7b3f258b7334295e512275482ec6, type: 2}
 --- !u!82 &-6896624358268064977
 AudioSource:
   m_ObjectHideFlags: 0
