@@ -599,11 +599,13 @@ MonoBehaviour:
     - VFX Artist Lead\n\nGeonwoo Kim - VFX Artist\n\nQuinn Ragsdale - Sprite Artist\n\nPrince
     Shabazz-Williams - Artist\n\nYuhyun Kim - Artist\n\nWilison - Artist\n\nSiraj
     Khalid - Programmer / Artist\n\nJacob Ramberg - Programmer\n\nJohn Thomas - Music\n\nLeo
-    Goodman - Music Lead\n\nBlink - Ability Icons\n\nPoneti - Ability Icons\n\nSherbb
-    - Particle Collection\n\npimen (itch.io) - Ability VFX\n\njasontomlee (itch.io)
-    - Ability VFX\n\nfrostwindz (itch.io) - Ability VFX\n\nansimuz (itch.io) - Ability
-    VFX\n\nCalamity (Terraria Mod) - Ability VFX\n\nFlamiffer - Ambience Sound\n\nphlair
-    - Ambience Sound\n\n\n\nIn memory of Haley Monts"
+    Goodman - Music Lead\n\nPixelCrusher - Dialogue Conversation - and special thanks
+    to Tony Li!\n\nBlink - Ability Icons\n\nPoneti - Ability Icons\n\nSherbb - Particle
+    Collection\n\npimen (itch.io) - Ability VFX\n\njasontomlee (itch.io) - Ability
+    VFX\n\nfrostwindz (itch.io) - Ability VFX\n\nansimuz (itch.io) - Ability VFX\n\nCalamity
+    (Terraria Mod) - Ability VFX\n\nFlamiffer - Ambience Sound\n\nphlair - Ambience
+    Sound\n\n\n\nIn memory of Haley Monts \n\nA sister who pushed me to be my best
+    and always seeked to help others.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1375,6 +1377,7 @@ GameObject:
   - component: {fileID: 1347630873}
   - component: {fileID: 1347630872}
   - component: {fileID: 1347630874}
+  - component: {fileID: 1347630875}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -1509,6 +1512,104 @@ AudioSource:
   m_Resource: {fileID: 8300000, guid: e7df37976ab9852478f6d19ebbda60fb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1347630875
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347630871}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4194284971611777511, guid: e4041833ede042145b211a48bd2ba43d,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 28fdd801926365242b79f6ec9c9e4140, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1759,7 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196979e51ecabb64e80cefbfcea340c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditScrollTween
-  scrollDuration: 20
+  scrollDuration: 25
   fadeDuration: 1
   startY: 0
   endY: 2100

@@ -12657,7 +12657,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 210ba36df95b0a94d95a34d6fac2f194, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.03
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13214,6 +13214,9 @@ MonoBehaviour:
   spawnOffsetY: 0
   impulseSource: {fileID: 1930116612}
   disableSwitching: 0
+  currentScene: MyScene
+  currentStartPoint: StartPoint
+  NotificationText: 
 --- !u!4 &1162173540
 Transform:
   m_ObjectHideFlags: 0
