@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 2025641}
   - component: {fileID: 2025640}
   - component: {fileID: 2025643}
+  - component: {fileID: 2025644}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -261,7 +262,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 0.79}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 0.77, y: 0.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -316,7 +317,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3602481542436476412, guid: 9d8cab4838ee5ab47b6f7fd00e66209e,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -338,7 +339,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -27.95, y: 47.05, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -368,6 +369,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &2025644
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025639}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5131995
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +404,7 @@ GameObject:
   - component: {fileID: 5131998}
   - component: {fileID: 5131999}
   - component: {fileID: 5132000}
+  - component: {fileID: 5132001}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -435,7 +459,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3398880656718381178, guid: 2cf4de684764a50458af9bf5c05d062f,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -457,7 +481,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.9, y: 41.4, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -605,7 +629,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.475, y: 1.75}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 1.475, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -613,6 +637,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.475, y: 1.75}
   m_EdgeRadius: 0
+--- !u!95 &5132001
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131995}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c45ab2051e3c98649ae3c34741210a70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &46370950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,6 +2289,7 @@ GameObject:
   - component: {fileID: 250004216}
   - component: {fileID: 250004215}
   - component: {fileID: 250004218}
+  - component: {fileID: 250004219}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -2288,7 +2335,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 0.79}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 0.77, y: 0.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2343,7 +2390,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3602481542436476412, guid: 9d8cab4838ee5ab47b6f7fd00e66209e,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2365,7 +2412,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.53, y: 46.52, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2395,6 +2442,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &250004219
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250004214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &258575213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,6 +3318,7 @@ GameObject:
   - component: {fileID: 305921705}
   - component: {fileID: 305921706}
   - component: {fileID: 305921707}
+  - component: {fileID: 305921708}
   m_Layer: 0
   m_Name: Noble crowd
   m_TagString: Untagged
@@ -3303,7 +3373,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3398880656718381178, guid: 2cf4de684764a50458af9bf5c05d062f,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3324,8 +3394,8 @@ Transform:
   m_GameObject: {fileID: 305921701}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 21.7, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 3.6, y: 21.7, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3368,7 +3438,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.475, y: 1.75}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 1.475, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3519,7 +3589,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.475, y: 1.75}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 1.475, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3527,6 +3597,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.475, y: 1.75}
   m_EdgeRadius: 0
+--- !u!95 &305921708
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305921701}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &335428733
 GameObject:
   m_ObjectHideFlags: 0
@@ -12810,6 +12902,7 @@ GameObject:
   - component: {fileID: 878250309}
   - component: {fileID: 878250308}
   - component: {fileID: 878250311}
+  - component: {fileID: 878250312}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -12855,7 +12948,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.475, y: 1.75}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 1.475, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12910,7 +13003,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3398880656718381178, guid: 2cf4de684764a50458af9bf5c05d062f,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12932,7 +13025,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 37.14, y: 35.86, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -12962,6 +13055,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &878250312
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878250307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1085604016 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4483763177865879641, guid: b2c0be58c1c36c445be6746d5ff1941f,
@@ -12980,6 +13095,7 @@ GameObject:
   - component: {fileID: 1126218946}
   - component: {fileID: 1126218945}
   - component: {fileID: 1126218948}
+  - component: {fileID: 1126218949}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -13025,7 +13141,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 0.79}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 0.77, y: 0.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -13080,7 +13196,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3602481542436476412, guid: 9d8cab4838ee5ab47b6f7fd00e66209e,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13102,7 +13218,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 42.42, y: 46.48, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -13132,6 +13248,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &1126218949
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126218944}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1139129750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14846,6 +14984,7 @@ GameObject:
   - component: {fileID: 1315052376}
   - component: {fileID: 1315052375}
   - component: {fileID: 1315052378}
+  - component: {fileID: 1315052379}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -14891,7 +15030,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 0.79}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 0.77, y: 0.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -14946,7 +15085,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3602481542436476412, guid: 9d8cab4838ee5ab47b6f7fd00e66209e,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14968,7 +15107,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -26.41, y: 47.05, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -14998,6 +15137,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &1315052379
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315052374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1330096419
 GameObject:
   m_ObjectHideFlags: 0
@@ -38662,6 +38823,7 @@ GameObject:
   - component: {fileID: 1488592382}
   - component: {fileID: 1488592385}
   - component: {fileID: 1488592386}
+  - component: {fileID: 1488592387}
   m_Layer: 0
   m_Name: Sir George
   m_TagString: Untagged
@@ -38707,7 +38869,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.475, y: 1.75}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 1.475, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -38762,7 +38924,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3398880656718381178, guid: 2cf4de684764a50458af9bf5c05d062f,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -38784,7 +38946,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 47.49, y: 40.11, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -38894,6 +39056,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &1488592387
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488592381}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1539811436
 GameObject:
   m_ObjectHideFlags: 0
@@ -38907,6 +39091,7 @@ GameObject:
   - component: {fileID: 1539811439}
   - component: {fileID: 1539811440}
   - component: {fileID: 1539811441}
+  - component: {fileID: 1539811442}
   m_Layer: 0
   m_Name: Sir Arden
   m_TagString: Untagged
@@ -38961,7 +39146,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3398880656718381178, guid: 2cf4de684764a50458af9bf5c05d062f,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -38983,7 +39168,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30.92, y: 39.41, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -39026,7 +39211,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.475, y: 1.75}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 1.475, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -39139,6 +39324,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &1539811442
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539811436}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c45ab2051e3c98649ae3c34741210a70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1561561219
 GameObject:
   m_ObjectHideFlags: 0
@@ -39478,6 +39685,7 @@ GameObject:
   - component: {fileID: 1724372947}
   - component: {fileID: 1724372949}
   - component: {fileID: 1724372950}
+  - component: {fileID: 1724372951}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -39532,7 +39740,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3602481542436476412, guid: 9d8cab4838ee5ab47b6f7fd00e66209e,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -39553,8 +39761,8 @@ Transform:
   m_GameObject: {fileID: 1724372946}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.71, y: 46.92, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: -22.78, y: 46.92, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -39597,7 +39805,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 0.79}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 0.77, y: 0.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -39630,6 +39838,28 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
+--- !u!95 &1724372951
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724372946}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1734662306
 GameObject:
   m_ObjectHideFlags: 0
@@ -39914,6 +40144,7 @@ GameObject:
   - component: {fileID: 1807488072}
   - component: {fileID: 1807488073}
   - component: {fileID: 1807488074}
+  - component: {fileID: 1807488075}
   m_Layer: 0
   m_Name: Noble Crowd
   m_TagString: Untagged
@@ -39968,7 +40199,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3398880656718381178, guid: 2cf4de684764a50458af9bf5c05d062f,
+  m_Sprite: {fileID: -6547508804730280500, guid: f2d7b3a2baf4c444ba9c4cac8260c172,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -39990,7 +40221,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.31, y: 37.21866, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -40138,7 +40369,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.475, y: 1.75}
+    oldSize: {x: 0.6, y: 0.58}
     newSize: {x: 1.475, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -40146,6 +40377,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.475, y: 1.75}
   m_EdgeRadius: 0
+--- !u!95 &1807488075
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807488069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c45ab2051e3c98649ae3c34741210a70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1832289204
 GameObject:
   m_ObjectHideFlags: 0
@@ -40883,8 +41136,8 @@ SceneRoots:
   - {fileID: 1539811438}
   - {fileID: 1488592384}
   - {fileID: 878250310}
-  - {fileID: 873818967}
   - {fileID: 305921703}
+  - {fileID: 873818967}
   - {fileID: 281329508}
   - {fileID: 69372560}
   - {fileID: 286742872}
