@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using UnityEngine.AI;
 public enum EnemyMovementType
 {
     Idle,
@@ -73,6 +73,9 @@ public class EnemyMovementController : MonoBehaviour
     private Vector3 lastMoveCheckPos;
     private float lastDistanceToPlayer = -1f;
 
+    [SerializeField] Transform target;
+
+    NavMeshAgent agent;
 
     void Awake()
     {
@@ -95,15 +98,21 @@ public class EnemyMovementController : MonoBehaviour
     {
         SetupMovementPattern();
         lastPosition = transform.position;
-
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updatePosition = false;
     }
 
     void Update()
     {
         if (partyController != null && partyController.activeMember != null)
+        {
             player = partyController.activeMember.transform;
 
+        }
+          agent.SetDestination(transform.position);
 
+        
 
         if (!canMove)
         {
