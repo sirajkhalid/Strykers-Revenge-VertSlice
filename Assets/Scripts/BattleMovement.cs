@@ -106,7 +106,7 @@ public class BattleMovement : MonoBehaviour
         if (!turnManager.isPlayerTurn)
         {
             playerMovement.canMove = false;
-            Debug.Log("Im here - in playermovement in line 66");
+          //  Debug.Log("Im here - in playermovement in line 66");//
             return;
         }
 

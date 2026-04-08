@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyAIController : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyAIController : MonoBehaviour
     private EnemyAbilityLoadout loadout;
     private TurnManager turnManager;
     private Transform targetPlayer;
+    private Vector2 _targetDirection;
 
     public AIBehaviorProfile behavior;
     private EnemyMovementController mover;
@@ -18,8 +20,26 @@ public class EnemyAIController : MonoBehaviour
     public AudioSource abilityAudioSource;
     private static AudioSource globalAbilitySource;
 
+    [SerializeField]
+    private float _rotationSpeed;
+
+    [SerializeField]
+    private float _obstacleCheckCircleRadius;
+
+    [SerializeField]
+    private float _obstacleCheckDistance;
+
+    [SerializeField]
+    private LayerMask _obstacleLayerMask;
 
     private const float ENEMY_DAMAGE_MULTIPLIER = 0.5f;
+    private RaycastHit2D[] _obstacleCollisions;
+
+    private void Awake()
+    {
+        _obstacleCollisions = new RaycastHit2D[10];
+      
+    }
 
     void Start()
     {
@@ -38,6 +58,34 @@ public class EnemyAIController : MonoBehaviour
             GameObject obj = GameObject.Find("AbilitiesSource");
             if (obj != null)
                 globalAbilitySource = obj.GetComponent<AudioSource>();
+        }
+
+    }
+
+    private void HandleObstacles()
+    {
+        Debug.Log("got called bitch");
+        var contactFiller = new ContactFilter2D();
+        contactFiller.SetLayerMask(_obstacleLayerMask);
+
+        int numberOfCollisions = Physics2D.CircleCast(transform.position, _obstacleCheckCircleRadius, 
+            transform.up, contactFiller, _obstacleCollisions, _obstacleCheckDistance);
+
+        for (int index = 0; index < numberOfCollisions; index++)
+        {
+            var obstacleCollision = _obstacleCollisions[index];
+
+            if (obstacleCollision.collider.gameObject == gameObject)
+            {
+                continue;
+            }
+
+            var targetRotation = Quaternion.LookRotation(transform.forward, obstacleCollision.normal);
+            var rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+
+            _targetDirection = rotation * Vector2.up;
+            break;
+
         }
 
     }
@@ -149,6 +197,8 @@ public class EnemyAIController : MonoBehaviour
 
     private IEnumerator MoveTowardTargetIfNeeded(float dist, Ability ability)
     {
+        HandleObstacles();
+
         // Already in range → no movement
         if (dist <= ability.range)
             yield break;
