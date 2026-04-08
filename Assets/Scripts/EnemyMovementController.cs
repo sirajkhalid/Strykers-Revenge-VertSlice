@@ -98,7 +98,9 @@ public class EnemyMovementController : MonoBehaviour
     {
         SetupMovementPattern();
         lastPosition = transform.position;
-       
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updatePosition = false;
     }
 
     void Update()
@@ -108,7 +110,7 @@ public class EnemyMovementController : MonoBehaviour
             player = partyController.activeMember.transform;
 
         }
-       
+          agent.SetDestination(transform.position);
 
         
 
