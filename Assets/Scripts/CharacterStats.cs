@@ -169,6 +169,7 @@ public class CharacterStats : MonoBehaviour
        
         CalculateAllStats();
         CalculateSpellSlots();
+        HandleDeath();
         
         currentHealth = maxHealth;
         currentMovement = maxMovement;
@@ -599,6 +600,7 @@ public class CharacterStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             HandleDeath();
+            
         }
     }
 

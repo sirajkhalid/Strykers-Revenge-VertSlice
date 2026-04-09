@@ -241,7 +241,7 @@ MonoBehaviour:
   currentEXP: 0
   expToNextLevel: 1000
   strength: 8
-  dexterity: 6
+  dexterity: 8
   constitution: 13
   intelligence: 15
   wisdom: 14
@@ -252,12 +252,12 @@ MonoBehaviour:
   intMod: 0
   wisMod: 0
   chaMod: 0
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 44
+  currentHealth: 44
   armorClass: 0
   initiative: 0
   rolledInitiative: 0
-  bonusHP: 0
+  bonusHP: 10
   bonusDamage: 3
   bonusArmor: 1
   bonusMovement: 2

@@ -29,7 +29,7 @@ public class PlayerPartyController : MonoBehaviour
     public string currentStartPoint = "StartPoint";
     public string NotificationText = "";
 
-    
+    SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -64,6 +64,8 @@ public class PlayerPartyController : MonoBehaviour
         else
             EnsureActiveMemberValid();
 
+        CleanupNullMembers();
+        EnsureActiveMemberValid();
         HookCamera();
         RefreshUI();
         Invoke(nameof(ForceHUDInit), 0.1f);
@@ -79,6 +81,7 @@ public class PlayerPartyController : MonoBehaviour
         HookCamera();
         RefreshUI();
         Invoke(nameof(ForceHUDInit), 0.1f);
+      
     }
 
     public void LoadGameData()

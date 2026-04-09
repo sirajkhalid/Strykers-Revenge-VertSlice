@@ -327,6 +327,11 @@ PrefabInstance:
       propertyPath: baseHealth
       value: 47
       objectReference: {fileID: 0}
+    - target: {fileID: 5132720649268459264, guid: d078cbc2eb1163c4aade044c2721d5c3,
+        type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6535718045542245837, guid: d078cbc2eb1163c4aade044c2721d5c3,
         type: 3}
       propertyPath: abilities.Array.size
@@ -413,6 +418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lumbering Ghoul (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977981750805099956, guid: d078cbc2eb1163c4aade044c2721d5c3,
+        type: 3}
+      propertyPath: movementType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -656,6 +666,11 @@ PrefabInstance:
       propertyPath: baseHealth
       value: 47
       objectReference: {fileID: 0}
+    - target: {fileID: 5132720649268459264, guid: d078cbc2eb1163c4aade044c2721d5c3,
+        type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6535718045542245837, guid: d078cbc2eb1163c4aade044c2721d5c3,
         type: 3}
       propertyPath: abilities.Array.size
@@ -732,6 +747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chaseMaxTime
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977981750805099956, guid: d078cbc2eb1163c4aade044c2721d5c3,
+        type: 3}
+      propertyPath: movementType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7977981750805099956, guid: d078cbc2eb1163c4aade044c2721d5c3,
         type: 3}
