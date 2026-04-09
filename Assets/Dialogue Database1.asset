@@ -785,7 +785,7 @@ MonoBehaviour:
         value: "However, you can neither combat nor resist them if you don\u2019t
           truly understand them. This book is meant to teach anyone what kinds of
           devils there are in detail. You may never even meet one. But in case you
-          do, here is how to handle them."
+          do - here is how to handle them.\r\n\r\n"
         type: 0
         typeString: 
       - title: Sequence
@@ -866,7 +866,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1083,7 +1083,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1250,7 +1250,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1305,7 +1305,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1360,7 +1360,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1470,7 +1470,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1525,7 +1525,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1541,8 +1541,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 206.4001
-        y: 502.01233
+        x: 228.69975
+        y: 509.73145
         width: 160
         height: 30
     - id: 19
@@ -1626,8 +1626,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: 'Sloth is typically associated with people who refuse to work or contribute
-          to society. That is something he plays on, but for the most part, this
-          association is a ruse. '
+          to society.  That is something he plays on, but for the most part this
+          association is a ruse.  '
         type: 0
         typeString: 
       - title: Sequence
@@ -1742,11 +1742,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: All devils know of their history, and Greed is no exception.  All
-          devils of sin are bound by the specificity of their contracts with mortals. 
-          This means that Greed has to give the other party what they want, but that
-          person must uphold their end of the deal as well. A broken contract can
-          have terrible consequences for whoever breaks it.
+        value: All devils know of their history and Greed is no exception.  All devils
+          of sin are bound by the specificity of their contracts with mortals.  This
+          means that Greed has to give the other party what they want, but that person
+          must uphold their end of the deal as well. A broken contract can have terrible
+          consequences for whomever breaks it.
         type: 0
         typeString: 
       - title: Sequence
@@ -1774,7 +1774,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1098.4962
+        x: 1097.6653
         y: 478.24347
         width: 160
         height: 30
@@ -1804,7 +1804,7 @@ MonoBehaviour:
         value: What the devil of Greed usually wants is his power restored, slaves
           returned, or an economic opportunity in which he can enrich himself.  Unfortunately,
           the rich talk with this devil a lot, but their souls and stories can tell
-          what happens when you deal with him.
+          what happen when you deal with him.
         type: 0
         typeString: 
       - title: Sequence
@@ -1816,7 +1816,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1860,7 +1860,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: A devil of ambition but also of loyalty to his masters. He is the
-          strongest out of all of the sins and is mainly used as a general.  He doesn't
+          strongest out of all of the sins and mainly used as a general.  He doesn't
           bother being manipulative like some of the others because he is content
           being a pawn for his masters. Pride doesn't need to think when stubbornly
           clinging to the wills of others.
@@ -2039,7 +2039,7 @@ MonoBehaviour:
           Typically, he switches between being bent on the destruction of all things,
           including hell, or pushing the idea of destruction on others. In the former,
           he often expresses hatred for the very concept of life. Regardless, he
-          is the devil who changes the most in philosophy and goals.
+          is the devil that changes the most in philosophy and goals.
         type: 0
         typeString: 
       - title: Sequence
@@ -2156,7 +2156,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "This devil takes from those who want something from others. This
           desire could be physical possessions or something as ephemeral as love.
-          In truth, it doesn\u2019t matter because she will never give the wisher
+          In truth, it doesn\u2019t matter, because she will never give the wisher
           what they truly want. She hates mortals for their unique gifts given to
           them by the Owl himself."
         type: 0
@@ -2213,10 +2213,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "The whisper of fear, anxiety, and depression. To this devil, suicide
+        value: "The whisper of fear, anxiety, and depression.  To this devil, suicide
           looks like freedom, and life is a curse from which he wants to set all
-          mortals free. However, life is a valuable asset that contains possibilities
-          of all kinds. As long as you don't listen to him, you won't wish for wings
+          mortals free.  However, life is a valuable asset that contains possibilities
+          of all kinds.  As long as you don't listen to him, you won't wish for wings
           when you\u2019re halfway down."
         type: 0
         typeString: 
@@ -2250,8 +2250,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.9327514
+    canvasScrollPosition: {x: 0, y: 109.73929}
+    canvasZoom: 0.69275165
   - id: 2
     fields:
     - title: Title
@@ -2348,8 +2348,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.63999987
+    canvasScrollPosition: {x: 208.24142, y: 40.56295}
+    canvasZoom: 0.8499998
   - id: 3
     fields:
     - title: Title
@@ -2687,8 +2687,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: I decided to write down a report of the strange disease swimming in
-          the air of our home, and to record my frustration with the nobles. After
-          all, what are they going to do? Kill me? Better than being eaten.
+          the air of our home.  And to write down my frustration with the nobles. 
+          After all, what are they going to do? Kill me?  Better than being eaten.
         type: 0
         typeString: 
       - title: Sequence
@@ -2743,11 +2743,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "It all started when one of the workers in the sweatshop dropped dead.
-          A common occurrence, but one with concerning signs. The corpse was filled
-          with yellow pus, with its ears leaking and its face slowly disintegrating.
+        value: "It all started when one of the workers in the sweatshop dropped dead. 
+          A common occurrence, but one with concerning signs.  The corpse was filled
+          with yellow pus, their ears leaking and their face slowly disintegrating. 
           The first victim laughed quietly\u2026 almost like he knew what was happening,
-          or at least was happy with his death."
+          or at least was happy with his death.."
         type: 0
         typeString: 
       - title: Sequence
@@ -2775,7 +2775,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 85.05841
+        x: 86.7079
         y: 155.17526
         width: 160
         height: 30
@@ -2953,7 +2953,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 71.666664
-        y: 352.50854
+        y: 353.33328
         width: 160
         height: 30
     - id: 10
@@ -3190,10 +3190,10 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "Who can really resist a god? Though the god\u2019s logic was flawed,
-          he still attacked the first Continent. His forces laid waste to all. The
-          Human and Elven kingdoms fell, and it was only thanks to Marble Monts,
-          a great dwarven warrior, that we all survived. She is the one who slew
-          the herald of the evil god to save us all."
+          he still attacked the first Continent, with his forces laying waste to
+          all. The Human and Elven kingdoms fell, and it was only thanks to Marble
+          Monts, a great dwarven warrior, that we all survived. She is the one who
+          slew the herald of the evil god to save us all."
         type: 0
         typeString: 
       - title: Sequence
@@ -4097,10 +4097,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Thank you for coming. As you know, my name is Queen Sapphire of the
-          Tyra Kingdom. I have summoned you all here for a crucial mission\u2014one
-          that my soldiers have not been able to complete. (The room erupts in murmurs
-          and doubts)"
+        value: Thank you for coming.  As you know my name is Queen Sapphire of the
+          Tyra kingdom.  I have summoned you all here for a crucial mission.  One,
+          that my soldiers have not been able to complete.  (The room erupts in murmurs
+          and doubts)
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4435,10 +4435,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Just a few years ago, we had a king who arrested those who disagreed
-          with him, lied to the general public, and abused those who were different
-          from him, and yet we still have this castle that was built on his back
-          and the previous king\u2019s."
+        value: Just a few years ago - we had a king arresting those who disagreed
+          with him, who lied to the general public, and abused those different from
+          him and yet we still have this castle that was built on his back and the
+          previous king.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4493,7 +4493,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (The crowd goes quiet then laughs)
+        value: '(The crowd goes quiet then laughs) '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4827,9 +4827,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "The second location is the Elven Capital\u2014we have been unable
-          to visit or reach out to the elves regarding this sudden isolation. We
-          need some of you to investigate."
+        value: The second location is the Elven Captial - we have been unable to
+          visit and being able to reach out to the elves regarding this sudden isolation. 
+          We need some of you to investigate.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5053,9 +5053,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "(Styrker sighs and rolls his eyes before continuing) As you all know,
-          the current world order is filled with corruption\u2014the rich squeeze
-          the life out of peasants for more coin while the government does nothing."
+        value: (Styrker signs and rolls his eyes before continuing) As you all know
+          the current world order is filled with corruption - the rich squeezes the
+          life out of peasents for more coin while the government does nothing.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5200,7 +5200,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 754.2549}
+    canvasScrollPosition: {x: 83.679886, y: 931.08997}
     canvasZoom: 0.75200045
   - id: 10
     fields:
@@ -5652,7 +5652,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "It was wonderful, Your Majesty\u2014(do a proper bow for the queen)"
+        value: It was wonderful, your majesty - (do a proper bow for the queen)
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5707,7 +5707,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (Scowls in hatred. She shouldn't be queen at all.)
+        value: (Scowls in hatred, she shouldn't be queen at all.)
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5867,9 +5867,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (Her smile doesn't fade, but her eyes say something different. Her
-          tone is much more calculated.) I believe your seat is in the far back to
-          your right. If you're confused, knight.
+        value: (Her smile doesn't fade but her eyes say something different.  Her
+          tone is much more calculated).  I believe your seat is in the far back
+          to your right.  If your confused, knight.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5881,7 +5881,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: Block
+      falseConditionAction: 
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -5919,7 +5919,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Well - I didn't think a merc would come and talk to me.  Greetings
-          brave soul. How are you?
+          brave soul.  How are you?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5952,7 +5952,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 50.399994}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
   - id: 12
     fields:
@@ -6231,8 +6231,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "If you are one of the mercenaries\u2014please head forward\u2014only
-          if you have a pass."
+        value: If you are one of the mercenaries - please head forward - only if
+          you have a pass.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6440,9 +6440,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I can't believe she would hire mercenaries to do what soldiers could
-          do. Surely they should be able to handle such unpleasant threats. If she
-          cannot get results in order, then that is a failing on her part.
+        value: 'I can''t believe she would hire mercenaries to do what soldiers could
+          do. Surely they should be able to handle such. Unpleasant threats. If she
+          cannot get results in order, then that is a failing on her part. '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6734,7 +6734,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.5999756, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
   - id: 16
     fields:
@@ -6860,7 +6860,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Tell me what you think of the situation.
+        value: Tell me what do you think of the situation?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6982,8 +6982,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Why not tell me your thoughts\u2014I'm sure someone as smart as you
-          can let me in on some information. (You try not to gag at your own words)"
+        value: Why not tell me your thoughts - I'm sure someone as smart as you can
+          let me in on some information.  (You try not to gag at your own words)
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7212,7 +7212,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (Insight Check) Does he actually know anything?
+        value: (Insight Check)  Does he actually know anything?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7332,7 +7332,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Excuse me\u2014I must be off."
+        value: Excuse me - I must be off.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7537,7 +7537,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Ohohoho\u2014well, good luck to you then."
+        value: Ohohoho - well good luck to you then.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7620,7 +7620,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 16.494843, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.96999997
   - id: 17
     fields:
@@ -7802,8 +7802,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (Ferally sighs) Crap, the Commander must have forgotten to give us
-          one.
+        value: (Feral sighs) Crap the Commander must have forgotten to give us one.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7831,8 +7830,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 145.86665
-        y: 204.80003
+        x: 146.66666
+        y: 204.00002
         width: 160
         height: 30
     - id: 5
@@ -7913,7 +7912,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Unless you have a pass\u2014you cannot get in."
+        value: Unless you have a pass - you cannot get in
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -8606,8 +8605,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '"A wise tongue will always beat a prideful heart." Well done, young
-          knight.'
+        value: '"A wise tongue will always beat a prideful heart".  Well done young
+          Knight.'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -8831,8 +8830,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 20.709518, y: 21.889696}
-    canvasZoom: 0.9100001
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.8200002
   - id: 19
     fields:
     - title: Title
@@ -8957,7 +8956,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Sorry, Sire or Madam\u2014I didn't mean to bump into you."
+        value: 'Sorry Sire or Madam - I didn''t mean to bump into you.
+
+'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9195,7 +9196,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "No\u2014(leaves)"
+        value: No - (leaves)
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9329,8 +9330,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 269.43298
-        y: 387.67303
+        x: 273.06934
+        y: 384.03665
         width: 160
         height: 30
     - id: 14
@@ -9441,7 +9442,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 265.1183
-        y: 525.3044
+        y: 523.48615
         width: 160
         height: 30
     - id: 17
@@ -9467,7 +9468,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: What's your name? What do you like to do for fun while not working?
+        value: What's your name?  What do you like to do for fun while not working?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9522,8 +9523,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Oh\u2014well, thank you, my name is Mary. I like to sing at the local
-          tavern when I'm not working."
+        value: Oh - well thank you, my name is Mary.  I like to sing at the local
+          tavern when I'm not working.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9612,8 +9613,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 33.288, y: 23.000315}
-    canvasZoom: 0.87999976
+    canvasScrollPosition: {x: 132.14314, y: 80.05781}
+    canvasZoom: 0.7599999
   - id: 20
     fields:
     - title: Title
@@ -9911,7 +9912,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 430.8
-        y: 201.33333
+        y: 200.53334
         width: 160
         height: 30
     - id: 4
@@ -10336,7 +10337,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 93.599976, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
   - id: 21
     fields:
@@ -10462,8 +10463,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Sorry, knight, I cannot talk right now. (She is clearly nervous with
-          all the dwarven and human nobles around.)
+        value: Sorry knight, I cannot talk right now.  (She is clearly nervous with
+          all the dwarven and human nobles around).
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -10616,7 +10617,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "The door is locked\u2014but you can lockpick it."
+        value: The door is locked - but you can lockpick it.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -10842,7 +10843,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: You hear a soft click, and the door opens.
+        value: You here a soft click and the door opens.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -11363,7 +11364,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 6.9902954, y: 173.20389}
+    canvasScrollPosition: {x: 57.47574, y: 57.170105}
     canvasZoom: 1.03
   - id: 24
     fields:
@@ -11551,7 +11552,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I would like to meet your leader. It's important regarding Tyra.
+        value: I would like to meet your leader.  It's important regarding Tyra.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -11634,7 +11635,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 298.23566
+        x: 297.2945
         y: 207.99998
         width: 160
         height: 30
@@ -11753,7 +11754,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 11.058807
-        y: 277.0588
+        y: 277.99997
         width: 160
         height: 30
     - id: 7
@@ -11843,7 +11844,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Hahahaha. What a funny joke. I think our leaders would tell us if
+        value: Hahahaha. What a funny joke.  I think our leaders would tell us if
           something like that was happening.
         type: 0
         typeString: CustomFieldType_Text
@@ -12301,7 +12302,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 654.8732
+        x: 655.8144
         y: 129.37834
         width: 160
         height: 30
@@ -12479,7 +12480,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 19.76477, y: 0}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.85000014
   - id: 25
     fields:
@@ -12729,7 +12730,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Leave
+        value: Leave.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -13627,8 +13628,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Why? Because of morals? Because we are just as bad as them? HAH! It
-          is retribution for their acts. If they didn't want this to happen, then
+        value: Why? Because of morals? Because we are just as bad as them? HAH! 
+          It is retribution for their acts.  If they didn't want this to happen then
           they shouldn't have acted out.
         type: 0
         typeString: CustomFieldType_Text
@@ -13826,7 +13827,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 587.5981
+        x: 588.5476
         y: 557.224
         width: 160
         height: 30
@@ -13909,7 +13910,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Very well, then come and try!
+        value: Very well then come and try!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -13993,8 +13994,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 72.16617, y: 236.43915}
-    canvasZoom: 0.84249973
+    canvasScrollPosition: {x: 248.81134, y: 264.87805}
+    canvasZoom: 1.0224996
   - id: 28
     fields:
     - title: Title
@@ -14219,7 +14220,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 94.66666
-        y: 200.45422
+        y: 201.33334
         width: 160
         height: 30
     - id: 3
@@ -14442,7 +14443,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 638
-        y: 140.38824
+        y: 141.26736
         width: 160
         height: 30
     - id: 7
@@ -14729,7 +14730,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 633.75085
+        x: 632.87177
         y: 257.38458
         width: 160
         height: 30
@@ -14879,7 +14880,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 291.8681, y: 0}
+    canvasScrollPosition: {x: 186.3736, y: 1.7582092}
     canvasZoom: 0.9100001
   - id: 29
     fields:
@@ -15761,7 +15762,7 @@ MonoBehaviour:
           at least that it wouldn\u2019t work properly for me.\n\nI never understood
           why the Restraint disease was so reviled by dwarves and humans. With humans,
           my guess was that they just hate everything. But dwarves\u2026 they\u2019re
-          supposed to be jolly figures, right?"
+          supposed to be jolly figures, right?**"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -16061,7 +16062,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 153.84189
+        x: 154.66666
         y: 168.66666
         width: 160
         height: 30
@@ -16244,7 +16245,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 6.5979004, y: 65.9794}
+    canvasScrollPosition: {x: 0, y: 68.45361}
     canvasZoom: 0.97
   - id: 34
     fields:
@@ -16476,7 +16477,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 180.5385
+        x: 181.3751
         y: 240.673
         width: 160
         height: 30
@@ -16886,7 +16887,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 368.10397}
+    canvasScrollPosition: {x: 0, y: 346.61316}
     canvasZoom: 0.9562515
   - id: 35
     fields:
@@ -17420,7 +17421,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 238.00002
+        x: 238.8
         y: 204.19998
         width: 160
         height: 30
@@ -17538,7 +17539,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 331.59995
+        x: 333.19995
         y: 260.6001
         width: 160
         height: 30
@@ -18159,7 +18160,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 138.40002, y: 1.6000061}
+    canvasScrollPosition: {x: 116.80002, y: 0}
     canvasZoom: 1
   - id: 38
     fields:
@@ -18769,7 +18770,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 108.00006, y: 3.1999817}
+    canvasScrollPosition: {x: 375.20004, y: 5.5999756}
     canvasZoom: 1
   - id: 39
     fields:
@@ -18929,104 +18930,6 @@ MonoBehaviour:
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
-  - id: 40
-    fields:
-    - title: Title
-      value: New Conversation 40
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Description
-      value: 
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: Actor
-      value: 1
-      type: 5
-      typeString: CustomFieldType_Actor
-    - title: Conversant
-      value: 6
-      type: 5
-      typeString: CustomFieldType_Actor
-    overrideSettings:
-      useOverrides: 0
-      overrideSubtitleSettings: 0
-      showNPCSubtitlesDuringLine: 1
-      showNPCSubtitlesWithResponses: 1
-      showPCSubtitlesDuringLine: 0
-      skipPCSubtitleAfterResponseMenu: 0
-      subtitleCharsPerSecond: 30
-      minSubtitleSeconds: 2
-      continueButton: 0
-      overrideSequenceSettings: 0
-      defaultSequence: 
-      defaultPlayerSequence: 
-      defaultResponseMenuSequence: 
-      overrideInputSettings: 0
-      alwaysForceResponseMenu: 1
-      includeInvalidEntries: 0
-      responseTimeout: 0
-      emTagForOldResponses: 0
-      emTagForInvalidResponses: 0
-      cancelSubtitle:
-        key: 27
-        buttonName: 
-      cancelConversation:
-        key: 27
-        buttonName: 
-    nodeColor: 
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 6
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: None()
-        type: 0
-        typeString: 
-      conversationID: 40
-      isRoot: 1
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 160
-        y: 30
-        width: 160
-        height: 30
-    entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
   syncInfo:
     syncActors: 0
     syncItems: 0
@@ -19036,7 +18939,7 @@ MonoBehaviour:
     syncItemsDatabase: {fileID: 0}
     syncLocationsDatabase: {fileID: 0}
     syncVariablesDatabase: {fileID: 0}
-  templateJson: '{"treatItemsAsQuests":true,"actorFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Pictures","value":"[]","type":3,"typeString":"CustomFieldType_Files"},{"title":"Description","value":"","type":0,"typeString":""},{"title":"IsPlayer","value":"False","type":2,"typeString":"CustomFieldType_Boolean"}],"itemFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Pictures","value":"[]","type":3,"typeString":"CustomFieldType_Files"},{"title":"Description","value":"","type":0,"typeString":""},{"title":"Is
+  templateJson: '{"treatItemsAsQuests":true,"actorFields":[{"title":"Name","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Pictures","value":"[]","type":3,"typeString":"CustomFieldType_Files"},{"title":"Description","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"IsPlayer","value":"False","type":2,"typeString":"CustomFieldType_Boolean"}],"itemFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Pictures","value":"[]","type":3,"typeString":"CustomFieldType_Files"},{"title":"Description","value":"","type":0,"typeString":""},{"title":"Is
     Item","value":"True","type":2,"typeString":"CustomFieldType_Boolean"}],"questFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Pictures","value":"[]","type":3,"typeString":"CustomFieldType_Files"},{"title":"Description","value":"","type":0,"typeString":""},{"title":"Success
     Description","value":"","type":0,"typeString":""},{"title":"Failure Description","value":"","type":0,"typeString":""},{"title":"State","value":"unassigned","type":0,"typeString":""},{"title":"Is
     Item","value":"False","type":2,"typeString":"CustomFieldType_Boolean"}],"locationFields":[{"title":"Name","value":"","type":0,"typeString":""},{"title":"Description","value":"","type":0,"typeString":""}],"variableFields":[{"title":"Name","value":"","type":0,"typeString":"CustomFieldType_Text"},{"title":"Initial
