@@ -561,36 +561,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 5431015048163812394, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: leader
@@ -848,11 +823,11 @@ Transform:
   m_GameObject: {fileID: 134754386}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4400005, y: -11.83, z: 0}
+  m_LocalPosition: {x: 6.65029, y: -9.06444, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1228090344}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &134754389
 BoxCollider2D:
@@ -1020,11 +995,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8971971048206562530, guid: 9c6c78d71fbc9d142994604c6d2ff315,
         type: 3}
-    - target: {fileID: 1646418740697464320, guid: 45e46a7b390eb0e49991c598e1a00e85,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1663285344544902289, guid: 45e46a7b390eb0e49991c598e1a00e85,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1369,36 +1339,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 5431015048163812394, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: followers.Array.size
@@ -1656,36 +1601,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6649234393219757417, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: enemyStats
@@ -2086,19 +2006,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231408416}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1449080790}
-  m_Father: {fileID: 1684860551}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &231408421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69756,36 +69676,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6649234393219757417, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: enemyStats
@@ -70631,31 +70526,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6649234393219757417, guid: b407003c7a87b12478890e3e8ed922d8,
         type: 3}
       propertyPath: enemyStats
@@ -70780,7 +70650,7 @@ SpriteRenderer:
   m_Size: {x: 0.07, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &476178401
@@ -71992,36 +71862,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 6dc2716547d79954bab3f7062fc86012,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 6dc2716547d79954bab3f7062fc86012,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: 6dc2716547d79954bab3f7062fc86012,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: 6dc2716547d79954bab3f7062fc86012,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 6dc2716547d79954bab3f7062fc86012,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 6dc2716547d79954bab3f7062fc86012,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 5431015048163812394, guid: 6dc2716547d79954bab3f7062fc86012,
         type: 3}
       propertyPath: followers.Array.size
@@ -79763,36 +79608,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6649234393219757417, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: enemyStats
@@ -79988,12 +79808,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049974482}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -621.90063, y: -271.06204, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 338.0994, y: 268.93796, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1684860551}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1049974485
 MonoBehaviour:
@@ -80385,6 +80205,7 @@ Transform:
   - {fileID: 935788340}
   - {fileID: 49976419}
   - {fileID: 565591704}
+  - {fileID: 134754387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242954692 stripped
@@ -80489,19 +80310,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260873319}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 517161666}
-  m_Father: {fileID: 1684860551}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1260873324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80688,21 +80509,6 @@ PrefabInstance:
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: c89b53a481e691247b53c11471704908,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6649234393219757417, guid: c89b53a481e691247b53c11471704908,
         type: 3}
       propertyPath: enemyStats
@@ -81196,36 +81002,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 590c24cbbfd203046850cb1cf5a65513,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 590c24cbbfd203046850cb1cf5a65513,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: 590c24cbbfd203046850cb1cf5a65513,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: 590c24cbbfd203046850cb1cf5a65513,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 590c24cbbfd203046850cb1cf5a65513,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 590c24cbbfd203046850cb1cf5a65513,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 5431015048163812394, guid: 590c24cbbfd203046850cb1cf5a65513,
         type: 3}
       propertyPath: followers.Array.size
@@ -115014,36 +114795,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
     - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: abilityAudioSource
       value: 
       objectReference: {fileID: 1107669215}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: 7500aad255d9ce443986498ab66f6a12,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 6649234393219757417, guid: 7500aad255d9ce443986498ab66f6a12,
         type: 3}
       propertyPath: enemyStats
@@ -115183,12 +114939,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -115231,10 +114987,6 @@ RectTransform:
   m_Children:
   - {fileID: 1190088401}
   - {fileID: 1884817267}
-  - {fileID: 231408420}
-  - {fileID: 1260873323}
-  - {fileID: 1708611953}
-  - {fileID: 1049974484}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -115242,12 +114994,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!224 &1708611953 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
-    type: 3}
-  m_PrefabInstance: {fileID: 3065824045952625140}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1779959265
 GameObject:
   m_ObjectHideFlags: 0
@@ -115436,31 +115182,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 5431015048163812394, guid: b407003c7a87b12478890e3e8ed922d8,
         type: 3}
@@ -116987,31 +116708,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5066166189470553662, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1868916615
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleCheckDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5181030918936642381, guid: b407003c7a87b12478890e3e8ed922d8,
-        type: 3}
-      propertyPath: _obstacleCheckCircleRadius
-      value: 0.45
-      objectReference: {fileID: 0}
     - target: {fileID: 5431015048163812394, guid: b407003c7a87b12478890e3e8ed922d8,
         type: 3}
       propertyPath: jitterSpeed
@@ -118420,7 +118116,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1684860551}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 90581080264951354, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
@@ -119575,12 +119271,12 @@ PrefabInstance:
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
@@ -119605,27 +119301,12 @@ PrefabInstance:
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
@@ -119650,27 +119331,27 @@ PrefabInstance:
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
         type: 3}
@@ -120502,7 +120183,11 @@ SceneRoots:
   - {fileID: 906013726}
   - {fileID: 874470239}
   - {fileID: 312431310}
+  - {fileID: 231408420}
+  - {fileID: 1260873323}
+  - {fileID: 3065824045952625140}
   - {fileID: 1779959268}
+  - {fileID: 1049974484}
   - {fileID: 632536061}
   - {fileID: 1684860551}
   - {fileID: 1580559663}
@@ -120526,5 +120211,4 @@ SceneRoots:
   - {fileID: 145939443}
   - {fileID: 617641371}
   - {fileID: 134397665}
-  - {fileID: 134754387}
   - {fileID: 476178401}
