@@ -12,7 +12,7 @@ public class MonsterTrigger : MonoBehaviour
         Door.SetActive(true);
         if(AllDestroyed(arrays))
         {
-            DontDestroyOnLoad(other);
+           
             Door.SetActive(false);
             return;
             
