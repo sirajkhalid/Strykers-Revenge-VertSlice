@@ -20,7 +20,7 @@ public class Reset1 : MonoBehaviour
 
     public void ResetLevel1()
     {
-        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "ElvenTower" : "TyrantLab");
+        SceneManager.LoadSceneAsync(UseLoadingIntermediaryScene ? "Elven Tower" : "TyrantLab");
     }
 
     // Update is called once per frame
