@@ -1161,6 +1161,7 @@ TilemapCollider2D:
   m_UseDelaunayMesh: 0
 --- !u!483693784 &276859488
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1206,6 +1207,7 @@ TilemapRenderer:
   m_SortingLayerID: 1170991467
   m_SortingLayer: 3
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5333333, y: 0.39999998, z: 0}
   m_MaxChunkCount: 16
@@ -1213,7 +1215,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &276859489
 Tilemap:
   m_ObjectHideFlags: 0
@@ -9040,6 +9041,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 24.81
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -9808,6 +9810,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &693211801
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9853,6 +9856,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 4303319623636250174, guid: adaa18a5d73a8874c8dd073634acef1d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9863,7 +9867,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &693211802
 Transform:
@@ -10563,6 +10566,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!212 &788156891
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10608,6 +10612,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -420117663960912499, guid: a9eb504367dcee04f8ae6113d20b2b28,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10618,7 +10623,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &788156892
 Transform:
@@ -11063,6 +11067,7 @@ Rigidbody2D:
   m_Constraints: 0
 --- !u!483693784 &839411184
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11108,6 +11113,7 @@ TilemapRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5333333, y: 0.39999998, z: 0}
   m_MaxChunkCount: 16
@@ -11115,7 +11121,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &839411185
 Tilemap:
   m_ObjectHideFlags: 0
@@ -16621,7 +16626,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4194284971611777511, guid: e4041833ede042145b211a48bd2ba43d,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 481215ab41e92874292026d834d70522, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3403d9f13d6277146813e27a155fde34, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -17267,6 +17272,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1505770520
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17312,6 +17318,7 @@ TilemapRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: -28
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03125, y: 0.03125, z: 0}
   m_MaxChunkCount: 16
@@ -17319,7 +17326,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &1505770521
 Tilemap:
   m_ObjectHideFlags: 0
@@ -43262,6 +43268,7 @@ GameObject:
   m_IsActive: 1
 --- !u!212 &1689459743
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -43307,6 +43314,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -420117663960912499, guid: a9eb504367dcee04f8ae6113d20b2b28,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -43317,7 +43325,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1689459744
 Transform:
@@ -43639,6 +43646,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &2044533771
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -43684,6 +43692,7 @@ TilemapRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 11
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.36666667, y: 0.3333333, z: 0}
   m_MaxChunkCount: 16
@@ -43691,7 +43700,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &2044533772
 Tilemap:
   m_ObjectHideFlags: 0
@@ -43989,6 +43997,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 24.81
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
