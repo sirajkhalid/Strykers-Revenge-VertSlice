@@ -46,6 +46,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2507056343034171923
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -91,6 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: -1868916615
   m_SortingLayer: 5
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -5585543917754570708, guid: d7bfc3eafbd18d0409841c8092de3956,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +103,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &869438603327493887
 Rigidbody2D:
@@ -191,8 +192,8 @@ MonoBehaviour:
   smoothing: 15
   sprintBonus: 3
   audioSource: {fileID: 7675128781121719844}
-  walkFootstepSFX: {fileID: 8300000, guid: a9b790cc09ed0de408ce8d6b835ddc69, type: 3}
-  sprintFootstepSFX: {fileID: 8300000, guid: c7e047923247813448fb952fc8963ec4, type: 3}
+  walkFootstepSFX: {fileID: 8300000, guid: 65fbdaca692069a4cb49928dc465e625, type: 3}
+  sprintFootstepSFX: {fileID: 8300000, guid: 9c6e3624b6e52004b919da9bcb9a39a8, type: 3}
   canMove: 1
 --- !u!95 &5648930091950226366
 Animator:
