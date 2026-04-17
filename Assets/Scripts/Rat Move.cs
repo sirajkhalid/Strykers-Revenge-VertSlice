@@ -34,7 +34,7 @@ public class RatMove : MonoBehaviour
 
         rb.linearVelocity = direction * speed;
 
-        animator.SetFloat("Speed", rb.linearVelocity.sqrMagnitude);
+        animator.SetFloat("speed", rb.linearVelocity.sqrMagnitude);
 
         if (direction.y != 0)
             sprite.flipY = direction.y < 0;
