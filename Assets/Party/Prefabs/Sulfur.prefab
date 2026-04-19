@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: -6896624358268064977}
   - component: {fileID: -5262644574918051110}
   - component: {fileID: 7182177878625313799}
+  - component: {fileID: 7558412395862302843}
   m_Layer: 0
   m_Name: Sulfur
   m_TagString: Player
@@ -519,3 +520,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.SelectorUseStandardUIElements
   tagSpecificElements: []
   layerSpecificElements: []
+--- !u!114 &7558412395862302843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085118638413065071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aaeeb73512b4564f8b84c5b582fa1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConversationStatRegister
