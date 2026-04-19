@@ -4053,12 +4053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ed6843e58faac4fa8966ee9478ebbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
---- !u!1 &558738526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6535365414824650908, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629136725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &567932653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5547,12 +5541,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7539551438357958207, guid: 4907e897ea011104b9e41b93ff9faeee,
     type: 3}
   m_PrefabInstance: {fileID: 567932653}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &574183989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9104980285495205765, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629136725}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &600743000
 GameObject:
@@ -14469,12 +14457,6 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls: []
---- !u!1 &1085604016 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4483763177865879641, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629136725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1126218944
 GameObject:
   m_ObjectHideFlags: 0
@@ -38450,7 +38432,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1670633508}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -38482,7 +38464,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 558738526}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -38498,7 +38480,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1780301127}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -38514,7 +38496,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1085604016}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -38530,7 +38512,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1853231343}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -38546,7 +38528,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1085604016}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -38562,7 +38544,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1910321339}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -38578,7 +38560,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 574183989}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -39325,80 +39307,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1629136725
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.24229
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 45.36192
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097694473832397733, guid: b2c0be58c1c36c445be6746d5ff1941f,
-        type: 3}
-      propertyPath: m_Name
-      value: Dice Roll Triggers
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b2c0be58c1c36c445be6746d5ff1941f, type: 3}
---- !u!1 &1670633508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6701391845157066900, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629136725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673458015
 GameObject:
   m_ObjectHideFlags: 0
@@ -39777,12 +39685,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1780301127 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2517211748675721773, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629136725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807488069
 GameObject:
   m_ObjectHideFlags: 0
@@ -40310,12 +40212,6 @@ MonoBehaviour:
   battleUI: {fileID: 600743000}
   isBattleActive: 0
   postBattleGraceTime: 2
---- !u!1 &1853231343 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1626878298786869903, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629136725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1905595529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40447,12 +40343,6 @@ MonoBehaviour:
   m_order: 0
   skipApplyDataAfterFramesIfApplyImmediate: 1
   saveRawData: 0
---- !u!1 &1910321339 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5245613117035877642, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1629136725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1930045617
 GameObject:
   m_ObjectHideFlags: 0
@@ -40862,7 +40752,6 @@ SceneRoots:
   - {fileID: 46370954}
   - {fileID: 1677965981}
   - {fileID: 1905595529}
-  - {fileID: 1629136725}
   - {fileID: 273814301}
   - {fileID: 698220088}
   - {fileID: 1619830599}
