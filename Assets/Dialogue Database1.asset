@@ -269,7 +269,7 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
@@ -2565,7 +2565,7 @@ MonoBehaviour:
   - id: 4
     fields:
     - title: Title
-      value: New Conversation 4
+      value: Report 1
       type: 0
       typeString: 
     - title: Description
@@ -2687,8 +2687,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: I decided to write down a report of the strange disease swimming in
-          the air of our home.  And to write down my frustration with the nobles. 
-          After all, what are they going to do? Kill me?  Better than being eaten.
+          the air of our home and to write down my frustration with the nobles. After
+          all, what are they going to do? Kill me? That's better than being eaten.
         type: 0
         typeString: 
       - title: Sequence
@@ -2744,8 +2744,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "It all started when one of the workers in the sweatshop dropped dead. 
-          A common occurrence, but one with concerning signs.  The corpse was filled
-          with yellow pus, their ears leaking and their face slowly disintegrating. 
+          A common occurrence, but one with concerning signs. The corpse was filled
+          with yellow pus, their ears leaking and their face slowly disintegrating.
           The first victim laughed quietly\u2026 almost like he knew what was happening,
           or at least was happy with his death.."
         type: 0
@@ -2833,7 +2833,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80.000015
+        x: 80.82475
         y: 209.95874
         width: 160
         height: 30
@@ -2861,7 +2861,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: Some time passed and the bodies that were infected - I ordered that
-          they be burned to stop any possible contamination.  I already knew they
+          they be burned to stop any possible contamination. I already knew they
           were dead... But they got up... and that's when it happened.
         type: 0
         typeString: 
@@ -2918,13 +2918,13 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "Every worker turned into one of those things - an abomination.  Even
-          the ones that were still alive were changed. They must\u2019ve been pretending
+          the ones that were still alive were changing, they must\u2019ve been pretending
           to still be normal somehow \u2013 until they rushed and smashed all the
-          guards\u2019 heads in.  They cheered and spoke, but they weren't alive
-          anymore. I could tell. The guards they killed turned into strange bloated
-          corpses with the parasites moving their bodies.  Me, some nobles, and a
-          handful of guards have locked ourselves up in here. Praying for help...
-          I hope we get it soon."
+          guard's heads in.  They cheered and could speak, but they weren't alive
+          anymore, I could tell. The guards they killed turned into strange bloated
+          corpses with parasites moving their bodies. Me, some nobles, and a handful
+          of guards have locked ourselves up in here, praying for help... I hope
+          we get it soon."
         type: 0
         typeString: 
       - title: Sequence
@@ -3006,12 +3006,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1.5309906}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.94000006
   - id: 5
     fields:
     - title: Title
-      value: New Conversation 5
+      value: History Book 1
       type: 0
       typeString: 
     - title: Description
@@ -3132,9 +3132,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "The Great Annihilation was an event of continental genocide of all
-          races.  The God of Free Will, angered by the God of Tyranny\u2019s manipulation
-          of mortals, blamed those same mortals for the death of his lover. "
+        value: "The Great Annihilation was an event of continental genocide across
+          all races.  The God of Free Will, angered by the God of Tyranny\u2019s
+          manipulation of mortals, blamed those same mortals for the death of his
+          lover. "
         type: 0
         typeString: 
       - title: Sequence
@@ -3162,8 +3163,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 134.15692
-        y: 119.45526
+        x: 125.48013
+        y: 128.99973
         width: 160
         height: 30
     - id: 3
@@ -3190,10 +3191,10 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "Who can really resist a god? Though the god\u2019s logic was flawed,
-          he still attacked the first Continent, with his forces laying waste to
-          all. The Human and Elven kingdoms fell, and it was only thanks to Marble
-          Monts, a great dwarven warrior, that we all survived. She is the one who
-          slew the herald of the evil god to save us all."
+          he still attacked the first Continent with his forces laying waste to all.
+          The Human and Elven kingdoms fell, and it was only thanks to Marble Monts,
+          a great dwarven warrior, that we all survived. She is the one who slew
+          the herald of the evil god to save us all."
         type: 0
         typeString: 
       - title: Sequence
@@ -3221,7 +3222,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 100
+        x: 101.73537
         y: 204.66667
         width: 160
         height: 30
@@ -3248,8 +3249,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The survivors either stayed on those broken lands or traveled to this
-          new one - the land of Tyra.
+        value: The survivors either stayed on those broken lands or traveled to a
+          new one - here in the land of Tyra.
         type: 0
         typeString: 
       - title: Sequence
@@ -3281,7 +3282,7 @@ MonoBehaviour:
   - id: 6
     fields:
     - title: Title
-      value: New Conversation 6
+      value: Report 2
       type: 0
       typeString: 
     - title: Description
@@ -3403,8 +3404,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: There seem to be some pipe problems for the servant quarters down
-          in the eastern barracks and some of the peasants say they hear the buzzing
-          of gnats. I doubt it's that serious. The squeaking of pipes in the night
+          in the eastern barracks, some of the peasants say they hear the buzzing
+          of gnats. I doubt it's that serious, the squeaking of pipes in the night
           will make anyone jumpy.
         type: 0
         typeString: 
@@ -3437,7 +3438,7 @@ MonoBehaviour:
   - id: 7
     fields:
     - title: Title
-      value: New Conversation 7
+      value: Dying letter
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -3561,8 +3562,8 @@ MonoBehaviour:
         value: 'By the Owl... I''m done for.  The monsters are banging on the door
           as I bleed out.  Gods, I ask forgiveness for whatever your humble servant
           did. After years of work for noble families, I hope to find rest soon...
-          (The writing is shown to be unfinished, and blood makes the rest hard to
-          read)
+          (The rest of the writing is shown to be unfinished, and blood makes the
+          rest hard to read)
 
 
 
@@ -8835,7 +8836,7 @@ MonoBehaviour:
   - id: 19
     fields:
     - title: Title
-      value: New Conversation 19
+      value: Elven Servant(Mary)
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -9086,7 +9087,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Time at the castle?
+        value: How's your time at the castle been?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9141,7 +9142,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: The Queen?
+        value: Thoughts on the Queen?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9301,7 +9302,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I believe, though, that she will lead Tyra to a better future if only
+        value: However I believe that she will lead Tyra to a better future, if only
           we could get rid of the anomalies.
         type: 0
         typeString: CustomFieldType_Text
@@ -9330,7 +9331,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 273.06934
+        x: 274.2122
         y: 384.03665
         width: 160
         height: 30
@@ -9412,8 +9413,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "Unfortunately not\u2014but the few whispers that I do hear about
-          frighten me. Though I'm sure that's why she called professionals like yourselves."
+        value: "Unfortunately not\u2014but the few whispers that I do hear frighten
+          me. Though I'm sure that's why she called in professionals like yourselves."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9468,7 +9469,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: What's your name?  What do you like to do for fun while not working?
+        value: What's your name?  What do you like to do for fun when you're not
+          working?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9553,7 +9555,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 603.3273
-        y: 85.34555
+        y: 84.20271
         width: 160
         height: 30
     - id: 19
@@ -9613,8 +9615,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 132.14314, y: 80.05781}
-    canvasZoom: 0.7599999
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.6999999
   - id: 20
     fields:
     - title: Title
@@ -10342,7 +10344,7 @@ MonoBehaviour:
   - id: 21
     fields:
     - title: Title
-      value: New Conversation 21
+      value: Elven Servant(Unnamed)
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -10420,7 +10422,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 21
@@ -10486,7 +10488,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 159.2
         y: 77.33333
         width: 160
         height: 30

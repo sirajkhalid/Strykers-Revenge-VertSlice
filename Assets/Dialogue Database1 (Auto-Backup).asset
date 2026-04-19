@@ -269,7 +269,7 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
@@ -2687,8 +2687,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: I decided to write down a report of the strange disease swimming in
-          the air of our home.  And to write down my frustration with the nobles. 
-          After all, what are they going to do? Kill me?  Better than being eaten.
+          the air of our home and to write down my frustration with the nobles. After
+          all, what are they going to do? Kill me? That's better than being eaten.
         type: 0
         typeString: 
       - title: Sequence
@@ -2744,8 +2744,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "It all started when one of the workers in the sweatshop dropped dead. 
-          A common occurrence, but one with concerning signs.  The corpse was filled
-          with yellow pus, their ears leaking and their face slowly disintegrating. 
+          A common occurrence, but one with concerning signs. The corpse was filled
+          with yellow pus, their ears leaking and their face slowly disintegrating.
           The first victim laughed quietly\u2026 almost like he knew what was happening,
           or at least was happy with his death.."
         type: 0
@@ -2833,7 +2833,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80.000015
+        x: 80.82475
         y: 209.95874
         width: 160
         height: 30
@@ -2861,7 +2861,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: Some time passed and the bodies that were infected - I ordered that
-          they be burned to stop any possible contamination.  I already knew they
+          they be burned to stop any possible contamination. I already knew they
           were dead... But they got up... and that's when it happened.
         type: 0
         typeString: 
@@ -2918,13 +2918,13 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "Every worker turned into one of those things - an abomination.  Even
-          the ones that were still alive were changed. They must\u2019ve been pretending
+          the ones that were still alive were changing, they must\u2019ve been pretending
           to still be normal somehow \u2013 until they rushed and smashed all the
-          guards\u2019 heads in.  They cheered and spoke, but they weren't alive
-          anymore. I could tell. The guards they killed turned into strange bloated
-          corpses with the parasites moving their bodies.  Me, some nobles, and a
-          handful of guards have locked ourselves up in here. Praying for help...
-          I hope we get it soon."
+          guard's heads in.  They cheered and could speak, but they weren't alive
+          anymore, I could tell. The guards they killed turned into strange bloated
+          corpses with parasites moving their bodies. Me, some nobles, and a handful
+          of guards have locked ourselves up in here, praying for help... I hope
+          we get it soon."
         type: 0
         typeString: 
       - title: Sequence
@@ -3006,8 +3006,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1.5309906}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.94000006
   - id: 5
     fields:
     - title: Title
@@ -8835,7 +8835,7 @@ MonoBehaviour:
   - id: 19
     fields:
     - title: Title
-      value: New Conversation 19
+      value: Elven Servant(Mary)
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -9553,7 +9553,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 603.3273
-        y: 85.34555
+        y: 84.20271
         width: 160
         height: 30
     - id: 19
@@ -9613,8 +9613,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 132.14314, y: 80.05781}
-    canvasZoom: 0.7599999
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.6999999
   - id: 20
     fields:
     - title: Title
