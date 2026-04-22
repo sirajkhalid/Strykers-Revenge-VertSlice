@@ -569,7 +569,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Title
-      value: New Conversation 1
+      value: On Demonology
       type: 0
       typeString: 
     - title: Description
@@ -888,7 +888,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1721,7 +1721,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1826,7 +1826,7 @@ MonoBehaviour:
         value: What the devil of Greed usually wants is his power restored, slaves
           returned, or an economic opportunity in which he can enrich himself.  Unfortunately,
           the rich talk with this devil a lot, but their souls and stories can tell
-          what happen when you deal with him.
+          what happens when you deal with him.
         type: 0
         typeString: 
       - title: Sequence
@@ -1838,7 +1838,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -1881,7 +1881,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: A devil of ambition but also of loyalty to his masters. He is the
+        value: A devil of ambition, but also, of loyalty to his masters. He is the
           strongest out of all of the sins and mainly used as a general.  He doesn't
           bother being manipulative like some of the others because he is content
           being a pawn for his masters. Pride doesn't need to think when stubbornly
@@ -1942,7 +1942,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: Some people are surprised to find the devil of Lust to be a man. 
           He is also the politest of the bunch and seems "kind" when someone first
-          meets him.  However, out of any devil, make sure you never deal with him.
+          meets him.  However, out of any devil, avoid him at all cost.
         type: 0
         typeString: 
       - title: Sequence
@@ -2236,7 +2236,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "The whisper of fear, anxiety, and depression.  To this devil, suicide
-          looks like freedom, and life is a curse from which he wants to set all
+          looks like liberation, and life is a curse from which he wants to set all
           mortals free.  However, life is a valuable asset that contains possibilities
           of all kinds.  As long as you don't listen to him, you won't wish for wings
           when you\u2019re halfway down."
@@ -2272,8 +2272,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 109.73929}
-    canvasZoom: 0.69275165
+    canvasScrollPosition: {x: 0, y: 225.30682}
+    canvasZoom: 0.7527516
   - id: 2
     fields:
     - title: Title
@@ -2370,12 +2370,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 208.24142, y: 40.56295}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.8499998
   - id: 3
     fields:
     - title: Title
-      value: New Conversation 3
+      value: Note from God
       type: 0
       typeString: 
     - title: Description
@@ -2587,7 +2587,7 @@ MonoBehaviour:
   - id: 4
     fields:
     - title: Title
-      value: New Conversation 4
+      value: Report 1
       type: 0
       typeString: 
     - title: Description
@@ -2709,8 +2709,9 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: I decided to write down a report of the strange disease swimming in
-          the air of our home.  And to write down my frustration with the nobles. 
-          After all, what are they going to do? Kill me?  Better than being eaten.
+          the air of our home, and to write down my frustration with the nobles. 
+          After all, what are they going to do? Kill me? It'd be better than being
+          eaten.
         type: 0
         typeString: 
       - title: Sequence
@@ -2738,8 +2739,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 72.66667
-        y: 89.82132
+        x: 71.01718
+        y: 88.17183
         width: 160
         height: 30
     - id: 3
@@ -2765,11 +2766,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "It all started when one of the workers in the sweatshop dropped dead. 
-          A common occurrence, but one with concerning signs.  The corpse was filled
+        value: "It all started when one of the workers in the sweatshop dropped dead.
+          A common occurrence, but one with concerning signs. The corpse was filled
           with yellow pus, their ears leaking and their face slowly disintegrating. 
-          The first victim laughed quietly\u2026 almost like he knew what was happening,
-          or at least was happy with his death.."
+          The first victim was laughing quietly\u2026 almost like he knew what was
+          happening, or at least was happy with his death.."
         type: 0
         typeString: 
       - title: Sequence
@@ -2882,9 +2883,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Some time passed and the bodies that were infected - I ordered that
-          they be burned to stop any possible contamination.  I already knew they
-          were dead... But they got up... and that's when it happened.
+        value: Some time passed and I ordered for the bodies that were infected to
+          be burned to stop any possible contamination. I already knew they were
+          dead... But they got up... and that's when it happened.
         type: 0
         typeString: 
       - title: Sequence
@@ -2939,13 +2940,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Every worker turned into one of those things - an abomination.  Even
-          the ones that were still alive were changed. They must\u2019ve been pretending
-          to still be normal somehow \u2013 until they rushed and smashed all the
-          guards\u2019 heads in.  They cheered and spoke, but they weren't alive
-          anymore. I could tell. The guards they killed turned into strange bloated
-          corpses with the parasites moving their bodies.  Me, some nobles, and a
-          handful of guards have locked ourselves up in here. Praying for help...
+        value: "Every worker started turning into one of those things - an abomination. 
+          Even the ones that were still alive were changed, they must\u2019ve been
+          pretending to still be normal somehow \u2013 until they rushed and smashed
+          all the guard's heads in.  They cheered and could speak, but they weren't
+          alive anymore, I could tell. The guards they killed turned into strange
+          bloated corpses with the parasites moving their bodies. Me, some nobles,
+          and a handful of guards have locked ourselves up in here. Praying for help...
           I hope we get it soon."
         type: 0
         typeString: 
@@ -3028,12 +3029,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1.5309906}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0.9411621, y: 2.2392883}
+    canvasZoom: 0.85
   - id: 5
     fields:
     - title: Title
-      value: New Conversation 5
+      value: History Book 1
       type: 0
       typeString: 
     - title: Description
@@ -3154,9 +3155,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "The Great Annihilation was an event of continental genocide of all
-          races.  The God of Free Will, angered by the God of Tyranny\u2019s manipulation
-          of mortals, blamed those same mortals for the death of his lover. "
+        value: "The Great Annihilation was an event of continental genocide across
+          all races.  The God of Free Will, angered by the God of Tyranny\u2019s
+          manipulation of mortals, blamed those same mortals for the death of his
+          lover. "
         type: 0
         typeString: 
       - title: Sequence
@@ -3243,8 +3245,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 100
-        y: 204.66667
+        x: 99.132324
+        y: 205.53435
         width: 160
         height: 30
     - id: 4
@@ -3270,8 +3272,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The survivors either stayed on those broken lands or traveled to this
-          new one - the land of Tyra.
+        value: The survivors either stayed on those broken lands or traveled to a
+          new one - they ended up here, in the land of Tyra.
         type: 0
         typeString: 
       - title: Sequence
@@ -3294,16 +3296,16 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 139.76862
-        y: 306.61902
+        y: 305.7513
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 31.729385, y: 12.092588}
+    canvasScrollPosition: {x: 0, y: 42.46135}
     canvasZoom: 0.9220001
   - id: 6
     fields:
     - title: Title
-      value: New Conversation 6
+      value: Report 2
       type: 0
       typeString: 
     - title: Description
@@ -3424,9 +3426,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There seem to be some pipe problems for the servant quarters down
+        value: There seems to be some pipe problems for the servant quarters down
           in the eastern barracks and some of the peasants say they hear the buzzing
-          of gnats. I doubt it's that serious. The squeaking of pipes in the night
+          of gnats. I doubt it's that serious, the squeaking of pipes in the night
           will make anyone jumpy.
         type: 0
         typeString: 
@@ -3459,7 +3461,7 @@ MonoBehaviour:
   - id: 7
     fields:
     - title: Title
-      value: New Conversation 7
+      value: Dying letter
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -3581,10 +3583,10 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: 'By the Owl... I''m done for.  The monsters are banging on the door
-          as I bleed out.  Gods, I ask forgiveness for whatever your humble servant
+          as I bleed out. Gods, I ask forgiveness for whatever your humble servant
           did. After years of work for noble families, I hope to find rest soon...
-          (The writing is shown to be unfinished, and blood makes the rest hard to
-          read)
+          (The rest of the writing is shown to be unfinished, and blood makes the
+          rest hard to read)
 
 
 
@@ -3610,8 +3612,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 80
+        x: 160.79999
+        y: 81.600006
         width: 160
         height: 30
     entryGroups: []
@@ -3620,7 +3622,7 @@ MonoBehaviour:
   - id: 8
     fields:
     - title: Title
-      value: New Conversation 8
+      value: Upgrade
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -3993,12 +3995,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 42.646057, y: 9.018829}
-    canvasZoom: 1.5199996
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.9200001
   - id: 9
     fields:
     - title: Title
-      value: New Conversation 9
+      value: Throne Room Conversation
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -4120,7 +4122,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Thank you for coming.  As you know my name is Queen Sapphire of the
-          Tyra kingdom.  I have summoned you all here for a crucial mission.  One,
+          Tyra kingdom.  I have summoned you all here for a crucial mission, one
           that my soldiers have not been able to complete.  (The room erupts in murmurs
           and doubts)
         type: 0
@@ -4179,7 +4181,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: The first one is the City of Arell. It has seemed that strange new
           monsters have formed there. There is also a gas cloud surrounding the main
-          manor; however, we have seen that the cloud doesn't affect anyone.
+          manor, however we have seen that the cloud doesn't affect anyone.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4234,7 +4236,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: If it's nothing serious then you will have personally eased my mind.
+        value: If it's nothing serious then you will have eased my mind.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4289,9 +4291,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "If any of you are able to find the source of these problems and deal
-          with them, we will award your group with enough gold to last your children\u2019s
-          lifetime."
+        value: If any of you are able to find the source of these problems and deal
+          with them, we will award your group with enough gold to last you and your
+          offspring's lifetime.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4347,7 +4349,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: (Suddenly, the door swings open and a disfigured dwarf marches in
-          with runes etched in his face. The crowd goes silent.)
+          with runes etched in his face. The room goes silent.)
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4515,7 +4517,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '(The crowd goes quiet then laughs) '
+        value: '(The room remains quiet, before followed by the laughs of the mercenaries.) '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4543,7 +4545,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 124.113464
+        x: 123.23352
         y: 909.31915
         width: 160
         height: 30
@@ -4571,9 +4573,9 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Words and negotiations, but I understand that doesn't always work...
-          So if need be\u2014force. So that is why right now, right here, you all
-          have a choice, including you\u2014your \"majesty\"\u2014to choose peace
-          or face the hand of righteous judgment."
+          So if need be\u2014force. That is why right now, right here, you all have
+          a choice, including you\u2014your \"majesty\"\u2014to choose peace or face
+          the hand of righteous judgement."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4686,7 +4688,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: It seems negotiations are over then. (As he snaps his fingers, a figure
-          of pure hatred and grief springs through his body, and a purple wave spreads
+          of pure hatred and grief springs from his body, and a purple wave spreads
           throughout the castle. As the doors are about to close, your team jumps
           through the door, barely making it in time.)
         type: 0
@@ -4794,7 +4796,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: There are three targets that each of you can handle.
+        value: There are three targets for all of you can handle.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4850,8 +4852,8 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: The second location is the Elven Captial - we have been unable to
-          visit and being able to reach out to the elves regarding this sudden isolation. 
-          We need some of you to investigate.
+          visit or reach out to the elves regarding this sudden isolation.  We need
+          some of you to investigate.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5048,7 +5050,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 398.57825
+        x: 397.31244
         y: 663.2269
         width: 160
         height: 30
@@ -5075,9 +5077,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (Styrker signs and rolls his eyes before continuing) As you all know
-          the current world order is filled with corruption - the rich squeezes the
-          life out of peasents for more coin while the government does nothing.
+        value: (Styrker signs and rolls his eyes before continuing)  You all must
+          know the current world order is filled with corruption - the rich squeeze
+          the life out of peasants for more coin while the government does nothing
+          and gives nothing back.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5133,7 +5136,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: What's to stop what happened then from happening later? So I propose
-          that we remove this monarchy and form a community-based leadership under
+          that we remove this monarchy, and form a community-based leadership under
           the watchful eye of Orin in order to prevent more tragedy...
         type: 0
         typeString: CustomFieldType_Text
@@ -5189,7 +5192,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: What silliness is this and how will you make sure everyone complies?
+        value: What silliness is this, how will you make sure everyone complies?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5222,12 +5225,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 83.679886, y: 931.08997}
-    canvasZoom: 0.75200045
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.6920005
   - id: 10
     fields:
     - title: Title
-      value: New Conversation 10
+      value: Dying letter 2
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -5492,7 +5495,7 @@ MonoBehaviour:
   - id: 11
     fields:
     - title: Title
-      value: New Conversation 11
+      value: Cycil
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -5674,7 +5677,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: It was wonderful, your majesty - (do a proper bow for the queen)
+        value: It is wonderful, your majesty. (do a proper bow for the queen)
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5891,7 +5894,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: (Her smile doesn't fade but her eyes say something different.  Her
           tone is much more calculated).  I believe your seat is in the far back
-          to your right.  If your confused, knight.
+          to your right.  If you're confused, knight.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5903,7 +5906,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
@@ -5974,12 +5977,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 7.9121094, y: 123.07689}
+    canvasZoom: 0.9100001
   - id: 12
     fields:
     - title: Title
-      value: New Conversation 12
+      value: Construct
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -6127,12 +6130,12 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0.1165061, y: 0}
     canvasZoom: 1
   - id: 13
     fields:
     - title: Title
-      value: New Conversation 13
+      value: Construct 2
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -6253,8 +6256,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: If you are one of the mercenaries - please head forward - only if
-          you have a pass.
+        value: If you are one of the mercenaries - please head forward, only if you
+          have a pass.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6286,7 +6289,7 @@ MonoBehaviour:
   - id: 14
     fields:
     - title: Title
-      value: New Conversation 14
+      value: Noble Crowd
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -6463,8 +6466,8 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 'I can''t believe she would hire mercenaries to do what soldiers could
-          do. Surely they should be able to handle such. Unpleasant threats. If she
-          cannot get results in order, then that is a failing on her part. '
+          do. Surely they should be able to handle such... unpleasant threats. If
+          she cannot get results in order, then that is a failing on her part. '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6496,7 +6499,7 @@ MonoBehaviour:
   - id: 15
     fields:
     - title: Title
-      value: New Conversation 15
+      value: Noble Crowd 2
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -6617,8 +6620,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: (Another noble nods in agreement.) I did hear, though, that there
-          are ghost ships sinking any merchant vessels, though they are just rumors.
+        value: (Another noble nods in agreement.) I did hear that there are ghost
+          ships sinking any merchant vessels, though they are just rumors.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6722,8 +6725,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "From a tyrant king to now a bastard daughter queen\u2014now, thanks
-          to this, our imports to the First Continent are being put on hold."
+        value: "From a tyrant king to now a bastard daughter queen\u2014thanks to
+          this, our imports to the First Continent are being put on hold."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -6761,7 +6764,7 @@ MonoBehaviour:
   - id: 16
     fields:
     - title: Title
-      value: New Conversation 16
+      value: Noble Crowd 3
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -6922,8 +6925,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 155.46924
-        y: 122.71846
+        x: 152.43124
+        y: 123.731125
         width: 160
         height: 30
     - id: 2
@@ -7117,7 +7120,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Well how rude.
+        value: Well, how rude.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7582,7 +7585,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 70.55015
-        y: 217.66986
+        y: 216.65723
         width: 160
         height: 30
     - id: 14
@@ -7643,11 +7646,11 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.96999997
+    canvasZoom: 0.79000014
   - id: 17
     fields:
     - title: Title
-      value: New Conversation 17
+      value: Construct 3
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -7798,7 +7801,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 161.33333
-        y: 80
+        y: 79.20001
         width: 160
         height: 30
     - id: 3
@@ -8067,13 +8070,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 176.13333
+        x: 175.03745
         y: 408.66666
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.73000026
   - id: 18
     fields:
     - title: Title
@@ -8857,7 +8860,7 @@ MonoBehaviour:
   - id: 19
     fields:
     - title: Title
-      value: New Conversation 19
+      value: Elven Servant(Mary)
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -9267,8 +9270,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: She is better than her father. Though people said that about the former
-          king, as he wasn't the "genocidal kind."
+        value: She is better than her father... though people said that about the
+          former king, as he wasn't the "genocidal kind."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9323,7 +9326,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I believe, though, that she will lead Tyra to a better future if only
+        value: However I believe that she will lead Tyra to a better future if only
           we could get rid of the anomalies.
         type: 0
         typeString: CustomFieldType_Text
@@ -9435,7 +9438,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Unfortunately not\u2014but the few whispers that I do hear about
-          frighten me. Though I'm sure that's why she called professionals like yourselves."
+          frighten me. But I'm sure that's why she called professionals like yourselves."
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9575,7 +9578,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 603.3273
-        y: 85.34555
+        y: 88.63321
         width: 160
         height: 30
     - id: 19
@@ -9635,8 +9638,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 132.14314, y: 80.05781}
-    canvasZoom: 0.7599999
+    canvasScrollPosition: {x: 8.76709, y: 2.1917725}
+    canvasZoom: 0.7299999
   - id: 20
     fields:
     - title: Title
@@ -10364,7 +10367,7 @@ MonoBehaviour:
   - id: 21
     fields:
     - title: Title
-      value: New Conversation 21
+      value: Elven Servant(unnamed)
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
