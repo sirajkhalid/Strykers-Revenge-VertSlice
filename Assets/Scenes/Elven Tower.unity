@@ -8879,6 +8879,92 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 333231960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &373562216
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.63156
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.08086
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688674947446121939, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097694473832397733, guid: b2c0be58c1c36c445be6746d5ff1941f,
+        type: 3}
+      propertyPath: m_Name
+      value: Dice Roll Triggers
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2c0be58c1c36c445be6746d5ff1941f, type: 3}
+--- !u!1 &373562217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1626878298786869903, guid: b2c0be58c1c36c445be6746d5ff1941f,
+    type: 3}
+  m_PrefabInstance: {fileID: 373562216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &373562218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6701391845157066900, guid: b2c0be58c1c36c445be6746d5ff1941f,
+    type: 3}
+  m_PrefabInstance: {fileID: 373562216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &373562219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 904135184095536392, guid: b2c0be58c1c36c445be6746d5ff1941f,
+    type: 3}
+  m_PrefabInstance: {fileID: 373562216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &409532262
 GameObject:
   m_ObjectHideFlags: 0
@@ -9530,7 +9616,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 373562219}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -9546,7 +9632,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 373562217}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -9578,7 +9664,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 373562218}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -44239,6 +44325,7 @@ SceneRoots:
   - {fileID: 213091214}
   - {fileID: 693211802}
   - {fileID: 692416348}
+  - {fileID: 373562216}
   - {fileID: 613385620}
   - {fileID: 754566176}
   - {fileID: 1774101892}
