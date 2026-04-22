@@ -185,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: conversation
-      value: New Conversation 3
+      value: Note from God
       objectReference: {fileID: 0}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
@@ -2714,14 +2714,6 @@ CompositeCollider2D:
         Y: 783399936
       - X: -713399936
         Y: 783399936
-    - - X: -723399936
-        Y: 786600064
-      - X: -726600064
-        Y: 786600064
-      - X: -726600064
-        Y: 783399936
-      - X: -723399936
-        Y: 783399936
     - - X: -733399936
         Y: 786600064
       - X: -736600064
@@ -2729,6 +2721,14 @@ CompositeCollider2D:
       - X: -736600064
         Y: 783399936
       - X: -733399936
+        Y: 783399936
+    - - X: -723399936
+        Y: 786600064
+      - X: -726600064
+        Y: 786600064
+      - X: -726600064
+        Y: 783399936
+      - X: -723399936
         Y: 783399936
     - - X: 370312512
         Y: 49687500
@@ -3308,14 +3308,6 @@ CompositeCollider2D:
         Y: -110312496
       - X: 129687504
         Y: -249687504
-    - - X: -332554336
-        Y: 439375008
-      - X: -347427936
-        Y: 439375008
-      - X: -347427936
-        Y: 430624992
-      - X: -332554336
-        Y: 430624992
     - - X: -539908032
         Y: 410365440
       - X: -539908032
@@ -3852,10 +3844,6 @@ CompositeCollider2D:
       - {x: 8.968751, y: -5.968779}
       - {x: 8.9687805, y: -11.03125}
       - {x: 12.968751, y: -11.03128}
-    - - {x: -33.255463, y: 43.0625}
-      - {x: -33.255463, y: 43.9375}
-      - {x: -34.742794, y: 43.937473}
-      - {x: -34.742764, y: 43.0625}
     - - {x: -54.23663, y: 40.931194}
       - {x: -53.990803, y: 41.036564}
       - {x: -53.99076, y: 41.24552}
@@ -48887,26 +48875,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -35, y: 43, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 26
-      m_TileSpriteIndex: 25
-      m_TileMatrixIndex: 5
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -34, y: 43, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 25
-      m_TileSpriteIndex: 26
-      m_TileMatrixIndex: 4
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -28, y: 43, z: 0}
     second:
       serializedVersion: 2
@@ -69999,9 +69967,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: a701a788f385a5a4eada1616df941e2e, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: c6eb0dace238b924d9d995b35226fb2e, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 205fa673a7079c64fa1c0dd5a1a84c0a, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 0107f9cf6058d09418f84c19542a5e1c, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 99c6ed56d1159064582d115acee4af3d, type: 2}
@@ -70121,10 +70089,10 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 5167690650097798016, guid: 861f0c5a0a70d9640aa5381e74a23566,
       type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 9215116752543722491, guid: 8f6922c95812f414f91c8c1e258b77d2,
       type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: -681744053, guid: 8f6922c95812f414f91c8c1e258b77d2, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -70257,7 +70225,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data:
       e00: 1
       e01: 0
@@ -70275,7 +70243,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data:
       e00: 1
       e01: 0
@@ -70474,7 +70442,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 6584
+  - m_RefCount: 6582
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -70993,7 +70961,7 @@ PrefabInstance:
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: conversation
-      value: New Conversation 4
+      value: On Demonology
       objectReference: {fileID: 0}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
@@ -119337,7 +119305,7 @@ PrefabInstance:
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: conversation
-      value: New Conversation 6
+      value: Report 2
       objectReference: {fileID: 0}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
@@ -119976,7 +119944,7 @@ PrefabInstance:
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: conversation
-      value: New Conversation 5
+      value: History Book 1
       objectReference: {fileID: 0}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
@@ -122216,6 +122184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
+      propertyPath: conversation
+      value: Report 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
+        type: 3}
       propertyPath: conversationConversant
       value: 
       objectReference: {fileID: 0}
@@ -122384,6 +122357,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5032300467834753602, guid: b2335705393eae740954a423ef01f147,
+        type: 3}
+      propertyPath: conversation
+      value: Upgrade
+      objectReference: {fileID: 0}
     - target: {fileID: 7679060931489795041, guid: b2335705393eae740954a423ef01f147,
         type: 3}
       propertyPath: m_Name

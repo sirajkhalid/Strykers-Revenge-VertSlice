@@ -5145,7 +5145,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: New Conversation 11
+  conversation: Onxy
   conversationConversant: {fileID: 1234323602}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
@@ -5278,6 +5278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155737553054136299, guid: 7e47c76464d233f4f8dc665933b09da5,
+        type: 3}
+      propertyPath: conversation
+      value: Throne Room Conversation
       objectReference: {fileID: 0}
     - target: {fileID: 4538260438947807316, guid: 7e47c76464d233f4f8dc665933b09da5,
         type: 3}
