@@ -5242,7 +5242,11 @@ MonoBehaviour:
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 6
+      value: 14
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant1
+      value: 1
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -5288,7 +5292,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 6
+        value: 14
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -5339,7 +5343,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 6
+        value: 14
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -5394,7 +5398,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 6
+        value: 14
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -5424,7 +5428,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 5
         destinationConversationID: 10
-        destinationDialogueID: 7
+        destinationDialogueID: 9
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -5485,8 +5489,65 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 112.000015
-        y: 254.66666
+        x: 120
+        y: 353.3333
+        width: 160
+        height: 30
+    - id: 9
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 14
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: It seems like the infectation was the one giving Styrker these monsters
+          for his army.  Now that he is dead - I think we can also leave this place. 
+          We should head to the entrance.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 9
+        destinationConversationID: 10
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 125.333374
+        y: 259.8667
         width: 160
         height: 30
     entryGroups: []
