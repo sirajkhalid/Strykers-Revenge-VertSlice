@@ -21149,14 +21149,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: "\r\n\r\npublic class ResetPosition : MonoBehaviour\r\n{\r\n   
-        Vector3 originalPos;\r\n\r\n    void Start()\r\n    {\r\n        originalPos
-        = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,
-        gameObject.transform.position.z);\r\n        //alternatively, just: originalPos
-        = gameObject.transform.position;\r\n\r\n    }\r\n    void OnTriggerEnter(Collider
-        other)\r\n    {\r\n        if (other.gameObject.tag == \"ResetPoint\")\r\n       
-        {\r\n            gameObject.transform.position = originalPos;\r\n           
-        Debug.Log(\"Im here\");\r\n        }\r\n\r\n    }\r\n};\n\n"
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls:
@@ -21174,8 +21167,8 @@ MonoBehaviour:
             m_CallState: 2
       canvasRect:
         serializedVersion: 2
-        x: 158.66669
-        y: 175.33331
+        x: 156.00002
+        y: 177.33328
         width: 160
         height: 30
     entryGroups: []
