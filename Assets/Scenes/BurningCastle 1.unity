@@ -12232,7 +12232,7 @@ PrefabInstance:
     - target: {fileID: 4988637882972301213, guid: 6dc2716547d79954bab3f7062fc86012,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.95
+      value: 21.19
       objectReference: {fileID: 0}
     - target: {fileID: 4988637882972301213, guid: 6dc2716547d79954bab3f7062fc86012,
         type: 3}
@@ -42324,7 +42324,7 @@ PrefabInstance:
     - target: {fileID: 4988637882972301213, guid: b407003c7a87b12478890e3e8ed922d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -59.71
+      value: -9.3
       objectReference: {fileID: 0}
     - target: {fileID: 4988637882972301213, guid: b407003c7a87b12478890e3e8ed922d8,
         type: 3}
@@ -43499,11 +43499,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6405154337912356241, guid: b2335705393eae740954a423ef01f147,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7564668a3b610b14497f12595d5b70a3,
+        type: 2}
     - target: {fileID: 7679060931489795041, guid: b2335705393eae740954a423ef01f147,
         type: 3}
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 7934351252722022895, guid: b2335705393eae740954a423ef01f147,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae133efc8d3c50c44a63b53fbf676783,
+        type: 2}
     - target: {fileID: 8796573539896224590, guid: b2335705393eae740954a423ef01f147,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -2509,7 +2509,7 @@ PrefabInstance:
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.5847163
+      value: 0.22087288
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
@@ -2519,7 +2519,7 @@ PrefabInstance:
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: -0.002492115
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
@@ -34705,22 +34705,22 @@ PrefabInstance:
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.5847163
+      value: 0.21530652
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.67511284
+      value: 0.7237319
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.038234532
+      value: -0.03823501
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.019523919
+      value: -0.0047855973
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
@@ -35192,6 +35192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.64
       objectReference: {fileID: 0}
@@ -35315,17 +35320,17 @@ PrefabInstance:
     - target: {fileID: 8877820331220612319, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.3275
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8877820331220612319, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.3275
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8877820331220612319, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.3275
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8877820331220612319, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
@@ -35477,7 +35482,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7661463343329887040, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 962946420}
   m_SourcePrefab: {fileID: 100100000, guid: 9bdfb7290284dcf438456ba78fdfc2ea, type: 3}
 --- !u!4 &962946407 stripped
 Transform:
@@ -35491,6 +35500,85 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 962946406}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &962946420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962946408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.DialogueSystemTrigger
+  trigger: 256
+  delayOneFrame: 0
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  setQuestState: 1
+  questName: 
+  questState: 0
+  setQuestEntryState: 0
+  questEntryNumber: 1
+  questEntryState: 0
+  setAnotherQuestEntryState: 0
+  anotherQuestEntryNumber: 1
+  anotherQuestEntryState: 0
+  luaCode: 
+  sequence: 
+  sequenceSpeaker: {fileID: 0}
+  sequenceListener: {fileID: 0}
+  waitOneFrameOnStartOrEnable: 1
+  alertMessage: 
+  textTable: {fileID: 0}
+  alertDuration: 0
+  sendMessages: []
+  barkSource: 0
+  barkConversation: 
+  barkEntryID: -1
+  barkEntryTitle: 
+  barkText: 
+  barkTextSequence: 
+  barker: {fileID: 0}
+  barkTarget: {fileID: 0}
+  barkOrder: 0
+  allowBarksDuringConversations: 0
+  skipBarkIfNoValidEntries: 0
+  cacheBarkLines: 0
+  conversation: New Conversation 45
+  conversationConversant: {fileID: 0}
+  conversationActor: {fileID: 0}
+  startConversationEntryID: -1
+  startConversationEntryTitle: 
+  overrideDialogueUI: {fileID: 0}
+  exclusive: 0
+  replace: 0
+  queue: 0
+  skipIfNoValidEntries: 0
+  preventRestartOnSameFrameEnded: 0
+  stopConversationOnTriggerExit: 0
+  marginToAllowTriggerExit: 0.2
+  stopConversationIfTooFar: 0
+  maxConversationDistance: 5
+  monitorConversationDistanceFrequency: 1
+  showCursorDuringConversation: 0
+  pauseGameDuringConversation: 1
+  setActiveActions: []
+  setEnabledActions: []
+  setAnimatorStateActions: []
+  onExecute:
+    m_PersistentCalls:
+      m_Calls: []
+  useConversationTitlePicker: 1
+  useBarkTitlePicker: 1
+  useQuestNamePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: c942eb33a681dc74b95504ca2eadad37, type: 2}
 --- !u!1 &980946876
 GameObject:
   m_ObjectHideFlags: 0
@@ -187689,22 +187777,22 @@ PrefabInstance:
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.5847163
+      value: 0.2258569
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.67511284
+      value: 0.71396977
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: -0.009968296
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.019428462
       objectReference: {fileID: 0}
     - target: {fileID: 777209659753065051, guid: 9bdfb7290284dcf438456ba78fdfc2ea,
         type: 3}
