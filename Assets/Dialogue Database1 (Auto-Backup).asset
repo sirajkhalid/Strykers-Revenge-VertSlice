@@ -54,7 +54,8 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 7535227641519897821, guid: 849de2aed16ebc04d92841511bc137d0,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 3
@@ -82,7 +83,7 @@ MonoBehaviour:
   - id: 7
     fields:
     - title: Name
-      value: New Actor 7
+      value: Doctor Note
       type: 0
       typeString: 
     - title: Pictures
@@ -92,13 +93,14 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 1257856469098593532, guid: 02e556c852933f74a8293f8ea6cacc58,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 5
@@ -209,7 +211,8 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -7713922369102829887, guid: fd607f12300bf244bb99b6a2c58a3c8d,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 9
@@ -363,7 +366,8 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -5682314710528278495, guid: 186ec86ffc80600408b2ac66c686ee35,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 16
@@ -407,7 +411,8 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 863537935829680246, guid: a2ecf16b094d02d4eb4e4ee2e4cd5928,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 18
@@ -473,7 +478,8 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -3087948483527374674, guid: a7e1f3c5ee2508e4bb5be691598a0579,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 21
@@ -517,6 +523,28 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 2800000, guid: 35e3243a054dd004aaae8c0ce8449ab6, type: 3}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 23
+    fields:
+    - title: Name
+      value: Infestation Report
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
@@ -565,6 +593,20 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
+  - id: 4
+    fields:
+    - title: Name
+      value: Turn off
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
   conversations:
   - id: 1
     fields:
@@ -2739,8 +2781,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 71.01718
-        y: 88.17183
+        x: 72.585815
+        y: 90.52478
         width: 160
         height: 30
     - id: 3
@@ -20433,7 +20475,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 42
@@ -20442,15 +20484,15 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: Variable["Turn_off"] == false
+      userScript: Variable["Turn_off"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 60.666664
-        y: 84
+        x: 61.511612
+        y: 83.155045
         width: 160
         height: 30
     - id: 3
@@ -20733,8 +20775,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.7590007
+    canvasScrollPosition: {x: 26.571827, y: 53.03957}
+    canvasZoom: 0.78900075
   - id: 43
     fields:
     - title: Title
