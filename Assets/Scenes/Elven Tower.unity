@@ -8953,18 +8953,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 373562216}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &373562218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6701391845157066900, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 373562216}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &373562219 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 904135184095536392, guid: b2c0be58c1c36c445be6746d5ff1941f,
-    type: 3}
-  m_PrefabInstance: {fileID: 373562216}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &409532262
 GameObject:
   m_ObjectHideFlags: 0
@@ -9615,19 +9603,7 @@ MonoBehaviour:
   - guid: 351710eb-a596-4736-90b7-ad0544f7e388
     onExecute:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 373562219}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
   - guid: 7eb318ce-5882-4e06-b343-f01a7ac5db18
     onExecute:
       m_PersistentCalls:
@@ -9663,19 +9639,7 @@ MonoBehaviour:
   - guid: fe10bb15-a036-4616-ad1b-2c99aaef2d02
     onExecute:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 373562218}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
   - guid: 9cfc6f05-0362-4666-b3df-640d7f24b5f6
     onExecute:
       m_PersistentCalls:
