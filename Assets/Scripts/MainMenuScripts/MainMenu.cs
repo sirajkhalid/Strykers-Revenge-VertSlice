@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     }
     public void CreditGame1()
     {
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(12);
     }
     public void TutorialGame()
     {
