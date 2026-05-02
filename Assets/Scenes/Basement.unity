@@ -2855,6 +2855,142 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 656024382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &376880094
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 457185899341428066, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047409988006755259, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047409988006755259, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047409988006755259, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047409988006755259, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437094288385934739, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_Name
+      value: MonsterTrigger (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -60.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461680696517107481, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466843474853334048, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: Door
+      value: 
+      objectReference: {fileID: 1735109016}
+    - target: {fileID: 7466843474853334048, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: arrays.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466843474853334048, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      propertyPath: 'arrays.Array.data[0]'
+      value: 
+      objectReference: {fileID: 962946408}
+    m_RemovedComponents:
+    - {fileID: 7466843474853334048, guid: b9268678c9f070f4fa0bbf322f6b017c, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7437094288385934739, guid: b9268678c9f070f4fa0bbf322f6b017c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 376880096}
+  m_SourcePrefab: {fileID: 100100000, guid: b9268678c9f070f4fa0bbf322f6b017c, type: 3}
+--- !u!1 &376880095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7437094288385934739, guid: b9268678c9f070f4fa0bbf322f6b017c,
+    type: 3}
+  m_PrefabInstance: {fileID: 376880094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &376880096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376880095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30be528a9e9814f4b8e2e2eacd9f790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterTrigger1
+  Door: {fileID: 338208004}
+  Door1: {fileID: 1484584484}
+  arrays:
+  - {fileID: 1109615289}
+  - {fileID: 1254313014}
 --- !u!1001 &420948543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34449,7 +34585,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 3e2ba2e8584a5564e86cc423dd188347, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.03
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -191187,5 +191323,6 @@ SceneRoots:
   - {fileID: 1735109015}
   - {fileID: 1784794001}
   - {fileID: 1910553785}
+  - {fileID: 376880094}
   - {fileID: 656024382}
   - {fileID: 231200691}
