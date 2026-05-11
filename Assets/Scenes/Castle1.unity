@@ -191,7 +191,7 @@ PrefabInstance:
         type: 3}
       propertyPath: conversationConversant
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 16467204}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: pauseGameDuringConversation
@@ -1338,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: initialDatabase
       value: 
-      objectReference: {fileID: 11400000, guid: c942eb33a681dc74b95504ca2eadad37,
+      objectReference: {fileID: 11400000, guid: 12357d9c83ff02648803a6140255a056,
         type: 2}
     - target: {fileID: 11426072, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: displaySettings.dialogueUI
@@ -71389,6 +71389,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
+      propertyPath: selectedDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 12357d9c83ff02648803a6140255a056,
+        type: 2}
+    - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
+        type: 3}
       propertyPath: conversationConversant
       value: 
       objectReference: {fileID: 0}
@@ -72888,6 +72894,12 @@ PrefabInstance:
       propertyPath: conversation
       value: Dying letter
       objectReference: {fileID: 0}
+    - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
+        type: 3}
+      propertyPath: selectedDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 12357d9c83ff02648803a6140255a056,
+        type: 2}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: conversationConversant
@@ -119086,7 +119098,7 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: c942eb33a681dc74b95504ca2eadad37, type: 2}
+  selectedDatabase: {fileID: 11400000, guid: 12357d9c83ff02648803a6140255a056, type: 2}
 --- !u!1 &1870320374
 GameObject:
   m_ObjectHideFlags: 0
@@ -120581,6 +120593,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
+      propertyPath: selectedDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 12357d9c83ff02648803a6140255a056,
+        type: 2}
+    - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
+        type: 3}
       propertyPath: conversationConversant
       value: 
       objectReference: {fileID: 0}
@@ -121218,6 +121236,12 @@ PrefabInstance:
       propertyPath: conversation
       value: History Book 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
+        type: 3}
+      propertyPath: selectedDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 12357d9c83ff02648803a6140255a056,
+        type: 2}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: conversationConversant
@@ -123281,6 +123305,12 @@ PrefabInstance:
       propertyPath: conversation
       value: On Demonology
       objectReference: {fileID: 0}
+    - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
+        type: 3}
+      propertyPath: selectedDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 12357d9c83ff02648803a6140255a056,
+        type: 2}
     - target: {fileID: 1994745252320061832, guid: e95f48a7eda2d8946aa22aa5de982019,
         type: 3}
       propertyPath: conversationConversant

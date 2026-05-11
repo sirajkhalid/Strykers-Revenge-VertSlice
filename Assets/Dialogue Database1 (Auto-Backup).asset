@@ -40,7 +40,7 @@ MonoBehaviour:
     - title: Name
       value: Dying letter
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -53,7 +53,7 @@ MonoBehaviour:
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: 0cc17049acca8684b84fe6b6ae6ae3ea, type: 3}
     spritePortrait: {fileID: 7535227641519897821, guid: 849de2aed16ebc04d92841511bc137d0,
       type: 3}
     alternatePortraits: []
@@ -85,12 +85,12 @@ MonoBehaviour:
       type: 3}
     alternatePortraits: []
     spritePortraits: []
-  - id: 7
+  - id: 23
     fields:
     - title: Name
-      value: Doctor Note
+      value: Criminal Report
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -103,7 +103,30 @@ MonoBehaviour:
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: 0077e8355ad963941a7dd08a11a10140, type: 3}
+    spritePortrait: {fileID: 1113307626523639532, guid: 0077e8355ad963941a7dd08a11a10140,
+      type: 3}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 7
+    fields:
+    - title: Name
+      value: Doctor Note
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 2800000, guid: 2efc91656d407b8468863ff6d7c5737e, type: 3}
     spritePortrait: {fileID: 1257856469098593532, guid: 02e556c852933f74a8293f8ea6cacc58,
       type: 3}
     alternatePortraits: []
@@ -130,12 +153,35 @@ MonoBehaviour:
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
+  - id: 4
+    fields:
+    - title: Name
+      value: Report
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 2800000, guid: 0077e8355ad963941a7dd08a11a10140, type: 3}
+    spritePortrait: {fileID: 1113307626523639532, guid: 0077e8355ad963941a7dd08a11a10140,
+      type: 3}
+    alternatePortraits: []
+    spritePortraits: []
   - id: 2
     fields:
     - title: Name
       value: On Demonlogy
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -175,28 +221,6 @@ MonoBehaviour:
       type: 3}
     alternatePortraits: []
     spritePortraits: []
-  - id: 4
-    fields:
-    - title: Name
-      value: Report
-      type: 0
-      typeString: 
-    - title: Pictures
-      value: '[]'
-      type: 3
-      typeString: CustomFieldType_Files
-    - title: Description
-      value: 
-      type: 0
-      typeString: CustomFieldType_Text
-    - title: IsPlayer
-      value: False
-      type: 2
-      typeString: CustomFieldType_Boolean
-    portrait: {fileID: 2800000, guid: 02e556c852933f74a8293f8ea6cacc58, type: 3}
-    spritePortrait: {fileID: 0}
-    alternatePortraits: []
-    spritePortraits: []
   - id: 8
     fields:
     - title: Name
@@ -225,7 +249,7 @@ MonoBehaviour:
     - title: Name
       value: Construct
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -238,7 +262,7 @@ MonoBehaviour:
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: 9a283960184131042a4cc1b121a7e375, type: 3}
     spritePortrait: {fileID: -1877932409554842039, guid: 9a283960184131042a4cc1b121a7e375,
       type: 3}
     alternatePortraits: []
@@ -256,13 +280,14 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: 64b4497f5c2bbf54893f3a3df2730c89, type: 3}
+    spritePortrait: {fileID: 7541344323856602664, guid: 64b4497f5c2bbf54893f3a3df2730c89,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 11
@@ -278,13 +303,14 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: e129e2084de3078459b88db36354011a, type: 3}
+    spritePortrait: {fileID: 3437855329089100863, guid: e129e2084de3078459b88db36354011a,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 12
@@ -292,7 +318,7 @@ MonoBehaviour:
     - title: Name
       value: Queen Onxy
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -300,13 +326,14 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: 4f030bf92788e884fb443e0d68db03d5, type: 3}
+    spritePortrait: {fileID: 274861400431980101, guid: 4f030bf92788e884fb443e0d68db03d5,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 13
@@ -314,7 +341,7 @@ MonoBehaviour:
     - title: Name
       value: Styrker
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -322,13 +349,14 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    portrait: {fileID: 2800000, guid: 06db49d7a6abae846b18a08a0d1348df, type: 3}
+    spritePortrait: {fileID: 1302723820812287101, guid: 06db49d7a6abae846b18a08a0d1348df,
+      type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 14
@@ -382,7 +410,7 @@ MonoBehaviour:
     - title: Name
       value: Noble Crowd
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -435,7 +463,7 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: IsPlayer
       value: False
       type: 2
@@ -449,7 +477,7 @@ MonoBehaviour:
     - title: Name
       value: Styrker
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -471,7 +499,7 @@ MonoBehaviour:
     - title: Name
       value: Memory Shard
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -533,10 +561,10 @@ MonoBehaviour:
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
-  - id: 23
+  - id: 24
     fields:
     - title: Name
-      value: Infestation Report
+      value: New Actor 24
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
