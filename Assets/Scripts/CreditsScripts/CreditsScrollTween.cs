@@ -45,12 +45,12 @@ public class CreditScrollTween : MonoBehaviour
         seq.Append(rt.DOAnchorPosY(endY, scrollDuration).SetEase(Ease.Linear));
 
         // Fade out
-        seq.Append(cg.DOFade(0f, fadeDuration));
+       // seq.Append(cg.DOFade(0f, fadeDuration));
 
         // After it's done → go back to menu
         seq.OnComplete(() =>
         {
-            SceneManager.LoadScene(mainMenuScene);
+           // SceneManager.LoadScene(mainMenuScene);
         });
     }
 }
