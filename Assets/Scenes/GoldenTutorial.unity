@@ -2384,7 +2384,7 @@ MonoBehaviour:
   maxConversationDistance: 5
   monitorConversationDistanceFrequency: 1
   showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
+  pauseGameDuringConversation: 1
   setActiveActions: []
   setEnabledActions: []
   setAnimatorStateActions: []
@@ -2852,7 +2852,7 @@ MonoBehaviour:
   maxConversationDistance: 5
   monitorConversationDistanceFrequency: 1
   showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
+  pauseGameDuringConversation: 1
   setActiveActions: []
   setEnabledActions: []
   setAnimatorStateActions: []
@@ -3145,7 +3145,7 @@ MonoBehaviour:
   maxConversationDistance: 5
   monitorConversationDistanceFrequency: 1
   showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
+  pauseGameDuringConversation: 1
   setActiveActions: []
   setEnabledActions: []
   setAnimatorStateActions: []
@@ -12522,7 +12522,7 @@ MonoBehaviour:
   maxConversationDistance: 5
   monitorConversationDistanceFrequency: 1
   showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
+  pauseGameDuringConversation: 1
   setActiveActions: []
   setEnabledActions: []
   setAnimatorStateActions: []
@@ -38874,7 +38874,7 @@ MonoBehaviour:
   maxConversationDistance: 5
   monitorConversationDistanceFrequency: 1
   showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
+  pauseGameDuringConversation: 1
   setActiveActions: []
   setEnabledActions: []
   setAnimatorStateActions: []
@@ -39096,7 +39096,7 @@ MonoBehaviour:
   maxConversationDistance: 5
   monitorConversationDistanceFrequency: 1
   showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
+  pauseGameDuringConversation: 1
   setActiveActions: []
   setEnabledActions: []
   setAnimatorStateActions: []
@@ -39963,7 +39963,7 @@ MonoBehaviour:
   maxConversationDistance: 5
   monitorConversationDistanceFrequency: 1
   showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
+  pauseGameDuringConversation: 1
   setActiveActions: []
   setEnabledActions: []
   setAnimatorStateActions: []
@@ -40716,6 +40716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723399019379235086, guid: 987398cd1d3987145b65271c00d21df3,
+        type: 3}
+      propertyPath: pauseGameDuringConversation
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
