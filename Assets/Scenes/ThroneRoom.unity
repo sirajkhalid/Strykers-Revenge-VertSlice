@@ -5265,6 +5265,11 @@ PrefabInstance:
       propertyPath: conversationActor
       value: 
       objectReference: {fileID: 1234323602}
+    - target: {fileID: 2155737553054136299, guid: 7e47c76464d233f4f8dc665933b09da5,
+        type: 3}
+      propertyPath: pauseGameDuringConversation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4538260438947807316, guid: 7e47c76464d233f4f8dc665933b09da5,
         type: 3}
       propertyPath: m_LocalPosition.x

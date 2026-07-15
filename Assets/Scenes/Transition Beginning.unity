@@ -195,8 +195,9 @@ MonoBehaviour:
     You don''t know what to think but a job is a job.
 
 
-    (You
-    can now click your mouse or screen to move on)'
+    (If
+    you have questions - click then continue button - please click the ESC button
+    and go to help)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1522,7 +1523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.96502686, y: -191}
+  m_AnchoredPosition: {x: 0.96325684, y: -315}
   m_SizeDelta: {x: -2, y: -897.8}
   m_Pivot: {x: 0.5183766, y: 0.4429999}
 --- !u!114 &1806576793
@@ -1545,7 +1546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Don't touch the arrow keys or WASD keys until you click the continue button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
